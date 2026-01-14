@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logos/Logo-sf.png" />
+    <link rel="apple-touch-icon" href="/logos/Logo-sf.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VexelTech | Sites e Soluções Digitais</title>
+    <meta name="description" content="VexelTech cria sites modernos, landing pages e soluções digitais com foco em performance, conversão e resultados." />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="VexelTech | Sites e Soluções Digitais" />
+    <meta property="og:description" content="Sites modernos, landing pages e soluções digitais com foco em performance, conversão e resultados." />
+    <meta property="og:image" content="/logos/Logo-sf.png" />
+    <meta property="og:site_name" content="VexelTech" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="VexelTech | Sites e Soluções Digitais" />
+    <meta name="twitter:description" content="Sites modernos, landing pages e soluções digitais com foco em performance, conversão e resultados." />
+    <meta name="twitter:image" content="/logos/Logo-sf.png" />
+
+    <!-- Analytics (substitua pelos seus dados) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} 
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    <script defer data-domain="seu-dominio.com" src="https://plausible.io/js/script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            animation: {
+              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+              'bounce-subtle': 'bounce-subtle 2s ease-in-out infinite',
+              'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              'bounce-subtle': {
+                '0%, 100%': { transform: 'translateY(-15%)', animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)' },
+                '50%': { transform: 'translateY(0)', animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
+            },
+          },
+        },
+      }
+    </script>
+    <script>
+      // Set theme on initial load. Default to dark unless 'light' is explicitly stored.
+      if (localStorage.getItem('theme') === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+    <style>
+      /* Smooth Scrolling */
+      html {
+        scroll-padding-top: 5rem; /* Header height (h-20) */
+      }
+      /* Button glow effect on hover */
+      .btn-glow {
+        transition: all 0.3s ease;
+      }
+      .btn-glow:hover {
+        filter: drop-shadow(0 0 20px rgba(139, 92, 246, 1)) 
+                drop-shadow(0 0 40px rgba(139, 92, 246, 0.8)) 
+                drop-shadow(0 0 60px rgba(139, 92, 246, 0.6));
+      }
+      /* Add background texture in dark mode */
+      .dark #root > div {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAM4SURBVHja7J3NUppAEIa/w30YhWlYdOn2K449wTYs0lR2A5hD6A0y1I6z0I7T7kQYyF0WkI/oR7L1V34QIIlJ1u9XX7rdX8h1GIZhGIZhGIZhGIZhGIZhGIZhGIZhGIZhGIZh+A1QzH2dYq5+bB/f/fN//9v/Bxe9gB/8/d6r/8fH/+P//uvX/7+X/0B5zD/1ePj5y/8+fn//i4v/g/JpGf+dGZ+s8v973+n/PzNfR/JpGf+X/gHl0TL+t3l81c5/5zP/53wZf9XIf10l/5f+AeXf0/i/yY/1fL3v9b+d/uPjj/W8r+S7V/L9Kvn+lfxf+geU/U/j/W/zX/L6u/s/X/f5X+f5X/3+1vF/Jd+/lv/V/L/2Dyi+k8f8dflXJ/zV//ev1fP/y71/N9/evgPJfqfxf/P6X/3+lf/X/AEVPErj/yY/yvJ/s/p//5//O/81/yvf377C/yvf3//y/wHl31P4/w6/KuX/Tv/r/8v/V8n3ryb8l//v/x9W8v0r+f6V/F/6B5R/T+P/dnxVy/9u/uv/l//v//V/lvxf+geUvU/j/3Z8lcv/bvd3/T/+X/y/eP2v5ftX8v0r+f6V/F/6B5S9T+P/dlzW+T/u8q9e/uv/lf8fVvL9K/n+lfxf+geUfU/j/Zc1vg/bvM//Wv+1/u7/iv/P6zk+1fy/Sv5/pX8X/oHlH1P4/92ZNa9vv8P/yv9V//X/5c1/stf3r/y/wHll1L4/3d5/5L/tf/v/6/6fP/n/8n/7v/l/9XvX33/Sj60l+df/R/8P/yv/l8/fJ3/9x/e/+Pjj5+8//vL6f/x8/eXX1Vf/1//N//rP/j+l/++8v/7Vw5z/T0/f//v/6f/Bxe9gB/6/0B5pAz/l/4B5f4n8f/Jj7W8/5v/5Z/8P/h/8f5X/j94/St50V6efwPld1L4/yY/yvJ/M34/yv+l/+P8l3/fvgHll1L4/yY/yvJ/s+lf/f72D/6f/L+S71/J96/k+1fy/Sv5/pX8X/oHlL1P4/8mP8ryf7P6X/5/+geUvU/j/yb/V8n3r+T7V/L9K/n+lfxf+geUvU/j/yb/V8n3r+T7V/L9K/n+lfxf+geUvU/j/yZ5kcr/y/8H/y/9X/x/0f5P73+V/x/+v/hf+geUPU/j/yb5kcr/5f8Dyh+k8f8N/6v+X/+v/p//V8n3ryb8V8n3r+b/2j+gfCSN/03+1/y/+l/9P/h/8f6V/H/x/pX8/yY/5XW9//j44+P/39//4+P/kS7b/wHlN/T5//f/+Lh8/v//+B+A4u+p7L9y/Sv5/pX8X/pX+o2GYRiGYRiGYRiGYRiGYRiGYRiGYRiGYRiGYRiGYRiGYfgBvgEACjU0l4Kz9hMAAAAASUVORK5CYII=');
+        background-repeat: repeat;
+      }
+      /* Critical CSS for Preloader */
+      #preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #0a0a0a 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+      }
+      #preloader.loaded {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .spinner-container {
+        position: relative;
+        width: 140px;
+        height: 140px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+      }
+      .spinner-ring {
+        position: absolute;
+        border-radius: 50%;
+        border: 3px solid transparent;
+      }
+      .ring1 {
+        width: 140px;
+        height: 140px;
+        border-top-color: #8b5cf6;
+        border-right-color: #8b5cf6;
+        animation: spin 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+        filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.6));
+      }
+      .ring2 {
+        width: 110px;
+        height: 110px;
+        border-bottom-color: #a78bfa;
+        border-left-color: #a78bfa;
+        animation: spin-reverse 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+        filter: drop-shadow(0 0 6px rgba(167, 139, 250, 0.5));
+      }
+      .ring3 {
+        width: 80px;
+        height: 80px;
+        border-top-color: #c4b5fd;
+        animation: spin 2.5s linear infinite;
+        opacity: 0.7;
+      }
+      #preloader .logo {
+        width: 50px;
+        height: 50px;
+        animation: logo-pulse 2s ease-in-out infinite;
+        filter: drop-shadow(0 0 12px #8b5cf6);
+        z-index: 1;
+      }
+      .loading-text {
+        color: #a78bfa;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        animation: text-fade 1.5s ease-in-out infinite;
+        text-transform: uppercase;
+      }
+      .loading-dots {
+        display: inline-block;
+        width: 30px;
+        text-align: left;
+      }
+
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes spin-reverse {
+        from { transform: rotate(360deg); }
+        to { transform: rotate(0deg); }
+      }
+      @keyframes logo-pulse {
+        0%, 100% { 
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% { 
+          transform: scale(1.1);
+          opacity: 0.8;
+        }
+      }
+      @keyframes text-fade {
+        0%, 100% { opacity: 0.5; }
+        50% { opacity: 1; }
+      }
+
+      /* Scroll Animation */
+      .animate-scroll {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      .animate-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="preloader">
+      <div class="spinner-container">
+        <div class="spinner-ring ring1"></div>
+        <div class="spinner-ring ring2"></div>
+        <div class="spinner-ring ring3"></div>
+        <img src="/logos/Logo-sf.png" class="logo" alt="Logo VexelTech" />
+      </div>
+      <div class="loading-text">
+        Carregando<span class="loading-dots">...</span>
+      </div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
