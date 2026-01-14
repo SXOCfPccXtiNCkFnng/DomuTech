@@ -126,7 +126,7 @@ export const PORTFOLIO_PROJECTS: Project[] = [
         tag: 'Criação de Sites',
         title: 'AlanX - Site Institucional',
         description: 'Site institucional moderno para a AlanX, com foco em apresentação clara de serviços, performance e conversão de visitantes.',
-        image: '/img/img-alanx.png',
+        image: '/img/img-AlanX.png',
         link: 'https://alanx.netlify.app/',
         stats: [
             { icon: CheckIcon, value: '+180% de conversões' },
@@ -177,7 +177,6 @@ export const PORTFOLIO_PROJECTS: Project[] = [
         tag: 'Página de destino',
         title: 'Site Advogada - Institucional',
         description: 'Projeto institucional para advocacia, reforçando credibilidade, serviços jurídicos e canais de contato eficientes, entre outros.',
-        image: '/img/img-advogada.png',
     },
 ];
 
