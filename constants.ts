@@ -108,10 +108,10 @@ export const COMPLEMENTARY_SERVICES: ComplementaryService[] = [
 ];
 
 export const ABOUT_METRICS: Metric[] = [
-    { icon: UserGroupIcon, value: '50+', label: 'Clientes Satisfeitos' },
-    { icon: TrophyIcon, value: '100+', label: 'Projetos Concluídos' },
-    { icon: ClockIcon, value: '3+', label: 'Anos de Experiência' },
-    { icon: TargetIcon, value: '95%', label: 'Taxa de Conversão' },
+    { icon: UserGroupIcon, value: '10+', label: 'Clientes Satisfeitos' },
+    { icon: TrophyIcon, value: '20+', label: 'Projetos Concluídos' },
+    { icon: ClockIcon, value: '2+', label: 'Anos de Experiência' },
+    { icon: TargetIcon, value: '95%', label: 'Satisfação' },
 ];
 
 export const COMPANY_VALUES: Value[] = [
@@ -128,11 +128,6 @@ export const PORTFOLIO_PROJECTS: Project[] = [
         description: 'Site institucional moderno para a AlanX, com foco em apresentação clara de serviços, performance e conversão de visitantes.',
         image: '/img/img-AlanX.png',
         link: 'https://alanx.netlify.app/',
-        stats: [
-            { icon: CheckIcon, value: '+180% de conversões' },
-            { icon: UsersIcon, value: 'Mais de 5 mil visitantes/mês' },
-            { icon: StarIcon, value: 'R$ 500K+ Faturamento' },
-        ],
         isFeatured: true,
     },
     {
@@ -141,11 +136,6 @@ export const PORTFOLIO_PROJECTS: Project[] = [
         description: 'Landing page da PetLife com foco em conversão, layout moderno e navegação direta para apresentar serviços e benefícios.',
         image: '/img/img-petlife.png',
         link: 'https://alanfelipem.github.io/PetLife/',
-        stats: [
-            { icon: ArrowRightIcon, value: '+300% de engajamento' },
-            { icon: UsersIcon, value: '50K+ seguidores conquistados' },
-            { icon: StarIcon, value: 'ROI de 400%' },
-        ],
         isFeatured: true,
     },
     {
@@ -161,10 +151,6 @@ export const PORTFOLIO_PROJECTS: Project[] = [
         description: 'Criação de landing page temática com foco em impacto visual, narrativa e conversão de visitantes.',
         image: '/img/img-mundoinvertido.png',
         link: 'https://alanfelipem.github.io/Landing-Page-no-Mundo-Invertido/',
-        stats: [
-            { icon: TargetIcon, value: 'CPC médio R$ 0,50' },
-            { icon: UsersIcon, value: '2K+ leads gerados' },
-        ],
     },
     {
         tag: 'Criação de Sites',
