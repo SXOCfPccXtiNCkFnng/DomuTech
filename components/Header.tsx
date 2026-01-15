@@ -14,6 +14,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isServicesOpen, setIsServicesOpen] = useState(false);
+    const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
     const servicesRef = useRef<HTMLDivElement | null>(null);
     const whatsappLink = `https://wa.me/5511934430659?text=${encodeURIComponent('Olá! Quero iniciar um projeto com a VexelTech.')}`;
 
@@ -88,6 +89,8 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
         const serviceSlug = serviceTitle.toLowerCase().replace(/\s+/g, '-');
         navigate(`/servico/${serviceSlug}`);
         setIsServicesOpen(false);
+        setIsMobileServicesOpen(false);
+        setIsMenuOpen(false);
         window.scrollTo(0, 0);
     };
 
@@ -198,14 +201,52 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
                     <div className="relative px-6 py-8 bg-black/80">
                         <nav className="flex flex-col gap-5  rounded-2xl p-6">
                             {NAV_LINKS.map((link) => (
-                                <a
-                                    key={link.name}
-                                    href={link.href}
-                                    onClick={(e) => handleNavClick(e, link.href)}
-                                    className="text-xl font-semibold text-white/90 hover:text-white transition-colors"
-                                >
-                                    {link.name}
-                                </a>
+                                link.name === 'Serviços' ? (
+                                    <div key={link.name} className="flex flex-col gap-3">
+                                        <button
+                                            type="button"
+                                            onClick={() => setIsMobileServicesOpen(prev => !prev)}
+                                            className="flex items-center justify-between text-xl font-semibold text-white/90 hover:text-white transition-colors"
+                                            aria-expanded={isMobileServicesOpen}
+                                            aria-controls="mobile-services-menu"
+                                        >
+                                            <span>{link.name}</span>
+                                            <ChevronDownIcon className={`w-5 h-5 transition-transform ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
+                                        </button>
+                                        <div
+                                            id="mobile-services-menu"
+                                            className={`grid gap-2 pl-2 overflow-hidden transition-all duration-300 ${isMobileServicesOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+                                        >
+                                            {MAIN_SERVICES.map((service) => (
+                                                <button
+                                                    key={service.title}
+                                                    type="button"
+                                                    onClick={() => handleServiceClick(service.title)}
+                                                    className="flex items-center gap-3 rounded-lg px-3 py-2 text-left text-base text-white/90 hover:text-white hover:bg-white/10 transition-colors"
+                                                >
+                                                    <service.icon className="w-4 h-4" />
+                                                    <span>{service.title}</span>
+                                                </button>
+                                            ))}
+                                            <a
+                                                href={link.href}
+                                                onClick={(e) => handleNavClick(e, link.href)}
+                                                className="text-sm font-semibold text-violet-200 hover:text-white transition-colors pl-3"
+                                            >
+                                                Ver seção Serviços
+                                            </a>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <a
+                                        key={link.name}
+                                        href={link.href}
+                                        onClick={(e) => handleNavClick(e, link.href)}
+                                        className="text-xl font-semibold text-white/90 hover:text-white transition-colors"
+                                    >
+                                        {link.name}
+                                    </a>
+                                )
                             ))}
                         </nav>
                         <a
