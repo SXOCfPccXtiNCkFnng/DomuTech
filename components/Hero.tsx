@@ -17,13 +17,13 @@ const Hero: React.FC = () => {
                             className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 tracking-tight leading-tight opacity-0 animate-fade-in-up"
                             style={{ animationDelay: '200ms' }}
                         >
-                            Sua <span className="text-violet-400">visão em código</span>, nosso <span className="text-violet-400">resultado em números</span>
+                            Sua <span className="text-violet-400">visão em código</span>, potencializada por <span className="text-violet-400">Inteligência Artificial</span>
                         </h1>
                         <p 
                             className="text-sm xs:text-base md:text-lg text-slate-300 mb-8 opacity-0 animate-fade-in-up"
                             style={{ animationDelay: '400ms' }}
                         >
-                            Combinamos criatividade estratégica, design inovador e tecnologia de ponta para transformar sua presença digital em lucro real e crescimento mensurável.
+                            Transformamos seu negócio com sites de alta performance e automações inteligentes que impulsionam sua produtividade e lucro real.
                         </p>
                         <div 
                             className="flex opacity-0 animate-fade-in-up"

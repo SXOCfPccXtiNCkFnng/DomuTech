@@ -33,19 +33,19 @@ export const MAIN_SERVICES: Service[] = [
         backgroundImage: '/img/fundo-web.png'
     },
     {
-        icon: MarketingIcon,
-        title: 'Marketing Digital',
-        description: 'Estratégias completas de marketing digital para aumentar sua visibilidade e engajar seu público.',
+        icon: AutomationIcon,
+        title: 'Automação com IA',
+        description: 'Sistemas inteligentes que automatizam tarefas repetitivas e otimizam processos de negócio.',
         features: [
-            'Gestão de Redes Sociais',
-            'SEO e SEM',
-            'Conteúdo Estratégico',
-            'Análise de Performance',
-            'Relatórios Mensais'
+            'Atendimento Inteligente 24/7',
+            'Agendamento Automático',
+            'Agentes de IA Personalizados',
+            'Automação de Workflow',
+            'Integração com CRMs'
         ],
-        price: 'A partir de R$ 1.000/mês',
-        image: '/img/img-marketing.png',
-        backgroundImage: '/img/fundo-marketing.png'
+        price: 'Consultar Projeto',
+        image: '/img/img-automacao.png',
+        backgroundImage: '/img/img-fundo-automacao.png'
     },
     {
         icon: GlobeIcon,
@@ -64,19 +64,19 @@ export const MAIN_SERVICES: Service[] = [
         backgroundImage: '/img/fundo-dominio.jpg'
     },
     {
-        icon: TargetIcon,
-        title: 'Tráfego Pago',
-        description: 'Campanhas de tráfego pago eficientes para direcionar visitantes qualificados ao seu site.',
+        icon: TechConsultingIcon,
+        title: 'Integrações Inteligentes',
+        description: 'Conectamos suas ferramentas favoritas com o poder da IA para criar um ecossistema digital sem falhas.',
         features: [
-            'Google Ads',
-            'Facebook Ads',
-            'Instagram Ads',
-            'Otimização de Lances',
-            'Relatórios de ROI'
+            'Integrações Personalizadas',
+            'Sincronização de Dados',
+            'Bots para WhatsApp/Telegram',
+            'Dashboard de Resultados IA',
+            'Suporte Técnico Dedicado'
         ],
-        price: 'A partir de R$ 700/mês',
-        image: '/img/img-trafego.png',
-        backgroundImage: '/img/fundo-trafego.jpg'
+        price: 'A partir de R$ 1.500',
+        image: '/img/img-integracoes.png',
+        backgroundImage: '/img/img-fundo-integracao.png'
     }
 ];
 
@@ -233,50 +233,50 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
             }
         ]
     },
-    'marketing-digital': {
-        whyChoose: 'Você trabalha duro para oferecer um serviço ou produto de qualidade. Merece ser conhecido por quem realmente pode aproveitar. Nossas estratégias de marketing digital conectam você com seu público certo, no momento certo. Aumentamos sua visibilidade, criamos engajamento genuíno e transformamos seguidores em clientes fiéis que recomendam seu trabalho.',
+    'automação-com-ia': {
+        whyChoose: 'A eficiência operacional é o segredo das empresas que escalam. Nossas soluções de Automação com IA eliminam o trabalho manual repetitivo, permitindo que sua equipe foque no que realmente importa. Criamos sistemas que trabalham para você 24 horas por dia, 7 dias por semana, garantindo que nenhum cliente fique sem resposta e nenhum processo fique parado.',
         benefits: [
             {
-                title: 'Aumento de Visibilidade',
-                description: 'Sua marca será vista por mais pessoas através de campanhas estratégicas nas redes sociais.'
+                title: 'Atendimento 24/7',
+                description: 'Seus clientes são atendidos instantaneamente em qualquer horário, com a inteligência e tom de voz da sua marca.'
             },
             {
-                title: 'Engajamento Real',
-                description: 'Criamos conteúdo relevante que gera interação genuína com seu público.'
+                title: 'Redução de Custos',
+                description: 'Automatize tarefas que levariam horas humanas, reduzindo drasticamente o custo operacional.'
             },
             {
-                title: 'ROI Comprovado',
-                description: 'Acompanhamos métricas detalhadas para garantir retorno sobre o investimento.'
+                title: 'Agendamento Sem Erros',
+                description: 'Sistema de agendamento automático que sincroniza com seu calendário e evita conflitos.'
             },
             {
-                title: 'Gestão Profissional',
-                description: 'Equipe dedicada para gerenciar todas as suas redes sociais com excelência.'
+                title: 'Escalabilidade Real',
+                description: 'Atenda centenas de pessoas simultaneamente sem perder a qualidade ou precisar contratar mais pessoal.'
             },
             {
-                title: 'Conteúdo de Qualidade',
-                description: 'Posts, stories e vídeos produzidos profissionalmente para sua marca.'
+                title: 'Personalização Extrema',
+                description: 'IA treinada especificamente com os dados e processos da sua empresa para resultados precisos.'
             },
             {
-                title: 'Análise Constante',
-                description: 'Relatórios mensais com insights para otimizar continuamente as campanhas.'
+                title: 'Integração Total',
+                description: 'Conectamos a IA com suas ferramentas atuais: WhatsApp, CRM, E-mail e muito mais.'
             }
         ],
         process: [
             {
-                title: 'Análise',
-                description: 'Estudamos seu mercado, concorrência e público para criar uma estratégia vencedora.'
+                title: 'Diagnóstico',
+                description: 'Analisamos seus processos atuais para identificar as maiores oportunidades de automação.'
             },
             {
-                title: 'Planejamento',
-                description: 'Desenvolvemos calendário editorial e estratégia de conteúdo personalizada.'
+                title: 'Desenvolvimento',
+                description: 'Treinamos os modelos de IA e criamos as integrações necessárias para sua operação.'
             },
             {
-                title: 'Execução',
-                description: 'Criamos e publicamos conteúdo de alta qualidade em suas redes sociais.'
+                title: 'Testes e Refinamento',
+                description: 'Validamos as automações em ambiente controlado para garantir precisão e segurança.'
             },
             {
-                title: 'Otimização',
-                description: 'Analisamos resultados e ajustamos a estratégia para maximizar performance.'
+                title: 'Implementação',
+                description: 'Colocamos os sistemas no ar e acompanhamos os resultados iniciais de perto.'
             }
         ]
     },
@@ -327,50 +327,50 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
             }
         ]
     },
-    'tráfego-pago': {
-        whyChoose: 'Publicar anúncios aleatoriamente na internet é desperdiçar dinheiro. Mas anúncios bem planejados? Isso transforma seu investimento em clientes reais. Nós estruturamos campanhas que colocam seu produto ou serviço exatamente diante das pessoas que estão procurando por aquilo que você oferece. Resultados mensuráveis, cada centavo investido gerando retorno concreto.',
+    'integrações-inteligentes': {
+        whyChoose: 'O verdadeiro poder da tecnologia aparece quando todas as suas ferramentas conversam entre si. Nossas integrações inteligentes eliminam silos de dados e criam fluxos de trabalho fluidos. Seja conectando seu site ao seu CRM ou criando bots que processam pedidos automaticamente, nós construímos a ponte que faltava para seu sucesso digital.',
         benefits: [
             {
-                title: 'Resultados Rápidos',
-                description: 'Comece a receber visitantes qualificados logo nos primeiros dias de campanha.'
+                title: 'Fluxo de Dados Contínuo',
+                description: 'Informações circulam automaticamente entre suas plataformas sem necessidade de redigitação.'
             },
             {
-                title: 'Público Segmentado',
-                description: 'Direcionamos seus anúncios para pessoas realmente interessadas em seu produto.'
+                title: 'Agilidade Decisória',
+                description: 'Dados atualizados em tempo real em dashboards integrados para decisões mais rápidas.'
             },
             {
-                title: 'Controle de Orçamento',
-                description: 'Você define quanto quer investir e otimizamos para máximo retorno.'
+                title: 'Experiência do Cliente',
+                description: 'Processos integrados significam respostas mais rápidas e precisas para seus clientes.'
             },
             {
-                title: 'Métricas Transparentes',
-                description: 'Acompanhe em tempo real o desempenho de todas as suas campanhas.'
+                title: 'Automação de Vendas',
+                description: 'Leads do site caem direto no CRM e já recebem a primeira mensagem via bot.'
             },
             {
-                title: 'Otimização Contínua',
-                description: 'Ajustamos constantemente as campanhas para melhorar os resultados.'
+                title: 'Segurança de Dados',
+                description: 'Integrações construídas com protocolos de segurança modernos para proteger seu negócio.'
             },
             {
-                title: 'Múltiplas Plataformas',
-                description: 'Campanhas integradas no Google, Facebook, Instagram e outras plataformas.'
+                title: 'Suporte Especializado',
+                description: 'Nossa equipe garante que as integrações continuem funcionando mesmo com atualizações de terceiros.'
             }
         ],
         process: [
             {
-                title: 'Estratégia',
-                description: 'Definimos objetivos, público-alvo e orçamento ideal para suas campanhas.'
+                title: 'Mapeamento',
+                description: 'Mapeamos todas as ferramentas e o fluxo de informações necessário para o projeto.'
             },
             {
-                title: 'Criação',
-                description: 'Desenvolvemos anúncios atrativos com copy persuasivo e imagens impactantes.'
+                title: 'Arquitetura',
+                description: 'Desenhamos a melhor estrutura de conexão, priorizando estabilidade e segurança.'
             },
             {
-                title: 'Lançamento',
-                description: 'Configuramos e ativamos as campanhas nas plataformas selecionadas.'
+                title: 'Configuração',
+                description: 'Desenvolvemos as APIs e conectores que farão as ferramentas trabalharem juntas.'
             },
             {
-                title: 'Gestão',
-                description: 'Monitoramos e otimizamos diariamente para maximizar resultados.'
+                title: 'Monitoramento',
+                description: 'Implementamos sistemas de log e alerta para garantir que nada pare de funcionar.'
             }
         ]
     },

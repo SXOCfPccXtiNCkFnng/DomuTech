@@ -5,10 +5,10 @@ import AnimateOnScroll from './AnimateOnScroll';
 
 const About: React.FC = () => {
     const aboutPoints = [
-        'Mais de 50 projetos de sites e campanhas digitais entregues',
-        'Especialistas em criação de sites, marketing e branding',
-        'Suporte para registro de domínios',
-        'Estratégias de tráfego pago com alto ROI',
+        'Mais de 50 projetos de sites e automações inteligentes entregues',
+        'Especialistas em criação de sites, IA e Automação',
+        'Sistemas de Atendimento Inteligente com IA',
+        'Integrações personalizadas de alto impacto',
         'Foco total no sucesso e na satisfação do cliente',
         'Metodologia Ágil com entregas pontuais',
         'Suporte contínuo para todos os clientes',

@@ -54,7 +54,7 @@ const Services: React.FC = () => {
                 {selectedService && (
                     <AnimateOnScroll>
                         <div className="p-8 rounded-2xl">
-                            <div className="grid md:grid-cols-2 gap-12 items-center">
+                            <div className={`grid ${selectedService.image ? 'md:grid-cols-2' : 'md:grid-cols-1'} gap-12 items-center`}>
                                 <div>
                                     <div className="flex items-center gap-4 mb-4">
                                         <div className="bg-violet-100 dark:bg-violet-900/30 p-3 rounded-lg text-violet-500 dark:text-violet-400">
@@ -96,9 +96,11 @@ const Services: React.FC = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div>
-                                    <img src={selectedService.image} alt={selectedService.title} className="rounded-2xl w-full h-auto object-cover" loading="lazy" decoding="async" />
-                                </div>
+                                {selectedService.image && (
+                                    <div>
+                                        <img src={selectedService.image} alt={selectedService.title} className="rounded-2xl w-full h-auto object-cover" loading="lazy" decoding="async" />
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </AnimateOnScroll>
