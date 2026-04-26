@@ -1,0 +1,265 @@
+html {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    overflow-x: clip; /* Clip não quebra o sticky! */
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: clip;
+    position: relative;
+    background-color: #1f1f1f;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: none; /* Evita o bounce excessivo que tira o sticky do lugar */
+}
+
+#root {
+    width: 100%;
+    position: relative;
+    overflow-x: clip;
+}
+
+:root {
+    --domo-bg: #1f1f1f;
+    --domo-white: #ffffff;
+    --domo-anthracite: #ffffff;
+    --domo-surface-1: #2a2a2a;
+    --domo-surface-2: #333333;
+    --domo-surface-3: #3d3d3d;
+    --domo-primary: #ffffff;
+    --domo-secondary: #a1a1a1;
+    --domo-muted: #717171;
+    --domo-border: rgba(255, 255, 255, 0.1);
+    
+    --upsites-blue-dark: #000000;
+    --upsites-blue: #000000;
+    --upsites-green: #ffffff;
+    --upsites-cyan: #ffffff;
+    --upsites-light-blue: #111111;
+    --upsites-text-primary: #ffffff;
+    --upsites-text-secondary: #a1a1a1;
+    --upsites-white: #ffffff;
+    --upsites-gray: #0a0a0a;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--domo-bg);
+    color: var(--domo-primary);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* TIPOGRAFIA PADRONIZADA (Sensei: use classes para não repetir tamanho na mão) */
+.h1-domo {
+    font-size: clamp(32px, 8vw, 68px); /* Reduzido de 9vw para 8vw */
+    font-weight: 900;
+    line-height: 1.0; /* Aumentado ligeiramente de 0.95 */
+    text-transform: uppercase;
+    letter-spacing: -0.04em; /* Menos agressivo */
+}
+
+.h2-domo {
+    font-size: clamp(28px, 5vw, 44px); /* Aumentado o mínimo e o máximo para mais impacto */
+    font-weight: 900;
+    line-height: 1.1;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+}
+
+.h3-domo {
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 900;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.text-gradient {
+    background: linear-gradient(to bottom right, #ffffff 30%, rgba(255, 255, 255, 0.4) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* utilitários de texto */
+.text-muted { color: var(--domo-muted); }
+.text-secondary { color: var(--domo-secondary); }
+.text-dark { color: var(--domo-text-dark); }
+
+/* BOTÕES - Padrão DOMO Digital (Responsivo) */
+.btn-domo-primary, .btn-domo-outline, .btn-whatsapp, .btn-budget, .btn-view-all {
+    padding: 12px 28px;
+    border-radius: 100px;
+    font-weight: 900;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 768px) {
+    .btn-domo-primary, .btn-domo-outline, .btn-whatsapp, .btn-budget, .btn-view-all {
+        padding: 16px 40px;
+        font-size: 12.5px;
+        letter-spacing: 0.15em;
+        gap: 12px;
+    }
+}
+
+/* Botão com Brilho (Shimmer) - Para Peça um Orçamento / Chatbot */
+.btn-budget, .btn-domo-primary {
+    background-color: #ffffff !important;
+    color: #1f1f1f !important;
+    border: 2px solid #ffffff !important;
+    box-shadow: 0 10px 20px -10px rgba(255, 255, 255, 0.15);
+}
+
+.btn-budget::after, .btn-domo-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120px;
+    width: 120px;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-30deg);
+    pointer-events: none;
+}
+
+.btn-budget:hover::after, .btn-domo-primary:hover::after {
+    animation: shimmer-premium 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.btn-budget:hover, .btn-domo-primary:hover {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+/* Botão WhatsApp - Estilo Clean, Sem Brilho, Verde no Hover */
+.btn-whatsapp {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.btn-whatsapp:hover {
+    background-color: #25D366 !important;
+    border-color: #25D366 !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.4);
+}
+
+/* Botão Ver Todos - Animação Diferente */
+.btn-view-all {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.btn-view-all:hover {
+    background-color: #ffffff !important;
+    color: #1f1f1f !important;
+    border-color: #ffffff !important;
+    transform: scale(1.05);
+}
+
+.btn-domo-outline {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.btn-domo-outline:hover {
+    background-color: #ffffff !important;
+    color: #1f1f1f !important;
+    border-color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+/* Inputs e Seções */
+section {
+    position: relative;
+    z-index: 1;
+}
+
+.bg-surface-1 { background-color: var(--domo-surface-1); }
+.bg-surface-2 { background-color: var(--domo-surface-2); }
+
+/* Animations focus */
+@keyframes infinite-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+.animate-infinite-scroll { animation: infinite-scroll 40s linear infinite; }
+
+@keyframes shimmer-premium {
+    0% { left: -120px; }
+    100% { left: 100%; }
+}
+
+.animate-shimmer-premium-slow {
+    animation: shimmer-premium 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+.animate-shimmer {
+    animation: shimmer 2.5s infinite;
+}
+
+::selection {
+    background-color: #ffffff;
+    color: #1f1f1f;
+}
+
+::-webkit-scrollbar { width: 16px; }
+::-webkit-scrollbar-track { background: #121212; }
+::-webkit-scrollbar-thumb { 
+    background: #3d3d3d; 
+    border-radius: 10px; 
+    border: 4px solid #121212;
+}
+::-webkit-scrollbar-thumb:hover { background: #4a4a4a; }
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #444444;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #666666;
+}

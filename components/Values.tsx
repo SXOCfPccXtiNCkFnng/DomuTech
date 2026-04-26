@@ -1,30 +1,69 @@
 
 import React from 'react';
-import { COMPANY_VALUES } from '../constants';
 import AnimateOnScroll from './AnimateOnScroll';
 
 const Values: React.FC = () => {
     return (
-        <section id="values" className="py-24 bg-gradient-to-b from-slate-200 to-slate-100 dark:from-neutral-950 dark:to-neutral-900/50">
-            <div className="container mx-auto px-4">
+        <section id="values" className="py-10 md:py-16 bg-[var(--domo-bg)] relative overflow-hidden">
+            <div className="container mx-auto px-4 relative z-10">
                 <AnimateOnScroll>
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-800 dark:text-slate-200 mb-4">O Que Nos Move</h2>
-                        <p className="max-w-2xl mx-auto text-base sm:text-lg text-slate-600 dark:text-slate-400 px-4">
-                            Nossos valores não são apenas palavras bonitas. São o DNA que guia cada decisão, cada projeto, cada resultado que entregamos aos nossos clientes.
-                        </p>
+                    <div className="text-center mb-16 max-w-3xl mx-auto">
+                        <span className="text-[#a1a1a1] font-black text-[10px] md:text-[11px] uppercase tracking-[0.4em] mb-4 block">
+                            WORKFLOW DOMO DIGITAL
+                        </span>
+                        <h2 className="h2-domo text-gradient">
+                            COMO TRANSFORMAMOS<br />
+                            SUA IDEIA EM REALIDADE
+                        </h2>
                     </div>
                 </AnimateOnScroll>
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {COMPANY_VALUES.map((value, index) => (
-                        <AnimateOnScroll key={value.title} delay={index * 100}>
-                            <div className="bg-white dark:bg-neutral-900/70 p-8 rounded-2xl shadow-lg dark:shadow-lg/20 border border-slate-200 dark:border-slate-800/50 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-violet-400/10 h-full">
-                                <div className="inline-block bg-violet-100 dark:bg-violet-900/30 p-4 rounded-full mb-6">
-                                    <value.icon className="w-10 h-10 text-violet-500 dark:text-violet-400" />
+                <div className="grid md:grid-cols-3 gap-8">
+                    {[
+                        { 
+                            title: 'Escolha do Projeto', 
+                            desc: 'Definimos se seu negócio precisa de um Site Institucional, Landing Page de alta conversão ou Loja Virtual robusta.', 
+                            icon: (
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
+                                    <path d="M2 17V7a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2z" strokeLinecap="round" />
+                                    <path d="M8 21h8m-4-4v4" strokeLinecap="round" />
+                                </svg>
+                            )
+                        },
+                        { 
+                            title: 'Definição de Recursos', 
+                            desc: 'Escolha as funcionalidades: SEO avançado, Blogs, Multi-idioma, Dashboards Inteligentes e Integrações de Pagamento.', 
+                            icon: (
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8">
+                                    <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                                    <circle cx="12" cy="12" r="3" />
+                                    <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z" />
+                                </svg>
+                            )
+                        },
+                        { 
+                            title: 'Início e Execução', 
+                            desc: 'Com briefing estratégico e contrato, nosso squad inicia o design e código para colocar sua visão no ar o quanto antes.', 
+                            icon: (
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
+                                    <path d="M13 10V3L4 14h7v7l9-11h-7z" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            )
+                        }
+                    ].map((step, index) => (
+                        <AnimateOnScroll key={step.title} delay={index * 150}>
+                            <div className="group bg-white/5 hover:bg-white/10 p-8 md:p-10 rounded-[2.5rem] border border-white/5 transition-all duration-500 flex flex-col h-full shadow-2xl">
+                                <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform">
+                                    {step.icon}
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-3">{value.title}</h3>
-                                <p className="text-slate-600 dark:text-slate-400">{value.description}</p>
+
+                                <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tighter mb-4 leading-tight">
+                                    {step.title}
+                                </h3>
+                                
+                                <p className="text-[#a1a1a1] leading-relaxed font-medium text-sm md:text-base group-hover:text-white transition-colors duration-500">
+                                    {step.desc}
+                                </p>
                             </div>
                         </AnimateOnScroll>
                     ))}

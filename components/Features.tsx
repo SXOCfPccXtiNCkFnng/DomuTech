@@ -1,0 +1,165 @@
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import AnimateOnScroll from './AnimateOnScroll';
+import { LightningBoltIcon } from './icons';
+
+/* ── Ícones SVG simples para cada feature ─────────────────────────────────── */
+const IconResponsivo = () => (
+    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke="currentColor" strokeWidth={1.8}>
+        <rect x="5" y="2" width="14" height="20" rx="2" />
+        <circle cx="12" cy="18" r="1" fill="currentColor" stroke="none" />
+    </svg>
+);
+const IconSEO = () => (
+    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke="currentColor" strokeWidth={1.8}>
+        <circle cx="11" cy="11" r="8" />
+        <path d="M21 21l-4.35-4.35" strokeLinecap="round" />
+    </svg>
+);
+const IconTech = () => (
+    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke="currentColor" strokeWidth={1.8}>
+        <polyline points="16 18 22 12 16 6" strokeLinecap="round" strokeLinejoin="round" />
+        <polyline points="8 6 2 12 8 18" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+);
+const IconConversao = () => (
+    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke="currentColor" strokeWidth={1.8}>
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+);
+const IconLayout = () => (
+    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke="currentColor" strokeWidth={1.8}>
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <path d="M3 9h18M9 21V9" strokeLinecap="round" />
+    </svg>
+);
+
+const FEATURES = [
+    {
+        Icon:  IconResponsivo,
+        color: '#ffffff',
+        bg:    'rgba(255,255,255,0.05)',
+        title: 'Design Responsivo',
+        desc:  'Seu site será perfeito em qualquer tela: celular, tablet ou computador. Isso melhora a experiência de navegação do usuário, aumenta as chances de conversão e evita que visitantes desistam por dificuldade de uso. Além disso, o Google valoriza sites responsivos e melhora seu posicionamento nas buscas.',
+    },
+    {
+        Icon:  IconSEO,
+        color: '#ffffff',
+        bg:    'rgba(255,255,255,0.05)',
+        title: 'Site Otimizado para o Google (SEO)',
+        desc:  'Durante o desenvolvimento de sites, aplicamos as boas práticas de SEO: estrutura limpa, URLs amigáveis, tags corretas, performance e velocidade de carregamento, ou seja, mais chances do seu site ficar bem ranqueado no Google.',
+    },
+    {
+        Icon:  IconTech,
+        color: '#ffffff',
+        bg:    'rgba(255,255,255,0.05)',
+        title: 'Tecnologia Avançada para Site',
+        desc:  'Somos uma empresa de criação de sites profissionais especializada em desenvolvimento de sites WordPress. Também desenvolvemos sites em outras linguagens como React, Next.js, Vue.js e Angular entre outros.',
+    },
+    {
+        Icon:  IconConversao,
+        color: '#FFFFFF',
+        bg:    'rgba(255,255,255,0.05)',
+        title: 'Ferramentas de Conversão Integradas',
+        desc:  'Não basta ter um site bonito. Seu site precisa vender. Por isso, incluímos chat flutuante, pop-ups inteligentes, integração com plataformas de pagamento, formulários estratégicos, Google Analytics e conexão com redes sociais.',
+    },
+    {
+        Icon:  IconLayout,
+        color: '#ffffff',
+        bg:    'rgba(255,255,255,0.05)',
+        title: 'Layout Personalizado',
+        desc:  'Nada de sites genéricos. Criamos layouts únicos, pensados na identidade visual da sua empresa. Cada detalhe — cores, fontes, ícones, imagens — é planejado para transmitir profissionalismo e gerar conexão com seu público.',
+    },
+];
+
+const Features: React.FC = () => {
+    return (
+        <section 
+            id="features" 
+            className="py-10 md:py-24 bg-[var(--domo-bg)] relative overflow-visible"
+        >
+
+            {/* Decorativo fundo — sutil para fundo claro */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                <div className="absolute top-[5%] left-[5%] w-80 h-80 bg-white/[0.02] rounded-full blur-[140px]" />
+                <div className="absolute bottom-[5%] right-[5%] w-80 h-80 bg-white/[0.02] rounded-full blur-[140px]" />
+            </div>
+
+            <div className="container mx-auto px-6 relative z-10">
+                <div className="grid lg:grid-cols-[40%_60%] gap-16 lg:gap-20 items-start">
+
+                    {/* ── Coluna esquerda — Sticky Restored ─────────────────── */}
+                    <div className="lg:sticky lg:top-32 self-start flex flex-col items-center lg:items-start text-center lg:text-left">
+
+                        {/* Mascote Branding - Pinned/Sticky */}
+                        <div className="relative w-full max-w-[280px] md:max-w-sm mx-auto lg:mx-0 mb-10 md:mb-12">
+                            <div className="absolute inset-8 bg-white/5 rounded-full blur-3xl opacity-50" />
+                            <img
+                                src="/logos/logopreta.png"
+                                alt="Mascote Domo Digital"
+                                className="relative z-10 w-full h-auto drop-shadow-[0_30px_60px_rgba(255,255,255,0.1)] opacity-100 animate-float"
+                            />
+                        </div>
+
+                        {/* CTA below logo */}
+                        <div className="px-2">
+                            <h3 className="text-white font-black uppercase tracking-tight text-xl md:text-2xl leading-tight mb-8">
+                                Pronto para decolar<br className="hidden md:block" /> seu negócio digital?
+                            </h3>
+                            <a
+                                href="/chatbot-placeholder"
+                                className="btn-budget group w-full md:w-auto"
+                            >
+                                <LightningBoltIcon className="w-5 h-5 fill-current" />
+                                Peça um Orçamento
+                            </a>
+                        </div>
+                    </div>
+
+
+                    {/* ── Coluna direita — Lista de funcionalidades ───────────── */}
+                    <div className="pt-10 lg:pt-4">
+                        <AnimateOnScroll>
+                            <div className="text-center lg:text-left mb-12">
+                                <span className="text-[#a1a1a1] font-bold text-[10px] uppercase tracking-[0.25em] mb-4 block">
+                                    Criação de Site Profissional
+                                </span>
+                                <h2 className="h2-domo text-white">
+                                    Funcionalidades<br className="hidden md:block" /> premium
+                                </h2>
+                            </div>
+                        </AnimateOnScroll>
+
+                        <div className="divide-y divide-white/5">
+                            {FEATURES.map((item, index) => (
+                                <AnimateOnScroll key={index} delay={index * 60}>
+                                    <div className="flex flex-col sm:flex-row gap-6 py-10 group items-center sm:items-start text-center sm:text-left">
+
+                                        {/* Ícone quadrado - Clean Design */}
+                                        <div
+                                            className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110 shadow-2xl border border-white/10 bg-white/5 text-white"
+                                        >
+                                            <item.Icon />
+                                        </div>
+
+                                        <div className="min-w-0">
+                                            <h4 className="text-white font-black text-lg mb-3 group-hover:text-white transition-colors duration-200 leading-snug uppercase tracking-tight">
+                                                {item.title}
+                                            </h4>
+                                            <p className="text-[#a1a1a1] text-[14px] md:text-[15px] leading-relaxed font-medium opacity-70">
+                                                {item.desc}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </AnimateOnScroll>
+                            ))}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default Features;

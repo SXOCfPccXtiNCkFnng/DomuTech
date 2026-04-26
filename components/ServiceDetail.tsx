@@ -25,9 +25,9 @@ const ServiceDetail: React.FC = () => {
 
     if (!service && !complementaryService) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-white dark:bg-neutral-950">
+            <div className="min-h-screen flex items-center justify-center bg-black dark:bg-neutral-950">
                 <div className="text-center">
-                    <h2 className="text-4xl font-bold text-slate-800 dark:text-slate-200 mb-4">
+                    <h2 className="text-whitexl font-bold text-white dark:text-white mb-4">
                         Serviço não encontrado
                     </h2>
                     <button
@@ -48,9 +48,9 @@ const ServiceDetail: React.FC = () => {
     };
 
     return (
-        <div className="bg-white dark:bg-neutral-950 min-h-screen pt-20">
+        <div className="bg-black dark:bg-neutral-950 min-h-screen pt-20">
             {/* Hero Section */}
-            <section className="relative py-24 overflow-hidden">
+            <section className="relative py-16 overflow-hidden">
                 {/* Background image */}
                 {service && (
                     <div 
@@ -78,10 +78,10 @@ const ServiceDetail: React.FC = () => {
                                     <currentService.icon className="w-12 h-12 sm:w-16 sm:h-16 text-white" />
                                 )}
                                 <div>
-                                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-3 break-words">
+                                    <h1 className="text-3xl sm:text-whitexl md:text-5xl lg:text-6xl font-extrabold text-white mb-3 break-words">
                                         {currentService?.title}
                                     </h1>
-                                    <div className="h-1.5 w-24 bg-white/50 rounded-full"></div>
+                                    <div className="h-1.5 w-24 bg-black/50 rounded-full"></div>
                                 </div>
                             </div>
                             <p className="text-lg sm:text-xl md:text-2xl text-white/95 leading-relaxed">
@@ -162,7 +162,7 @@ const ServiceDetail: React.FC = () => {
             </section>
 
             {/* Main Content */}
-            <section className="py-20 bg-gradient-to-b from-slate-50 to-white dark:from-neutral-950 dark:to-neutral-900">
+            <section className="py-12 bg-[var(--domo-bg)]">
                 <div className="container mx-auto px-4">
                     {/* Detailed Information */}
                     {detailedInfo && (
@@ -171,7 +171,7 @@ const ServiceDetail: React.FC = () => {
                             <div className="grid lg:grid-cols-2 gap-12 items-start">
                                 <AnimateOnScroll>
                                     <div>
-                                        <h2 className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-slate-200 mb-6">
+                                        <h2 className="text-2xl md:text-3xl font-bold text-white dark:text-white mb-6">
                                             Por que escolher este serviço?
                                         </h2>
                                         <p className="text-base md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-10">
@@ -199,7 +199,7 @@ const ServiceDetail: React.FC = () => {
                             <AnimateOnScroll>
                                 <div>
                                     <div className="text-center mb-12">
-                                        <h2 className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-slate-200 mb-4">
+                                        <h2 className="text-whitexl md:text-5xl font-bold text-white dark:text-white mb-4">
                                             Benefícios
                                         </h2>
                                         <p className="text-lg text-slate-600 dark:text-slate-400">
@@ -210,12 +210,12 @@ const ServiceDetail: React.FC = () => {
                                         {detailedInfo.benefits.map((benefit, index) => (
                                             <div 
                                                 key={index}
-                                                className="group bg-white dark:bg-neutral-900 p-8 rounded-2xl border-2 border-slate-200 dark:border-slate-800 hover:border-violet-500 dark:hover:border-violet-500 transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                                                className="group bg-black dark:bg-neutral-900 p-8 rounded-2xl border-white/5 border-slate-200 dark:border-slate-800 hover:border-violet-500 dark:hover:border-violet-500 transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
                                             >
                                                 <div className="bg-gradient-to-br from-violet-500 to-purple-600 w-14 h-14 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                                                     <StarIcon className="w-7 h-7 text-white" />
                                                 </div>
-                                                <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-3">
+                                                <h3 className="text-xl font-bold text-white dark:text-white mb-3">
                                                     {benefit.title}
                                                 </h3>
                                                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -238,7 +238,7 @@ const ServiceDetail: React.FC = () => {
                                     
                                     <div className="relative z-10">
                                         <div className="text-center mb-12">
-                                            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                                            <h2 className="text-whitexl md:text-5xl font-bold text-white mb-4">
                                                 Como funciona nosso processo
                                             </h2>
                                             <p className="text-lg text-white/80">
@@ -248,7 +248,7 @@ const ServiceDetail: React.FC = () => {
                                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                                             {detailedInfo.process.map((step, index) => (
                                                 <div key={index} className="relative">
-                                                    <div className="bg-white/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl h-full hover:bg-white/15 transition-all group">
+                                                    <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl h-full hover:bg-black/15 transition-all group">
                                                         <div className="bg-gradient-to-br from-violet-500 to-purple-600 text-white w-14 h-14 rounded-xl flex items-center justify-center font-bold text-2xl mb-6 group-hover:scale-110 transition-transform shadow-lg">
                                                             {index + 1}
                                                         </div>
@@ -275,7 +275,7 @@ const ServiceDetail: React.FC = () => {
 
                     {/* CTA Section */}
                     <AnimateOnScroll>
-                        <div className="mt-20 relative bg-gradient-to-br from-slate-50 to-slate-100 dark:from-neutral-900 dark:to-neutral-800 p-8 md:p-12 rounded-3xl text-center overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700">
+                        <div className="mt-20 relative bg-[var(--domo-surface-1)] p-8 md:p-12 rounded-3xl text-center overflow-hidden shadow-2xl border border-white/10">
                             {/* Background decoration */}
                             <div className="absolute inset-0 opacity-10">
                                 <div className="absolute -top-24 -left-24 w-96 h-96 bg-violet-500 rounded-full blur-3xl"></div>
@@ -283,16 +283,16 @@ const ServiceDetail: React.FC = () => {
                             </div>
                             
                             <div className="relative z-10">
-                                <h2 className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-slate-200 mb-3">
+                                <h2 className="text-2xl md:text-3xl font-bold text-white dark:text-white mb-3">
                                     Pronto para começar?
                                 </h2>
                                 <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto leading-relaxed">
                                     Entre em contato conosco e receba um orçamento personalizado para o seu projeto.
                                 </p>
                                 {service && (
-                                    <div className="inline-block bg-white dark:bg-neutral-800 border-2 border-slate-200 dark:border-slate-700 rounded-2xl px-6 py-3 mb-6">
+                                    <div className="inline-block bg-black dark:bg-neutral-800 border-white/5 border-slate-200 dark:border-slate-700 rounded-2xl px-6 py-3 mb-6">
                                         <div className="text-xs text-slate-600 dark:text-slate-400 font-medium mb-0.5">A partir de</div>
-                                        <div className="text-2xl md:text-3xl text-slate-800 dark:text-slate-200 font-bold">
+                                        <div className="text-2xl md:text-3xl text-white dark:text-white font-bold">
                                             {service.price}
                                         </div>
                                     </div>

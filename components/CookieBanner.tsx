@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const COOKIE_KEY = 'cookie-consent';
 
 const CookieBanner: React.FC = () => {
     const [isVisible, setIsVisible] = useState(false);
-    const [isExpanded, setIsExpanded] = useState(false);
 
     useEffect(() => {
         const stored = localStorage.getItem(COOKIE_KEY);
         if (!stored) {
-            setIsVisible(true);
+            // Pequeno delay para não assustar o usuário assim que abre o site
+            const timer = setTimeout(() => setIsVisible(true), 2000);
+            return () => clearTimeout(timer);
         }
     }, []);
 
@@ -18,82 +20,44 @@ const CookieBanner: React.FC = () => {
         setIsVisible(false);
     };
 
-    const handleTogglePolicy = () => {
-        setIsExpanded(prev => !prev);
-    };
-
-    if (!isVisible) {
-        return null;
-    }
-
     return (
-        <div className="fixed bottom-4 left-4 z-[9999] max-w-xs sm:max-w-sm">
-            <div className={`bg-white/95 dark:bg-neutral-950/95 border border-violet-200/60 dark:border-violet-400/20 shadow-2xl rounded-2xl p-4 backdrop-blur transition-all duration-300 ${isExpanded ? 'pb-5' : ''}`}>
-                <div className="flex items-start gap-3">
-                    <div className="mt-1 flex items-center">
-                        <span className="text-lg" aria-hidden="true">🍪</span>
-                    </div>
-                    <div className="flex-1">
-                        <p className="text-xs uppercase tracking-wide text-violet-600 dark:text-violet-400 font-semibold">
-                            Cookies
-                        </p>
-                        <p className="mt-1 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
-                            Usamos cookies para melhorar sua experiência.
-                        </p>
-                        <div className="mt-3 flex items-center gap-3">
+        <AnimatePresence>
+            {isVisible && (
+                <motion.div 
+                    initial={{ y: 100, opacity: 0, x: '-50%' }}
+                    animate={{ y: 0, opacity: 1, x: '-50%' }}
+                    exit={{ y: 100, opacity: 0, x: '-50%' }}
+                    className="fixed bottom-6 md:bottom-10 left-1/2 z-[9999] w-[95%] max-w-3xl"
+                >
+                    <div className="bg-black/60 backdrop-blur-2xl border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.4)] rounded-3xl p-5 md:p-6 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative group">
+                        {/* Shimmer effect on border hover */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-shimmer pointer-events-none" />
+
+                        <div className="flex items-center gap-5 relative z-10 px-2 lg:px-4">
+                            <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 rounded-2xl flex items-center justify-center flex-shrink-0 border border-white/5">
+                                <span className="text-xl md:text-2xl">🍪</span>
+                            </div>
+                            <div className="flex flex-col gap-1">
+                                <h4 className="text-white font-[950] text-[10px] md:text-[11px] uppercase tracking-[0.2em]">Controle de Cookies</h4>
+                                <p className="text-[10px] md:text-[11px] text-[#a1a1a1] font-medium leading-relaxed max-w-lg uppercase">
+                                    Utilizamos cookies para personalizar sua experiência e melhorar nosso desempenho. 
+                                    Ao continuar, você concorda com nossos <a href="#" className="text-white underline decoration-white/30 hover:decoration-white transition-all underline-offset-4">Termos e Privacidade</a>.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div className="flex items-center gap-4 relative z-10 pr-2">
                             <button
                                 onClick={handleAccept}
-                                className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-violet-600 text-white font-semibold text-xs sm:text-sm hover:bg-violet-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-950"
+                                className="bg-white text-black px-8 py-3.5 rounded-2xl font-[950] text-[10px] uppercase tracking-[0.15em] hover:scale-[1.03] active:scale-95 transition-all whitespace-nowrap shadow-lg shadow-white/10 hover:shadow-white/20"
                             >
-                                ACEITAR
-                            </button>
-                            <button
-                                type="button"
-                                onClick={handleTogglePolicy}
-                                className="text-xs sm:text-sm text-violet-600 dark:text-violet-400 font-semibold hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-neutral-950"
-                                aria-expanded={isExpanded}
-                            >
-                                {isExpanded ? 'Ocultar política' : 'Ver política'}
+                                Aceitar Tudo
                             </button>
                         </div>
                     </div>
-                </div>
-                <div
-                    className={`mt-4 overflow-hidden transition-all duration-300 ${isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
-                >
-                    <div className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 space-y-3">
-                        <p className="font-semibold text-slate-900 dark:text-slate-200">Política de Privacidade e Cookies</p>
-                        <p>
-                            Respeitamos sua privacidade. Esta política explica quais dados coletamos e como usamos essas informações.
-                        </p>
-                        <div>
-                            <p className="font-semibold text-slate-900 dark:text-slate-200">1) Dados coletados</p>
-                            <p>
-                                Podemos coletar dados de navegação (ex.: páginas acessadas, tempo no site e tipo de dispositivo) para melhorar a experiência e performance.
-                            </p>
-                        </div>
-                        <div>
-                            <p className="font-semibold text-slate-900 dark:text-slate-200">2) Uso das informações</p>
-                            <p>
-                                As informações são usadas para análise de desempenho, melhoria de conteúdo e segurança. Não vendemos seus dados.
-                            </p>
-                        </div>
-                        <div>
-                            <p className="font-semibold text-slate-900 dark:text-slate-200">3) Cookies</p>
-                            <p>
-                                Utilizamos cookies essenciais e analíticos. Você pode aceitar ou não os cookies analíticos no banner exibido.
-                            </p>
-                        </div>
-                        <div>
-                            <p className="font-semibold text-slate-900 dark:text-slate-200">4) Contato</p>
-                            <p>
-                                Em caso de dúvidas, fale conosco pelo e-mail disponível no rodapé do site.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                </motion.div>
+            )}
+        </AnimatePresence>
     );
 };
 

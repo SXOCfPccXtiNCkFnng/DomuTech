@@ -1,36 +1,50 @@
 
 import React from 'react';
 import AnimateOnScroll from './AnimateOnScroll';
-import { WhatsAppIcon } from './icons';
+import { WhatsAppIcon, LightningBoltIcon } from './icons';
 
 interface CallToActionProps {
     title: string;
     subtitle: string;
     primaryButtonText: string;
     primaryButtonLink: string;
-    secondaryButtonText?: string;
-    secondaryButtonLink?: string;
+    variant?: 'whatsapp' | 'budget';
 }
 
-const CallToAction: React.FC<CallToActionProps> = ({ title, subtitle, primaryButtonText, primaryButtonLink, secondaryButtonText, secondaryButtonLink }) => {
-    const whatsappLink = `https://wa.me/5511934430659?text=${encodeURIComponent(`Olá! Tenho interesse: ${title}`)}`;
+const CallToAction: React.FC<CallToActionProps> = ({ title, subtitle, primaryButtonText, primaryButtonLink, variant = 'whatsapp' }) => {
     return (
-        <section className="py-20">
+        <section className="py-16 bg-[var(--domo-bg)]">
             <div className="container mx-auto px-4">
                 <AnimateOnScroll>
-                    <div className="max-w-4xl mx-auto text-center bg-slate-100 dark:bg-gradient-to-br dark:from-neutral-900 dark:to-slate-900 p-10 rounded-2xl shadow-lg border border-transparent dark:border-slate-800">
-                        <h2 className="text-3xl font-extrabold text-slate-800 dark:text-slate-200 mb-4">{title}</h2>
-                        <p className="max-w-2xl mx-auto text-slate-600 dark:text-slate-400 mb-8">{subtitle}</p>
-                        <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-                            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-gradient-to-r from-violet-500 to-purple-600 text-white font-normal px-8 py-2 rounded-none shadow-lg transition-all duration-300 transform hover:scale-105 hover:from-violet-600 hover:to-purple-700 inline-flex items-center justify-center gap-2 uppercase tracking-wide" style={{clipPath: 'polygon(0 0, calc(100% - 15px) 0, 100% 100%, 0 100%)'}}>
-                                <img src="/img/whatsapp-logo.png" alt="WhatsApp" className="w-6 h-6" decoding="async" />
-                                {primaryButtonText}
-                            </a>
-                            {secondaryButtonText && secondaryButtonLink && (
-                                 <a href={secondaryButtonLink} className="w-full sm:w-auto border-2 border-teal-400 text-teal-400 hover:bg-gradient-to-r hover:from-teal-500 hover:to-cyan-500 hover:text-white font-semibold px-8 py-2 rounded-none transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-teal-500/30 inline-flex items-center justify-center" style={{clipPath: 'polygon(0 0, calc(100% - 15px) 0, 100% 100%, 0 100%)'}}>
-                                    {secondaryButtonText}
+                    <div className="relative bg-[var(--domo-surface-1)] p-8 md:p-20 rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-white/10">
+                        <div className="relative z-10 grid lg:grid-cols-2 gap-10 md:gap-12 items-center">
+                            <div className="text-center lg:text-left">
+                                <h2 className="h2-domo text-gradient mb-6 md:mb-8">
+                                    {title}
+                                </h2>
+                                <p className="text-[#a1a1a1] text-base md:text-lg font-medium leading-relaxed mb-8 md:mb-10 max-w-lg mx-auto lg:mx-0">
+                                    {subtitle}
+                                </p>
+                            </div>
+                            
+                            <div className="flex flex-col items-center lg:items-end">
+                                <a 
+                                    href={primaryButtonLink} 
+                                    target={variant === 'whatsapp' ? "_blank" : undefined}
+                                    rel={variant === 'whatsapp' ? "noopener noreferrer" : undefined}
+                                    className={`${variant === 'whatsapp' ? 'btn-whatsapp' : 'btn-budget'} w-full md:w-auto`}
+                                >
+                                    {variant === 'whatsapp' ? (
+                                        <WhatsAppIcon className="w-5 h-5 md:w-6 md:h-6 fill-current transition-transform" />
+                                    ) : (
+                                        <LightningBoltIcon className="w-5 h-5 md:w-6 md:h-6 fill-current transition-transform" />
+                                    )}
+                                    {primaryButtonText}
                                 </a>
-                            )}
+                                <span className="mt-4 md:mt-6 text-white/40 text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-center">
+                                    {variant === 'whatsapp' ? 'Resposta média em menos de 15 minutos' : 'Orçamento rápido e sem compromisso'}
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </AnimateOnScroll>

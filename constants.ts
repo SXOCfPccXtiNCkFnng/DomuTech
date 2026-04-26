@@ -8,11 +8,36 @@ import {
 } from './components/icons';
 
 export const NAV_LINKS = [
-    { name: 'Início', href: '#home' },
-    { name: 'Serviços', href: '#services' },
-    { name: 'Sobre', href: '#about' },
-    { name: 'Portfólio', href: '#portfolio' },
-    { name: 'Contato', href: '#footer' },
+    { name: 'Home', href: '/#home' },
+    { name: 'Portfólio', href: '/#portfolio' },
+    { name: 'Preços', href: '/#pricing' },
+    { name: 'Orçamento', href: '/chatbot-placeholder' },
+];
+
+export const FOOTER_INSTITUCIONAL = [
+    { name: 'Home', href: '/#home' },
+    { name: 'Portfólio', href: '/#portfolio' },
+    { name: 'Orçamento', href: '/chatbot-placeholder' },
+    { name: 'Programa de Parceiros', href: '/#home' },
+    { name: 'Aviso de Cookies', href: '/#home' },
+];
+
+export const FOOTER_SERVICOS = [
+    { name: 'Site Sob Medida', href: '/servico/site-sob-medida' },
+    { name: 'Criação de Sites Baratos', href: '/servico/expresso' },
+    { name: 'Criação de E-commerce', href: '/servico/ecommerce' },
+    { name: 'Consultoria SEO', href: '/servico/seo' },
+    { name: 'Criação de Chatbot', href: '/chatbot-placeholder' },
+    { name: 'Desenvolvimento de Sites WordPress', href: '/servico/wordpress' },
+    { name: 'Software House', href: '/servico/software-house' },
+];
+
+export const FOOTER_SEGMENTOS = [
+    { name: 'Criação de Site para Empresas de Tecnologia', href: '/#home' },
+    { name: 'Criação de Site para Médicos', href: '/#home' },
+    { name: 'Criação de Site para Contabilidade', href: '/#home' },
+    { name: 'Criação de Site para Advogados', href: '/#home' },
+    { name: 'Criação de Site para Dentistas', href: '/#home' },
 ];
 
 export const MAIN_SERVICES: Service[] = [
@@ -29,7 +54,7 @@ export const MAIN_SERVICES: Service[] = [
             'Otimização SEO'
         ],
         price: 'A partir de R$ 2.000',
-        image: '/img/img-web.png',
+        image: '',
         backgroundImage: '/img/fundo-web.png'
     },
     {
@@ -124,8 +149,8 @@ export const COMPANY_VALUES: Value[] = [
 export const PORTFOLIO_PROJECTS: Project[] = [
     {
         tag: 'Criação de Sites',
-        title: 'AlanX - Site Institucional',
-        description: 'Site institucional moderno para a AlanX, com foco em apresentação clara de serviços, performance e conversão de visitantes.',
+        title: 'DOMO - Site Institucional',
+        description: 'Site institutional moderno para a DOMO, com foco em apresentação clara de serviços, performance e conversão de visitantes.',
         image: '/img/img-AlanX.png',
         link: 'https://alanx.netlify.app/',
         isFeatured: true,
@@ -163,6 +188,8 @@ export const PORTFOLIO_PROJECTS: Project[] = [
         tag: 'Página de destino',
         title: 'Site Advogada - Institucional',
         description: 'Projeto institucional para advocacia, reforçando credibilidade, serviços jurídicos e canais de contato eficientes, entre outros.',
+        image: '',
+        link: '#',
     },
 ];
 
@@ -182,6 +209,30 @@ export const FAQ_DATA: FAQItem[] = [
     {
         question: 'Posso acompanhar o desenvolvimento?',
         answer: 'Claro! Atualizações semanais + acesso ao painel de desenvolvimento para que você possa acompanhar o progresso em tempo real.'
+    },
+    {
+        question: 'Vocês fazem otimização SEO?',
+        answer: 'Sim, todos os nossos sites são entregues com otimização SEO básica e estrutura preparada para rankeamento no Google.'
+    },
+    {
+        question: 'O site será responsivo?',
+        answer: 'Com certeza. Desenvolvemos interfaces que se adaptam perfeitamente a celulares, tablets e computadores de todos os tamanhos.'
+    },
+    {
+        question: 'Vou conseguir atualizar o conteúdo sozinho?',
+        answer: 'Sim! Integramos um painel administrativo intuitivo para que você possa trocar textos e fotos sem depender de programadores.'
+    },
+    {
+        question: 'Vocês criam a identidade visual também?',
+        answer: 'Sim, temos pacotes que incluem criação de logotipo, manual de marca e toda a parte de design gráfico.'
+    },
+    {
+        question: 'Como é feita a hospedagem?',
+        answer: 'Podemos hospedar em nossos servidores otimizados ou configurar no servidor da sua preferência. Damos todo o suporte técnico.'
+    },
+    {
+        question: 'Trabalham com lojas virtuais (E-commerce)?',
+        answer: 'Sim! Desenvolvemos e-commerces robustos com gestão de estoque, integração com meios de pagamento e cálculo de frete.'
     }
 ];
 

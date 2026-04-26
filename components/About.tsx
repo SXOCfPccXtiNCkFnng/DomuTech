@@ -1,58 +1,138 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ABOUT_METRICS } from '../constants';
-import { CheckIcon } from './icons';
 import AnimateOnScroll from './AnimateOnScroll';
+import { LightningBoltIcon, WhatsAppIcon } from './icons';
+
+/* ── Chips de serviço (Fidelity to DOMO Digital: Fotos / Vídeos / Textos) ─────────── */
+const CHIPS = [
+    {
+        label: 'Fotos',
+        icon: (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-5 h-5">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                <circle cx="12" cy="13" r="4" />
+            </svg>
+        ),
+    },
+    {
+        label: 'Vídeos',
+        icon: (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-5 h-5">
+                <circle cx="12" cy="12" r="10" />
+                <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" />
+            </svg>
+        ),
+    },
+    {
+        label: 'Textos',
+        icon: (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-5 h-5">
+                <polyline points="4 7 4 4 20 4 20 7" />
+                <line x1="9" y1="20" x2="15" y2="20" />
+                <line x1="12" y1="4" x2="12" y2="20" />
+            </svg>
+        ),
+    },
+];
 
 const About: React.FC = () => {
-    const aboutPoints = [
-        'Mais de 50 projetos de sites e automações inteligentes entregues',
-        'Especialistas em criação de sites, IA e Automação',
-        'Sistemas de Atendimento Inteligente com IA',
-        'Integrações personalizadas de alto impacto',
-        'Foco total no sucesso e na satisfação do cliente',
-        'Metodologia Ágil com entregas pontuais',
-        'Suporte contínuo para todos os clientes',
-    ];
-
     return (
-        <section id="about" className="py-24 bg-gradient-to-b from-slate-200 to-slate-100 dark:from-neutral-950 dark:to-neutral-900/50">
-            <div className="container mx-auto px-4">
-                <AnimateOnScroll>
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-200 mb-4">Quem Somos</h2>
-                        <p className="max-w-3xl mx-auto text-base sm:text-lg text-slate-700 dark:text-slate-400 px-4">
-                            Somos obsessionados por transformar ideias em negócios digitais de sucesso. Com expertise em estratégia, design e tecnologia, ajudamos empresas a crescerem além do esperado.
-                        </p>
-                    </div>
-                </AnimateOnScroll>
+        <section id="about" className="py-10 md:py-12 bg-[var(--domo-bg)] relative overflow-hidden">
+            {/* Background elements */}
+            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/[0.01] rounded-full blur-[80px] translate-x-1/2 -translate-y-1/2"></div>
 
-                <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center mb-24">
+            <div className="container mx-auto px-4 relative z-10">
+
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+
+                    {/* Left Column - Content */}
                     <AnimateOnScroll>
-                        <div>
-                            <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-200 mb-4">Nossa Missão</h3>
-                            <p className="text-sm sm:text-base text-slate-700 dark:text-slate-400 mb-6">
-                               A VexelTech existe para uma missão simples: transformar sua visão em código que gera lucro. Acreditamos que todo negócio merece uma presença digital estratégica e impactante, capaz de gerar resultados reais e sustentáveis.
-                            </p>
-                            <ul className="space-y-3 mb-8">
-                                {aboutPoints.map(point => (
-                                    <li key={point} className="flex items-start gap-3 text-sm sm:text-base text-slate-800 dark:text-slate-200">
-                                        <div className="bg-violet-100 dark:bg-violet-900/30 p-1 rounded-full flex-shrink-0 mt-1">
-                                            <CheckIcon className="w-4 h-4 text-violet-500 dark:text-violet-400" />
+                        <div className="max-w-xl mx-auto lg:mx-0">
+                            <span className="text-[#a1a1a1] font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">
+                                CRIAÇÃO DE SITES GERENCIÁVEIS
+                            </span>
+                            <h2 className="h2-domo text-gradient mb-6">
+                                Sua Empresa Com total<br />Autonomia no Digital
+                            </h2>
+
+                            <div className="space-y-4 text-[#a1a1a1] text-[15px] md:text-[16px] leading-relaxed mb-8">
+                                <p>
+                                    Na DOMO Digital, desenvolvemos sites profissionais equipados com um painel administrativo intuitivo. Você tem o controle total para gerenciar conteúdos em tempo real.
+                                </p>
+                            </div>
+
+                            {/* Service Chips */}
+                            <div className="flex flex-wrap gap-3 mb-8">
+                                {CHIPS.map(chip => (
+                                    <div
+                                        key={chip.label}
+                                        className="flex items-center gap-3 bg-white/[0.03] backdrop-blur-sm rounded-xl px-6 py-3.5 transition-all hover:bg-white/10 border border-white/5 group cursor-default"
+                                    >
+                                        <div className="text-white/40 group-hover:text-white transition-colors">
+                                            {chip.icon}
                                         </div>
-                                        <span>{point}</span>
-                                    </li>
+                                        <span className="text-white font-black text-[12px] uppercase tracking-wider">{chip.label}</span>
+                                    </div>
                                 ))}
-                            </ul>
+                            </div>
+
+                            {/* Button */}
+                            <div className="mb-10">
+                                <a
+                                    href="/chatbot-placeholder"
+                                    className="btn-budget group !px-8 !py-4 !text-[12px]"
+                                >
+                                    <LightningBoltIcon className="w-5 h-5 fill-current transition-transform " />
+                                    Peça um Orçamento
+                                </a>
+                            </div>
+
+                            {/* Mission Card */}
+                            <div className="flex items-start gap-5 p-6 bg-white/[0.02] rounded-[2rem] border border-white/5 hover:border-white/10 transition-colors max-w-[440px]">
+                                <div className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center flex-shrink-0 text-white shadow-xl border border-white/5">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-5 h-5">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p className="text-white font-black text-[13px] uppercase tracking-tight mb-1">
+                                        Foco em Resultados Reais
+                                    </p>
+                                    <p className="text-[#a1a1a1] text-[12px] leading-snug font-medium">
+                                        Nossa missão é construir seu braço direito no mundo digital com performance e total autonomia.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </AnimateOnScroll>
-                    <AnimateOnScroll delay={200}>
-                        <div className="relative">
-                            <img src="/img/img-historia.png" alt="Nossa Equipe" className="rounded-2xl w-full h-auto object-cover" loading="lazy" decoding="async" />
+
+                    {/* Right Column - Image with 3D Float Effect */}
+                    <AnimateOnScroll delay={300}>
+                        <div className="relative flex items-center justify-center scale-90 lg:scale-100">
+                            
+                            {/* High-end Background Glow */}
+                            <div className="absolute w-[100%] aspect-square bg-white/[0.02] rounded-full blur-[100px]"></div>
+                            
+                            {/* Decorative Rings */}
+                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-10">
+                                <div className="w-[70%] aspect-square border border-white/10 rounded-full animate-[spin_20s_linear_infinite]"></div>
+                            </div>
+
+                            {/* Main Spiral Visual */}
+                            <div className="relative z-10 w-full group">
+                                <img 
+                                    src="/logos/logobranca.png" 
+                                    alt="Domo Digital Branding" 
+                                    className="w-[70%] h-auto opacity-70 max-w-sm mx-auto drop-shadow-2xl animate-float"
+                                    loading="lazy"
+                                />
+                            </div>
                         </div>
                     </AnimateOnScroll>
                 </div>
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                {/* Metrics */}
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 pt-16 border-t border-white/10">
                     {ABOUT_METRICS.map((metric, index) => (
                         <AnimateOnScroll key={metric.label} delay={index * 100}>
                             <MetricItem metric={metric} />
@@ -64,9 +144,6 @@ const About: React.FC = () => {
     );
 };
 
-export default About;
-
-// Animated metric item: counts up when comes into view.
 const MetricItem: React.FC<{ metric: typeof ABOUT_METRICS[number] }> = ({ metric }) => {
     const ref = useRef<HTMLDivElement | null>(null);
     const [value, setValue] = useState(0);
@@ -77,44 +154,39 @@ const MetricItem: React.FC<{ metric: typeof ABOUT_METRICS[number] }> = ({ metric
 
     useEffect(() => {
         if (!ref.current || hasAnimated) return;
-
-        const el = ref.current;
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setHasAnimated(true);
-                        observer.disconnect();
-
-                        const duration = 1200; // ms
-                        const start = performance.now();
-
-                        const step = (now: number) => {
-                            const progress = Math.min((now - start) / duration, 1);
-                            const current = Math.floor(target * progress);
-                            setValue(current);
-                            if (progress < 1) requestAnimationFrame(step);
-                        };
-
-                        requestAnimationFrame(step);
-                    }
-                });
-            },
-            { threshold: 0.4 }
-        );
-
-        observer.observe(el);
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                setHasAnimated(true);
+                let start = 0;
+                const end = target;
+                const duration = 1500;
+                const startTime = performance.now();
+                const animate = (currentTime: number) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    setValue(Math.floor(progress * end));
+                    if (progress < 1) requestAnimationFrame(animate);
+                };
+                requestAnimationFrame(animate);
+            }
+        }, { threshold: 0.5 });
+        observer.observe(ref.current);
         return () => observer.disconnect();
     }, [target, hasAnimated]);
 
     return (
-        <div ref={ref} className="flex flex-col items-center gap-2 py-6">
-            <metric.icon className="w-12 h-12 text-violet-500" />
-            <p className="text-4xl font-extrabold text-slate-900 dark:text-slate-200">
-                {hasAnimated ? value : 0}
-                {suffix}
-            </p>
-            <p className="text-slate-700 dark:text-slate-400 text-sm md:text-base">{metric.label}</p>
+        <div ref={ref} className="text-center group">
+            <div className="flex flex-col items-center">
+                <div className="text-white font-black text-5xl md:text-6xl tracking-tighter mb-2 group-hover:text-white transition-colors">
+                    {value}{suffix}
+                </div>
+                <div className="w-10 h-[2px] bg-white mb-4"></div>
+                <span className="text-[#a1a1a1] font-bold text-[10px] uppercase tracking-[0.2em]">
+                    {metric.label}
+                </span>
+            </div>
         </div>
     );
 };
+
+export default About;

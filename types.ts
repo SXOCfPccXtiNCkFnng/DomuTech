@@ -44,7 +44,8 @@ export interface Service {
     tag: string;
     title: string;
     description: string;
-    image: string;
+    image?: string;
+    link?: string;
     stats?: {
       icon: React.ComponentType<{ className?: string }>;
       value: string;

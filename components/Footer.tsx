@@ -1,61 +1,106 @@
+
 import React from 'react';
-import { CodeIcon } from './icons';
-import { NAV_LINKS, MAIN_SERVICES } from '../constants';
+import { FOOTER_INSTITUCIONAL, FOOTER_SERVICOS, FOOTER_SEGMENTOS } from '../constants';
+import { WhatsAppIcon } from './icons';
 
 const Footer: React.FC = () => {
     return (
-        <footer id="footer" className="bg-neutral-900 dark:bg-neutral-950 text-slate-400">
-            <div className="container mx-auto px-4 py-16">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 text-center sm:text-left">
-                    <div className="lg:col-span-1 sm:col-span-2 flex flex-col items-center sm:items-start">
-                        <a href="#home" className="flex items-center gap-2 text-xl font-bold text-slate-200 mb-4">
-                            <CodeIcon className="w-8 h-8 text-violet-400" />
-                            <span>VexelTech</span>
+        <footer id="footer" className="bg-[var(--domo-bg)] pt-10 md:pt-24 pb-8 md:pb-12 border-t border-white/5">
+            <div className="container mx-auto px-6">
+                {/* Main Footer Content */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16 mb-16 md:mb-24">
+                    
+                    {/* Column 1: Info */}
+                    <div className="flex flex-col items-center md:items-start text-center md:text-left">
+                        <a href="/#home" className="flex items-center mb-8 group">
+                            <img 
+                                src="/logos/logoheaderfooter.png" 
+                                alt="Domo Digital" 
+                                className="h-8 md:h-10 w-auto transition-transform group-hover:scale-105"
+                            />
                         </a>
-                        <p className="text-xs sm:text-sm text-slate-400 max-w-xs mb-4">
-                            Agência completa para soluções digitais: criação de sites, marketing digital, registro de domínio e tráfego pago.
+                        <p className="text-[#a1a1a1] text-[13px] leading-relaxed mb-10 max-w-xs font-medium opacity-70">
+                            A DOMO Digital transforma sua presença online com soluções de alto impacto, SEO avançado e sites de conversão.
                         </p>
-                        <div className="flex items-center gap-3 mt-4">
-                            <a
-                                href="https://www.instagram.com/vexel_tech"
+                        
+                        <div className="flex flex-col items-center md:items-start gap-4 w-full">
+                            <a 
+                                href="https://wa.me/5511934430659" 
                                 target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Instagram"
-                                className="transition-transform hover:scale-110"
+                                rel="noreferrer"
+                                className="btn-whatsapp !py-3.5 !px-8 !text-[11px] whitespace-nowrap"
                             >
-                                <img src="/img/intagram-logo.png" alt="Instagram" className="w-10 h-10" loading="lazy" decoding="async" />
+                                <WhatsAppIcon className="w-5 h-5 fill-current" />
+                                WhatsApp Direto
                             </a>
                         </div>
                     </div>
-                    <div>
-                        <h4 className="font-bold text-slate-200 mb-4">Serviços</h4>
-                        <ul className="space-y-2 text-sm">
-                            {MAIN_SERVICES.map(service => (
-                                <li key={service.title}><a href="#services" className="hover:text-violet-400 transition-colors">{service.title}</a></li>
-                            ))}
-                            <li><a href="#services" className="hover:text-violet-400 transition-colors">Experiência do Usuário (UX)</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 className="font-bold text-slate-200 mb-4">Navegação</h4>
-                        <ul className="space-y-2 text-sm">
-                            {NAV_LINKS.map(link => (
-                                <li key={link.name}><a href={link.href} className="hover:text-violet-400 transition-colors">{link.name}</a></li>
+
+                    {/* Column 2: Institucional */}
+                    <div className="text-center md:text-left">
+                        <h4 className="text-white font-black text-[10px] md:text-[11px] uppercase tracking-[0.25em] mb-8 md:mb-10 opacity-40">Institucional</h4>
+                        <ul className="space-y-4 md:space-y-6">
+                            {FOOTER_INSTITUCIONAL.map(link => (
+                                <li key={link.name}>
+                                    <a href={link.href} className="text-[#a1a1a1] hover:text-[#FFFFFF] font-black text-[12px] uppercase tracking-tighter transition-colors">{link.name}</a>
+                                </li>
                             ))}
                         </ul>
                     </div>
-                    <div>
-                        <h4 className="font-bold text-slate-200 mb-4">Contato</h4>
-                        <ul className="space-y-2 text-sm">
-                            <li><a href="mailto:vexeltech.contato@gmail.com" className="hover:text-violet-400 transition-colors">vexeltech.contato@gmail.com</a></li>
-                            <li><a href="tel:+5511934430659" className="hover:text-violet-400 transition-colors">+55 (11) 93443-0659</a></li>
-                            <li><span>São Paulo, SP - Brasil</span></li>
+
+                    {/* Column 3: Serviços */}
+                    <div className="text-center md:text-left">
+                        <h4 className="text-white font-black text-[10px] md:text-[11px] uppercase tracking-[0.25em] mb-8 md:mb-10 opacity-40">Serviços</h4>
+                        <ul className="space-y-4 md:space-y-6">
+                            {FOOTER_SERVICOS.map(link => (
+                                <li key={link.name}>
+                                    <a href={link.href} className="text-[#a1a1a1] hover:text-[#FFFFFF] font-bold text-[13px] transition-colors">{link.name}</a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Column 4: Segmentos */}
+                    <div className="text-center md:text-left">
+                        <h4 className="text-white font-black text-[10px] md:text-[11px] uppercase tracking-[0.25em] mb-8 md:mb-10 opacity-40">Segmentos</h4>
+                        <ul className="space-y-4 md:space-y-6">
+                            {FOOTER_SEGMENTOS.map(link => (
+                                <li key={link.name}>
+                                    <a href={link.href} className="text-[#a1a1a1] hover:text-[#FFFFFF] font-bold text-[13px] transition-colors leading-tight block">{link.name}</a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div className="bg-neutral-800 dark:bg-black/30 py-4 text-center">
-                <p className="text-sm text-slate-400">&copy; {new Date().getFullYear()} VexelTech. Todos os direitos reservados.</p>
+
+                {/* Social & Address Area */}
+                <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
+                    <div className="flex gap-6">
+                        {['instagram', 'linkedin', 'twitter'].map(social => (
+                            <a 
+                                key={social} 
+                                href={`#${social}`} 
+                                className="text-[#a1a1a1] hover:text-[#FFFFFF] transition-colors"
+                            >
+                                <span className="uppercase text-[9px] font-black tracking-widest">{social}</span>
+                            </a>
+                        ))}
+                    </div>
+                    
+                    <p className="text-[#a1a1a1] text-[11px] font-medium text-center md:text-right opacity-60">
+                        São Paulo - SP • Brasil
+                    </p>
+                </div>
+
+                {/* Bottom Bar */}
+                <div className="mt-12 md:mt-16 flex flex-col md:flex-row justify-between items-center gap-6 text-center border-t border-white/5 pt-8">
+                    <p className="text-[#a1a1a1] text-[9px] md:text-[10px] font-bold uppercase tracking-widest opacity-40">
+                        © {new Date().getFullYear()} DOMO Digital • CNPJ: 54.123.884/0001-50
+                    </p>
+                    <a href="#" className="text-[#a1a1a1] text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:text-[#FFFFFF] opacity-40 hover:opacity-100 transition-opacity">
+                        Privacidade
+                    </a>
+                </div>
             </div>
         </footer>
     );

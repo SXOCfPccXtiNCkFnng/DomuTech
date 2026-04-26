@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -7,132 +8,76 @@ import ServiceDetail from './components/ServiceDetail';
 import About from './components/About';
 import Values from './components/Values';
 import Portfolio from './components/Portfolio';
+import Features from './components/Features';
+import Testimonials from './components/Testimonials';
+import ReliableAgency from './components/ReliableAgency';
 import FAQ from './components/FAQ';
+import Pricing from './components/Pricing';
+import ProfessionalDevelopment from './components/ProfessionalDevelopment';
+import NicheServices from './components/NicheServices';
 import Footer from './components/Footer';
 import CallToAction from './components/CallToAction';
 import FloatingWhatsAppButton from './components/FloatingWhatsAppButton';
+import AutoPopup from './components/AutoPopup';
 import CookieBanner from './components/CookieBanner';
+import ChatbotPlaceholder from './components/ChatbotPlaceholder';
 
-// Updated button texts - v2
 const App: React.FC = () => {
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== 'undefined' && window.localStorage) {
-      // Synchronize with the script in index.html. Default is dark.
-      if (localStorage.getItem('theme') === 'light') {
-        return 'light';
-      }
-    }
-    return 'dark';
-  });
-
-  useEffect(() => {
-    const root = window.document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      root.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [theme]);
-
-  // Handle preloader fade-out and removal
   useEffect(() => {
     const preloader = document.getElementById('preloader');
     if (preloader) {
-      // Start fade-out after a short delay
       setTimeout(() => {
         preloader.classList.add('loaded');
       }, 500);
-      // Remove from DOM after transition completes
       setTimeout(() => {
         preloader.style.display = 'none';
-      }, 1000); // Corresponds to the 0.5s transition
+      }, 1000);
     }
-  }, []); // Empty dependency array ensures this runs only once on mount
-
-  // Add smooth scroll for anchor links
-  useEffect(() => {
-    const handleSmoothScroll = (event: MouseEvent) => {
-      const target = event.currentTarget as HTMLAnchorElement;
-      const href = target.getAttribute('href');
-
-      // Ensure it's a valid internal anchor link
-      if (href && href.startsWith('#') && href.length > 1) {
-        event.preventDefault();
-
-        const targetId = href.substring(1);
-        const targetElement = document.getElementById(targetId);
-
-        if (targetElement) {
-          const header = document.querySelector('header');
-          // Fallback to 80px if header isn't found, which is 5rem (h-20)
-          const headerHeight = header ? header.offsetHeight : 80;
-          
-          const elementPosition = targetElement.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth',
-          });
-        }
-      }
-    };
-
-    const links = document.querySelectorAll('a[href^="#"]');
-    links.forEach(link => link.addEventListener('click', handleSmoothScroll as EventListener));
-
-    // Cleanup function to remove event listeners on component unmount
-    return () => {
-      links.forEach(link => link.removeEventListener('click', handleSmoothScroll as EventListener));
-    };
   }, []);
-
-  const toggleTheme = () => {
-    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
-  };
 
   const HomePage = () => (
     <>
       <Hero />
-      <Services />
+      <Values />
+      <Portfolio />
+      <Features />
+      <About />
       <CallToAction 
         title="Não encontrou o que procurava?" 
         subtitle="Desenvolvemos soluções personalizadas para atender exatamente às suas necessidades específicas."
-        primaryButtonText="FALE COM NOSSOS ESPECIALISTAS"
-        primaryButtonLink="#faq"
+        primaryButtonText="Peça um Orçamento"
+        primaryButtonLink="/chatbot-placeholder"
+        variant="budget"
       />
-      <About />
-      <Values />
+      <Testimonials />
+      <ReliableAgency />
+      <FAQ />
+      <Pricing />
+      <ProfessionalDevelopment />
+      <NicheServices />
       <CallToAction 
         title="Pronto para transformar sua visão em realidade?"
         subtitle="Junte-se a dezenas de empresas que já confiam em nossa expertise para impulsionar seus negócios."
-        primaryButtonText="QUERO INICIAR MEU PROJETO"
-        primaryButtonLink="#faq"
+        primaryButtonText="Peça um Orçamento"
+        primaryButtonLink="/chatbot-placeholder"
+        variant="budget"
       />
-      <Portfolio />
-      <CallToAction 
-        title="Gostou do que viu? Qual será o próximo caso de sucesso?"
-        subtitle="Transforme sua ideia em realidade com a mesma qualidade e dedicação que aplicamos em todos os nossos projetos."
-        primaryButtonText="SOLICITAR CONSULTA GRATUITA"
-        primaryButtonLink="#faq"
-      />
-      <FAQ />
     </>
   );
 
   return (
-    <div className="text-slate-700 dark:text-slate-400 transition-colors duration-300">
-      <Header theme={theme} toggleTheme={toggleTheme} />
-      <main className="bg-white dark:bg-neutral-950">
+    <div className="bg-[var(--domo-bg)] selection:bg-white selection:text-black w-full relative">
+      <Header />
+      <main className="w-full">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/servico/:serviceId" element={<ServiceDetail />} />
+          <Route path="/chatbot-placeholder" element={<ChatbotPlaceholder />} />
         </Routes>
       </main>
       <Footer />
       <FloatingWhatsAppButton />
+      <AutoPopup />
       <CookieBanner />
     </div>
   );
