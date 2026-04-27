@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { motion, useMotionValue, useTransform, animate, AnimatePresence } from 'framer-motion';
-import { client } from '../lib/contentful';
+import { PORTFOLIO_PROJECTS } from '../constants';
 import { LightningBoltIcon, ArrowRightIcon } from './icons';
 import AnimateOnScroll from './AnimateOnScroll';
 
@@ -44,12 +44,12 @@ const PortfolioCard = ({ project, index, STEP, slideW, containerW, trackX, isMob
             }}
             onClick={onClick}
         >
-            <div className="w-full rounded-2xl overflow-hidden shadow-2xl relative group/card">
+            <div className="w-full aspect-[1904/932] rounded-2xl overflow-hidden shadow-2xl relative group/card">
                 <img
                     src={project.image}
                     alt={project.title}
                     draggable={false}
-                    className="w-full h-auto block pointer-events-none"
+                    className="w-full h-full object-cover block pointer-events-none"
                 />
                 
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -70,36 +70,6 @@ const Portfolio: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [containerW, setContainerW] = useState(1200);
     const [isMobile, setIsMobile] = useState(false);
-    const [rawSlides, setRawSlides] = useState<any[]>([]); // Dados do CMS
-    const [loading, setLoading] = useState(true);
-
-    /* Busca dados no Contentful */
-    useEffect(() => {
-        const fetchProjects = async () => {
-            try {
-                const response = await client.getEntries({
-                    content_type: 'domuTech', 
-                    order: ['-sys.createdAt'],
-                    limit: 15, // Sensei diz: 91 projetos travam o navegador. 15-20 é o ideal para performance.
-                });
-
-                const formatted = response.items.map((item: any) => ({
-                    title: item.fields.title,
-                    image: (item.fields.image as any)?.fields?.file?.url ? `https:${(item.fields.image as any).fields.file.url}` : '',
-                    tag: item.fields.category || 'Criação de Sites',
-                    link: item.fields.link || '#',
-                }));
-
-                setRawSlides(formatted);
-            } catch (error) {
-                console.error('ERRO CRÍTICO NO CONTENTFUL:', error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchProjects();
-    }, []);
 
     /* Geometria dinâmica baseada no viewport */
     useEffect(() => {
@@ -111,8 +81,13 @@ const Portfolio: React.FC = () => {
         return () => window.removeEventListener('resize', checkMobile);
     }, []);
 
+    /* Slides reais (limitados a 6 para performance) */
+    const rawSlides = PORTFOLIO_PROJECTS.filter(p => p.image).slice(0, 6);
+
     /* Slides reais e triplicados (Só triplica se tiver 3 ou mais pra fazer o loop infinito) */
     const N         = rawSlides.length;
+    if (N === 0) return null; // Trava de segurança: não renderiza se não tiver projeto
+    
     const shouldLoop = N >= 3;
     const extSlides = shouldLoop ? [...rawSlides, ...rawSlides, ...rawSlides] : rawSlides;
     const startIndex = shouldLoop ? N : 0;
@@ -131,15 +106,6 @@ const Portfolio: React.FC = () => {
 
     const trackX = useMotionValue(sidePad - startIndex * STEP); // posição inicial
 
-    /* Sincroniza o índice real e a posição do track quando os slides carregam */
-    useEffect(() => {
-        if (rawSlides.length > 0) {
-            const start = rawSlides.length >= 3 ? rawSlides.length : 0;
-            setCurrent(start);
-            currentRef.current = start;
-            trackX.set(sidePad - start * STEP);
-        }
-    }, [rawSlides.length, sidePad, STEP, trackX]);
 
     /* Real index para a info-bar (0..N-1) */
     const realIndex = shouldLoop ? (((current % N) + N) % N) : current;
@@ -179,7 +145,7 @@ const Portfolio: React.FC = () => {
                 },
             });
         },
-        [N, sidePad, STEP, trackX],
+        [N, sidePad, STEP, trackX, shouldLoop, startIndex],
     );
 
     /* ── Medir container ──────────────────────────────────────────────────── */
@@ -221,12 +187,9 @@ const Portfolio: React.FC = () => {
     };
 
     /* ── Render ─────────────────────────────────────────────────────────────── */
-    if (loading || rawSlides.length === 0) {
-        return <div className="py-20 text-center text-white/20">Carregando portfólio profissional...</div>;
-    }
 
     return (
-        <section id="portfolio" className="py-10 md:py-32 bg-[var(--domo-bg)] overflow-hidden">
+        <section id="portfolio" className="py-10 md:py-32 bg-[var(--domu-bg)] overflow-hidden">
             <div className="container mx-auto px-4">
 
                 {/* ── Header ─────────────────────────────────────────────── */}
@@ -235,7 +198,7 @@ const Portfolio: React.FC = () => {
                         <span className="text-[#a1a1a1] font-black text-[9px] md:text-[11px] uppercase tracking-[0.4em] mb-4 block">
                             PROJETOS DE ALTA PERFORMANCE
                         </span>
-                        <h2 className="h2-domo text-gradient mb-6 md:mb-8">
+                        <h2 className="h2-domu text-gradient mb-6 md:mb-8">
                             NOSSO PORTFÓLIO
                         </h2>
                         <div className="w-16 h-1 bg-white/10 mx-auto rounded-full"></div>
@@ -362,14 +325,15 @@ const Portfolio: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {rawSlides.slice(0, 3).map((project, index) => (
                         <AnimateOnScroll key={`g${index}`} delay={index * 100}>
-                            <div className="group bg-[var(--domo-surface-1)] rounded-2xl overflow-hidden shadow-md border border-white/5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5">
+                            <div className="group bg-[var(--domu-surface-1)] rounded-2xl overflow-hidden shadow-md border border-white/5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5">
 
-                                {/* Imagem na proporção natural — sem corte */}
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="w-full h-auto block opacity-80 group-hover:opacity-100 transition-opacity"
-                                />
+                                <div className="w-full aspect-[1904/932] overflow-hidden">
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover block opacity-80 group-hover:opacity-100 transition-opacity"
+                                    />
+                                </div>
 
                                 {/* Área de texto */}
                                 <div className="p-5">
@@ -409,7 +373,7 @@ const Portfolio: React.FC = () => {
                 <div className="mt-20 text-center">
                     <a
                         href="#contact"
-                        className="btn-domo-primary group"
+                        className="btn-domu-primary group"
                     >
                         <LightningBoltIcon className="w-4 h-4 fill-current" />
                         Ver todo o portfólio

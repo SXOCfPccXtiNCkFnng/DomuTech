@@ -9,8 +9,8 @@ import {
 
 export const NAV_LINKS = [
     { name: 'Home', href: '/#home' },
+    { name: 'Serviços', href: '/#services' },
     { name: 'Portfólio', href: '/#portfolio' },
-    { name: 'Preços', href: '/#pricing' },
     { name: 'Orçamento', href: '/chatbot-placeholder' },
 ];
 
@@ -23,21 +23,20 @@ export const FOOTER_INSTITUCIONAL = [
 ];
 
 export const FOOTER_SERVICOS = [
+    { name: 'Soluções IA & Automação', href: '/servico/automacao-com-ia' },
     { name: 'Site Sob Medida', href: '/servico/site-sob-medida' },
-    { name: 'Criação de Sites Baratos', href: '/servico/expresso' },
-    { name: 'Criação de E-commerce', href: '/servico/ecommerce' },
-    { name: 'Consultoria SEO', href: '/servico/seo' },
-    { name: 'Criação de Chatbot', href: '/chatbot-placeholder' },
-    { name: 'Desenvolvimento de Sites WordPress', href: '/servico/wordpress' },
-    { name: 'Software House', href: '/servico/software-house' },
+    { name: 'Sistemas & Software House', href: '/servico/software-house' },
+    { name: 'Tráfego Pago & Performance', href: '/servico/trafego-pago' },
+    { name: 'Consultoria Estratégica', href: '/servico/consultoria-tech' },
+    { name: 'Branding & Design UX', href: '/servico/experiencia-do-usuario' },
 ];
 
 export const FOOTER_SEGMENTOS = [
-    { name: 'Criação de Site para Empresas de Tecnologia', href: '/#home' },
-    { name: 'Criação de Site para Médicos', href: '/#home' },
-    { name: 'Criação de Site para Contabilidade', href: '/#home' },
-    { name: 'Criação de Site para Advogados', href: '/#home' },
-    { name: 'Criação de Site para Dentistas', href: '/#home' },
+    { name: 'Soluções Digitais para Tecnologia', href: '/#home' },
+    { name: 'Soluções Digitais para Saúde', href: '/#home' },
+    { name: 'Soluções Digitais para Contabilidade', href: '/#home' },
+    { name: 'Soluções Digitais para Advocacia', href: '/#home' },
+    { name: 'Soluções Digitais para Dentistas', href: '/#home' },
 ];
 
 export const MAIN_SERVICES: Service[] = [
@@ -55,7 +54,7 @@ export const MAIN_SERVICES: Service[] = [
         ],
         price: 'A partir de R$ 2.000',
         image: '',
-        backgroundImage: '/img/fundo-web.png'
+        backgroundImage: '/projeto/fundo-web.png'
     },
     {
         icon: AutomationIcon,
@@ -69,8 +68,8 @@ export const MAIN_SERVICES: Service[] = [
             'Integração com CRMs'
         ],
         price: 'Consultar Projeto',
-        image: '/img/img-automacao.png',
-        backgroundImage: '/img/img-fundo-automacao.png'
+        image: '/projeto/img-automacao.png',
+        backgroundImage: '/projeto/img-fundo-automacao.png'
     },
     {
         icon: GlobeIcon,
@@ -85,8 +84,8 @@ export const MAIN_SERVICES: Service[] = [
             'Suporte Técnico'
         ],
         price: 'A partir de R$ 40/ano',
-        image: '/img/img-marca.png',
-        backgroundImage: '/img/fundo-dominio.jpg'
+        image: '/projeto/img-marca.png',
+        backgroundImage: '/projeto/fundo-dominio.jpg'
     },
     {
         icon: TechConsultingIcon,
@@ -100,8 +99,8 @@ export const MAIN_SERVICES: Service[] = [
             'Suporte Técnico Dedicado'
         ],
         price: 'A partir de R$ 1.500',
-        image: '/img/img-integracoes.png',
-        backgroundImage: '/img/img-fundo-integracao.png'
+        image: '/projeto/img-integracoes.png',
+        backgroundImage: '/projeto/img-fundo-integracao.png'
     }
 ];
 
@@ -149,9 +148,9 @@ export const COMPANY_VALUES: Value[] = [
 export const PORTFOLIO_PROJECTS: Project[] = [
     {
         tag: 'Criação de Sites',
-        title: 'DOMO - Site Institucional',
-        description: 'Site institutional moderno para a DOMO, com foco em apresentação clara de serviços, performance e conversão de visitantes.',
-        image: '/img/img-AlanX.png',
+        title: 'Domu tech - Site Institucional',
+        description: 'Site institutional moderno para a Domu tech, com foco em apresentação clara de serviços, performance e conversão de visitantes.',
+        image: '/projeto/img-AlanX.png',
         link: 'https://alanx.netlify.app/',
         isFeatured: true,
     },
@@ -159,7 +158,7 @@ export const PORTFOLIO_PROJECTS: Project[] = [
         tag: 'Criação de Sites',
         title: 'PetLife - Landing Page',
         description: 'Landing page da PetLife com foco em conversão, layout moderno e navegação direta para apresentar serviços e benefícios.',
-        image: '/img/img-petlife.png',
+        image: '/projeto/img-petlife.png',
         link: 'https://alanfelipem.github.io/PetLife/',
         isFeatured: true,
     },
@@ -167,21 +166,21 @@ export const PORTFOLIO_PROJECTS: Project[] = [
         tag: 'Criação de Sites',
         title: 'Portfolio Alan Felipe',
         description: 'Criação de portfólio profissional sob medida, com foco em destacar projetos, habilidades e facilitar o contato.',
-        image: '/img/img-portfolioalan.png',
+        image: '/projeto/img-portfolioalan.png',
         link: 'https://portfolio-alan-felipe.netlify.app/',
     },
     {
         tag: 'Criação de Sites',
         title: 'Landing Page - Mundo Invertido',
         description: 'Criação de landing page temática com foco em impacto visual, narrativa e conversão de visitantes.',
-        image: '/img/img-mundoinvertido.png',
+        image: '/projeto/img-mundoinvertido.png',
         link: 'https://alanfelipem.github.io/Landing-Page-no-Mundo-Invertido/',
     },
     {
         tag: 'Criação de Sites',
         title: 'Gestor de Estoque Web',
         description: 'Gestor de estoque web para controle de produtos, entradas e saídas com visão clara e organizada.',
-        image: '/img/img-gestorestoque.png',
+        image: '/projeto/img-gestorestoque.png',
         link: 'https://gestor-estoque.netlify.app',
     },
     {
@@ -191,48 +190,55 @@ export const PORTFOLIO_PROJECTS: Project[] = [
         image: '',
         link: '#',
     },
+    {
+        tag: 'Criação de Sites',
+        title: 'AGB Campinas - Site Institucional',
+        description: 'Desenvolvimento de site moderno para a AGB Campinas, com foco em performance, acessibilidade e design profissional.',
+        image: '/projeto/img-agbcampinas.png',
+        link: '#',
+    },
 ];
 
 export const FAQ_DATA: FAQItem[] = [
     {
         question: 'Qual o prazo médio de entrega?',
-        answer: 'Locais: 15-30 dias | Automações: 7-15 dias | Sistemas: 30-60 dias. O prazo pode variar dependendo da complexidade do projeto.'
+        answer: 'Tráfego & IA: 7-15 dias | Sites & Landing Pages: 15-30 dias | Sistemas: 30-60 dias. O prazo varia conforme a complexidade da solução.'
     },
     {
         question: 'Oferecem suporte pós-entrega?',
-        answer: 'Sim! 30 dias de suporte gratuito + planos de manutenção mensais para garantir que sua aplicação continue funcionando perfeitamente.'
+        answer: 'Sim! Garantimos suporte completo após a publicação + planos de manutenção para garantir que sua solução continue performando.'
     },
     {
         question: 'Como funciona o pagamento?',
-        answer: '50% na aprovação do projeto + 50% na entrega. Parcelamento disponível via cartão de crédito ou boleto bancário.'
+        answer: '50% na aprovação do projeto + 50% na entrega. Parcelamento disponível via cartão de crédito ou boleto para facilitar seu investimento.'
     },
     {
         question: 'Posso acompanhar o desenvolvimento?',
-        answer: 'Claro! Atualizações semanais + acesso ao painel de desenvolvimento para que você possa acompanhar o progresso em tempo real.'
+        answer: 'Com certeza! Você recebe atualizações constantes e acesso ao ambiente de homologação para validar cada etapa em tempo real.'
     },
     {
-        question: 'Vocês fazem otimização SEO?',
-        answer: 'Sim, todos os nossos sites são entregues com otimização SEO básica e estrutura preparada para rankeamento no Google.'
+        question: 'As soluções são otimizadas?',
+        answer: 'Sim, todos os nossos projetos seguem as melhores práticas de performance, SEO e segurança para garantir máxima visibilidade.'
     },
     {
-        question: 'O site será responsivo?',
-        answer: 'Com certeza. Desenvolvemos interfaces que se adaptam perfeitamente a celulares, tablets e computadores de todos os tamanhos.'
+        question: 'Os projetos são responsivos?',
+        answer: 'Sim. Todas as interfaces que desenvolvemos se adaptam perfeitamente a qualquer tamanho de tela: celulares, tablets e desktops.'
     },
     {
-        question: 'Vou conseguir atualizar o conteúdo sozinho?',
-        answer: 'Sim! Integramos um painel administrativo intuitivo para que você possa trocar textos e fotos sem depender de programadores.'
+        question: 'Consigo gerenciar o conteúdo sozinho?',
+        answer: 'Sim! Nossas soluções incluem painéis administrativos intuitivos para que você tenha autonomia total sobre seus ativos digitais.'
     },
     {
-        question: 'Vocês criam a identidade visual também?',
-        answer: 'Sim, temos pacotes que incluem criação de logotipo, manual de marca e toda a parte de design gráfico.'
+        question: 'Trabalham com projetos sob medida?',
+        answer: 'Sim, somos especialistas em desenvolver ferramentas personalizadas que resolvem dores específicas do seu modelo de negócio.'
     },
     {
         question: 'Como é feita a hospedagem?',
-        answer: 'Podemos hospedar em nossos servidores otimizados ou configurar no servidor da sua preferência. Damos todo o suporte técnico.'
+        answer: 'Oferecemos infraestrutura de alta performance ou configuramos no servidor da sua preferência com total apoio técnico.'
     },
     {
-        question: 'Trabalham com lojas virtuais (E-commerce)?',
-        answer: 'Sim! Desenvolvemos e-commerces robustos com gestão de estoque, integração com meios de pagamento e cálculo de frete.'
+        question: 'Atendem e-commerce e vendas online?',
+        answer: 'Sim! Implementamos ecossistemas completos de vendas com gestão de estoque, pagamentos e logística integrada.'
     }
 ];
 

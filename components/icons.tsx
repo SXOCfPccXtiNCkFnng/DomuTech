@@ -2,7 +2,7 @@ import React from 'react';
 
 export const CodeIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
     <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
     </svg>
 );
 
@@ -14,13 +14,25 @@ export const CheckIcon = ({ className = "w-5 h-5" }: { className?: string }) => 
 
 export const ArrowRightIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
     <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+    </svg>
+);
+
+export const BrandArrowIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+        <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+);
+
+export const ArrowUpRightIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
 );
 
 export const AutomationIcon = ({ className = "w-8 h-8" }: { className?: string }) => (
     <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z" />
     </svg>
 );
 
@@ -32,7 +44,7 @@ export const MobileIcon = ({ className = "w-8 h-8" }: { className?: string }) =>
 
 export const PaletteIcon = ({ className = "w-8 h-8" }: { className?: string }) => (
     <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
+       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0-2 0" />
        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0-2 0" />
        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0-2 0" />
@@ -77,23 +89,23 @@ export const ClockIcon = ({ className = "w-8 h-8" }: { className?: string }) => 
 
 export const TargetIcon = ({ className = "w-8 h-8" }: { className?: string }) => (
     <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v2" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19v2" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12h2" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 12h2" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v2" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 19v2" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12h2" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 12h2" />
     </svg>
 );
 
 export const GlobeIcon = ({ className = "w-8 h-8" }: { className?: string }) => (
     <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <circle cx="12" cy="12" r="9" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12h18" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3c3.5 2.5 3.5 15.5 0 18" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3c-3.5 2.5-3.5 15.5 0 18" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 7.5h14" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 16.5h14" />
+        <circle cx="12" cy="12" r="9" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12h18" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3c3.5 2.5 3.5 15.5 0 18" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3c-3.5 2.5-3.5 15.5 0 18" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 7.5h14" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 16.5h14" />
     </svg>
 );
 
@@ -177,6 +189,6 @@ export const ChevronDownDoubleIcon = ({ className = "w-6 h-6" }: { className?: s
 
 export const ChevronDownIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
     <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
     </svg>
 );

@@ -24,17 +24,17 @@ body {
 }
 
 :root {
-    --domo-bg: #1f1f1f;
-    --domo-white: #ffffff;
-    --domo-anthracite: #ffffff;
-    --domo-surface-1: #2a2a2a;
-    --domo-surface-2: #333333;
-    --domo-surface-3: #3d3d3d;
-    --domo-primary: #ffffff;
-    --domo-secondary: #a1a1a1;
-    --domo-muted: #717171;
-    --domo-border: rgba(255, 255, 255, 0.1);
-    
+    --domu-bg: #1f1f1f;
+    --domu-white: #ffffff;
+    --domu-anthracite: #ffffff;
+    --domu-surface-1: #2a2a2a;
+    --domu-surface-2: #333333;
+    --domu-surface-3: #3d3d3d;
+    --domu-primary: #ffffff;
+    --domu-secondary: #a1a1a1;
+    --domu-muted: #717171;
+    --domu-border: rgba(255, 255, 255, 0.1);
+
     --upsites-blue-dark: #000000;
     --upsites-blue: #000000;
     --upsites-green: #ffffff;
@@ -50,22 +50,26 @@ body {
     font-family: "Inter", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--domo-bg);
-    color: var(--domo-primary);
+    background-color: var(--domu-bg);
+    color: var(--domu-primary);
     -webkit-font-smoothing: antialiased;
 }
 
 /* TIPOGRAFIA PADRONIZADA (Sensei: use classes para não repetir tamanho na mão) */
-.h1-domo {
-    font-size: clamp(32px, 8vw, 68px); /* Reduzido de 9vw para 8vw */
+.h1-domu {
+    font-size: clamp(32px, 7vw, 60px); /* Ajustado para 60px */
     font-weight: 900;
     line-height: 1.0; /* Aumentado ligeiramente de 0.95 */
     text-transform: uppercase;
     letter-spacing: -0.04em; /* Menos agressivo */
 }
 
-.h2-domo {
-    font-size: clamp(28px, 5vw, 44px); /* Aumentado o mínimo e o máximo para mais impacto */
+.h2-domu {
+    font-size: clamp(
+        28px,
+        5vw,
+        44px
+    ); /* Aumentado o mínimo e o máximo para mais impacto */
     font-weight: 900;
     line-height: 1.1;
     text-transform: uppercase;
@@ -73,7 +77,7 @@ body {
     color: #ffffff;
 }
 
-.h3-domo {
+.h3-domu {
     font-size: clamp(20px, 3vw, 28px);
     font-weight: 900;
     line-height: 1.2;
@@ -82,19 +86,33 @@ body {
 }
 
 .text-gradient {
-    background: linear-gradient(to bottom right, #ffffff 30%, rgba(255, 255, 255, 0.4) 100%);
+    background: linear-gradient(
+        to bottom right,
+        #ffffff 30%,
+        rgba(255, 255, 255, 0.4) 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 /* utilitários de texto */
-.text-muted { color: var(--domo-muted); }
-.text-secondary { color: var(--domo-secondary); }
-.text-dark { color: var(--domo-text-dark); }
+.text-muted {
+    color: var(--domu-muted);
+}
+.text-secondary {
+    color: var(--domu-secondary);
+}
+.text-dark {
+    color: var(--domu-text-dark);
+}
 
-/* BOTÕES - Padrão DOMO Digital (Responsivo) */
-.btn-domo-primary, .btn-domo-outline, .btn-whatsapp, .btn-budget, .btn-view-all {
+/* BOTÕES - Padrão Domu tech (Responsivo) */
+.btn-domu-primary,
+.btn-domu-outline,
+.btn-whatsapp,
+.btn-budget,
+.btn-view-all {
     padding: 12px 28px;
     border-radius: 100px;
     font-weight: 900;
@@ -113,7 +131,11 @@ body {
 }
 
 @media (min-width: 768px) {
-    .btn-domo-primary, .btn-domo-outline, .btn-whatsapp, .btn-budget, .btn-view-all {
+    .btn-domu-primary,
+    .btn-domu-outline,
+    .btn-whatsapp,
+    .btn-budget,
+    .btn-view-all {
         padding: 16px 40px;
         font-size: 12.5px;
         letter-spacing: 0.15em;
@@ -122,15 +144,15 @@ body {
 }
 
 /* Botão com Brilho (Shimmer) - Para Peça um Orçamento / Chatbot */
-.btn-budget, .btn-domo-primary {
+.btn-budget, .btn-domu-primary {
     background-color: #ffffff !important;
     color: #1f1f1f !important;
     border: 2px solid #ffffff !important;
     box-shadow: 0 10px 20px -10px rgba(255, 255, 255, 0.15);
 }
 
-.btn-budget::after, .btn-domo-primary::after {
-    content: '';
+.btn-budget::after, .btn-domu-primary::after {
+    content: "";
     position: absolute;
     top: 0;
     left: -120px;
@@ -146,11 +168,11 @@ body {
     pointer-events: none;
 }
 
-.btn-budget:hover::after, .btn-domo-primary:hover::after {
+.btn-budget:hover::after, .btn-domu-primary:hover::after {
     animation: shimmer-premium 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-.btn-budget:hover, .btn-domo-primary:hover {
+.btn-budget:hover, .btn-domu-primary:hover {
     background-color: transparent !important;
     color: #ffffff !important;
     transform: translateY(-2px);
@@ -164,11 +186,10 @@ body {
 }
 
 .btn-whatsapp:hover {
-    background-color: #25D366 !important;
-    border-color: #25D366 !important;
+    background-color: #25d366 !important;
+    border-color: #25d366 !important;
     color: #ffffff !important;
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.4);
 }
 
 /* Botão Ver Todos - Animação Diferente */
@@ -185,13 +206,13 @@ body {
     transform: scale(1.05);
 }
 
-.btn-domo-outline {
+.btn-domu-outline {
     background-color: transparent !important;
     color: #ffffff !important;
     border: 2px solid rgba(255, 255, 255, 0.2) !important;
 }
 
-.btn-domo-outline:hover {
+.btn-domu-outline:hover {
     background-color: #ffffff !important;
     color: #1f1f1f !important;
     border-color: #ffffff !important;
@@ -204,19 +225,33 @@ section {
     z-index: 1;
 }
 
-.bg-surface-1 { background-color: var(--domo-surface-1); }
-.bg-surface-2 { background-color: var(--domo-surface-2); }
+.bg-surface-1 {
+    background-color: var(--domu-surface-1);
+}
+.bg-surface-2 {
+    background-color: var(--domu-surface-2);
+}
 
 /* Animations focus */
 @keyframes infinite-scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
 }
-.animate-infinite-scroll { animation: infinite-scroll 40s linear infinite; }
+.animate-infinite-scroll {
+    animation: infinite-scroll 40s linear infinite;
+}
 
 @keyframes shimmer-premium {
-    0% { left: -120px; }
-    100% { left: 100%; }
+    0% {
+        left: -120px;
+    }
+    100% {
+        left: 100%;
+    }
 }
 
 .animate-shimmer-premium-slow {
@@ -224,11 +259,48 @@ section {
 }
 
 @keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
 }
 .animate-shimmer {
     animation: shimmer 2.5s infinite;
+}
+
+/* Novos Utilitários p/ Hero Organizado */
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mask-fade-sides {
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 15%,
+        black 85%,
+        transparent
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 15%,
+        black 85%,
+        transparent
+    );
 }
 
 ::selection {
@@ -236,14 +308,20 @@ section {
     color: #1f1f1f;
 }
 
-::-webkit-scrollbar { width: 16px; }
-::-webkit-scrollbar-track { background: #121212; }
-::-webkit-scrollbar-thumb { 
-    background: #3d3d3d; 
-    border-radius: 10px; 
+::-webkit-scrollbar {
+    width: 16px;
+}
+::-webkit-scrollbar-track {
+    background: #121212;
+}
+::-webkit-scrollbar-thumb {
+    background: #3d3d3d;
+    border-radius: 10px;
     border: 4px solid #121212;
 }
-::-webkit-scrollbar-thumb:hover { background: #4a4a4a; }
+::-webkit-scrollbar-thumb:hover {
+    background: #4a4a4a;
+}
 
 .custom-scrollbar::-webkit-scrollbar {
     width: 6px;

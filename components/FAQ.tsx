@@ -4,22 +4,22 @@ import { FAQ_DATA } from '../constants';
 import AnimateOnScroll from './AnimateOnScroll';
 
 const FAQ: React.FC = () => {
-    // FAQ_DATA dividido em duas colunas pra match perfeito com DOMO Digital
+    // FAQ_DATA dividido em duas colunas pra match perfeito com Domu tech
     const midPoint = Math.ceil(FAQ_DATA.length / 2);
     const firstCol = FAQ_DATA.slice(0, midPoint);
     const secondCol = FAQ_DATA.slice(midPoint);
 
     return (
-        <section id="faq" className="py-10 md:py-16 bg-[var(--domo-bg)]">
+        <section id="faq" className="py-10 md:py-16 bg-[var(--domu-bg)]">
             <div className="container mx-auto px-4">
                 
-                {/* Header Style DOMO Digital */}
+                {/* Header Style Domu tech */}
                 <AnimateOnScroll>
                     <div className="text-center mb-16">
                         <span className="text-[#a1a1a1] font-black text-[10px] md:text-[11px] uppercase tracking-[0.25em] mb-4 block">
-                            EMPRESA DE CRIAÇÃO DE SITES
+                            SOLUÇÕES DIGITAIS DE PONTA
                         </span>
-                        <h2 className="h2-domo text-white mb-4">
+                        <h2 className="h2-domu text-white mb-4">
                             Perguntas Frequentes
                         </h2>
                     </div>
@@ -59,7 +59,7 @@ const FAQItem: React.FC<{ question: string, answer: string }> = ({ question, ans
                     {question}
                 </span>
                 
-                {/* Icone Chevron Style DOMO Digital */}
+                {/* Icone Chevron Style Domu tech */}
                 <div className={`flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
                     <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth={3} className="w-4 h-4">
                         <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />

@@ -30,7 +30,7 @@ const CUSTOM_FEATURES = [
 
 const Pricing: React.FC = () => {
     return (
-        <section id="pricing" className="py-10 md:py-24 bg-[var(--domo-bg)] relative overflow-hidden lg:min-h-[90vh] flex items-center">
+        <section id="pricing" className="py-10 md:py-24 bg-[var(--domu-bg)] relative overflow-hidden lg:min-h-[90vh] flex items-center">
             {/* Background elements - more subtle */}
             <div className="absolute top-0 left-0 w-full h-full bg-white/[0.01] pointer-events-none"></div>
 
@@ -39,7 +39,7 @@ const Pricing: React.FC = () => {
                     
                     {/* Card 1: Site Expresso */}
                     <AnimateOnScroll>
-                        <div className="group bg-[var(--domo-surface-1)] rounded-[3rem] p-8 md:p-10 shadow-2xl border border-white/5 hover:border-white/10 transition-all duration-500 h-full flex flex-col hover:-translate-y-1">
+                        <div className="group bg-[var(--domu-surface-1)] rounded-[3rem] p-8 md:p-10 shadow-2xl border border-white/5 hover:border-white/10 transition-all duration-500 h-full flex flex-col hover:-translate-y-1">
                             <div className="text-center mb-6">
                                 <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-7 h-7">
@@ -92,12 +92,12 @@ const Pricing: React.FC = () => {
                             <span className="text-[#a1a1a1] font-black text-[10px] uppercase tracking-[0.3em] mb-6 block">
                                 PLANOS E PREÇOS
                             </span>
-                            <h2 className="h2-domo text-gradient mb-8">
+                            <h2 className="h2-domu text-gradient mb-8">
                                 CONTRATE UM SITE<br/>PROFISSIONAL
                             </h2>
                             <div className="relative w-48 h-48 mb-8 group mx-auto">
                                 <div className="absolute inset-0 bg-white/5 rounded-full blur-3xl scale-125"></div>
-                                <img src="/logos/logobranca.png" alt="DOMO Digital" className="relative z-10 w-full h-full object-contain animate-float opacity-90" />
+                                <img src="/logos/logobranca.png" alt="Domu tech" className="relative z-10 w-full h-full object-contain animate-float opacity-90" />
                             </div>
                             <p className="text-[#a1a1a1] text-[15px] font-medium leading-relaxed mb-8 max-w-[280px] mx-auto">
                                 Soluções inteligentes para elevar sua presença digital ao próximo nível.
@@ -117,7 +117,7 @@ const Pricing: React.FC = () => {
 
                     {/* Card 2: Site Sob Medida */}
                     <AnimateOnScroll delay={300}>
-                        <div className="group bg-[var(--domo-surface-2)] rounded-[3rem] p-8 md:p-10 shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-500 h-full flex flex-col hover:-translate-y-1">
+                        <div className="group bg-[var(--domu-surface-2)] rounded-[3rem] p-8 md:p-10 shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-500 h-full flex flex-col hover:-translate-y-1">
                             <div className="text-center mb-6">
                                 <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-7 h-7">

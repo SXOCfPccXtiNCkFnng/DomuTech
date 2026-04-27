@@ -6,7 +6,7 @@ const RAW_TESTIMONIALS = [
     {
         name: 'Ricardo Porcher',
         company: 'VERSI BR',
-        text: 'Tivemos um projeto desafiador em termos de prazo já que a construção do site estava ligada a um rebranding da empresa. Durante todo o processo a comunicação com o time da DOMO Digital foi muito fluida, inclusive fazendo a entrega antes do previsto. O custo-benefício do projeto também foi um fator decisivo na escolha. Parabéns ao time pelo trabalho e profissionalismo.',
+        text: 'Tivemos um projeto desafiador em termos de prazo já que a construção do site estava ligada a um rebranding da empresa. Durante todo o processo a comunicação com o time da Domu tech foi muito fluida, inclusive fazendo a entrega antes do previsto. O custo-benefício do projeto também foi um fator decisivo na escolha. Parabéns ao time pelo trabalho e profissionalismo.',
     },
     {
         name: 'Jaque Pivato',
@@ -16,17 +16,17 @@ const RAW_TESTIMONIALS = [
     {
         name: 'Flora Nicotero',
         company: 'EDUARDO VEÍCULOS ANTIGOS',
-        text: 'Tivemos uma experiência incrível com a DOMO Digital. Apesar de não ser uma pessoa nada tecnológica, achei super fácil usar a ferramenta de feedback de cada página do site. É muito intuitivo. Eles até sugeriram uma foto linda e profissional que deixou o site com um look bem moderno. Tudo fluiu de forma muito profissional, suave e eficiente sem qualquer stress. O mais bacana é que o site ficou lindo, dinâmico e contemporâneo. Super recomendo! Experiência Nota 10!',
+        text: 'Tivemos uma experiência incrível com a Domu tech. Apesar de não ser uma pessoa nada tecnológica, achei super fácil usar a ferramenta de feedback de cada página do site. É muito intuitivo. Eles até sugeriram uma foto linda e profissional que deixou o site com um look bem moderno. Tudo fluiu de forma muito profissional, suave e eficiente sem qualquer stress. O mais bacana é que o site ficou lindo, dinâmico e contemporâneo. Super recomendo! Experiência Nota 10!',
     },
     {
         name: 'Daniele Neves',
         company: 'ALDANTH',
-        text: 'Com a DOMO Digital tivemos um upgrade incrível do nosso site. E o melhor: todo o processo de desenvolvimento do site foi extremamente simplificado, mas sem deixar de atender a todas as nossas demandas. Agradeço à gerente de projetos Thais Miranda que nos acompanhou durante o desenvolvimento web com toda a paciência do mundo.',
+        text: 'Com a Domu tech tivemos um upgrade incrível do nosso site. E o melhor: todo o processo de desenvolvimento do site foi extremamente simplificado, mas sem deixar de atender a todas as nossas demandas. Agradeço à gerente de projetos Thais Miranda que nos acompanhou durante o desenvolvimento web com toda a paciência do mundo.',
     },
     {
         name: 'Marco Castello',
         company: 'ESSENTIAL IDIOMAS',
-        text: 'Estamos muito satisfeitos com todo o processo de desenvolvimento de site para a Essential. A equipe da DOMO Digital foi sempre muito atenciosa, com bons insights e muito dispostos a nos atender. O resultado final do site foi excelente. Tanto em termos de performance quanto em SEO, nossa empresa melhorou bastante.',
+        text: 'Estamos muito satisfeitos com todo o processo de desenvolvimento de site para a Essential. A equipe da Domu tech foi sempre muito atenciosa, com bons insights e muito dispostos a nos atender. O resultado final do site foi excelente. Tanto em termos de performance quanto em SEO, nossa empresa melhorou bastante.',
     },
 ];
 
@@ -106,7 +106,7 @@ const Testimonials: React.FC = () => {
     };
 
     return (
-        <section id="testimonials" className="py-10 md:py-16 bg-[var(--domo-bg)] relative overflow-hidden">
+        <section id="testimonials" className="py-10 md:py-16 bg-[var(--domu-bg)] relative overflow-hidden">
             {/* Background elements */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-white/[0.01] rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -117,7 +117,7 @@ const Testimonials: React.FC = () => {
                         <span className="text-[#a1a1a1] font-black text-[10px] md:text-[11px] uppercase tracking-[0.4em] mb-6 block">
                             FEEDBACK DOS CLIENTES
                         </span>
-                        <h2 className="h2-domo text-gradient mb-8">
+                        <h2 className="h2-domu text-gradient mb-8">
                             CLIENTES E AVALIAÇÕES
                         </h2>
                         <div className="w-16 h-1 bg-white/10 mx-auto rounded-full"></div>
@@ -210,7 +210,7 @@ const Testimonials: React.FC = () => {
                         </div>
                     </div>
                     <p className="text-[#a1a1a1] text-[13px] font-bold opacity-60 uppercase tracking-widest max-w-sm text-center md:text-right">
-                        DOMO Digital • Agência de sites em São Paulo
+                        Domu tech • Agência de sites em São Paulo
                     </p>
                 </div>
             </div>

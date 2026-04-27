@@ -26,12 +26,12 @@ const ReliableAgency: React.FC = () => {
                     {/* Coluna Esquerda - Texto Institucional */}
                     <AnimateOnScroll>
                         <div className="max-w-xl text-center lg:text-left mx-auto lg:mx-0">
-                            <h2 className="h2-domo text-gradient mb-8 md:mb-12">
+                            <h2 className="h2-domu text-gradient mb-8 md:mb-12">
                                 A AGÊNCIA MAIS CONFIÁVEL<br className="hidden md:block" /> DO BRASIL
                             </h2>
                             <div className="space-y-8 text-[#a1a1a1] text-[15px] md:text-[17px] leading-relaxed">
                                 <p>
-                                    Desde 2016, a DOMO Digital é uma empresa de criação de sites profissionais reconhecida no Brasil, com <span className="text-[#FFFFFF] font-bold underline cursor-default">mais de 10 avaliações positivas no Google</span>. Desenvolvemos sites personalizados com foco em SEO, geração de leads e performance.
+                                    Desde 2016, a Domu tech é uma empresa de criação de sites profissionais reconhecida no Brasil, com <span className="text-[#FFFFFF] font-bold underline cursor-default">mais de 10 avaliações positivas no Google</span>. Desenvolvemos sites personalizados com foco em SEO, geração de leads e performance.
                                 </p>
                                 <p>
                                     A criação de sites profissionais vai além do design. Envolve estratégia, tecnologia e entendimento do negócio. Atuamos como uma agência de desenvolvimento de sites que entrega projetos rápidos, otimizados para o Google e preparados para converter visitantes em clientes.

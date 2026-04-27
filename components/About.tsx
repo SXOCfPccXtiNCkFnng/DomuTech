@@ -3,7 +3,7 @@ import { ABOUT_METRICS } from '../constants';
 import AnimateOnScroll from './AnimateOnScroll';
 import { LightningBoltIcon, WhatsAppIcon } from './icons';
 
-/* ── Chips de serviço (Fidelity to DOMO Digital: Fotos / Vídeos / Textos) ─────────── */
+/* ── Chips de serviço (Fidelity to DOMU TECH: Fotos / Vídeos / Textos) ─────────── */
 const CHIPS = [
     {
         label: 'Fotos',
@@ -37,7 +37,7 @@ const CHIPS = [
 
 const About: React.FC = () => {
     return (
-        <section id="about" className="py-10 md:py-12 bg-[var(--domo-bg)] relative overflow-hidden">
+        <section id="about" className="py-10 md:py-12 bg-[var(--domu-bg)] relative overflow-hidden">
             {/* Background elements */}
             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/[0.01] rounded-full blur-[80px] translate-x-1/2 -translate-y-1/2"></div>
 
@@ -49,15 +49,15 @@ const About: React.FC = () => {
                     <AnimateOnScroll>
                         <div className="max-w-xl mx-auto lg:mx-0">
                             <span className="text-[#a1a1a1] font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">
-                                CRIAÇÃO DE SITES GERENCIÁVEIS
+                                SOLUÇÕES DIGITAIS INTELIGENTES
                             </span>
-                            <h2 className="h2-domo text-gradient mb-6">
+                            <h2 className="h2-domu text-gradient mb-6">
                                 Sua Empresa Com total<br />Autonomia no Digital
                             </h2>
 
                             <div className="space-y-4 text-[#a1a1a1] text-[15px] md:text-[16px] leading-relaxed mb-8">
                                 <p>
-                                    Na DOMO Digital, desenvolvemos sites profissionais equipados com um painel administrativo intuitivo. Você tem o controle total para gerenciar conteúdos em tempo real.
+                                    Na DOMU TECH, desenvolvemos ecossistemas profissionais preparados para escala. Você ganha controle total para gerenciar seus ativos digitais e dados em tempo real, sem burocracia.
                                 </p>
                             </div>
 
@@ -122,7 +122,7 @@ const About: React.FC = () => {
                             <div className="relative z-10 w-full group">
                                 <img 
                                     src="/logos/logobranca.png" 
-                                    alt="Domo Digital Branding" 
+                                    alt="Domu tech Branding" 
                                     className="w-[70%] h-auto opacity-70 max-w-sm mx-auto drop-shadow-2xl animate-float"
                                     loading="lazy"
                                 />

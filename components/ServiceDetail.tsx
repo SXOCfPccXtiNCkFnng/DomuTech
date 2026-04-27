@@ -162,7 +162,7 @@ const ServiceDetail: React.FC = () => {
             </section>
 
             {/* Main Content */}
-            <section className="py-12 bg-[var(--domo-bg)]">
+            <section className="py-12 bg-[var(--domu-bg)]">
                 <div className="container mx-auto px-4">
                     {/* Detailed Information */}
                     {detailedInfo && (
@@ -275,7 +275,7 @@ const ServiceDetail: React.FC = () => {
 
                     {/* CTA Section */}
                     <AnimateOnScroll>
-                        <div className="mt-20 relative bg-[var(--domo-surface-1)] p-8 md:p-12 rounded-3xl text-center overflow-hidden shadow-2xl border border-white/10">
+                        <div className="mt-20 relative bg-[var(--domu-surface-1)] p-8 md:p-12 rounded-3xl text-center overflow-hidden shadow-2xl border border-white/10">
                             {/* Background decoration */}
                             <div className="absolute inset-0 opacity-10">
                                 <div className="absolute -top-24 -left-24 w-96 h-96 bg-violet-500 rounded-full blur-3xl"></div>

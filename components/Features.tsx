@@ -39,36 +39,36 @@ const FEATURES = [
         Icon:  IconResponsivo,
         color: '#ffffff',
         bg:    'rgba(255,255,255,0.05)',
-        title: 'Design Responsivo',
-        desc:  'Seu site será perfeito em qualquer tela: celular, tablet ou computador. Isso melhora a experiência de navegação do usuário, aumenta as chances de conversão e evita que visitantes desistam por dificuldade de uso. Além disso, o Google valoriza sites responsivos e melhora seu posicionamento nas buscas.',
+        title: 'Ecossistema Multiplataforma',
+        desc:  'Sua marca presente e eficiente em todos os canais digitais. Garantimos que sua solução seja adaptável e entregue uma experiência de uso impecável, seja no mobile, tablet ou desktop, maximizando o alcance do seu negócio.',
     },
     {
         Icon:  IconSEO,
         color: '#ffffff',
         bg:    'rgba(255,255,255,0.05)',
-        title: 'Site Otimizado para o Google (SEO)',
-        desc:  'Durante o desenvolvimento de sites, aplicamos as boas práticas de SEO: estrutura limpa, URLs amigáveis, tags corretas, performance e velocidade de carregamento, ou seja, mais chances do seu site ficar bem ranqueado no Google.',
+        title: 'Visibilidade & Inteligência',
+        desc:  'Não basta existir, é preciso ser encontrado. Aplicamos inteligência de dados e as melhores práticas de posicionamento orgânico para que sua empresa lidere as intenções de busca e atraia tráfego qualificado de forma constante.',
     },
     {
         Icon:  IconTech,
         color: '#ffffff',
         bg:    'rgba(255,255,255,0.05)',
-        title: 'Tecnologia Avançada para Site',
-        desc:  'Somos uma empresa de criação de sites profissionais especializada em desenvolvimento de sites WordPress. Também desenvolvemos sites em outras linguagens como React, Next.js, Vue.js e Angular entre outros.',
+        title: 'Tecnologia de Ponta',
+        desc:  'Utilizamos stacks modernas e robustas (React, Node, WordPress Avançado) para criar ferramentas rápidas, seguras e escaláveis que acompanham o crescimento da sua empresa sem limitações técnicas.',
     },
     {
         Icon:  IconConversao,
         color: '#FFFFFF',
         bg:    'rgba(255,255,255,0.05)',
-        title: 'Ferramentas de Conversão Integradas',
-        desc:  'Não basta ter um site bonito. Seu site precisa vender. Por isso, incluímos chat flutuante, pop-ups inteligentes, integração com plataformas de pagamento, formulários estratégicos, Google Analytics e conexão com redes sociais.',
+        title: 'Foco Total em Conversão',
+        desc:  'Criamos jornadas de usuário focadas em resultados. Integramos ferramentas de automação, fluxos de vendas e análises de comportamento para transformar interações digitais em oportunidades reais de negócio.',
     },
     {
         Icon:  IconLayout,
         color: '#ffffff',
         bg:    'rgba(255,255,255,0.05)',
-        title: 'Layout Personalizado',
-        desc:  'Nada de sites genéricos. Criamos layouts únicos, pensados na identidade visual da sua empresa. Cada detalhe — cores, fontes, ícones, imagens — é planejado para transmitir profissionalismo e gerar conexão com seu público.',
+        title: 'Design Estratégico',
+        desc:  'Design que comunica e vende. Desenvolvemos interfaces exclusivas que fortalecem o posicionamento da sua marca e criam uma conexão imediata de profissionalismo e confiança com seu público-alvo.',
     },
 ];
 
@@ -76,7 +76,7 @@ const Features: React.FC = () => {
     return (
         <section 
             id="features" 
-            className="py-10 md:py-24 bg-[var(--domo-bg)] relative overflow-visible"
+            className="py-10 md:py-24 bg-[var(--domu-bg)] relative overflow-visible"
         >
 
             {/* Decorativo fundo — sutil para fundo claro */}
@@ -96,7 +96,7 @@ const Features: React.FC = () => {
                             <div className="absolute inset-8 bg-white/5 rounded-full blur-3xl opacity-50" />
                             <img
                                 src="/logos/logopreta.png"
-                                alt="Mascote Domo Digital"
+                                alt="Mascote Domu tech"
                                 className="relative z-10 w-full h-auto drop-shadow-[0_30px_60px_rgba(255,255,255,0.1)] opacity-100 animate-float"
                             />
                         </div>
@@ -104,7 +104,7 @@ const Features: React.FC = () => {
                         {/* CTA below logo */}
                         <div className="px-2">
                             <h3 className="text-white font-black uppercase tracking-tight text-xl md:text-2xl leading-tight mb-8">
-                                Pronto para decolar<br className="hidden md:block" /> seu negócio digital?
+                                Pronto para decolar<br className="hidden md:block" /> seu projeto digital?
                             </h3>
                             <a
                                 href="/chatbot-placeholder"
@@ -122,10 +122,10 @@ const Features: React.FC = () => {
                         <AnimateOnScroll>
                             <div className="text-center lg:text-left mb-12">
                                 <span className="text-[#a1a1a1] font-bold text-[10px] uppercase tracking-[0.25em] mb-4 block">
-                                    Criação de Site Profissional
+                                    SOLUÇÕES DIGITAIS DE ALTO IMPACTO
                                 </span>
-                                <h2 className="h2-domo text-white">
-                                    Funcionalidades<br className="hidden md:block" /> premium
+                                <h2 className="h2-domu text-white">
+                                    Expertise em<br className="hidden md:block" /> crescimento
                                 </h2>
                             </div>
                         </AnimateOnScroll>

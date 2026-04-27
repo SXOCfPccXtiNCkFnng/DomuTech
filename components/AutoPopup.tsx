@@ -14,12 +14,12 @@ const AutoPopup: React.FC = () => {
         setIsVisible(false);
         setHasClosedManually(true);
         // Salva o timestamp do fechamento para evitar incomodar o usuário
-        localStorage.setItem('domo_popup_last_closed', Date.now().toString());
+        localStorage.setItem('domu_popup_last_closed', Date.now().toString());
     };
 
     useEffect(() => {
         const checkCooldown = () => {
-            const lastClosed = localStorage.getItem('domo_popup_last_closed');
+            const lastClosed = localStorage.getItem('domu_popup_last_closed');
             const COOLDOWN_TIME = 60 * 60 * 1000; // 1 hora de paz
 
             if (lastClosed) {

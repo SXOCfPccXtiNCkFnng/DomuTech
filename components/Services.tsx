@@ -6,8 +6,8 @@ import AnimateOnScroll from './AnimateOnScroll';
 
 const Services: React.FC = () => {
     return (
-        <section id="services" className="py-10 md:py-16 bg-[var(--domo-bg)] relative overflow-hidden">
-            {/* Background pattern similar to DOMO Digital */}
+        <section id="services" className="py-10 md:py-16 bg-[var(--domu-bg)] relative overflow-hidden">
+            {/* Background pattern similar to Domu tech */}
             <div className="absolute top-0 left-0 w-full h-[30%] bg-[#000000]"></div>
             
             <div className="container mx-auto px-4 relative z-10">
@@ -16,7 +16,7 @@ const Services: React.FC = () => {
                         <span className="text-[#a1a1a1] font-black text-[10px] md:text-[11px] uppercase tracking-[0.4em] mb-6 block">
                             EXCELÊNCIA EM PERFORMANCE
                         </span>
-                        <h2 className="h2-domo text-gradient mb-8">
+                        <h2 className="h2-domu text-gradient mb-8">
                             NOSSOS SERVIÇOS
                         </h2>
                         <div className="w-16 h-1 bg-white/10 mx-auto rounded-full mb-10"></div>

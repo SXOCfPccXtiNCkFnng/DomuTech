@@ -5,7 +5,7 @@ import { WhatsAppIcon } from './icons';
 
 const Footer: React.FC = () => {
     return (
-        <footer id="footer" className="bg-[var(--domo-bg)] pt-10 md:pt-24 pb-8 md:pb-12 border-t border-white/5">
+        <footer id="footer" className="bg-[var(--domu-bg)] pt-10 md:pt-24 pb-8 md:pb-12 border-t border-white/5">
             <div className="container mx-auto px-6">
                 {/* Main Footer Content */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16 mb-16 md:mb-24">
@@ -15,12 +15,12 @@ const Footer: React.FC = () => {
                         <a href="/#home" className="flex items-center mb-8 group">
                             <img 
                                 src="/logos/logoheaderfooter.png" 
-                                alt="Domo Digital" 
+                                alt="Domu tech" 
                                 className="h-8 md:h-10 w-auto transition-transform group-hover:scale-105"
                             />
                         </a>
                         <p className="text-[#a1a1a1] text-[13px] leading-relaxed mb-10 max-w-xs font-medium opacity-70">
-                            A DOMO Digital transforma sua presença online com soluções de alto impacto, SEO avançado e sites de conversão.
+                            A DOMU TECH transforma sua presença online com soluções de alto impacto, tecnologia de ponta e performance digital.
                         </p>
                         
                         <div className="flex flex-col items-center md:items-start gap-4 w-full">
@@ -95,7 +95,7 @@ const Footer: React.FC = () => {
                 {/* Bottom Bar */}
                 <div className="mt-12 md:mt-16 flex flex-col md:flex-row justify-between items-center gap-6 text-center border-t border-white/5 pt-8">
                     <p className="text-[#a1a1a1] text-[9px] md:text-[10px] font-bold uppercase tracking-widest opacity-40">
-                        © {new Date().getFullYear()} DOMO Digital • CNPJ: 54.123.884/0001-50
+                        © {new Date().getFullYear()} DOMU TECH • CNPJ: 54.123.884/0001-50
                     </p>
                     <a href="#" className="text-[#a1a1a1] text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:text-[#FFFFFF] opacity-40 hover:opacity-100 transition-opacity">
                         Privacidade

@@ -12,11 +12,8 @@ const FloatingWhatsAppButton: React.FC = () => {
             aria-label="Contact us on WhatsApp"
         >
             <div className="relative">
-                {/* Glow Effect */}
-                <div className="absolute inset-0 bg-[#25D366] blur-2xl opacity-20 group-hover:opacity-40 transition-opacity rounded-full"></div>
-
                 {/* Main Circle */}
-                <div className="relative w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-full flex items-center justify-center shadow-[0_10px_40px_rgba(37,211,102,0.3)] border border-white/20">
+                <div className="relative w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-[#25D366] to-[#128C7E] rounded-full flex items-center justify-center shadow-lg border border-white/20">
                     <svg 
                         viewBox="0 0 24 24" 
                         fill="white" 

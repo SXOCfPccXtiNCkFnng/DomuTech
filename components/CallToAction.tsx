@@ -13,13 +13,13 @@ interface CallToActionProps {
 
 const CallToAction: React.FC<CallToActionProps> = ({ title, subtitle, primaryButtonText, primaryButtonLink, variant = 'whatsapp' }) => {
     return (
-        <section className="py-16 bg-[var(--domo-bg)]">
+        <section className="py-16 bg-[var(--domu-bg)]">
             <div className="container mx-auto px-4">
                 <AnimateOnScroll>
-                    <div className="relative bg-[var(--domo-surface-1)] p-8 md:p-20 rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-white/10">
+                    <div className="relative bg-[var(--domu-surface-1)] p-8 md:p-20 rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-white/10">
                         <div className="relative z-10 grid lg:grid-cols-2 gap-10 md:gap-12 items-center">
                             <div className="text-center lg:text-left">
-                                <h2 className="h2-domo text-gradient mb-6 md:mb-8">
+                                <h2 className="h2-domu text-gradient mb-6 md:mb-8">
                                     {title}
                                 </h2>
                                 <p className="text-[#a1a1a1] text-base md:text-lg font-medium leading-relaxed mb-8 md:mb-10 max-w-lg mx-auto lg:mx-0">

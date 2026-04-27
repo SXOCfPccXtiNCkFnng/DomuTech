@@ -3,7 +3,7 @@ import AnimateOnScroll from './AnimateOnScroll';
 
 const ProfessionalDevelopment: React.FC = () => {
     return (
-        <section className="py-10 md:py-24 bg-[var(--domo-bg)] relative overflow-hidden border-t border-white/5">
+        <section className="py-10 md:py-24 bg-[var(--domu-bg)] relative overflow-hidden border-t border-white/5">
             {/* Background Accent */}
             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/[0.01] rounded-full blur-[80px] translate-x-1/3 -translate-y-1/3"></div>
 
@@ -16,7 +16,7 @@ const ProfessionalDevelopment: React.FC = () => {
                             <span className="text-[#a1a1a1] font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">
                                 CRIAÇÃO DE SITES PARA EMPRESAS
                             </span>
-                            <h2 className="h2-domo text-gradient mb-8 md:mb-12">
+                            <h2 className="h2-domu text-gradient mb-8 md:mb-12">
                                 Profissionais<br className="hidden md:block" /> Sob Medida
                             </h2>
                             <div className="space-y-4 text-[#d1d1d1] text-[15px] md:text-[16px] leading-relaxed mb-8">
@@ -69,7 +69,7 @@ const ProfessionalDevelopment: React.FC = () => {
                         <div className="relative flex items-center justify-center scale-90 lg:scale-100">
                             <div className="absolute w-[70%] aspect-square bg-white/[0.02] rounded-full blur-[60px]" />
                             <div className="relative z-10 w-full animate-float flex items-center justify-center">
-                                <img src="/logos/logobranca.png" alt="DOMO Digital" className="w-[60%] h-auto opacity-60 drop-shadow-2xl" />
+                                <img src="/logos/logobranca.png" alt="Domu tech" className="w-[60%] h-auto opacity-60 drop-shadow-2xl" />
                                 <div className="absolute top-1/2 right-4 bg-white rounded-full p-3 shadow-2xl border border-white/10 translate-x-1/2 hover:scale-110 transition-transform cursor-pointer">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="#1f1f1f" strokeWidth={3} className="w-6 h-6">
                                         <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" />

@@ -4,14 +4,14 @@ import AnimateOnScroll from './AnimateOnScroll';
 
 const Values: React.FC = () => {
     return (
-        <section id="values" className="py-10 md:py-16 bg-[var(--domo-bg)] relative overflow-hidden">
+        <section id="values" className="py-10 md:py-16 bg-[var(--domu-bg)] relative overflow-hidden">
             <div className="container mx-auto px-4 relative z-10">
                 <AnimateOnScroll>
                     <div className="text-center mb-16 max-w-3xl mx-auto">
                         <span className="text-[#a1a1a1] font-black text-[10px] md:text-[11px] uppercase tracking-[0.4em] mb-4 block">
-                            WORKFLOW DOMO DIGITAL
+                            WORKFLOW DOMU TECH
                         </span>
-                        <h2 className="h2-domo text-gradient">
+                        <h2 className="h2-domu text-gradient">
                             COMO TRANSFORMAMOS<br />
                             SUA IDEIA EM REALIDADE
                         </h2>
