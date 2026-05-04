@@ -40,6 +40,13 @@ const About: React.FC = () => {
         <section id="about" className="py-10 md:py-12 bg-[var(--domu-bg)] relative overflow-hidden">
             {/* Background elements */}
             <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/[0.01] rounded-full blur-[80px] translate-x-1/2 -translate-y-1/2"></div>
+            
+            {/* Branding Ghosts Constellation */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.06]">
+                <img src="/logos/logobranca.png" className="absolute top-[10%] left-[5%] w-24 h-24 animate-float" alt="" />
+                <img src="/logos/logobranca.png" className="absolute bottom-[20%] right-[10%] w-32 h-32 animate-spin-slow" style={{ animationDuration: '40s' }} alt="" />
+                <img src="/logos/logobranca.png" className="absolute top-[60%] left-[15%] w-16 h-16 animate-float-delayed" alt="" />
+            </div>
 
             <div className="container mx-auto px-4 relative z-10">
 
@@ -48,16 +55,17 @@ const About: React.FC = () => {
                     {/* Left Column - Content */}
                     <AnimateOnScroll>
                         <div className="max-w-xl mx-auto lg:mx-0">
-                            <span className="text-[#a1a1a1] font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">
+                            <span className="text-[var(--domu-muted)] font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">
                                 SOLUÇÕES DIGITAIS INTELIGENTES
                             </span>
                             <h2 className="h2-domu text-gradient mb-6">
                                 Sua Empresa Com total<br />Autonomia no Digital
                             </h2>
 
-                            <div className="space-y-4 text-[#a1a1a1] text-[15px] md:text-[16px] leading-relaxed mb-8">
+                            <div className="space-y-4 text-[var(--domu-muted)] text-[15px] md:text-[16px] leading-relaxed mb-8">
                                 <p>
-                                    Na DOMU TECH, desenvolvemos ecossistemas profissionais preparados para escala. Você ganha controle total para gerenciar seus ativos digitais e dados em tempo real, sem burocracia.
+                                    Na DOMU TECH, desenvolvemos ecossistemas profissionais preparados para escala.<br />
+                                    Você ganha controle total para gerenciar seus ativos digitais e dados em tempo real, sem burocracia.
                                 </p>
                             </div>
 
@@ -88,8 +96,8 @@ const About: React.FC = () => {
                             </div>
 
                             {/* Mission Card */}
-                            <div className="flex items-start gap-5 p-6 bg-white/[0.02] rounded-[2rem] border border-white/5 hover:border-white/10 transition-colors max-w-[440px]">
-                                <div className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center flex-shrink-0 text-white shadow-xl border border-white/5">
+                            <div className="flex items-start gap-5 p-6 bg-white/[0.02] rounded-lg border border-white/5 hover:border-white/10 transition-colors max-w-[440px]">
+                                <div className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center flex-shrink-0 text-white shadow-xl border border-white/5">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-5 h-5">
                                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                     </svg>
@@ -98,7 +106,7 @@ const About: React.FC = () => {
                                     <p className="text-white font-black text-[13px] uppercase tracking-tight mb-1">
                                         Foco em Resultados Reais
                                     </p>
-                                    <p className="text-[#a1a1a1] text-[12px] leading-snug font-medium">
+                                    <p className="text-[var(--domu-muted)] text-[12px] leading-snug font-medium">
                                         Nossa missão é construir seu braço direito no mundo digital com performance e total autonomia.
                                     </p>
                                 </div>
@@ -108,22 +116,13 @@ const About: React.FC = () => {
 
                     {/* Right Column - Image with 3D Float Effect */}
                     <AnimateOnScroll delay={300}>
-                        <div className="relative flex items-center justify-center scale-90 lg:scale-100">
-                            
-                            {/* High-end Background Glow */}
-                            <div className="absolute w-[100%] aspect-square bg-white/[0.02] rounded-full blur-[100px]"></div>
-                            
-                            {/* Decorative Rings */}
-                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-10">
-                                <div className="w-[70%] aspect-square border border-white/10 rounded-full animate-[spin_20s_linear_infinite]"></div>
-                            </div>
-
-                            {/* Main Spiral Visual */}
+                        <div className="relative flex items-center justify-center scale-110 lg:scale-140">
+                            {/* Main Mascot Visual */}
                             <div className="relative z-10 w-full group">
                                 <img 
-                                    src="/logos/logobranca.png" 
-                                    alt="Domu tech Branding" 
-                                    className="w-[70%] h-auto opacity-70 max-w-sm mx-auto drop-shadow-2xl animate-float"
+                                    src="/logos/roboprincipal.png" 
+                                    alt="Mascote DOMU TECH" 
+                                    className="w-full h-auto max-w-md mx-auto drop-shadow-2xl animate-float"
                                     loading="lazy"
                                 />
                             </div>
@@ -181,7 +180,7 @@ const MetricItem: React.FC<{ metric: typeof ABOUT_METRICS[number] }> = ({ metric
                     {value}{suffix}
                 </div>
                 <div className="w-10 h-[2px] bg-white mb-4"></div>
-                <span className="text-[#a1a1a1] font-bold text-[10px] uppercase tracking-[0.2em]">
+                <span className="text-[var(--domu-muted)] font-bold text-[10px] uppercase tracking-[0.2em]">
                     {metric.label}
                 </span>
             </div>

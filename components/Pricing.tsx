@@ -31,6 +31,13 @@ const CUSTOM_FEATURES = [
 const Pricing: React.FC = () => {
     return (
         <section id="pricing" className="py-10 md:py-24 bg-[var(--domu-bg)] relative overflow-hidden lg:min-h-[90vh] flex items-center">
+            {/* Branding Ghosts Constellation - Forced to Background */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.06] z-0">
+                <img src="/logos/logobranca.png" className="absolute bottom-[10%] left-0 w-64 h-64 animate-spin-slow" style={{ animationDuration: '55s' }} alt="" />
+                <img src="/logos/logobranca.png" className="absolute top-[15%] right-[10%] w-32 h-32 animate-float" alt="" />
+                <img src="/logos/logobranca.png" className="absolute top-[50%] left-[10%] w-20 h-20 animate-float-delayed" alt="" />
+            </div>
+
             {/* Background elements - more subtle */}
             <div className="absolute top-0 left-0 w-full h-full bg-white/[0.01] pointer-events-none"></div>
 
@@ -39,7 +46,7 @@ const Pricing: React.FC = () => {
                     
                     {/* Card 1: Site Expresso */}
                     <AnimateOnScroll>
-                        <div className="group bg-[var(--domu-surface-1)] rounded-[3rem] p-8 md:p-10 shadow-2xl border border-white/5 hover:border-white/10 transition-all duration-500 h-full flex flex-col hover:-translate-y-1">
+                        <div className="group bg-[var(--domu-surface-1)] rounded-xl p-8 md:p-10 shadow-2xl border border-white/5 hover:border-white/10 transition-all duration-500 h-full flex flex-col hover:-translate-y-1">
                             <div className="text-center mb-6">
                                 <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-7 h-7">
@@ -49,7 +56,7 @@ const Pricing: React.FC = () => {
                                     </svg>
                                 </div>
                                 <h3 className="text-white font-black text-2xl uppercase tracking-tight mb-2">Site Expresso</h3>
-                                <p className="text-[#a1a1a1] text-[13px] leading-snug opacity-60 font-medium mx-auto">
+                                <p className="text-[var(--domu-muted)] text-[13px] leading-snug opacity-60 font-medium mx-auto">
                                     Rapidez e investimento inteligente para sua empresa escalar.
                                 </p>
                             </div>
@@ -60,7 +67,7 @@ const Pricing: React.FC = () => {
                                     <span className="text-white/60 font-black text-2xl">R$</span>
                                     <span className="text-white font-black text-5xl tracking-tighter">609</span>
                                 </div>
-                                <p className="text-[9px] font-bold text-[#a1a1a1] uppercase tracking-widest mt-1">+ HOSPEDAGEM E SUPORTE</p>
+                                <p className="text-[9px] font-bold text-[var(--domu-muted)] uppercase tracking-widest mt-1">+ HOSPEDAGEM E SUPORTE</p>
                             </div>
 
                             {/* Scrollable list */}
@@ -73,7 +80,7 @@ const Pricing: React.FC = () => {
                                                     <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                                                 </svg>
                                             </div>
-                                            <span className="text-[#d1d1d1] text-[13px] font-medium leading-tight">{f}</span>
+                                            <span className="text-[var(--domu-secondary)] text-[13px] font-medium leading-tight">{f}</span>
                                         </li>
                                     ))}
                                 </ul>
@@ -89,7 +96,7 @@ const Pricing: React.FC = () => {
                     {/* Coluna Central: Info e Astro */}
                     <div className="flex flex-col items-center justify-center text-center px-4 py-8 order-first lg:order-none">
                         <AnimateOnScroll>
-                            <span className="text-[#a1a1a1] font-black text-[10px] uppercase tracking-[0.3em] mb-6 block">
+                            <span className="text-[var(--domu-muted)] font-black text-[10px] uppercase tracking-[0.3em] mb-6 block">
                                 PLANOS E PREÇOS
                             </span>
                             <h2 className="h2-domu text-gradient mb-8">
@@ -99,10 +106,10 @@ const Pricing: React.FC = () => {
                                 <div className="absolute inset-0 bg-white/5 rounded-full blur-3xl scale-125"></div>
                                 <img src="/logos/logobranca.png" alt="Domu tech" className="relative z-10 w-full h-full object-contain animate-float opacity-90" />
                             </div>
-                            <p className="text-[#a1a1a1] text-[15px] font-medium leading-relaxed mb-8 max-w-[280px] mx-auto">
+                            <p className="text-[var(--domu-muted)] text-[15px] font-medium leading-relaxed mb-8 max-w-[280px] mx-auto">
                                 Soluções inteligentes para elevar sua presença digital ao próximo nível.
                             </p>
-                            <div className="w-12 h-[3px] bg-white/20 mb-8 mx-auto rounded-full" />
+
                             <a 
                                 href="https://wa.me/5511934430659" 
                                 target="_blank"
@@ -117,7 +124,7 @@ const Pricing: React.FC = () => {
 
                     {/* Card 2: Site Sob Medida */}
                     <AnimateOnScroll delay={300}>
-                        <div className="group bg-[var(--domu-surface-2)] rounded-[3rem] p-8 md:p-10 shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-500 h-full flex flex-col hover:-translate-y-1">
+                        <div className="group bg-[var(--domu-surface-2)] rounded-xl p-8 md:p-10 shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-500 h-full flex flex-col hover:-translate-y-1">
                             <div className="text-center mb-6">
                                 <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-7 h-7">
@@ -125,7 +132,7 @@ const Pricing: React.FC = () => {
                                     </svg>
                                 </div>
                                 <h3 className="text-white font-black text-2xl uppercase tracking-tight mb-2">Site Sob Medida</h3>
-                                <p className="text-[#a1a1a1] text-[13px] leading-snug opacity-60 font-medium mx-auto">
+                                <p className="text-[var(--domu-muted)] text-[13px] leading-snug opacity-60 font-medium mx-auto">
                                     UX/UI Design exclusiva para autoridade e conversão máxima.
                                 </p>
                             </div>
@@ -134,7 +141,7 @@ const Pricing: React.FC = () => {
                                 <div className="flex items-center justify-center">
                                     <span className="text-white font-black text-3xl tracking-tight">Personalizado</span>
                                 </div>
-                                <p className="text-[9px] font-bold text-[#a1a1a1] uppercase tracking-widest mt-1">SOB ORÇAMENTO</p>
+                                <p className="text-[9px] font-bold text-[var(--domu-muted)] uppercase tracking-widest mt-1">SOB ORÇAMENTO</p>
                             </div>
 
                             {/* Scrollable list */}
@@ -147,7 +154,7 @@ const Pricing: React.FC = () => {
                                                     <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
                                                 </svg>
                                             </div>
-                                            <span className="text-[#d1d1d1] text-[13px] font-medium leading-tight">{f}</span>
+                                            <span className="text-[var(--domu-secondary)] text-[13px] font-medium leading-tight">{f}</span>
                                         </li>
                                     ))}
                                 </ul>

@@ -79,32 +79,27 @@ const Features: React.FC = () => {
             className="py-10 md:py-24 bg-[var(--domu-bg)] relative overflow-visible"
         >
 
-            {/* Decorativo fundo — sutil para fundo claro */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                <div className="absolute top-[5%] left-[5%] w-80 h-80 bg-white/[0.02] rounded-full blur-[140px]" />
-                <div className="absolute bottom-[5%] right-[5%] w-80 h-80 bg-white/[0.02] rounded-full blur-[140px]" />
-            </div>
+
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="grid lg:grid-cols-[40%_60%] gap-16 lg:gap-20 items-start">
 
                     {/* ── Coluna esquerda — Sticky Restored ─────────────────── */}
-                    <div className="lg:sticky lg:top-32 self-start flex flex-col items-center lg:items-start text-center lg:text-left">
+                    <div className="lg:sticky lg:top-32 self-start flex flex-col items-center text-center">
 
                         {/* Mascote Branding - Pinned/Sticky */}
                         <div className="relative w-full max-w-[280px] md:max-w-sm mx-auto lg:mx-0 mb-10 md:mb-12">
-                            <div className="absolute inset-8 bg-white/5 rounded-full blur-3xl opacity-50" />
                             <img
-                                src="/logos/logopreta.png"
+                                src="/logos/logobranca.png"
                                 alt="Mascote Domu tech"
-                                className="relative z-10 w-full h-auto drop-shadow-[0_30px_60px_rgba(255,255,255,0.1)] opacity-100 animate-float"
+                                className="relative z-10 w-full h-auto opacity-100 animate-float"
                             />
                         </div>
 
                         {/* CTA below logo */}
                         <div className="px-2">
-                            <h3 className="text-white font-black uppercase tracking-tight text-xl md:text-2xl leading-tight mb-8">
-                                Pronto para decolar<br className="hidden md:block" /> seu projeto digital?
+                            <h3 className="text-gradient font-black uppercase tracking-tight text-xl md:text-2xl leading-tight mb-8">
+                                Pronto para decolar seu projeto digital?
                             </h3>
                             <a
                                 href="/chatbot-placeholder"
@@ -121,11 +116,11 @@ const Features: React.FC = () => {
                     <div className="pt-10 lg:pt-4">
                         <AnimateOnScroll>
                             <div className="text-center lg:text-left mb-12">
-                                <span className="text-[#a1a1a1] font-bold text-[10px] uppercase tracking-[0.25em] mb-4 block">
+                                <span className="text-[var(--domu-muted)] font-bold text-[10px] uppercase tracking-[0.25em] mb-4 block">
                                     SOLUÇÕES DIGITAIS DE ALTO IMPACTO
                                 </span>
-                                <h2 className="h2-domu text-white">
-                                    Expertise em<br className="hidden md:block" /> crescimento
+                                <h2 className="h2-domu text-gradient">
+                                    Expertise em crescimento
                                 </h2>
                             </div>
                         </AnimateOnScroll>
@@ -146,7 +141,7 @@ const Features: React.FC = () => {
                                             <h4 className="text-white font-black text-lg mb-3 group-hover:text-white transition-colors duration-200 leading-snug uppercase tracking-tight">
                                                 {item.title}
                                             </h4>
-                                            <p className="text-[#a1a1a1] text-[14px] md:text-[15px] leading-relaxed font-medium opacity-70">
+                                            <p className="text-[var(--domu-muted)] text-[14px] md:text-[15px] leading-relaxed font-medium opacity-70">
                                                 {item.desc}
                                             </p>
                                         </div>

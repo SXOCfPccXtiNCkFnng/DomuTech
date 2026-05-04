@@ -12,7 +12,7 @@ body {
     padding: 0;
     overflow-x: clip;
     position: relative;
-    background-color: #1f1f1f;
+    background-color: var(--domu-bg);
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-y: none; /* Evita o bounce excessivo que tira o sticky do lugar */
 }
@@ -24,26 +24,42 @@ body {
 }
 
 :root {
-    --domu-bg: #1f1f1f;
-    --domu-white: #ffffff;
-    --domu-anthracite: #ffffff;
-    --domu-surface-1: #2a2a2a;
-    --domu-surface-2: #333333;
-    --domu-surface-3: #3d3d3d;
+    /* Core Backgrounds */
+    --domu-bg: #19181e;
+    --domu-black: #121112;
+    
+    /* Surfaces & Containers */
+    --domu-surface-1: #2d2d34;
+    --domu-surface-2: #46464e;
+    --domu-surface-3: #62646a;
+    
+    /* Typography */
     --domu-primary: #ffffff;
-    --domu-secondary: #a1a1a1;
-    --domu-muted: #717171;
-    --domu-border: rgba(255, 255, 255, 0.1);
+    --domu-secondary: #e1e1e1;
+    --domu-muted: #a3a1a2;
+    --domu-light: #f1f0f5;
+    
+    /* Brand Accents */
+    --domu-accent: #587f81;
+    --domu-accent-hover: #668d8e;
+    --domu-accent-dark: #3b5b5e;
+    --domu-accent-light: #91b6b1;
+    --domu-accent-muted: #c0b5be;
+    
+    /* Semantic Utilities */
+    --domu-white: #ffffff;
+    --domu-border: rgba(255, 255, 255, 0.08);
 
-    --upsites-blue-dark: #000000;
-    --upsites-blue: #000000;
-    --upsites-green: #ffffff;
-    --upsites-cyan: #ffffff;
-    --upsites-light-blue: #111111;
-    --upsites-text-primary: #ffffff;
-    --upsites-text-secondary: #a1a1a1;
-    --upsites-white: #ffffff;
-    --upsites-gray: #0a0a0a;
+    /* Legacy Compatibility (Mapping to new palette) */
+    --upsites-blue-dark: var(--domu-bg);
+    --upsites-blue: var(--domu-accent);
+    --upsites-green: var(--domu-accent-light);
+    --upsites-cyan: var(--domu-accent);
+    --upsites-light-blue: var(--domu-surface-1);
+    --upsites-text-primary: var(--domu-primary);
+    --upsites-text-secondary: var(--domu-secondary);
+    --upsites-white: var(--domu-white);
+    --upsites-gray: var(--domu-black);
 }
 
 body {
@@ -74,7 +90,7 @@ body {
     line-height: 1.1;
     text-transform: uppercase;
     letter-spacing: -0.03em;
-    color: #ffffff;
+    color: var(--domu-primary);
 }
 
 .h3-domu {
@@ -88,8 +104,8 @@ body {
 .text-gradient {
     background: linear-gradient(
         to bottom right,
-        #ffffff 30%,
-        rgba(255, 255, 255, 0.4) 100%
+        var(--domu-white) 10%,
+        var(--domu-accent) 90%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -114,7 +130,7 @@ body {
 .btn-budget,
 .btn-view-all {
     padding: 12px 28px;
-    border-radius: 100px;
+    border-radius: 12px;
     font-weight: 900;
     text-transform: uppercase;
     display: inline-flex;
@@ -145,10 +161,10 @@ body {
 
 /* Botão com Brilho (Shimmer) - Para Peça um Orçamento / Chatbot */
 .btn-budget, .btn-domu-primary {
-    background-color: #ffffff !important;
-    color: #1f1f1f !important;
-    border: 2px solid #ffffff !important;
-    box-shadow: 0 10px 20px -10px rgba(255, 255, 255, 0.15);
+    background-color: var(--domu-accent) !important;
+    color: var(--domu-white) !important;
+    border: 2px solid var(--domu-accent) !important;
+    box-shadow: 0 10px 20px -10px rgba(88, 127, 129, 0.3);
 }
 
 .btn-budget::after, .btn-domu-primary::after {
@@ -160,9 +176,9 @@ body {
     height: 100%;
     background: linear-gradient(
         to right,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.5) 50%,
-        rgba(255, 255, 255, 0) 100%
+        rgba(88, 127, 129, 0) 0%,
+        rgba(88, 127, 129, 0.9) 50%,
+        rgba(88, 127, 129, 0) 100%
     );
     transform: skewX(-30deg);
     pointer-events: none;
@@ -174,7 +190,7 @@ body {
 
 .btn-budget:hover, .btn-domu-primary:hover {
     background-color: transparent !important;
-    color: #ffffff !important;
+    color: var(--domu-accent) !important;
     transform: translateY(-2px);
 }
 
@@ -186,10 +202,9 @@ body {
 }
 
 .btn-whatsapp:hover {
-    background-color: #25d366 !important;
-    border-color: #25d366 !important;
-    color: #ffffff !important;
-    transform: translateY(-2px);
+    background-color: transparent !important;
+    border-color: #25D366 !important;
+    color: #25D366 !important;
 }
 
 /* Botão Ver Todos - Animação Diferente */
@@ -200,9 +215,9 @@ body {
 }
 
 .btn-view-all:hover {
-    background-color: #ffffff !important;
-    color: #1f1f1f !important;
-    border-color: #ffffff !important;
+    background-color: var(--domu-accent) !important;
+    color: var(--domu-white) !important;
+    border-color: var(--domu-accent) !important;
     transform: scale(1.05);
 }
 
@@ -213,9 +228,9 @@ body {
 }
 
 .btn-domu-outline:hover {
-    background-color: #ffffff !important;
-    color: #1f1f1f !important;
-    border-color: #ffffff !important;
+    background-color: var(--domu-accent) !important;
+    color: var(--domu-white) !important;
+    border-color: var(--domu-accent) !important;
     transform: translateY(-2px);
 }
 
@@ -304,23 +319,23 @@ section {
 }
 
 ::selection {
-    background-color: #ffffff;
-    color: #1f1f1f;
+    background-color: var(--domu-accent);
+    color: var(--domu-white);
 }
 
 ::-webkit-scrollbar {
     width: 16px;
 }
 ::-webkit-scrollbar-track {
-    background: #121212;
+    background: var(--domu-black);
 }
 ::-webkit-scrollbar-thumb {
-    background: #3d3d3d;
-    border-radius: 10px;
-    border: 4px solid #121212;
+    background: var(--domu-surface-2);
+    border-radius: 4px;
+    border: 4px solid var(--domu-black);
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #4a4a4a;
+    background: var(--domu-accent);
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -329,12 +344,12 @@ section {
 
 .custom-scrollbar::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
     background: #444444;
-    border-radius: 10px;
+    border-radius: 4px;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 

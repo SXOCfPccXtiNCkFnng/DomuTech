@@ -25,7 +25,7 @@ const ServiceDetail: React.FC = () => {
 
     if (!service && !complementaryService) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-black dark:bg-neutral-950">
+            <div className="min-h-screen flex items-center justify-center bg-[var(--domu-bg)]">
                 <div className="text-center">
                     <h2 className="text-whitexl font-bold text-white dark:text-white mb-4">
                         Serviço não encontrado
@@ -48,7 +48,7 @@ const ServiceDetail: React.FC = () => {
     };
 
     return (
-        <div className="bg-black dark:bg-neutral-950 min-h-screen pt-20">
+        <div className="bg-[var(--domu-bg)] min-h-screen pt-20">
             {/* Hero Section */}
             <section className="relative py-16 overflow-hidden">
                 {/* Background image */}
@@ -100,7 +100,7 @@ const ServiceDetail: React.FC = () => {
                         >
                             <path
                                 d="M0,90 L1440,40 L1440,140 L0,140 Z"
-                                className="fill-slate-200 dark:fill-neutral-950"
+                                className="fill-[var(--domu-black)]"
                             />
                             <path
                                 d="M0,110 L1440,70 L1440,140 L0,140 Z"
@@ -118,7 +118,7 @@ const ServiceDetail: React.FC = () => {
                         >
                             <path
                                 d="M0,88 Q360,20 720,88 T1440,88 L1440,140 L0,140 Z"
-                                className="fill-slate-200 dark:fill-neutral-950"
+                                className="fill-[var(--domu-black)]"
                             />
                             <path
                                 d="M0,108 Q360,40 720,108 T1440,108 L1440,140 L0,140 Z"
@@ -136,7 +136,7 @@ const ServiceDetail: React.FC = () => {
                         >
                             <path
                                 d="M0,100 C180,60 360,140 540,100 C720,60 900,140 1080,100 C1260,60 1350,90 1440,110 L1440,140 L0,140 Z"
-                                className="fill-slate-200 dark:fill-neutral-950"
+                                className="fill-[var(--domu-black)]"
                             />
                             <path
                                 d="M0,118 C180,88 360,140 540,118 C720,96 900,140 1080,118 C1260,96 1350,112 1440,126 L1440,140 L0,140 Z"
@@ -174,7 +174,7 @@ const ServiceDetail: React.FC = () => {
                                         <h2 className="text-2xl md:text-3xl font-bold text-white dark:text-white mb-6">
                                             Por que escolher este serviço?
                                         </h2>
-                                        <p className="text-base md:text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-10">
+                                        <p className="text-base md:text-lg text-[var(--domu-secondary)] leading-relaxed mb-10">
                                             {detailedInfo.whyChoose}
                                         </p>
                                     </div>
@@ -202,7 +202,7 @@ const ServiceDetail: React.FC = () => {
                                         <h2 className="text-whitexl md:text-5xl font-bold text-white dark:text-white mb-4">
                                             Benefícios
                                         </h2>
-                                        <p className="text-lg text-slate-600 dark:text-slate-400">
+                                        <p className="text-lg text-[var(--domu-muted)]">
                                             Veja como este serviço pode transformar seu negócio
                                         </p>
                                     </div>
@@ -210,7 +210,7 @@ const ServiceDetail: React.FC = () => {
                                         {detailedInfo.benefits.map((benefit, index) => (
                                             <div 
                                                 key={index}
-                                                className="group bg-black dark:bg-neutral-900 p-8 rounded-2xl border-white/5 border-slate-200 dark:border-slate-800 hover:border-violet-500 dark:hover:border-violet-500 transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+                                                className="group bg-[var(--domu-black)] p-8 rounded-2xl border-white/5 hover:border-[var(--domu-accent)] transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
                                             >
                                                 <div className="bg-gradient-to-br from-violet-500 to-purple-600 w-14 h-14 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                                                     <StarIcon className="w-7 h-7 text-white" />
@@ -218,7 +218,7 @@ const ServiceDetail: React.FC = () => {
                                                 <h3 className="text-xl font-bold text-white dark:text-white mb-3">
                                                     {benefit.title}
                                                 </h3>
-                                                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                                <p className="text-[var(--domu-muted)] leading-relaxed">
                                                     {benefit.description}
                                                 </p>
                                             </div>
@@ -286,11 +286,11 @@ const ServiceDetail: React.FC = () => {
                                 <h2 className="text-2xl md:text-3xl font-bold text-white dark:text-white mb-3">
                                     Pronto para começar?
                                 </h2>
-                                <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto leading-relaxed">
+                                <p className="text-base md:text-lg text-[var(--domu-muted)] mb-6 max-w-2xl mx-auto leading-relaxed">
                                     Entre em contato conosco e receba um orçamento personalizado para o seu projeto.
                                 </p>
                                 {service && (
-                                    <div className="inline-block bg-black dark:bg-neutral-800 border-white/5 border-slate-200 dark:border-slate-700 rounded-2xl px-6 py-3 mb-6">
+                                    <div className="inline-block bg-[var(--domu-black)] border-white/5 rounded-2xl px-6 py-3 mb-6">
                                         <div className="text-xs text-slate-600 dark:text-slate-400 font-medium mb-0.5">A partir de</div>
                                         <div className="text-2xl md:text-3xl text-white dark:text-white font-bold">
                                             {service.price}

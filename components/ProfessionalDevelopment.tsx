@@ -13,13 +13,13 @@ const ProfessionalDevelopment: React.FC = () => {
                     {/* Texto Esquerda */}
                     <AnimateOnScroll>
                         <div className="max-w-xl text-center lg:text-left mx-auto lg:mx-0">
-                            <span className="text-[#a1a1a1] font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">
+                            <span className="text-[var(--domu-muted)] font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">
                                 CRIAÇÃO DE SITES PARA EMPRESAS
                             </span>
                             <h2 className="h2-domu text-gradient mb-8 md:mb-12">
                                 Profissionais<br className="hidden md:block" /> Sob Medida
                             </h2>
-                            <div className="space-y-4 text-[#d1d1d1] text-[15px] md:text-[16px] leading-relaxed mb-8">
+                            <div className="space-y-4 text-[var(--domu-secondary)] text-[15px] md:text-[16px] leading-relaxed mb-8">
                                 <p>
                                     A criação de sites profissionais é a construção de um ativo estratégico capaz de gerar oportunidades reais. Focamos em projetos personalizados com alta performance em SEO e conversão.
                                 </p>
@@ -28,7 +28,7 @@ const ProfessionalDevelopment: React.FC = () => {
                             <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tighter mb-4 leading-tight">
                                 Desenvolvimento Gerenciável
                             </h3>
-                            <div className="space-y-4 text-[#a1a1a1] text-[14px] md:text-[15px] leading-relaxed mb-8">
+                            <div className="space-y-4 text-[var(--domu-muted)] text-[14px] md:text-[15px] leading-relaxed mb-8">
                                 <p>
                                     Você tem autonomia total para atualizar seu site sem depender de terceiros. Utilizamos tecnologias de ponta com um editor intuitivo e estrutura robusta.
                                 </p>
@@ -45,7 +45,7 @@ const ProfessionalDevelopment: React.FC = () => {
                                     </div>
                                     <div>
                                         <p className="text-white font-black text-[11px] uppercase tracking-tight mb-1">Pagamento Fácil</p>
-                                        <p className="text-[#a1a1a1] text-[11px] leading-snug">Contrato e boleto/cartão.</p>
+                                        <p className="text-[var(--domu-muted)] text-[11px] leading-snug">Contrato e boleto/cartão.</p>
                                     </div>
                                 </div>
 
@@ -57,7 +57,7 @@ const ProfessionalDevelopment: React.FC = () => {
                                     </div>
                                     <div>
                                         <p className="text-white font-black text-[11px] uppercase tracking-tight mb-1">SEO & Speed</p>
-                                        <p className="text-[#a1a1a1] text-[11px] leading-snug">Otimizado para o Google.</p>
+                                        <p className="text-[var(--domu-muted)] text-[11px] leading-snug">Otimizado para o Google.</p>
                                     </div>
                                 </div>
                             </div>

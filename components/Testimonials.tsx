@@ -107,20 +107,24 @@ const Testimonials: React.FC = () => {
 
     return (
         <section id="testimonials" className="py-10 md:py-16 bg-[var(--domu-bg)] relative overflow-hidden">
-            {/* Background elements */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-white/[0.01] rounded-full blur-[120px] pointer-events-none"></div>
+            {/* Branding Ghosts Constellation */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.06]">
+                <img src="/logos/logobranca.png" className="absolute top-[10%] right-[10%] w-32 h-32 animate-float" alt="" />
+                <img src="/logos/logobranca.png" className="absolute bottom-[10%] left-[-5%] w-56 h-56 animate-spin-slow" style={{ animationDuration: '45s' }} alt="" />
+            </div>
+
 
             <div className="container mx-auto px-4 relative z-10">
                 
                 <AnimateOnScroll>
                     <div className="text-center mb-20 text-white">
-                        <span className="text-[#a1a1a1] font-black text-[10px] md:text-[11px] uppercase tracking-[0.4em] mb-6 block">
+                        <span className="text-[var(--domu-muted)] font-black text-[10px] md:text-[11px] uppercase tracking-[0.4em] mb-6 block">
                             FEEDBACK DOS CLIENTES
                         </span>
                         <h2 className="h2-domu text-gradient mb-8">
                             CLIENTES E AVALIAÇÕES
                         </h2>
-                        <div className="w-16 h-1 bg-white/10 mx-auto rounded-full"></div>
+
                     </div>
                 </AnimateOnScroll>
 
@@ -128,7 +132,7 @@ const Testimonials: React.FC = () => {
                     {/* Botões - Hidden on very small mobile, visible from sm upwards */}
                     <button 
                         onClick={() => goTo(currentRef.current - 1)}
-                        className="absolute left-[-10px] md:left-[-10px] lg:left-[-60px] top-[40%] -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full border border-white/5 text-white bg-white/5 backdrop-blur-md hover:bg-white hover:text-black transition-all z-30 shadow-2xl hidden sm:flex"
+                        className="absolute left-[-10px] md:left-[-10px] lg:left-[-60px] top-[50%] -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full border border-white/5 text-white bg-white/5 backdrop-blur-md hover:bg-white hover:text-black transition-all z-30 shadow-2xl hidden sm:flex"
                     >
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} className="w-5 h-5 md:w-6 md:h-6 rotate-180">
                             <path d="M9 18l6-6-6-6" />
@@ -137,7 +141,7 @@ const Testimonials: React.FC = () => {
                     
                     <button 
                         onClick={() => goTo(currentRef.current + 1)}
-                        className="absolute right-[-10px] md:right-[-10px] lg:right-[-60px] top-[40%] -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full border border-white/5 text-white bg-white/5 backdrop-blur-md hover:bg-white hover:text-black transition-all z-30 shadow-2xl hidden sm:flex"
+                        className="absolute right-[-10px] md:right-[-10px] lg:right-[-60px] top-[50%] -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full border border-white/5 text-white bg-white/5 backdrop-blur-md hover:bg-white hover:text-black transition-all z-30 shadow-2xl hidden sm:flex"
                     >
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} className="w-5 h-5 md:w-6 md:h-6">
                             <path d="M9 18l6-6-6-6" />
@@ -161,7 +165,7 @@ const Testimonials: React.FC = () => {
                                         minWidth: slideW, 
                                         width: slideW 
                                     }}
-                                    className="bg-white/5 border border-white/10 rounded-[2.5rem] p-8 md:p-12 flex flex-col min-h-[420px] md:h-[380px] flex-shrink-0"
+                                    className="bg-white/5 border border-white/10 rounded-xl p-8 md:p-12 flex flex-col min-h-[420px] md:h-[380px] flex-shrink-0"
                                 >
                                     {/* Quote Icon */}
                                     <div className="text-white opacity-10 mb-6 md:mb-8">
@@ -171,7 +175,7 @@ const Testimonials: React.FC = () => {
                                     </div>
 
                                     {/* Testimonial Text */}
-                                    <p className="text-[#F9F9F9]/80 text-[14px] md:text-[16px] leading-[1.6] mb-8 overflow-hidden font-medium italic">
+                                    <p className="text-[var(--domu-white)]/80 text-[14px] md:text-[16px] leading-[1.6] mb-8 overflow-hidden font-medium italic">
                                         "{item.text}"
                                     </p>
 
@@ -179,7 +183,7 @@ const Testimonials: React.FC = () => {
                                         <h4 className="text-white font-black text-lg md:text-xl uppercase tracking-tighter mb-1">
                                             {item.name}
                                         </h4>
-                                        <span className="text-[#a1a1a1] font-bold text-[10px] uppercase tracking-widest">
+                                        <span className="text-[var(--domu-muted)] font-bold text-[10px] uppercase tracking-widest">
                                             {item.company}
                                         </span>
                                     </div>
@@ -205,11 +209,11 @@ const Testimonials: React.FC = () => {
                             <div className="flex items-center gap-2">
                                 <span className="text-white font-bold text-xs">4.9</span>
                                 <div className="flex text-yellow-500 font-bold">★★★★★</div>
-                                <span className="text-[#a1a1a1] text-[10px] font-bold uppercase tracking-widest pl-1">310+ avaliações</span>
+                                <span className="text-[var(--domu-muted)] text-[10px] font-bold uppercase tracking-widest pl-1">310+ avaliações</span>
                             </div>
                         </div>
                     </div>
-                    <p className="text-[#a1a1a1] text-[13px] font-bold opacity-60 uppercase tracking-widest max-w-sm text-center md:text-right">
+                    <p className="text-[var(--domu-muted)] text-[13px] font-bold opacity-60 uppercase tracking-widest max-w-sm text-center md:text-right">
                         Domu tech • Agência de sites em São Paulo
                     </p>
                 </div>

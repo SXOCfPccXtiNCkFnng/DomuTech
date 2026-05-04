@@ -5,10 +5,17 @@ import AnimateOnScroll from './AnimateOnScroll';
 const Values: React.FC = () => {
     return (
         <section id="values" className="py-10 md:py-16 bg-[var(--domu-bg)] relative overflow-hidden">
+            {/* Branding Ghosts Constellation - Forced to Background */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.06] z-0">
+                <img src="/logos/logobranca.png" className="absolute top-[5%] right-[5%] w-32 h-32 animate-float opacity-70" alt="" />
+                <img src="/logos/logobranca.png" className="absolute top-[40%] left-0 w-48 h-48 animate-spin-slow opacity-40" style={{ animationDuration: '60s' }} alt="" />
+                <img src="/logos/logobranca.png" className="absolute bottom-[10%] right-[10%] w-24 h-24 animate-float-delayed opacity-60" alt="" />
+                <img src="/logos/logobranca.png" className="absolute top-[70%] left-[15%] w-16 h-16 animate-float opacity-30" alt="" />
+            </div>
             <div className="container mx-auto px-4 relative z-10">
                 <AnimateOnScroll>
                     <div className="text-center mb-16 max-w-3xl mx-auto">
-                        <span className="text-[#a1a1a1] font-black text-[10px] md:text-[11px] uppercase tracking-[0.4em] mb-4 block">
+                        <span className="text-[var(--domu-muted)] font-black text-[10px] md:text-[11px] uppercase tracking-[0.4em] mb-4 block">
                             WORKFLOW DOMU TECH
                         </span>
                         <h2 className="h2-domu text-gradient">
@@ -52,8 +59,8 @@ const Values: React.FC = () => {
                         }
                     ].map((step, index) => (
                         <AnimateOnScroll key={step.title} delay={index * 150}>
-                            <div className="group bg-white/5 hover:bg-white/10 p-8 md:p-10 rounded-[2.5rem] border border-white/5 transition-all duration-500 flex flex-col h-full shadow-2xl">
-                                <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform">
+                            <div className="group bg-white/5 hover:bg-white/10 p-8 md:p-10 rounded-xl border border-white/5 transition-all duration-500 flex flex-col h-full shadow-2xl">
+                                <div className="w-14 h-14 bg-white/5 rounded-lg flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform">
                                     {step.icon}
                                 </div>
 
@@ -61,7 +68,7 @@ const Values: React.FC = () => {
                                     {step.title}
                                 </h3>
                                 
-                                <p className="text-[#a1a1a1] leading-relaxed font-medium text-sm md:text-base group-hover:text-white transition-colors duration-500">
+                                <p className="text-[var(--domu-muted)] leading-relaxed font-medium text-sm md:text-base group-hover:text-white transition-colors duration-500">
                                     {step.desc}
                                 </p>
                             </div>

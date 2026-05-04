@@ -10,16 +10,23 @@ const FAQ: React.FC = () => {
     const secondCol = FAQ_DATA.slice(midPoint);
 
     return (
-        <section id="faq" className="py-10 md:py-16 bg-[var(--domu-bg)]">
-            <div className="container mx-auto px-4">
+        <section id="faq" className="py-10 md:py-16 bg-[var(--domu-bg)] relative overflow-hidden">
+            {/* Branding Ghosts Constellation - Forced to Background */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.06] z-0">
+                <img src="/logos/logobranca.png" className="absolute bottom-[-2%] right-[-2%] w-64 h-64 animate-spin-slow" style={{ animationDuration: '65s' }} alt="" />
+                <img src="/logos/logobranca.png" className="absolute top-[10%] left-0 w-40 h-40 animate-float" alt="" />
+                <img src="/logos/logobranca.png" className="absolute top-[40%] right-[10%] w-24 h-24 animate-float-delayed" alt="" />
+            </div>
+            
+            <div className="container mx-auto px-4 relative z-10">
                 
                 {/* Header Style Domu tech */}
                 <AnimateOnScroll>
                     <div className="text-center mb-16">
-                        <span className="text-[#a1a1a1] font-black text-[10px] md:text-[11px] uppercase tracking-[0.25em] mb-4 block">
+                        <span className="text-[var(--domu-muted)] font-black text-[10px] md:text-[11px] uppercase tracking-[0.25em] mb-4 block">
                             SOLUÇÕES DIGITAIS DE PONTA
                         </span>
-                        <h2 className="h2-domu text-white mb-4">
+                        <h2 className="h2-domu text-gradient mb-4">
                             Perguntas Frequentes
                         </h2>
                     </div>
@@ -75,7 +82,7 @@ const FAQItem: React.FC<{ question: string, answer: string }> = ({ question, ans
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                        <div className="px-6 pb-6 text-[#a1a1a1] text-[14px] md:text-[15px] leading-relaxed border-t border-white/5 pt-4 font-medium">
+                        <div className="px-6 pb-6 text-[var(--domu-muted)] text-[14px] md:text-[15px] leading-relaxed border-t border-white/5 pt-4 font-medium">
                             {answer}
                         </div>
                     </motion.div>

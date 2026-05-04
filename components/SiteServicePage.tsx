@@ -16,9 +16,15 @@ const SiteServicePage: React.FC = () => {
     }, []);
 
     return (
-        <div className="bg-black dark:bg-neutral-950 min-h-screen pt-20">
+        <div className="min-h-screen bg-[var(--domu-bg)] font-sans text-white overflow-hidden selection:bg-[var(--domu-accent)] selection:text-white">
             {/* Custom Hero for Sites */}
             <section className="relative py-24 md:py-32 overflow-hidden bg-[var(--domu-bg)]">
+                {/* Branding Ghosts Constellation */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.05]">
+                    <img src="/logos/logobranca.png" className="absolute top-[10%] left-[5%] w-32 h-32 animate-float opacity-60" alt="" />
+                    <img src="/logos/logobranca.png" className="absolute top-[20%] right-[10%] w-48 h-48 animate-spin-slow opacity-40" style={{ animationDuration: '55s' }} alt="" />
+                    <img src="/logos/logobranca.png" className="absolute bottom-[10%] left-[20%] w-24 h-24 animate-float-delayed opacity-50" alt="" />
+                </div>
                 <div className="absolute inset-0 bg-[url('/img/fundo-web.png')] bg-cover bg-center opacity-10"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black"></div>
                 
@@ -32,14 +38,14 @@ const SiteServicePage: React.FC = () => {
                     </button>
 
                     <AnimateOnScroll>
-                        <span className="text-[#a1a1a1] font-black text-[11px] uppercase tracking-[0.4em] mb-6 block">
+                        <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.4em] mb-6 block">
                             Criação de Sites de Alta Performance
                         </span>
                         <h1 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-tight uppercase italic">
                             Site Sob Medida <br />
                             <span className="text-gradient">Para o Seu Negócio</span>
                         </h1>
-                        <p className="text-[#a1a1a1] text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+                        <p className="text-[var(--domu-muted)] text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
                             Desenvolvemos plataformas exclusivas focadas em autoridade, performance técnica e conversão de visitantes em clientes reais.
                         </p>
                         
@@ -58,17 +64,17 @@ const SiteServicePage: React.FC = () => {
                 <ProfessionalDevelopment />
                 
                 {/* About Content specifically for Sites */}
-                <section className="py-20 bg-[#121212] border-y border-white/5">
+                <section className="py-20 bg-[var(--domu-black)] border-y border-white/5">
                     <div className="container mx-auto px-6">
                         <div className="grid lg:grid-cols-2 gap-16 items-center">
                             <AnimateOnScroll>
-                                <span className="text-[#a1a1a1] font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">
+                                <span className="text-[var(--domu-muted)] font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">
                                     GESTÃO & AUTONOMIA
                                 </span>
                                 <h2 className="h2-domu text-white mb-8">
                                     SITES 100% GERENCIÁVEIS POR VOCÊ
                                 </h2>
-                                <p className="text-[#a1a1a1] text-lg leading-relaxed mb-6">
+                                <p className="text-[var(--domu-muted)] text-lg leading-relaxed mb-6">
                                     Nada de ficar preso a programadores para trocar um simples texto ou foto. Entregamos seu site com um painel administrativo intuitivo onde você tem controle total.
                                 </p>
                                 <ul className="space-y-4 text-white/70">
@@ -87,8 +93,8 @@ const SiteServicePage: React.FC = () => {
                                 </ul>
                             </AnimateOnScroll>
                             <AnimateOnScroll delay={200}>
-                                <div className="relative bg-white/5 p-4 rounded-[2rem] border border-white/10 overflow-hidden shadow-2xl">
-                                    <img src="/img/fundo-web.png" alt="Gestão de Site" className="rounded-2xl opacity-50" />
+                                <div className="relative bg-white/5 p-4 rounded-xl border border-white/10 overflow-hidden shadow-2xl">
+                                    <img src="/img/fundo-web.png" alt="Gestão de Site" className="rounded-lg opacity-50" />
                                     <div className="absolute inset-0 flex items-center justify-center">
                                         <div className="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-md border border-white/20">
                                             <LightningBoltIcon className="w-8 h-8 text-white" />

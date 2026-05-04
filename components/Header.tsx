@@ -95,15 +95,15 @@ const Header: React.FC = () => {
     return (
         <>
             {/* Top Bar */}
-            <div className="bg-gradient-to-r from-[#1a1a1a] via-[#2a2a2a] to-[#1a1a1a] border-b border-white/5 py-3 relative z-[60] overflow-hidden">
+            <div className="bg-gradient-to-r from-[var(--domu-black)] via-[var(--domu-surface-1)] to-[var(--domu-black)] border-b border-white/5 py-3 relative z-[60] overflow-hidden">
                 <div className="container mx-auto px-4 h-5 md:h-6 flex justify-center items-center">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={currentMessage}
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            exit={{ y: -20, opacity: 0 }}
-                            transition={{ duration: 0.5, ease: "easeOut" }}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.6, ease: "easeInOut" }}
                             className="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4 text-[11px] md:text-[13px] text-white font-medium tracking-wide text-center w-full"
                         >
                             <span className="opacity-80 uppercase tracking-widest font-bold">
@@ -124,7 +124,7 @@ const Header: React.FC = () => {
             </div>
 
             {/* Main Header */}
-            <header className={`sticky top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-[#1f1f1f]/95 backdrop-blur-xl shadow-xl py-2' : 'bg-[#1f1f1f] py-4'}`}>
+            <header className={`sticky top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-[var(--domu-bg)]/95 backdrop-blur-xl shadow-xl py-2' : 'bg-[var(--domu-bg)] py-4'}`}>
                 <div className="container mx-auto px-4 md:px-8">
                     <div className="flex items-center justify-between h-16 md:h-20">
                         
@@ -140,8 +140,8 @@ const Header: React.FC = () => {
                         {/* Navigation */}
                         <nav className="hidden lg:flex items-center gap-10 xl:gap-14 absolute left-1/2 -translate-x-1/2 h-full">
                             <a href="/#home" className="group relative h-full flex items-center overflow-hidden">
-                                <span className="text-[#a1a1a1] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[#FFFFFF] transition-all duration-300">Home</span>
-                                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white transform translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300"></span>
+                                <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[var(--domu-white)] transition-all duration-300">Home</span>
+                                <span className="absolute bottom-[22px] left-0 w-full h-[2px] bg-white transform translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300"></span>
                             </a>
                             
                             {/* Services Dropdown */}
@@ -150,7 +150,7 @@ const Header: React.FC = () => {
                                 onMouseEnter={handleMouseEnter}
                                 onMouseLeave={handleMouseLeave}
                             >
-                                <button className="text-[#a1a1a1] font-black text-[11px] uppercase tracking-[0.1em] hover:text-[#FFFFFF] transition-all flex items-center gap-1.5 focus:outline-none py-2">
+                                <button className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.1em] hover:text-[var(--domu-white)] transition-all flex items-center gap-1.5 focus:outline-none py-2">
                                     Serviços
                                     <ChevronDownIcon className={`w-3 h-3 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`} />
                                 </button>
@@ -165,9 +165,9 @@ const Header: React.FC = () => {
                                             animate={{ opacity: 1, y: 0, x: "-50%" }}
                                             exit={{ opacity: 0, y: 15, x: "-50%" }}
                                             transition={{ duration: 0.2 }}
-                                            className="absolute top-full left-1/2 w-[500px] pt-4 z-[100]"
+                                            className="absolute top-[100%] left-1/2 w-[500px] pt-0 z-[100]"
                                         >
-                                            <div className="bg-[#2a2a2a]/95 backdrop-blur-md border border-white/10 shadow-2xl rounded-xl overflow-hidden">
+                                            <div className="bg-[var(--domu-bg)] backdrop-blur-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-xl overflow-hidden">
                                             <div className="grid grid-cols-2 gap-1 p-2">
                                                 {SERVICES_LIST.map((svc) => (
                                                     <a 
@@ -196,12 +196,12 @@ const Header: React.FC = () => {
                             </div>
 
                             <a href="/#portfolio" className="group relative h-full flex items-center overflow-hidden">
-                                <span className="text-[#a1a1a1] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[#FFFFFF] transition-all duration-300">Portfólio</span>
-                                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white transform translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300"></span>
+                                <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[var(--domu-white)] transition-all duration-300">Portfólio</span>
+                                <span className="absolute bottom-[22px] left-0 w-full h-[2px] bg-white transform translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300"></span>
                             </a>
                             <a href="/chatbot-placeholder" className="group relative h-full flex items-center overflow-hidden">
-                                <span className="text-[#a1a1a1] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[#FFFFFF] transition-all duration-300">Orçamento</span>
-                                <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white transform translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300"></span>
+                                <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[var(--domu-white)] transition-all duration-300">Orçamento</span>
+                                <span className="absolute bottom-[22px] left-0 w-full h-[2px] bg-white transform translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-300"></span>
                             </a>
                         </nav>
 
@@ -211,7 +211,6 @@ const Header: React.FC = () => {
                                 href="tel:+5511934430659" 
                                 className="btn-whatsapp !py-3 !px-7 !text-[11px] !border-white/10 hover:!border-white/40 group overflow-hidden"
                             >
-                                <div className="absolute inset-0 bg-white/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                                 <div className="relative flex items-center gap-2">
                                     <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
                                     <span>Falar no WhatsApp</span>
@@ -231,8 +230,8 @@ const Header: React.FC = () => {
                 </div>
 
                 {/* Mobile Menu Overlay */}
-                <div className={`fixed inset-0 bg-[#0a0a0a] z-[100] transition-all duration-500 ease-in-out ${isMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'}`}>
-                   <div className="p-6 flex justify-between items-center border-b border-white/5 bg-[#0a0a0a]">
+                <div className={`fixed inset-0 bg-[var(--domu-black)] z-[100] transition-all duration-500 ease-in-out ${isMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'}`}>
+                   <div className="p-6 flex justify-between items-center border-b border-white/5 bg-[var(--domu-black)]">
                         <div className="flex items-center gap-2">
                              <img src="/logos/logoheaderfooter.png" alt="DOMU TECH" className="h-8 w-auto" />
                         </div>

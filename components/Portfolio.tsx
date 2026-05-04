@@ -44,7 +44,7 @@ const PortfolioCard = ({ project, index, STEP, slideW, containerW, trackX, isMob
             }}
             onClick={onClick}
         >
-            <div className="w-full aspect-[1904/932] rounded-2xl overflow-hidden shadow-2xl relative group/card">
+            <div className="w-full aspect-[1904/932] rounded-xl overflow-hidden shadow-2xl relative group/card">
                 <img
                     src={project.image}
                     alt={project.title}
@@ -189,19 +189,26 @@ const Portfolio: React.FC = () => {
     /* ── Render ─────────────────────────────────────────────────────────────── */
 
     return (
-        <section id="portfolio" className="py-10 md:py-32 bg-[var(--domu-bg)] overflow-hidden">
-            <div className="container mx-auto px-4">
+        <section id="portfolio" className="py-10 md:py-32 bg-[var(--domu-bg)] overflow-hidden relative">
+            {/* Branding Ghosts Constellation - Forced to Background */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.05] z-0">
+                <img src="/logos/logobranca.png" className="absolute top-[15%] left-[5%] w-32 h-32 animate-float" alt="" />
+                <img src="/logos/logobranca.png" className="absolute top-[40%] right-0 w-64 h-64 animate-spin-slow" style={{ animationDuration: '70s' }} alt="" />
+                <img src="/logos/logobranca.png" className="absolute bottom-[10%] left-[10%] w-24 h-24 animate-float-delayed" alt="" />
+            </div>
+            
+            <div className="container mx-auto px-4 relative z-10">
 
                 {/* ── Header ─────────────────────────────────────────────── */}
                 <AnimateOnScroll>
                     <div className="text-center mb-12 md:mb-20">
-                        <span className="text-[#a1a1a1] font-black text-[9px] md:text-[11px] uppercase tracking-[0.4em] mb-4 block">
+                        <span className="text-[var(--domu-muted)] font-black text-[9px] md:text-[11px] uppercase tracking-[0.4em] mb-4 block">
                             PROJETOS DE ALTA PERFORMANCE
                         </span>
                         <h2 className="h2-domu text-gradient mb-6 md:mb-8">
                             NOSSO PORTFÓLIO
                         </h2>
-                        <div className="w-16 h-1 bg-white/10 mx-auto rounded-full"></div>
+
                     </div>
                 </AnimateOnScroll>
 
@@ -291,7 +298,7 @@ const Portfolio: React.FC = () => {
                         <button
                             id="portfolio-prev"
                             onClick={() => { isAnimating.current = false; goTo(currentRef.current - 1); }}
-                            className="w-8 h-8 flex items-center justify-center rounded-full border border-white/15 text-white hover:border-[#FFFFFF] hover:text-[#FFFFFF] transition-all"
+                            className="w-8 h-8 flex items-center justify-center rounded-full border border-white/15 text-white hover:border-[var(--domu-accent)] hover:text-[var(--domu-accent)] transition-all"
                             aria-label="Anterior"
                         >
                             <ArrowRightIcon className="w-3 h-3 fill-current rotate-180" />
@@ -310,7 +317,7 @@ const Portfolio: React.FC = () => {
                         <button
                             id="portfolio-next"
                             onClick={() => { isAnimating.current = false; goTo(currentRef.current + 1); }}
-                            className="w-8 h-8 flex items-center justify-center rounded-full border border-white/15 text-white hover:border-[#FFFFFF] hover:text-[#FFFFFF] transition-all"
+                            className="w-8 h-8 flex items-center justify-center rounded-full border border-white/15 text-white hover:border-[var(--domu-accent)] hover:text-[var(--domu-accent)] transition-all"
                             aria-label="Próximo"
                         >
                             <ArrowRightIcon className="w-3 h-3 fill-current" />
@@ -325,7 +332,7 @@ const Portfolio: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {rawSlides.slice(0, 3).map((project, index) => (
                         <AnimateOnScroll key={`g${index}`} delay={index * 100}>
-                            <div className="group bg-[var(--domu-surface-1)] rounded-2xl overflow-hidden shadow-md border border-white/5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5">
+                            <div className="group bg-white/5 rounded-xl overflow-hidden shadow-md border border-white/10 transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 backdrop-blur-sm">
 
                                 <div className="w-full aspect-[1904/932] overflow-hidden">
                                     <img

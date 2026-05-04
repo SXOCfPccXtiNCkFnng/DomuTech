@@ -70,7 +70,7 @@ const AutoPopup: React.FC = () => {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={showPopup}
-                        className="fixed bottom-10 left-10 z-[999] w-14 h-14 bg-gradient-to-br from-[#121212] to-[#1a1a1a] text-white rounded-full flex items-center justify-center shadow-[0_10px_40px_rgba(0,0,0,0.4)] border border-white/10 group overflow-hidden"
+                        className="fixed bottom-10 left-10 z-[999] w-14 h-14 bg-gradient-to-br from-[var(--domu-black)] to-[var(--domu-bg)] text-white rounded-full flex items-center justify-center shadow-[0_10px_40px_rgba(0,0,0,0.4)] border border-white/10 group overflow-hidden"
                         aria-label="Ver calculadora de orçamento"
                     >
                         {/* Shimmer premium for toggle button */}
@@ -111,7 +111,7 @@ const AutoPopup: React.FC = () => {
                             initial={{ scale: 0.8, opacity: 0, y: 40 }}
                             animate={{ scale: 1, opacity: 1, y: 0 }}
                             exit={{ scale: 0.8, opacity: 0, y: 40 }}
-                            className="relative w-full max-w-[500px] bg-[#0a0a0a] rounded-[3rem] overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.8)] border border-white/10"
+                            className="relative w-full max-w-[500px] bg-[var(--domu-black)] rounded-2xl overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.8)] border border-white/10"
                         >
                             {/* Background Gloss */}
                             <div className="absolute top-[-20%] right-[-20%] w-[80%] h-[80%] bg-white/[0.03] rounded-full blur-[80px] pointer-events-none" />
@@ -146,10 +146,10 @@ const AutoPopup: React.FC = () => {
                                     whileHover={{ scale: 1.02, y: -4 }}
                                     whileTap={{ scale: 0.98 }}
                                     onClick={handleAction}
-                                    className="relative w-full bg-white text-black py-6 rounded-2xl font-[950] uppercase text-[12px] tracking-[0.2em] shadow-[0_20px_40px_rgba(255,255,255,0.1)] hover:shadow-[0_20px_50px_rgba(255,255,255,0.2)] transition-all flex items-center justify-center gap-4 group overflow-hidden"
+                                    className="relative w-full bg-[var(--domu-white)] text-[var(--domu-black)] py-6 rounded-lg font-[950] uppercase text-[12px] tracking-[0.2em] shadow-[0_20px_40px_rgba(255,255,255,0.1)] hover:shadow-[0_20px_50px_rgba(255,255,255,0.2)] transition-all flex items-center justify-center gap-4 group overflow-hidden"
                                 >
                                     {/* Inner Shimmer Premium */}
-                                    <div className="absolute top-0 left-[-120px] w-[120px] h-full bg-gradient-to-r from-transparent via-black/[0.15] to-transparent skew-x-[-30deg] pointer-events-none group-hover:animate-shimmer-premium-slow" />
+                                    <div className="absolute top-0 left-[-120px] w-[120px] h-full bg-gradient-to-r from-transparent via-[var(--domu-accent)]/80 to-transparent skew-x-[-30deg] pointer-events-none group-hover:animate-shimmer-premium-slow" />
 
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} className="w-5 h-5">
                                         <rect x="4" y="2" width="16" height="20" rx="2" />

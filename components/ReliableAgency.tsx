@@ -16,8 +16,13 @@ const FEATURES = [
 
 const ReliableAgency: React.FC = () => {
     return (
-        <section className="py-10 md:py-24 bg-[#121212] overflow-hidden relative border-y border-white/5">
-            {/* Background elements */}
+        <section className="py-10 md:py-24 bg-[var(--domu-black)] overflow-hidden relative border-t border-white/5">
+            {/* Branding Ghosts Constellation */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.05]">
+                <img src="/logos/logobranca.png" className="absolute top-[10%] left-[-5%] w-56 h-56 animate-spin-slow opacity-40" style={{ animationDuration: '70s' }} alt="" />
+                <img src="/logos/logobranca.png" className="absolute bottom-[15%] right-[5%] w-32 h-32 animate-float opacity-70" alt="" />
+                <img src="/logos/logobranca.png" className="absolute top-[50%] right-[-10%] w-48 h-48 animate-spin-slow opacity-20" style={{ animationDuration: '90s' }} alt="" />
+            </div>
             <div className="absolute top-0 right-0 w-1/3 h-full bg-white/[0.01] -skew-x-12 translate-x-1/2 opacity-30"></div>
             
             <div className="container mx-auto px-6 relative z-10">
@@ -29,9 +34,9 @@ const ReliableAgency: React.FC = () => {
                             <h2 className="h2-domu text-gradient mb-8 md:mb-12">
                                 A AGÊNCIA MAIS CONFIÁVEL<br className="hidden md:block" /> DO BRASIL
                             </h2>
-                            <div className="space-y-8 text-[#a1a1a1] text-[15px] md:text-[17px] leading-relaxed">
+                            <div className="space-y-8 text-[var(--domu-muted)] text-[15px] md:text-[17px] leading-relaxed">
                                 <p>
-                                    Desde 2016, a Domu tech é uma empresa de criação de sites profissionais reconhecida no Brasil, com <span className="text-[#FFFFFF] font-bold underline cursor-default">mais de 10 avaliações positivas no Google</span>. Desenvolvemos sites personalizados com foco em SEO, geração de leads e performance.
+                                    Desde 2016, a Domu tech é uma empresa de criação de sites profissionais reconhecida no Brasil, com <span className="text-[var(--domu-white)] font-bold underline cursor-default">mais de 10 avaliações positivas no Google</span>. Desenvolvemos sites personalizados com foco em SEO, geração de leads e performance.
                                 </p>
                                 <p>
                                     A criação de sites profissionais vai além do design. Envolve estratégia, tecnologia e entendimento do negócio. Atuamos como uma agência de desenvolvimento de sites que entrega projetos rápidos, otimizados para o Google e preparados para converter visitantes em clientes.
@@ -45,7 +50,7 @@ const ReliableAgency: React.FC = () => {
 
                     {/* Coluna Direita - Checklist e CTA */}
                     <AnimateOnScroll delay={200}>
-                        <div className="bg-white/[0.03] backdrop-blur-md p-6 md:p-12 rounded-[2rem] md:rounded-[2.5rem] border border-white/10">
+                        <div className="bg-white/[0.03] backdrop-blur-md p-6 md:p-12 rounded-xl md:rounded-lg border border-white/10">
                             <span className="text-[#FFFFFF] font-black text-[10px] md:text-[11px] uppercase tracking-[0.25em] mb-4 block">
                                 DESENVOLVIMENTO DE SITES SOB MEDIDA
                             </span>

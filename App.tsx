@@ -63,7 +63,7 @@ const App: React.FC = () => {
   );
 
   return (
-    <div className="bg-[var(--domu-bg)] selection:bg-white selection:text-black w-full relative">
+    <div className="bg-[var(--domu-bg)] selection:bg-[var(--domu-accent)] selection:text-white w-full relative">
       <Header />
       <main className="w-full">
         <Routes>

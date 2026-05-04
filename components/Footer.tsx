@@ -16,10 +16,10 @@ const Footer: React.FC = () => {
                             <img 
                                 src="/logos/logoheaderfooter.png" 
                                 alt="Domu tech" 
-                                className="h-8 md:h-10 w-auto transition-transform group-hover:scale-105"
+                                className="h-12 md:h-16 w-auto transition-transform group-hover:scale-105"
                             />
                         </a>
-                        <p className="text-[#a1a1a1] text-[13px] leading-relaxed mb-10 max-w-xs font-medium opacity-70">
+                        <p className="text-[var(--domu-muted)] text-[13px] leading-relaxed mb-10 max-w-xs font-medium opacity-70">
                             A DOMU TECH transforma sua presença online com soluções de alto impacto, tecnologia de ponta e performance digital.
                         </p>
                         
@@ -38,11 +38,11 @@ const Footer: React.FC = () => {
 
                     {/* Column 2: Institucional */}
                     <div className="text-center md:text-left">
-                        <h4 className="text-white font-black text-[10px] md:text-[11px] uppercase tracking-[0.25em] mb-8 md:mb-10 opacity-40">Institucional</h4>
+                        <h4 className="text-white font-black text-[13px] md:text-[15px] uppercase tracking-[0.25em] mb-8 md:mb-10 opacity-60">Institucional</h4>
                         <ul className="space-y-4 md:space-y-6">
                             {FOOTER_INSTITUCIONAL.map(link => (
                                 <li key={link.name}>
-                                    <a href={link.href} className="text-[#a1a1a1] hover:text-[#FFFFFF] font-black text-[12px] uppercase tracking-tighter transition-colors">{link.name}</a>
+                                    <a href={link.href} className="text-[var(--domu-muted)] hover:text-[var(--domu-white)] font-black text-[12px] uppercase tracking-tighter transition-colors">{link.name}</a>
                                 </li>
                             ))}
                         </ul>
@@ -50,11 +50,11 @@ const Footer: React.FC = () => {
 
                     {/* Column 3: Serviços */}
                     <div className="text-center md:text-left">
-                        <h4 className="text-white font-black text-[10px] md:text-[11px] uppercase tracking-[0.25em] mb-8 md:mb-10 opacity-40">Serviços</h4>
+                        <h4 className="text-white font-black text-[13px] md:text-[15px] uppercase tracking-[0.25em] mb-8 md:mb-10 opacity-60">Serviços</h4>
                         <ul className="space-y-4 md:space-y-6">
                             {FOOTER_SERVICOS.map(link => (
                                 <li key={link.name}>
-                                    <a href={link.href} className="text-[#a1a1a1] hover:text-[#FFFFFF] font-bold text-[13px] transition-colors">{link.name}</a>
+                                    <a href={link.href} className="text-[var(--domu-muted)] hover:text-[var(--domu-white)] font-bold text-[13px] transition-colors">{link.name}</a>
                                 </li>
                             ))}
                         </ul>
@@ -62,42 +62,47 @@ const Footer: React.FC = () => {
 
                     {/* Column 4: Segmentos */}
                     <div className="text-center md:text-left">
-                        <h4 className="text-white font-black text-[10px] md:text-[11px] uppercase tracking-[0.25em] mb-8 md:mb-10 opacity-40">Segmentos</h4>
+                        <h4 className="text-white font-black text-[13px] md:text-[15px] uppercase tracking-[0.25em] mb-8 md:mb-10 opacity-60">Segmentos</h4>
                         <ul className="space-y-4 md:space-y-6">
                             {FOOTER_SEGMENTOS.map(link => (
                                 <li key={link.name}>
-                                    <a href={link.href} className="text-[#a1a1a1] hover:text-[#FFFFFF] font-bold text-[13px] transition-colors leading-tight block">{link.name}</a>
+                                    <a href={link.href} className="text-[var(--domu-muted)] hover:text-[var(--domu-white)] font-bold text-[13px] transition-colors leading-tight block">{link.name}</a>
                                 </li>
                             ))}
                         </ul>
                     </div>
                 </div>
 
-                {/* Social & Address Area */}
-                <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
+            </div>
+
+            {/* Social & Address Area - Full Width Border */}
+            <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
+                <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
                     <div className="flex gap-6">
                         {['instagram', 'linkedin', 'twitter'].map(social => (
                             <a 
                                 key={social} 
                                 href={`#${social}`} 
-                                className="text-[#a1a1a1] hover:text-[#FFFFFF] transition-colors"
+                                className="text-[var(--domu-muted)] hover:text-[var(--domu-white)] transition-colors"
                             >
-                                <span className="uppercase text-[9px] font-black tracking-widest">{social}</span>
+                                <span className="uppercase text-[10px] font-black tracking-widest">{social}</span>
                             </a>
                         ))}
                     </div>
                     
-                    <p className="text-[#a1a1a1] text-[11px] font-medium text-center md:text-right opacity-60">
+                    <p className="text-[var(--domu-muted)] text-[12px] font-black uppercase tracking-widest opacity-40">
                         São Paulo - SP • Brasil
                     </p>
                 </div>
+            </div>
 
-                {/* Bottom Bar */}
-                <div className="mt-12 md:mt-16 flex flex-col md:flex-row justify-between items-center gap-6 text-center border-t border-white/5 pt-8">
-                    <p className="text-[#a1a1a1] text-[9px] md:text-[10px] font-bold uppercase tracking-widest opacity-40">
+            {/* Bottom Bar - Full Width Border */}
+            <div className="mt-12 md:mt-16 border-t border-white/5 pt-10">
+                <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 text-center">
+                    <p className="text-[var(--domu-muted)] text-[10px] font-black uppercase tracking-[0.2em] opacity-30">
                         © {new Date().getFullYear()} DOMU TECH • CNPJ: 54.123.884/0001-50
                     </p>
-                    <a href="#" className="text-[#a1a1a1] text-[9px] md:text-[10px] font-bold uppercase tracking-widest hover:text-[#FFFFFF] opacity-40 hover:opacity-100 transition-opacity">
+                    <a href="#" className="text-[var(--domu-muted)] text-[10px] font-black uppercase tracking-[0.2em] hover:text-[var(--domu-white)] opacity-30 hover:opacity-100 transition-opacity">
                         Privacidade
                     </a>
                 </div>
