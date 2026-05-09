@@ -58,7 +58,7 @@ const PortfolioCard = ({ project, index, STEP, slideW, containerW, trackX, isMob
                             <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
                             <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
                         </svg>
-                        <span className="text-[8px] font-black uppercase tracking-widest leading-none">Acessar</span>
+                        <span className="text-xxs font-black uppercase tracking-widest leading-none">Acessar</span>
                     </div>
                 </div>
             </div>
@@ -202,11 +202,11 @@ const Portfolio: React.FC = () => {
                 {/* ── Header ─────────────────────────────────────────────── */}
                 <AnimateOnScroll>
                     <div className="text-center mb-12 md:mb-20">
-                        <span className="text-[var(--domu-muted)] font-black text-[9px] md:text-[11px] uppercase tracking-[0.4em] mb-4 block">
-                            PROJETOS DE ALTA PERFORMANCE
+                        <span className="tag-domu mb-4 block">
+                            Projetos de alta performance
                         </span>
                         <h2 className="h2-domu text-gradient mb-6 md:mb-8">
-                            NOSSO PORTFÓLIO
+                            Nosso Portfólio
                         </h2>
 
                     </div>
@@ -265,10 +265,10 @@ const Portfolio: React.FC = () => {
                                 transition={{ duration: 0.2 }}
                                 className="flex flex-col gap-0.5"
                             >
-                                <h3 className="text-base font-black text-white uppercase tracking-tight truncate leading-tight">
+                                <h3 className="text-base font-black text-white  tracking-tight truncate leading-tight">
                                     {active.title.split(' - ')[0]}
                                 </h3>
-                                <span className="text-[#FFFFFF] font-bold text-[10px] uppercase tracking-[0.18em] block">
+                                <span className="text-[#FFFFFF] font-bold text-xs uppercase tracking-[0.18em] block">
                                     {active.tag === 'Criação de Sites'
                                         ? 'Soluções para o seu negócio'
                                         : active.tag}
@@ -281,10 +281,10 @@ const Portfolio: React.FC = () => {
                                         className="hidden md:inline-flex items-center gap-1.5 mt-1 group w-fit"
                                         onClick={e => e.stopPropagation()}
                                     >
-                                        <span className="text-white/40 font-bold text-[9px] uppercase tracking-widest group-hover:text-white/70 transition-colors">
+                                        <span className="text-white/40 font-bold text-xxs uppercase tracking-widest group-hover:text-white/70 transition-colors">
                                             Veja Online
                                         </span>
-                                        <span className="text-[#FFFFFF] font-black text-[9px] uppercase tracking-widest group-hover:text-[#FFFFFF] transition-colors truncate max-w-[260px]">
+                                        <span className="text-[#FFFFFF] font-black text-xxs uppercase tracking-widest group-hover:text-[#FFFFFF] transition-colors truncate max-w-[260px]">
                                             {active.link.replace(/^https?:\/\//, '').replace(/\/$/, '')}
                                         </span>
                                     </a>
@@ -304,7 +304,7 @@ const Portfolio: React.FC = () => {
                             <ArrowRightIcon className="w-3 h-3 fill-current rotate-180" />
                         </button>
 
-                        <span className="font-black text-[11px] tracking-widest whitespace-nowrap select-none">
+                        <span className="font-black text-xs tracking-widest whitespace-nowrap select-none">
                             <span className="text-white">
                                 {String(realIndex + 1).padStart(2, '0')}
                             </span>
@@ -346,16 +346,20 @@ const Portfolio: React.FC = () => {
                                 <div className="p-5">
                                     {/* Badge */}
                                     <span
-                                        className="inline-block px-3 py-1 mb-2 rounded-full font-black text-[9px] uppercase tracking-widest bg-white/10 text-white"
+                                        className={`inline-block px-3 py-1 mb-2 rounded-full font-black text-xxs uppercase tracking-widest ${
+                                            index === 0 ? 'bg-yellow-500/10 text-yellow-500' : 
+                                            index === 1 ? 'bg-blue-500/10 text-blue-500' : 
+                                            'bg-purple-500/10 text-purple-500'
+                                        }`}
                                     >
-                                        {['Financeiro', 'Serviços', 'Tecnologia'][index]}
+                                        {['E-commerce', 'Software House', 'IA & Chatbot'][index]}
                                     </span>
 
-                                    <p className="text-white/60 font-bold text-[9px] uppercase tracking-widest mb-1">
+                                    <p className="text-white/60 font-bold text-xxs uppercase tracking-widest mb-1">
                                         {['Soluções Contábeis', 'Gestão Empresarial', 'Gestão de Frotas'][index]}
                                     </p>
 
-                                    <h4 className="text-sm font-black text-white uppercase tracking-tight leading-tight mb-3">
+                                    <h4 className="text-sm font-black text-white  tracking-tight leading-tight mb-3">
                                         {project.title.split(' - ')[0]}
                                     </h4>
 
@@ -364,7 +368,7 @@ const Portfolio: React.FC = () => {
                                         href={project.link}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="inline-flex items-center gap-1.5 text-white font-black text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-250"
+                                        className="inline-flex items-center gap-1.5 text-white font-black text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-250"
                                     >
                                         Ver projeto
                                         <ArrowRightIcon className="w-3 h-3 fill-current" />

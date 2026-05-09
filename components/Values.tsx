@@ -15,12 +15,12 @@ const Values: React.FC = () => {
             <div className="container mx-auto px-4 relative z-10">
                 <AnimateOnScroll>
                     <div className="text-center mb-16 max-w-3xl mx-auto">
-                        <span className="text-[var(--domu-muted)] font-black text-[10px] md:text-[11px] uppercase tracking-[0.4em] mb-4 block">
-                            WORKFLOW DOMU TECH
+                        <span className="tag-domu mb-4 block">
+                            Workflow Domu Tech
                         </span>
                         <h2 className="h2-domu text-gradient">
-                            COMO TRANSFORMAMOS<br />
-                            SUA IDEIA EM REALIDADE
+                            Como transformamos<br />
+                            sua ideia em realidade
                         </h2>
                     </div>
                 </AnimateOnScroll>
@@ -64,7 +64,7 @@ const Values: React.FC = () => {
                                     {step.icon}
                                 </div>
 
-                                <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tighter mb-4 leading-tight">
+                                <h3 className="text-lg md:text-xl font-black text-white  tracking-tighter mb-4 leading-tight">
                                     {step.title}
                                 </h3>
                                 

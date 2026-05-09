@@ -55,7 +55,7 @@ const Pricing: React.FC = () => {
                                         <line x1="12" y1="17" x2="12" y2="21" />
                                     </svg>
                                 </div>
-                                <h3 className="text-white font-black text-2xl uppercase tracking-tight mb-2">Site Expresso</h3>
+                                <h3 className="text-white font-black text-2xl  tracking-tight mb-2">Site Expresso</h3>
                                 <p className="text-[var(--domu-muted)] text-[13px] leading-snug opacity-60 font-medium mx-auto">
                                     Rapidez e investimento inteligente para sua empresa escalar.
                                 </p>
@@ -86,7 +86,7 @@ const Pricing: React.FC = () => {
                                 </ul>
                             </div>
 
-                            <a href="/chatbot-placeholder" className="btn-budget w-full !py-4 !text-[12px]">
+                            <a href="/chatbot-placeholder" className="btn-budget w-full">
                                 <ArrowUpRightIcon className="w-5 h-5" />
                                 Peça um Orçamento
                             </a>
@@ -97,10 +97,10 @@ const Pricing: React.FC = () => {
                     <div className="flex flex-col items-center justify-center text-center px-4 py-8 order-first lg:order-none">
                         <AnimateOnScroll>
                             <span className="text-[var(--domu-muted)] font-black text-[10px] uppercase tracking-[0.3em] mb-6 block">
-                                PLANOS E PREÇOS
+                                Planos e Preços
                             </span>
                             <h2 className="h2-domu text-gradient mb-8">
-                                CONTRATE UM SITE<br/>PROFISSIONAL
+                                Contrate um site<br/>profissional
                             </h2>
                             <div className="relative w-48 h-48 mb-8 group mx-auto">
                                 <div className="absolute inset-0 bg-white/5 rounded-full blur-3xl scale-125"></div>
@@ -114,7 +114,7 @@ const Pricing: React.FC = () => {
                                 href="https://wa.me/5511934430659" 
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="btn-whatsapp !py-4 !px-10 !text-[12px]"
+                                className="btn-whatsapp"
                             >
                                 <WhatsAppIcon className="w-5 h-5 fill-current transition-transform " />
                                 Falar no WhatsApp
@@ -131,7 +131,7 @@ const Pricing: React.FC = () => {
                                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                     </svg>
                                 </div>
-                                <h3 className="text-white font-black text-2xl uppercase tracking-tight mb-2">Site Sob Medida</h3>
+                                <h3 className="text-white font-black text-2xl  tracking-tight mb-2">Site Sob Medida</h3>
                                 <p className="text-[var(--domu-muted)] text-[13px] leading-snug opacity-60 font-medium mx-auto">
                                     UX/UI Design exclusiva para autoridade e conversão máxima.
                                 </p>
@@ -160,7 +160,7 @@ const Pricing: React.FC = () => {
                                 </ul>
                             </div>
 
-                            <a href="/chatbot-placeholder" className="btn-budget w-full !py-4 !text-[12px]">
+                            <a href="/chatbot-placeholder" className="btn-budget w-full">
                                 <ArrowUpRightIcon className="w-5 h-5" />
                                 Peça um Orçamento
                             </a>

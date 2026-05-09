@@ -38,7 +38,7 @@ const CookieBanner: React.FC = () => {
                                 <span className="text-xl md:text-2xl">🍪</span>
                             </div>
                             <div className="flex flex-col gap-1">
-                                <h4 className="text-white font-[950] text-[10px] md:text-[11px] uppercase tracking-[0.2em]">Controle de Cookies</h4>
+                                <h4 className="text-white font-[950] text-[10px] md:text-[11px]  tracking-[0.2em]">Controle de Cookies</h4>
                                 <p className="text-[10px] md:text-[11px] text-[var(--domu-muted)] font-medium leading-relaxed max-w-lg uppercase">
                                     Utilizamos cookies para personalizar sua experiência e melhorar nosso desempenho. 
                                     Ao continuar, você concorda com nossos <a href="#" className="text-white underline decoration-white/30 hover:decoration-white transition-all underline-offset-4">Termos e Privacidade</a>.

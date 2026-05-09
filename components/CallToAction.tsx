@@ -22,28 +22,30 @@ const CallToAction: React.FC<CallToActionProps> = ({ title, subtitle, primaryBut
                                 <h2 className="h2-domu text-gradient mb-6 md:mb-8">
                                     {title}
                                 </h2>
-                                <p className="text-[var(--domu-muted)] text-base md:text-lg font-medium leading-relaxed mb-8 md:mb-10 max-w-lg mx-auto lg:mx-0">
+                                <p className="text-[var(--domu-muted)] text-[15px] font-medium leading-relaxed mb-8 md:mb-10 max-w-lg mx-auto lg:mx-0">
                                     {subtitle}
                                 </p>
                             </div>
                             
                             <div className="flex flex-col items-center lg:items-end">
-                                <a 
-                                    href={primaryButtonLink} 
-                                    target={variant === 'whatsapp' ? "_blank" : undefined}
-                                    rel={variant === 'whatsapp' ? "noopener noreferrer" : undefined}
-                                    className={`${variant === 'whatsapp' ? 'btn-whatsapp' : 'btn-budget'} w-full md:w-auto`}
-                                >
-                                    {variant === 'whatsapp' ? (
-                                        <WhatsAppIcon className="w-5 h-5 md:w-6 md:h-6 fill-current transition-transform" />
-                                    ) : (
-                                        <ArrowUpRightIcon className="w-5 h-5 md:w-6 md:h-6 fill-current transition-transform" />
-                                    )}
-                                    {primaryButtonText}
-                                </a>
-                                <span className="mt-4 md:mt-6 text-white/40 text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-center">
-                                    {variant === 'whatsapp' ? 'Resposta média em menos de 15 minutos' : 'Orçamento rápido e sem compromisso'}
-                                </span>
+                                <div className="flex flex-col items-center">
+                                    <a 
+                                        href={primaryButtonLink} 
+                                        target={variant === 'whatsapp' ? "_blank" : undefined}
+                                        rel={variant === 'whatsapp' ? "noopener noreferrer" : undefined}
+                                        className={`${variant === 'whatsapp' ? 'btn-whatsapp' : 'btn-budget'} w-full md:w-auto`}
+                                    >
+                                        {variant === 'whatsapp' ? (
+                                            <WhatsAppIcon className="w-5 h-5 md:w-6 md:h-6 fill-current transition-transform" />
+                                        ) : (
+                                            <ArrowUpRightIcon className="w-5 h-5 md:w-6 md:h-6 fill-current transition-transform" />
+                                        )}
+                                        {primaryButtonText}
+                                    </a>
+                                    <span className="mt-4 md:mt-6 text-white/40 text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-center">
+                                        {variant === 'whatsapp' ? 'Resposta média em menos de 15 minutos' : 'Orçamento rápido e sem compromisso'}
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>

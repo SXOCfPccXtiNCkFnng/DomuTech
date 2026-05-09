@@ -25,7 +25,7 @@ const ProfessionalDevelopment: React.FC = () => {
                                 </p>
                             </div>
 
-                            <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tighter mb-4 leading-tight">
+                            <h3 className="text-xl md:text-2xl font-black text-white  tracking-tighter mb-4 leading-tight">
                                 Desenvolvimento Gerenciável
                             </h3>
                             <div className="space-y-4 text-[var(--domu-muted)] text-[14px] md:text-[15px] leading-relaxed mb-8">

@@ -46,14 +46,14 @@ const BrandingServicePage: React.FC = () => {
                     </button>
 
                     <AnimateOnScroll>
-                        <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.4em] mb-6 block">
+                        <span className="text-[var(--domu-muted)] font-black text-xs uppercase tracking-[0.4em] mb-6 block">
                             Branding & Design de Experiência
                         </span>
-                        <h1 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-tight uppercase italic">
+                        <h1 className="h1-domu text-white mb-8 italic">
                             Identidades Que <br />
                             <span className="text-gradient">Conectam Marcas e Pessoas</span>
                         </h1>
-                        <p className="text-[var(--domu-muted)] text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+                        <p className="p-domu text-[var(--domu-muted)] max-w-2xl mx-auto mb-12">
                             Não é só sobre cores e fontes. É sobre criar uma percepção de valor inabalável no mercado.
                         </p>
                         
@@ -72,11 +72,11 @@ const BrandingServicePage: React.FC = () => {
                 <div className="container mx-auto px-6">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <AnimateOnScroll>
-                            <span className="text-[var(--domu-muted)] font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">
+                            <span className="text-[var(--domu-muted)] font-black text-xxs uppercase tracking-[0.3em] mb-4 block">
                                 DESIGN COM PROPÓSITO
                             </span>
                             <h2 className="h2-domu text-white mb-8">
-                                O DESIGN É O SEU VENDEDOR MAIS SILENCIOSO
+                                O design é o seu vendedor mais silencioso
                             </h2>
                             <p className="text-[var(--domu-muted)] text-lg leading-relaxed mb-10">
                                 Uma marca forte reduz o custo de aquisição e permite que você cobre mais caro pelo seu serviço. Nós unimos estética premium com usabilidade de ponta.
@@ -89,7 +89,7 @@ const BrandingServicePage: React.FC = () => {
                                     { title: "Social Design", desc: "Presença digital consistente e imponente." }
                                 ].map((item, i) => (
                                     <div key={i} className="group">
-                                        <h4 className="text-white font-black uppercase tracking-tighter mb-2 group-hover:text-[var(--domu-accent)] transition-colors">{item.title}</h4>
+                                        <h4 className="text-white font-black  tracking-tighter mb-2 group-hover:text-[var(--domu-accent)] transition-colors">{item.title}</h4>
                                         <p className="text-white/40 text-sm leading-snug">{item.desc}</p>
                                     </div>
                                 ))}
@@ -102,8 +102,8 @@ const BrandingServicePage: React.FC = () => {
                                 <div className="relative h-full flex flex-col items-center justify-center p-12 bg-white/5 border border-white/10 rounded-full backdrop-blur-xl">
                                     <PaletteIcon className="w-24 h-24 text-white mb-6" />
                                     <div className="text-center">
-                                        <span className="block text-4xl font-black text-white mb-2 italic">ESTÉTICA</span>
-                                        <span className="block text-white/40 font-black tracking-[0.5em] text-[10px] uppercase">Meets Performance</span>\n                                    </div>
+                                        <span className="block text-4xl font-black text-white mb-2 italic">Estética</span>
+                                        <span className="block text-white/40 font-black tracking-[0.5em] text-xxs uppercase">Meets Performance</span>\n                                    </div>
                                 </div>
                              </div>
                         </AnimateOnScroll>
@@ -118,8 +118,8 @@ const BrandingServicePage: React.FC = () => {
             {/* CTA */}
             <section className="py-24 bg-[var(--domu-bg)] text-center">
                 <AnimateOnScroll>
-                    <h2 className="text-3xl md:text-5xl font-black text-white mb-8 uppercase italic">
-                        SUA MARCA TRANSMITE O VALOR QUE VOCÊ COBRA?
+                    <h2 className="text-2xl md:text-4xl font-black text-white mb-8 italic">
+                        Sua marca transmite o valor que você cobra?
                     </h2>
                     <a href="/chatbot-placeholder" className="btn-budget mx-auto">
                         <ArrowUpRightIcon className="w-5 h-5" />

@@ -37,6 +37,14 @@
     />
     <meta name="twitter:image" content="/logos/logobranca.png" />
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Analytics (substitua pelos seus dados) -->
     <script
       async
@@ -61,6 +69,23 @@
         darkMode: "class",
         theme: {
           extend: {
+            fontFamily: {
+              sans: ["'Plus Jakarta Sans'", "sans-serif"],
+            },
+            fontSize: {
+              xxs: ['clamp(0.5rem, 1vw, 0.625rem)', { lineHeight: '1rem' }],
+              xs: ['clamp(0.65rem, 1.2vw, 0.75rem)', { lineHeight: '1rem' }],
+              sm: ['clamp(0.75rem, 1.5vw, 0.875rem)', { lineHeight: '1.25rem' }],
+              base: ['clamp(0.875rem, 1.8vw, 1rem)', { lineHeight: '1.5rem' }],
+              lg: ['clamp(1rem, 2vw, 1.125rem)', { lineHeight: '1.75rem' }],
+              xl: ['clamp(1.125rem, 2.2vw, 1.25rem)', { lineHeight: '1.75rem' }],
+              '2xl': ['clamp(1.25rem, 2.5vw, 1.5rem)', { lineHeight: '2rem' }],
+              '3xl': ['clamp(1.5rem, 3vw, 1.875rem)', { lineHeight: '2.25rem' }],
+              '4xl': ['clamp(1.875rem, 3.5vw, 2.25rem)', { lineHeight: '2.5rem' }],
+              '5xl': ['clamp(2.25rem, 4vw, 2.75rem)', { lineHeight: '1.1' }],
+              '6xl': ['clamp(2.75rem, 4.5vw, 3.25rem)', { lineHeight: '1.1' }],
+              '7xl': ['clamp(3.25rem, 5vw, 4rem)', { lineHeight: '1.05' }],
+            },
             colors: {
               "domu-primary": "#ffffff",
               "domu-bg": "#19181e",
@@ -183,8 +208,8 @@
       }
       .loading-text {
         color: #ffffff;
-        font-family: system-ui, -apple-system, sans-serif;
-        font-size: 11px;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: clamp(9px, 1.2vw, 11px);
         font-weight: 900;
         letter-spacing: 0.4em;
         text-transform: uppercase;

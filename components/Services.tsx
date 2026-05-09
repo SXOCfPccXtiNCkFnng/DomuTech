@@ -42,7 +42,7 @@ const Services: React.FC = () => {
                                     <service.icon className="w-full h-full text-white" />
                                 </div>
                                 
-                                <h3 className="text-2xl font-black text-white uppercase tracking-tighter mb-4 leading-tight">
+                                <h3 className="text-2xl font-black text-white  tracking-tighter mb-4 leading-tight">
                                     {service.title}
                                 </h3>
                                 

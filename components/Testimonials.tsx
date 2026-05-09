@@ -118,11 +118,11 @@ const Testimonials: React.FC = () => {
                 
                 <AnimateOnScroll>
                     <div className="text-center mb-20 text-white">
-                        <span className="text-[var(--domu-muted)] font-black text-[10px] md:text-[11px] uppercase tracking-[0.4em] mb-6 block">
-                            FEEDBACK DOS CLIENTES
+                        <span className="tag-domu mb-6 block">
+                            Feedback dos clientes
                         </span>
                         <h2 className="h2-domu text-gradient mb-8">
-                            CLIENTES E AVALIAÇÕES
+                            Clientes e avaliações
                         </h2>
 
                     </div>
@@ -180,7 +180,7 @@ const Testimonials: React.FC = () => {
                                     </p>
 
                                     <div className="mt-auto pt-6 border-t border-white/10">
-                                        <h4 className="text-white font-black text-lg md:text-xl uppercase tracking-tighter mb-1">
+                                        <h4 className="text-white font-black text-lg md:text-xl  tracking-tighter mb-1">
                                             {item.name}
                                         </h4>
                                         <span className="text-[var(--domu-muted)] font-bold text-[10px] uppercase tracking-widest">
@@ -205,7 +205,7 @@ const Testimonials: React.FC = () => {
                             </svg>
                         </div>
                         <div>
-                            <p className="text-white font-black text-sm uppercase tracking-tight">TOP #1 no Google</p>
+                            <p className="text-white font-black text-sm tracking-tight">Top #1 no Google</p>
                             <div className="flex items-center gap-2">
                                 <span className="text-white font-bold text-xs">4.9</span>
                                 <div className="flex text-yellow-500 font-bold">★★★★★</div>

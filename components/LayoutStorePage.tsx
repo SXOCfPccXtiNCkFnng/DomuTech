@@ -5,30 +5,39 @@ import { ArrowRightIcon, ShoppingBagIcon, SparklesIcon, ZapIcon, LayoutIcon, Che
 
 const LAYOUTS = [
     {
-        id: 'layout-v-ecommerce',
+        id: '1',
         name: 'Vexel Elite - E-commerce',
-        category: 'Moda & Luxo',
+        category: 'E-commerce',
         price: 'R$ 11.999,99',
         image: '/projeto/img-AlanX.png',
         features: ['Carregamento Instantâneo', 'Checkout Otimizado', 'Mobile First'],
         isPopular: true
     },
     {
-        id: 'layout-g-tech',
+        id: '2',
         name: 'Vexel Tech - SaaS',
-        category: 'Tecnologia & Software',
+        category: 'Software House',
         price: 'R$ 9.850,00',
         image: '/projeto/img-petlife.png',
         features: ['Painel Administrativo', 'Dark Mode Nativo', 'Escalável'],
         isPopular: false
     },
     {
-        id: 'layout-p-health',
+        id: '3',
         name: 'Vexel Health - Clinic',
-        category: 'Saúde & Bem-estar',
+        category: 'Landing Page',
         price: 'R$ 8.400,00',
         image: '/projeto/img-mundoinvertido.png',
         features: ['Agendamento Online', 'SEO Otimizado', 'Design Zen'],
+        isPopular: false
+    },
+    {
+        id: '4',
+        name: 'Vexel Ads - Performance',
+        category: 'Tráfego & Performance',
+        price: 'Consultar Projeto',
+        image: '/projeto/img-agbcampinas.png',
+        features: ['Dashboard em Tempo Real', 'Otimização de ROI', 'Integração Meta/Google'],
         isPopular: false
     }
 ];
@@ -55,17 +64,17 @@ const LayoutStorePage: React.FC = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-7xl font-black text-white leading-[1] md:leading-[0.95] uppercase italic tracking-tighter mb-8"
+                        className="h1-domu text-white mb-8 italic"
                     >
-                        LAYOUTS <span className="text-gradient">PROFISSIONAIS</span> <br />
-                        DE ALTA PERFORMANCE
+                        Layouts <span className="text-gradient">profissionais</span> <br />
+                        de alta performance
                     </motion.h1>
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="text-white/50 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-medium"
+                        className="p-domu text-white/50 max-w-3xl mx-auto"
                     >
                         Explore nossa coleção de layouts premium prontos para implementação. Design impecável aliado à tecnologia de ponta para converter visitantes em clientes.
                     </motion.p>
@@ -104,10 +113,17 @@ const LayoutStorePage: React.FC = () => {
 
                                 {/* Content */}
                                 <div className="p-6 md:p-10">
-                                    <span className="text-[#587f81] font-black text-[10px] uppercase tracking-[0.2em] mb-4 block">
+                                    <span className={`inline-block px-3 py-1 rounded-full font-black text-[9px] uppercase tracking-[0.15em] mb-5 ${
+                                        layout.category === 'E-commerce' || layout.category === 'Landing Page' ? 'bg-yellow-500/10 text-yellow-500' :
+                                        layout.category === 'Software House' ? 'bg-blue-500/10 text-blue-500' :
+                                        layout.category === 'IA & Chatbot' ? 'bg-purple-500/10 text-purple-500' :
+                                        layout.category === 'Tráfego & Performance' ? 'bg-orange-500/10 text-orange-500' :
+                                        layout.category === 'Branding & Design' ? 'bg-pink-500/10 text-pink-500' :
+                                        'bg-[#587f81]/10 text-[#587f81]'
+                                    }`}>
                                         {layout.category}
                                     </span>
-                                    <h3 className="text-white font-black text-2xl uppercase mb-6 group-hover:text-[#587f81] transition-colors">
+                                    <h3 className="text-white font-black text-2xl  mb-6 group-hover:text-[#587f81] transition-colors">
                                         {layout.name}
                                     </h3>
                                     
@@ -153,7 +169,7 @@ const LayoutStorePage: React.FC = () => {
                                     <div className="w-14 h-14 bg-[#587f81]/10 rounded-2xl flex items-center justify-center">
                                         <item.icon className="w-6 h-6 text-[#587f81]" />
                                     </div>
-                                    <h4 className="text-white font-black text-xl uppercase tracking-wider">{item.title}</h4>
+                                    <h4 className="text-white font-black text-xl  tracking-wider">{item.title}</h4>
                                     <p className="text-white/30 text-sm leading-relaxed">{item.desc}</p>
                                 </div>
                             </AnimateOnScroll>
@@ -169,11 +185,11 @@ const LayoutStorePage: React.FC = () => {
                         <div className="absolute top-0 right-0 w-1/2 h-full bg-[#587f81]/5 blur-[120px] pointer-events-none" />
                         
                         <div className="relative z-10 max-w-3xl">
-                            <h2 className="text-white font-black text-4xl md:text-6xl leading-[0.95] uppercase italic mb-8">
-                                QUER UM PROJETO <br />
-                                <span className="text-gradient">TOTALMENTE EXCLUSIVO?</span>
+                             <h2 className="h1-domu text-2xl md:text-4xl text-white mb-8 italic">
+                                Quer um projeto <br />
+                                <span className="text-gradient">totalmente exclusivo?</span>
                             </h2>
-                            <p className="text-white/50 text-lg mb-12">
+                            <p className="p-domu text-white/50 text-lg mb-12">
                                 Se nenhum de nossos layouts prontos atende sua visão, nossa equipe de design pode criar algo do absoluto zero para sua marca.
                             </p>
                             <a 

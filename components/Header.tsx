@@ -205,7 +205,7 @@ const Header: React.FC = () => {
                         <div className="hidden min-[1440px]:block relative z-10">
                             <a 
                                 href="tel:+5511934430659" 
-                                className="btn-whatsapp !py-3 !px-7 !text-[11px] !border-white/10 hover:!border-white/40 group overflow-hidden"
+                                className="btn-whatsapp group overflow-hidden"
                             >
                                 <div className="relative flex items-center gap-2">
                                     <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
@@ -273,7 +273,7 @@ const Header: React.FC = () => {
                         <div className="mt-auto pt-8 border-t border-white/5">
                             <a 
                                 href="/chatbot-placeholder" 
-                                className="w-full btn-budget !py-5 flex items-center justify-center gap-3 text-sm"
+                                className="w-full btn-budget flex items-center justify-center gap-3"
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 <ArrowUpRightIcon className="w-5 h-5 fill-current" />

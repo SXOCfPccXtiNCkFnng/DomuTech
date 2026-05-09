@@ -19,6 +19,7 @@ export const FOOTER_INSTITUCIONAL = [
     { name: 'Cases', href: '/cases' },
     { name: 'Sobre Nós', href: '/sobre' },
     { name: 'Orçamento', href: '/chatbot-placeholder' },
+    { name: 'Loja de Layouts', href: '/layouts' },
     { name: 'Aviso de Cookies', href: '#' },
 ];
 
@@ -30,13 +31,7 @@ export const FOOTER_SERVICOS = [
     { name: 'Branding & Design UX', href: '/servico/branding-design' },
 ];
 
-export const FOOTER_SEGMENTOS = [
-    { name: 'Tecnologia & SaaS', href: '#' },
-    { name: 'Saúde & Bem-estar', href: '#' },
-    { name: 'E-commerce & Varejo', href: '#' },
-    { name: 'Infoprodutos & Educação', href: '#' },
-    { name: 'Jurídico & Consultoria', href: '#' },
-];
+// Segmentos removidos conforme solicitado
 
 export const MAIN_SERVICES: Service[] = [
     {

@@ -20,7 +20,7 @@ const AboutPage: React.FC = () => {
                         <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.4em] mb-6 block">
                             Nossa História & Missão
                         </span>
-                        <h1 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-tight uppercase italic">
+                        <h1 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-tight  italic">
                             Transformando <br />
                             <span className="text-gradient">Ideias em Impacto Real</span>
                         </h1>
@@ -45,7 +45,7 @@ const AboutPage: React.FC = () => {
                                     <div className="w-12 h-12 bg-[var(--domu-accent)]/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                         <ArrowUpRightIcon className="w-6 h-6 text-[var(--domu-accent)]" />
                                     </div>
-                                    <h3 className="text-xl font-black uppercase tracking-tighter mb-4">{item.title}</h3>
+                                    <h3 className="text-xl font-black  tracking-tighter mb-4">{item.title}</h3>
                                     <p className="text-white/40 leading-relaxed">{item.desc}</p>
                                 </div>
                             </AnimateOnScroll>

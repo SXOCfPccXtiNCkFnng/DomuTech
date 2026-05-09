@@ -54,11 +54,11 @@ const Process: React.FC = () => {
             <div className="container mx-auto px-6">
                 <div className="text-center max-w-3xl mx-auto mb-20">
                     <AnimateOnScroll>
-                        <span className="text-white/40 font-black text-[11px] uppercase tracking-[0.3em] mb-4 block">
-                            MÉTODO DOMU TECH
+                        <span className="tag-domu mb-4 block">
+                            Método Domu Tech
                         </span>
                         <h2 className="h2-domu text-white mb-6">
-                            COMO TRANSFORMAMOS <br /> DESAFIOS EM RESULTADOS
+                            Como transformamos <br /> desafios em resultados
                         </h2>
                         <p className="text-[var(--domu-muted)] text-lg">
                             Um fluxo de trabalho inteligente planejado para garantir excelência em cada entrega.
@@ -81,7 +81,7 @@ const Process: React.FC = () => {
                                         {step.number}
                                     </span>
                                 </div>
-                                <h3 className="text-xl font-black text-white mb-4 uppercase tracking-tighter group-hover:translate-x-2 transition-transform duration-300">
+                                <h3 className="text-white font-black text-xl mb-4 group-hover:text-[var(--domu-accent)] transition-colors">
                                     {step.title}
                                 </h3>
                                 <p className="text-[var(--domu-muted)] leading-relaxed text-sm">

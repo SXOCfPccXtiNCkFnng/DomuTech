@@ -48,11 +48,11 @@ const SoftwareHouseServicePage: React.FC = () => {
                         <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.4em] mb-6 block">
                             Software House & Sistemas
                         </span>
-                        <h1 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-tight uppercase italic">
+                        <h1 className="h1-domu text-white mb-8 italic">
                             Sistemas Complexos <br />
                             <span className="text-gradient">Construídos Sob Medida</span>
                         </h1>
-                        <p className="text-[var(--domu-muted)] text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+                        <p className="p-domu text-[var(--domu-muted)] max-w-2xl mx-auto mb-12">
                             Transformamos ideias complexas em plataformas escaláveis, seguras e de alto desempenho técnico.
                         </p>
                         
@@ -75,7 +75,7 @@ const SoftwareHouseServicePage: React.FC = () => {
                                 {['FullStack', 'Cloud Native', 'API First', 'Mobile Native'].map((tech, i) => (
                                     <div key={i} className="p-8 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm hover:border-[var(--domu-accent)] transition-colors">
                                         <span className="text-2xl font-black text-white/20 mb-4 block">0{i+1}</span>
-                                        <h4 className="text-white font-black uppercase tracking-tighter">{tech}</h4>
+                                        <h4 className="text-white font-black  tracking-tighter">{tech}</h4>
                                     </div>
                                 ))}
                             </div>
@@ -86,7 +86,7 @@ const SoftwareHouseServicePage: React.FC = () => {
                                 ENGENHARIA DE SOFTWARE
                             </span>
                             <h2 className="h2-domu text-white mb-8">
-                                TECNOLOGIA QUE IMPULSIONA O NEGÓCIO
+                                Tecnologia que impulsiona o negócio
                             </h2>
                             <p className="text-[var(--domu-muted)] text-lg leading-relaxed mb-8">
                                 Não apenas escrevemos código. Nós projetamos arquiteturas que suportam o crescimento da sua empresa, focando em segurança, performance e experiência do usuário final.
@@ -115,7 +115,7 @@ const SoftwareHouseServicePage: React.FC = () => {
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <AnimateOnScroll>
                             <span className="text-[var(--domu-muted)] font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">Sistemas & Automação</span>
-                            <h2 className="h2-domu text-white uppercase italic mb-8">
+                            <h2 className="h2-domu text-white  italic mb-8">
                                 Simplifique seus processos <br/>
                                 <span className="text-gradient">com soluções ERP</span>
                             </h2>
@@ -134,13 +134,14 @@ const SoftwareHouseServicePage: React.FC = () => {
                         <AnimateOnScroll delay={300}>
                             <div className="p-10 bg-white/[0.02] border border-white/5 rounded-[40px] relative overflow-hidden">
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--domu-accent)] opacity-10 blur-3xl"></div>
-                                <h3 className="text-xl font-black text-white mb-6 uppercase italic tracking-tighter">O que entregamos:</h3>
+                                <h3 className="text-xl font-black text-white mb-6  italic tracking-tighter">O que entregamos:</h3>
                                 <ul className="space-y-4">
                                     {[ 
                                         "Sincronização de Estoque em tempo real",
-                                        "Emissão automatizada de Notas Fiscais",
+                                        "Sincronização de estoque em tempo real",
+                                        "Emissão automatizada de notas fiscais",
                                         "Gestão financeira integrada",
-                                        "Integração com principais Marketplaces"
+                                        "Integração com principais marketplaces"
                                     ].map((item, i) => (
                                         <li key={i} className="flex items-center gap-3 text-white/60">
                                             <div className="w-1.5 h-1.5 bg-[var(--domu-accent)] rounded-full"></div>
@@ -161,8 +162,8 @@ const SoftwareHouseServicePage: React.FC = () => {
             {/* CTA */}
             <section className="py-24 bg-[var(--domu-bg)] text-center">
                 <AnimateOnScroll>
-                    <h2 className="text-3xl md:text-5xl font-black text-white mb-8 uppercase italic">
-                        PRONTO PARA CONSTRUIR ALGO GRANDE?
+                    <h2 className="text-2xl md:text-4xl font-black text-white mb-8 italic">
+                        Pronto para construir algo grande?
                     </h2>
                     <a href="/chatbot-placeholder" className="btn-budget mx-auto">
                         <ArrowUpRightIcon className="w-5 h-5" />

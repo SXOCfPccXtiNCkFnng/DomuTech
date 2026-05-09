@@ -25,7 +25,7 @@ const CasesPage: React.FC = () => {
                         <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.4em] mb-6 block">
                             Projetos de Alta Performance
                         </span>
-                        <h1 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter uppercase italic">
+                        <h1 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter  italic">
                             Nossos <span className="text-gradient">Cases de Sucesso</span>
                         </h1>
                         <p className="text-[var(--domu-muted)] text-lg max-w-2xl leading-relaxed">
@@ -55,7 +55,7 @@ const CasesPage: React.FC = () => {
                                     <div className="absolute bottom-10 left-10 right-10 flex justify-between items-end">
                                         <div>
                                             <span className="text-[var(--domu-accent)] font-black text-[10px] uppercase tracking-[0.2em] mb-2 block">{item.category}</span>
-                                            <h3 className="text-2xl md:text-3xl font-black uppercase italic">{item.title}</h3>
+                                            <h3 className="text-2xl md:text-3xl font-black  italic">{item.title}</h3>
                                         </div>
                                         <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border border-white/20 backdrop-blur-md group-hover:bg-[var(--domu-accent)] group-hover:border-[var(--domu-accent)] transition-all duration-300">
                                             <ExternalLinkIcon className="w-5 h-5" />
@@ -71,7 +71,7 @@ const CasesPage: React.FC = () => {
             {/* Final CTA */}
             <section className="py-24 bg-[var(--domu-black)] text-center">
                 <AnimateOnScroll>
-                    <h2 className="text-3xl md:text-5xl font-black text-white mb-10 uppercase italic">
+                    <h2 className="text-3xl md:text-5xl font-black text-white mb-10  italic">
                         Seu projeto pode ser o próximo!
                     </h2>
                     <a href="/chatbot-placeholder" className="btn-budget mx-auto">

@@ -48,7 +48,7 @@ const TrafficServicePage: React.FC = () => {
                         <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.4em] mb-6 block">
                             Tráfego Pago & Performance
                         </span>
-                        <h1 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-tight uppercase italic">
+                        <h1 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-tight  italic">
                             Escalando Vendas <br />
                             <span className="text-gradient">Com ROI Comprovado</span>
                         </h1>
@@ -75,7 +75,7 @@ const TrafficServicePage: React.FC = () => {
                                 ESTRATÉGIA DATA-DRIVEN
                             </span>
                             <h2 className="h2-domu text-white mb-8">
-                                ONDE SEU CLIENTE ESTÁ, NÓS ANUNCIAMOS
+                                Onde seu cliente está, nós anunciamos
                             </h2>
                             <p className="text-[var(--domu-muted)] text-lg leading-relaxed mb-8">
                                 Dominamos as principais plataformas de anúncios do mercado para garantir que sua mensagem chegue na pessoa certa, na hora certa e com o menor custo possível.
@@ -100,7 +100,7 @@ const TrafficServicePage: React.FC = () => {
                                 <div className="bg-[var(--domu-bg)] p-8 rounded-[22px] border border-white/5">
                                     <h3 className="text-xl font-black mb-6 flex items-center gap-3">
                                         <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                                        RELATÓRIO EM TEMPO REAL
+                                        Relatório em tempo real
                                     </h3>
                                     <div className="space-y-4">
                                         {[78, 92, 65].map((val, i) => (
@@ -131,8 +131,8 @@ const TrafficServicePage: React.FC = () => {
             {/* CTA */}
             <section className="py-24 bg-[var(--domu-bg)] text-center">
                 <AnimateOnScroll>
-                    <h2 className="text-3xl md:text-5xl font-black text-white mb-8 uppercase italic">
-                        CANSADO DE QUEIMAR DINHEIRO COM ANÚNCIOS?
+                    <h2 className="text-3xl md:text-5xl font-black text-white mb-8  italic">
+                        Cansado de queimar dinheiro com anúncios?
                     </h2>
                     <a href="/chatbot-placeholder" className="btn-budget mx-auto">
                         <ArrowUpRightIcon className="w-5 h-5" />

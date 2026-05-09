@@ -49,11 +49,11 @@ const AutomationServicePage: React.FC = () => {
                         <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.4em] mb-6 block">
                             IA & Automação Inteligente
                         </span>
-                        <h1 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-tight uppercase italic">
+                        <h1 className="h1-domu text-white mb-8 italic">
                             Escalabilidade <br />
                             <span className="text-gradient">Com Inteligência Artificial</span>
                         </h1>
-                        <p className="text-[var(--domu-muted)] text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+                        <p className="p-domu text-[var(--domu-muted)] max-w-2xl mx-auto mb-12">
                             Elimine tarefas repetitivas e potencialize sua equipe com fluxos de trabalho automatizados e soluções de IA personalizadas.
                         </p>
                         
@@ -76,7 +76,7 @@ const AutomationServicePage: React.FC = () => {
                                 EFICIÊNCIA OPERACIONAL
                             </span>
                             <h2 className="h2-domu text-white mb-8">
-                                POR QUE INVESTIR EM AUTOMAÇÃO?
+                                Por que investir em automação?
                             </h2>
                             <p className="text-[var(--domu-muted)] text-lg leading-relaxed mb-6">
                                 O tempo da sua equipe é valioso demais para ser gasto com processos manuais que um robô faria em segundos. Nós criamos a ponte entre sua necessidade e a tecnologia.
@@ -105,7 +105,7 @@ const AutomationServicePage: React.FC = () => {
                                 <div className="absolute -inset-4 bg-[var(--domu-accent)]/20 blur-3xl rounded-full"></div>
                                 <div className="relative bg-white/5 p-8 rounded-2xl border border-white/10 backdrop-blur-xl">
                                     <AutomationIcon className="w-16 h-16 text-[var(--domu-accent)] mb-6" />
-                                    <h3 className="text-2xl font-black mb-4">FLUXOS CONECTADOS</h3>
+                                    <h3 className="text-2xl font-black mb-4">Fluxos conectados</h3>
                                     <p className="text-white/60 mb-6 italic">"Automatizamos desde a entrada do lead no CRM até o pós-venda, garantindo que nada se perca no caminho."</p>
                                     <div className="flex items-center gap-4 p-4 bg-black/40 rounded-lg border border-white/5">
                                         <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
@@ -125,8 +125,8 @@ const AutomationServicePage: React.FC = () => {
             {/* CTA */}
             <section className="py-24 bg-[var(--domu-bg)] text-center">
                 <AnimateOnScroll>
-                    <h2 className="text-3xl md:text-5xl font-black text-white mb-8 uppercase italic">
-                        SUA EMPRESA ESTÁ PRONTA PARA A IA?
+                    <h2 className="text-2xl md:text-4xl font-black text-white mb-8 italic">
+                        Sua empresa está pronta para a IA?
                     </h2>
                     <a href="/chatbot-placeholder" className="btn-budget mx-auto">
                         <ArrowUpRightIcon className="w-5 h-5" />

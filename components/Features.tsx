@@ -33,42 +33,60 @@ const IconLayout = () => (
         <path d="M3 9h18M9 21V9" strokeLinecap="round" />
     </svg>
 );
+const IconSecurity = () => (
+    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke="currentColor" strokeWidth={1.8}>
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+);
 
 const FEATURES = [
     {
         Icon:  IconResponsivo,
-        color: '#ffffff',
-        bg:    'rgba(255,255,255,0.05)',
         title: 'Ecossistema Multiplataforma',
-        desc:  'Sua marca presente e eficiente em todos os canais digitais. Garantimos que sua solução seja adaptável e entregue uma experiência de uso impecável, seja no mobile, tablet ou desktop, maximizando o alcance do seu negócio.',
+        paragraphs: [
+            'Sua marca presente e eficiente em todos os canais digitais de forma unificada. Garantimos que sua solução seja adaptável e entregue uma experiência de uso impecável, seja no mobile, tablet ou desktop.',
+            'Através de um desenvolvimento agnóstico a dispositivos, maximizamos o alcance do seu negócio e garantimos que nenhum potencial cliente seja perdido por falhas de carregamento ou layouts quebrados em telas específicas.'
+        ]
     },
     {
         Icon:  IconSEO,
-        color: '#ffffff',
-        bg:    'rgba(255,255,255,0.05)',
         title: 'Visibilidade & Inteligência',
-        desc:  'Não basta existir, é preciso ser encontrado. Aplicamos inteligência de dados e as melhores práticas de posicionamento orgânico para que sua empresa lidere as intenções de busca e atraia tráfego qualificado de forma constante.',
+        paragraphs: [
+            'Não basta existir no digital, é preciso ser encontrado pelo público que realmente consome seu produto ou serviço. Aplicamos inteligência de dados, análise de concorrência e as melhores práticas de posicionamento orgânico (SEO) para que sua empresa lidere as intenções de busca.',
+            'Nosso foco é atrair tráfego qualificado de forma constante, transformando cada clique em uma jornada de valor que resulta em conversão e fidelização.'
+        ]
     },
     {
         Icon:  IconTech,
-        color: '#ffffff',
-        bg:    'rgba(255,255,255,0.05)',
         title: 'Tecnologia de Ponta',
-        desc:  'Utilizamos stacks modernas e robustas (React, Node, WordPress Avançado) para criar ferramentas rápidas, seguras e escaláveis que acompanham o crescimento da sua empresa sem limitações técnicas.',
+        paragraphs: [
+            'Utilizamos as stacks mais modernas e robustas do mercado, como React, Node.js e WordPress Avançado, para criar ferramentas rápidas, seguras e extremamente escaláveis.',
+            'Nosso código é limpo e otimizado para acompanhar o crescimento acelerado da sua empresa sem limitações técnicas, evitando lentidões desnecessárias que prejudicam o ranqueamento no Google e a experiência fluida do usuário final.'
+        ]
     },
     {
         Icon:  IconConversao,
-        color: '#FFFFFF',
-        bg:    'rgba(255,255,255,0.05)',
         title: 'Foco Total em Conversão',
-        desc:  'Criamos jornadas de usuário focadas em resultados. Integramos ferramentas de automação, fluxos de vendas e análises de comportamento para transformar interações digitais em oportunidades reais de negócio.',
+        paragraphs: [
+            'Criamos jornadas de usuário milimetricamente focadas em resultados práticos e mensuráveis. Integramos ferramentas de automação, fluxos de vendas inteligentes e análises profundas de comportamento para entender o que faz seu cliente tomar a decisão de compra.',
+            'Transformamos cada interação digital em uma oportunidade real de negócio, otimizando seu ROI e garantindo um crescimento sustentável para sua marca no longo prazo.'
+        ]
     },
     {
         Icon:  IconLayout,
-        color: '#ffffff',
-        bg:    'rgba(255,255,255,0.05)',
         title: 'Design Estratégico',
-        desc:  'Design que comunica e vende. Desenvolvemos interfaces exclusivas que fortalecem o posicionamento da sua marca e criam uma conexão imediata de profissionalismo e confiança com seu público-alvo.',
+        paragraphs: [
+            'Design que comunica, encanta e, acima de tudo, vende. Desenvolvemos interfaces exclusivas e intuitivas que fortalecem o posicionamento da sua marca em um mercado altamente competitivo.',
+            'Através de estudos aprofundados de UX (User Experience) e UI (User Interface), criamos uma conexão imediata de profissionalismo e transmitimos a confiança necessária para que seu público-alvo escolha sua solução como a melhor opção disponível.'
+        ]
+    },
+    {
+        Icon:  IconSecurity,
+        title: 'Segurança & Suporte Contínuo',
+        paragraphs: [
+            'Protegemos seu patrimônio digital com protocolos de segurança de nível bancário, certificados SSL avançados e backups automáticos periódicos.',
+            'Além da entrega final, oferecemos um acompanhamento técnico próximo e consultivo para garantir que sua plataforma esteja sempre atualizada com as últimas patches de segurança, mantendo seu negócio online rápido, estável e totalmente protegido contra qualquer tipo de ameaça externa.'
+        ]
     },
 ];
 
@@ -78,17 +96,14 @@ const Features: React.FC = () => {
             id="features" 
             className="py-10 md:py-24 bg-[var(--domu-bg)] relative overflow-visible"
         >
-
-
-
             <div className="container mx-auto px-6 relative z-10">
-                <div className="grid lg:grid-cols-[40%_60%] gap-16 lg:gap-20 items-start">
+                <div className="grid lg:grid-cols-[25%_75%] gap-16 lg:gap-20 items-start">
 
-                    {/* ── Coluna esquerda — Sticky Restored ─────────────────── */}
-                    <div className="lg:sticky lg:top-32 self-start flex flex-col items-center text-center">
+                    {/* ── Coluna esquerda — Sticky Centralizado ─────────────────── */}
+                    <div className="lg:sticky lg:top-0 lg:h-screen self-start flex flex-col items-center justify-center text-center">
 
-                        {/* Mascote Branding - Pinned/Sticky */}
-                        <div className="relative w-full max-w-[280px] md:max-w-sm mx-auto lg:mx-0 mb-10 md:mb-12">
+                        {/* Mascote Branding */}
+                        <div className="relative w-full max-w-[200px] md:max-w-[280px] mx-auto lg:mx-0 mb-10 md:mb-12">
                             <img
                                 src="/logos/logobranca.png"
                                 alt="Mascote Domu tech"
@@ -98,7 +113,7 @@ const Features: React.FC = () => {
 
                         {/* CTA below logo */}
                         <div className="px-2">
-                            <h3 className="text-gradient font-black uppercase tracking-tight text-xl md:text-2xl leading-tight mb-8">
+                            <h3 className="text-gradient font-black tracking-tight text-xl md:text-2xl leading-tight mb-8">
                                 Pronto para decolar seu projeto digital?
                             </h3>
                             <a
@@ -111,12 +126,11 @@ const Features: React.FC = () => {
                         </div>
                     </div>
 
-
                     {/* ── Coluna direita — Lista de funcionalidades ───────────── */}
-                    <div className="pt-10 lg:pt-4">
+                    <div className="pt-10 lg:pt-4 w-full">
                         <AnimateOnScroll>
                             <div className="text-center lg:text-left mb-12">
-                                <span className="text-[var(--domu-muted)] font-bold text-[10px] uppercase tracking-[0.25em] mb-4 block">
+                                <span className="tag-domu mb-4 block">
                                     SOLUÇÕES DIGITAIS DE ALTO IMPACTO
                                 </span>
                                 <h2 className="h2-domu text-gradient">
@@ -137,13 +151,17 @@ const Features: React.FC = () => {
                                             <item.Icon />
                                         </div>
 
-                                        <div className="min-w-0">
-                                            <h4 className="text-white font-black text-lg mb-3 group-hover:text-white transition-colors duration-200 leading-snug uppercase tracking-tight">
+                                        <div className="max-w-full">
+                                            <h4 className="text-white font-black text-lg mb-3 group-hover:text-white transition-colors duration-200 leading-snug tracking-tight">
                                                 {item.title}
                                             </h4>
-                                            <p className="text-[var(--domu-muted)] text-[14px] md:text-[15px] leading-relaxed font-medium opacity-70">
-                                                {item.desc}
-                                            </p>
+                                            <div className="p-domu opacity-70">
+                                                {item.paragraphs.map((p, i) => (
+                                                    <p key={i} className={i !== item.paragraphs.length - 1 ? "mb-4" : ""}>
+                                                        {p}
+                                                    </p>
+                                                ))}
+                                            </div>
                                         </div>
                                     </div>
                                 </AnimateOnScroll>

@@ -52,11 +52,11 @@ const SiteServicePage: React.FC = () => {
                         <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.4em] mb-6 block">
                             Criação de Sites de Alta Performance
                         </span>
-                        <h1 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-tight uppercase italic">
+                        <h1 className="h1-domu text-white mb-8 italic">
                             Site Sob Medida <br />
                             <span className="text-gradient">Para o Seu Negócio</span>
                         </h1>
-                        <p className="text-[var(--domu-muted)] text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+                        <p className="p-domu text-[var(--domu-muted)] max-w-2xl mx-auto mb-12">
                             Desenvolvemos plataformas exclusivas focadas em autoridade, performance técnica e conversão de visitantes em clientes reais.
                         </p>
                         
@@ -83,7 +83,7 @@ const SiteServicePage: React.FC = () => {
                                     GESTÃO & AUTONOMIA
                                 </span>
                                 <h2 className="h2-domu text-white mb-8">
-                                    SITES 100% GERENCIÁVEIS POR VOCÊ
+                                    Sites 100% gerenciáveis por você
                                 </h2>
                                 <p className="text-[var(--domu-muted)] text-lg leading-relaxed mb-6">
                                     Nada de ficar preso a programadores para trocar um simples texto ou foto. Entregamos seu site com um painel administrativo intuitivo onde você tem controle total.
@@ -122,7 +122,7 @@ const SiteServicePage: React.FC = () => {
                 <div className="container mx-auto px-6">
                     <AnimateOnScroll className="text-center mb-16">
                         <span className="text-[var(--domu-muted)] font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">Evolução Digital</span>
-                        <h2 className="h2-domu text-white uppercase italic">Não fique estagnado, <br/><span className="text-gradient">invista em evolução</span></h2>
+                        <h2 className="h2-domu text-white  italic">Não fique estagnado, <br/><span className="text-gradient">invista em evolução</span></h2>
                     </AnimateOnScroll>
 
                     <div className="grid md:grid-cols-4 gap-6">
@@ -134,7 +134,7 @@ const SiteServicePage: React.FC = () => {
                         ].map((item, i) => (
                             <AnimateOnScroll key={i} delay={i * 100}>
                                 <div className="p-8 bg-white/[0.02] border border-white/5 rounded-[32px] hover:border-[var(--domu-accent)] transition-all group">
-                                    <h3 className="text-lg font-black text-white mb-4 uppercase italic group-hover:text-[var(--domu-accent)] transition-colors">{item.title}</h3>
+                                    <h3 className="text-lg font-black text-white mb-4  italic group-hover:text-[var(--domu-accent)] transition-colors">{item.title}</h3>
                                     <p className="text-white/40 text-sm leading-relaxed">{item.desc}</p>
                                 </div>
                             </AnimateOnScroll>
@@ -149,7 +149,7 @@ const SiteServicePage: React.FC = () => {
                     <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                         <AnimateOnScroll className="max-w-2xl">
                             <span className="text-[var(--domu-muted)] font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">Tecnologias & Parceiros</span>
-                            <h2 className="h2-domu text-white uppercase italic leading-none">Desenvolvimento Ágil com <br/><span className="text-gradient">Plataformas Líderes</span></h2>
+                            <h2 className="h2-domu text-white  italic leading-none">Desenvolvimento Ágil com <br/><span className="text-gradient">Plataformas Líderes</span></h2>
                         </AnimateOnScroll>
                         <AnimateOnScroll delay={200}>
                             <a href="/chatbot-placeholder" className="btn-domu-outline mb-2">Preciso de um novo site</a>
@@ -184,8 +184,8 @@ const SiteServicePage: React.FC = () => {
             {/* Final CTA */}
             <section className="py-24 bg-[var(--domu-bg)] text-center">
                 <AnimateOnScroll>
-                    <h2 className="text-3xl md:text-5xl font-black text-white mb-8 uppercase italic">
-                        VAMOS TIRAR SUA IDÉIA DO PAPEL?
+                    <h2 className="text-2xl md:text-4xl font-black text-white mb-8 italic">
+                        Vamos tirar sua ideia do papel?
                     </h2>
                     <a href="/chatbot-placeholder" className="btn-budget mx-auto">
                         <ArrowUpRightIcon className="w-5 h-5" />

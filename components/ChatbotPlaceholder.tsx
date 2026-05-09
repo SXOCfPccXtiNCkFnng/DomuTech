@@ -87,7 +87,7 @@ const ChatbotPlaceholder: React.FC = () => {
                             </div>
                         </div>
 
-                        <h2 className="text-3xl md:text-5xl font-black text-white mb-10 tracking-tighter uppercase italic leading-none">
+                        <h2 className="text-3xl md:text-5xl font-black text-white mb-10 tracking-tighter  italic leading-none">
                             {STEPS[currentStep].question}
                         </h2>
 
@@ -110,7 +110,7 @@ const ChatbotPlaceholder: React.FC = () => {
                             <CheckIcon className="w-10 h-10 text-white" />
                         </div>
                         
-                        <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tighter uppercase italic">
+                        <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tighter  italic">
                             Estimativa Pronta!
                         </h2>
                         

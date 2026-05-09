@@ -123,7 +123,7 @@ const AutoPopup: React.FC = () => {
                             </button>
 
                             <div className="p-8 md:p-14 relative z-10">
-                                <h2 className="text-white font-black text-3xl md:text-4xl leading-[1.1] uppercase tracking-[-0.02em] mb-6">
+                                <h2 className="text-white font-black text-3xl md:text-4xl leading-[1.1]  tracking-[-0.02em] mb-6">
                                     QUANTO CUSTA <br />
                                     O SEU <span className="text-gradient">PRÓXIMO SITE?</span>
                                 </h2>
