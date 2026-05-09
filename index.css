@@ -25,13 +25,13 @@ body {
 
 :root {
     /* Core Backgrounds */
-    --domu-bg: #19181e;
-    --domu-black: #121112;
+    --domu-bg: #050505;
+    --domu-black: #0A0A0A;
     
     /* Surfaces & Containers */
-    --domu-surface-1: #2d2d34;
-    --domu-surface-2: #46464e;
-    --domu-surface-3: #62646a;
+    --domu-surface-1: #111111;
+    --domu-surface-2: #181818;
+    --domu-surface-3: #222222;
     
     /* Typography */
     --domu-primary: #ffffff;
@@ -176,10 +176,11 @@ body {
     height: 100%;
     background: linear-gradient(
         to right,
-        rgba(88, 127, 129, 0) 0%,
-        rgba(88, 127, 129, 0.9) 50%,
-        rgba(88, 127, 129, 0) 100%
+        transparent 0%,
+        var(--domu-accent) 50%,
+        transparent 100%
     );
+    opacity: 0.6;
     transform: skewX(-30deg);
     pointer-events: none;
 }
@@ -324,18 +325,21 @@ section {
 }
 
 ::-webkit-scrollbar {
-    width: 16px;
+    width: 10px;
 }
 ::-webkit-scrollbar-track {
     background: var(--domu-black);
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--domu-surface-2);
-    border-radius: 4px;
-    border: 4px solid var(--domu-black);
+    background: var(--domu-accent);
+    border-radius: 10px;
+    border: 2px solid var(--domu-black);
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--domu-accent);
+    background: color-mix(in srgb, var(--domu-accent), transparent 20%);
+}
+::-webkit-scrollbar-thumb:active {
+    background: color-mix(in srgb, var(--domu-accent), transparent 40%);
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -348,11 +352,49 @@ section {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #444444;
-    border-radius: 4px;
+    background: var(--domu-accent);
+    border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #666666;
+    background: color-mix(in srgb, var(--domu-accent), transparent 20%);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:active {
+    background: color-mix(in srgb, var(--domu-accent), transparent 40%);
+}
+
+/* --- SCROLL ANIMATIONS --- */
+.animate-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+.animate-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Variation: Fade In Only */
+.animate-scroll.fade-in {
+    transform: none;
+}
+
+/* Variation: Slide from Left */
+.animate-scroll.slide-left {
+    transform: translateX(-50px);
+}
+.animate-scroll.slide-left.is-visible {
+    transform: translateX(0);
+}
+
+/* Variation: Scale Up */
+.animate-scroll.scale-up {
+    transform: scale(0.9);
+}
+.animate-scroll.scale-up.is-visible {
+    transform: scale(1);
 }

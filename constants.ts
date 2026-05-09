@@ -4,7 +4,7 @@ import { Service, ComplementaryService, Metric, Value, Project, FAQItem, Service
 import {
     CodeIcon, AutomationIcon, MobileIcon, MarketingIcon, BIIcon, TechConsultingIcon,
     UserGroupIcon, TrophyIcon, ClockIcon, TargetIcon, LightbulbIcon, ShieldCheckIcon,
-    LightningBoltIcon, UsersIcon, CheckIcon, StarIcon, ArrowRightIcon, PaletteIcon, GlobeIcon
+    ArrowUpRightIcon, UsersIcon, CheckIcon, StarIcon, ArrowRightIcon, PaletteIcon, GlobeIcon
 } from './components/icons';
 
 export const NAV_LINKS = [
@@ -15,28 +15,27 @@ export const NAV_LINKS = [
 ];
 
 export const FOOTER_INSTITUCIONAL = [
-    { name: 'Home', href: '/#home' },
-    { name: 'Portfólio', href: '/#portfolio' },
+    { name: 'Home', href: '/' },
+    { name: 'Cases', href: '/cases' },
+    { name: 'Sobre Nós', href: '/sobre' },
     { name: 'Orçamento', href: '/chatbot-placeholder' },
-    { name: 'Programa de Parceiros', href: '/#home' },
-    { name: 'Aviso de Cookies', href: '/#home' },
+    { name: 'Aviso de Cookies', href: '#' },
 ];
 
 export const FOOTER_SERVICOS = [
-    { name: 'Soluções IA & Automação', href: '/servico/automacao-com-ia' },
-    { name: 'Site Sob Medida', href: '/servico/site-sob-medida' },
-    { name: 'Sistemas & Software House', href: '/servico/software-house' },
-    { name: 'Tráfego Pago & Performance', href: '/servico/trafego-pago' },
-    { name: 'Consultoria Estratégica', href: '/servico/consultoria-tech' },
-    { name: 'Branding & Design UX', href: '/servico/experiencia-do-usuario' },
+    { name: 'Criação de Sites', href: '/servico/site-sob-medida' },
+    { name: 'IA & Automação', href: '/servico/automacao-ia' },
+    { name: 'Software House', href: '/servico/software-house' },
+    { name: 'Tráfego & Performance', href: '/servico/trafego-performance' },
+    { name: 'Branding & Design UX', href: '/servico/branding-design' },
 ];
 
 export const FOOTER_SEGMENTOS = [
-    { name: 'Soluções Digitais para Tecnologia', href: '/#home' },
-    { name: 'Soluções Digitais para Saúde', href: '/#home' },
-    { name: 'Soluções Digitais para Contabilidade', href: '/#home' },
-    { name: 'Soluções Digitais para Advocacia', href: '/#home' },
-    { name: 'Soluções Digitais para Dentistas', href: '/#home' },
+    { name: 'Tecnologia & SaaS', href: '#' },
+    { name: 'Saúde & Bem-estar', href: '#' },
+    { name: 'E-commerce & Varejo', href: '#' },
+    { name: 'Infoprodutos & Educação', href: '#' },
+    { name: 'Jurídico & Consultoria', href: '#' },
 ];
 
 export const MAIN_SERVICES: Service[] = [
@@ -141,7 +140,7 @@ export const ABOUT_METRICS: Metric[] = [
 export const COMPANY_VALUES: Value[] = [
     { icon: LightbulbIcon, title: 'Inovação', description: 'Sempre trazemos as melhores soluções e ideias criativas para seus projetos.' },
     { icon: ShieldCheckIcon, title: 'Confiabilidade', description: 'Código limpo, seguro e escalonável em todos os nossos projetos.' },
-    { icon: LightningBoltIcon, title: 'Agilidade', description: 'Entregamos projetos no prazo com metodologias ágeis de desenvolvimento.' },
+    { icon: ArrowUpRightIcon, title: 'Agilidade', description: 'Entregamos projetos no prazo com metodologias ágeis de desenvolvimento.' },
     { icon: UsersIcon, title: 'Colaboração', description: 'Trabalhamos lado a lado com nossos clientes para garantir o sucesso.' },
 ];
 

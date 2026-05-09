@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AnimateOnScroll from './AnimateOnScroll';
@@ -6,13 +5,25 @@ import ReliableAgency from './ReliableAgency';
 import Pricing from './Pricing';
 import ProfessionalDevelopment from './ProfessionalDevelopment';
 import Process from './Process';
-import { LightningBoltIcon, ArrowRightIcon } from './icons';
+import { ArrowUpRightIcon, ArrowRightIcon } from './icons';
+
+const SITE_THEME_COLOR = '#ffcc00'; // Amarelo Vexel Sites
 
 const SiteServicePage: React.FC = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
         window.scrollTo(0, 0);
+
+        // Define a cor de destaque da página
+        const root = document.documentElement;
+        const originalColor = getComputedStyle(root).getPropertyValue('--domu-accent');
+        root.style.setProperty('--domu-accent', SITE_THEME_COLOR);
+
+        return () => {
+            // Restaura a cor original ao sair
+            root.style.setProperty('--domu-accent', originalColor);
+        };
     }, []);
 
     return (
@@ -51,7 +62,7 @@ const SiteServicePage: React.FC = () => {
                         
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
                             <a href="/chatbot-placeholder" className="btn-budget">
-                                <LightningBoltIcon className="w-5 h-5" />
+                                <ArrowUpRightIcon className="w-5 h-5" />
                                 Iniciar meu Projeto
                             </a>
                         </div>
@@ -97,7 +108,7 @@ const SiteServicePage: React.FC = () => {
                                     <img src="/img/fundo-web.png" alt="Gestão de Site" className="rounded-lg opacity-50" />
                                     <div className="absolute inset-0 flex items-center justify-center">
                                         <div className="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-md border border-white/20">
-                                            <LightningBoltIcon className="w-8 h-8 text-white" />
+                                            <ArrowUpRightIcon className="w-8 h-8 text-white" />
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +117,66 @@ const SiteServicePage: React.FC = () => {
                     </div>
                 </section>
 
-                <Process />
+                {/* Seção de Evolução & Estratégia */}
+            <section className="py-24 bg-[var(--domu-bg)]">
+                <div className="container mx-auto px-6">
+                    <AnimateOnScroll className="text-center mb-16">
+                        <span className="text-[var(--domu-muted)] font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">Evolução Digital</span>
+                        <h2 className="h2-domu text-white uppercase italic">Não fique estagnado, <br/><span className="text-gradient">invista em evolução</span></h2>
+                    </AnimateOnScroll>
+
+                    <div className="grid md:grid-cols-4 gap-6">
+                        {[ 
+                            { title: "SEO", desc: "Otimização para motores de busca, visando aumentar o tráfego orgânico." },
+                            { title: "CRO", desc: "Otimização da taxa de conversão, transformando visitantes em clientes." },
+                            { title: "UI/UX", desc: "Interfaces intuitivas e experiências que encantam o usuário." },
+                            { title: "Recursos", desc: "Desenvolvimento de novas funcionalidades sob demanda." }
+                        ].map((item, i) => (
+                            <AnimateOnScroll key={i} delay={i * 100}>
+                                <div className="p-8 bg-white/[0.02] border border-white/5 rounded-[32px] hover:border-[var(--domu-accent)] transition-all group">
+                                    <h3 className="text-lg font-black text-white mb-4 uppercase italic group-hover:text-[var(--domu-accent)] transition-colors">{item.title}</h3>
+                                    <p className="text-white/40 text-sm leading-relaxed">{item.desc}</p>
+                                </div>
+                            </AnimateOnScroll>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Ecossistema de Plataformas */}
+            <section className="py-24 bg-[var(--domu-black)] border-y border-white/5">
+                <div className="container mx-auto px-6">
+                    <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                        <AnimateOnScroll className="max-w-2xl">
+                            <span className="text-[var(--domu-muted)] font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">Tecnologias & Parceiros</span>
+                            <h2 className="h2-domu text-white uppercase italic leading-none">Desenvolvimento Ágil com <br/><span className="text-gradient">Plataformas Líderes</span></h2>
+                        </AnimateOnScroll>
+                        <AnimateOnScroll delay={200}>
+                            <a href="/chatbot-placeholder" className="btn-domu-outline mb-2">Preciso de um novo site</a>
+                        </AnimateOnScroll>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        {[ 
+                            { name: "deco.cx", desc: "Headless & 90+ PageSpeed" },
+                            { name: "VTEX", desc: "Escalabilidade & Enterprise" },
+                            { name: "Shopify", desc: "Global & Plugins Ilimitados" },
+                            { name: "Nuvemshop", desc: "Melhor Custo-Benefício" },
+                            { name: "WooCommerce", desc: "Flexibilidade WordPress" },
+                            { name: "Webflow", desc: "Design Visual de Elite" }
+                        ].map((plat, i) => (
+                            <AnimateOnScroll key={i} delay={i * 50}>
+                                <div className="p-6 bg-white/[0.03] border border-white/5 rounded-2xl text-center group hover:bg-[var(--domu-accent)] transition-all duration-500">
+                                    <div className="text-white font-black text-sm uppercase mb-2 group-hover:scale-110 transition-transform">{plat.name}</div>
+                                    <div className="text-[9px] text-white/30 uppercase tracking-widest leading-tight group-hover:text-white/80">{plat.desc}</div>
+                                </div>
+                            </AnimateOnScroll>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <Process />
                 <ReliableAgency />
                 <Pricing />
             </div>
@@ -118,7 +188,7 @@ const SiteServicePage: React.FC = () => {
                         VAMOS TIRAR SUA IDÉIA DO PAPEL?
                     </h2>
                     <a href="/chatbot-placeholder" className="btn-budget mx-auto">
-                        <LightningBoltIcon className="w-5 h-5" />
+                        <ArrowUpRightIcon className="w-5 h-5" />
                         Solicitar Orçamento Agora
                     </a>
                 </AnimateOnScroll>

@@ -29,13 +29,6 @@ const FloatingWhatsAppButton: React.FC = () => {
                     <span className="relative inline-flex rounded-full h-4 w-4 bg-[#25D366] border-2 border-white shadow-sm"></span>
                 </span>
 
-                {/* Tooltip "Fale Conosco" */}
-                <div className="absolute right-20 top-1/2 -translate-y-1/2 bg-black/80 backdrop-blur-md px-4 py-2 rounded-xl shadow-2xl border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none translate-x-4 group-hover:translate-x-0 hidden md:flex items-center">
-                    <span className="text-white font-black text-[10px] uppercase tracking-widest">Fale conosco</span>
-                    
-                    {/* Small arrow for tooltip */}
-                    <div className="absolute right-[-4px] top-1/2 -translate-y-1/2 w-2 h-2 bg-black transform rotate-45 border-r border-t border-white/10"></div>
-                </div>
             </div>
         </a>
     );

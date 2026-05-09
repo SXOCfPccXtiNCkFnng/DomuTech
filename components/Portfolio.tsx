@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { motion, useMotionValue, useTransform, animate, AnimatePresence } from 'framer-motion';
 import { PORTFOLIO_PROJECTS } from '../constants';
-import { LightningBoltIcon, ArrowRightIcon } from './icons';
+import { ArrowUpRightIcon, ArrowRightIcon } from './icons';
 import AnimateOnScroll from './AnimateOnScroll';
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -382,7 +382,7 @@ const Portfolio: React.FC = () => {
                         href="#contact"
                         className="btn-domu-primary group"
                     >
-                        <LightningBoltIcon className="w-4 h-4 fill-current" />
+                        <ArrowUpRightIcon className="w-4 h-4 fill-current" />
                         Ver todo o portfólio
                     </a>
                 </div>

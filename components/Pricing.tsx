@@ -1,6 +1,6 @@
 import React from 'react';
 import AnimateOnScroll from './AnimateOnScroll';
-import { LightningBoltIcon, PhoneIcon, WhatsAppIcon } from './icons';
+import { ArrowUpRightIcon, PhoneIcon, WhatsAppIcon } from './icons';
 
 const EXPRESSO_FEATURES = [
     'Criação de site barato com modelo de layout',
@@ -87,7 +87,7 @@ const Pricing: React.FC = () => {
                             </div>
 
                             <a href="/chatbot-placeholder" className="btn-budget w-full !py-4 !text-[12px]">
-                                <LightningBoltIcon className="w-5 h-5" />
+                                <ArrowUpRightIcon className="w-5 h-5" />
                                 Peça um Orçamento
                             </a>
                         </div>
@@ -161,7 +161,7 @@ const Pricing: React.FC = () => {
                             </div>
 
                             <a href="/chatbot-placeholder" className="btn-budget w-full !py-4 !text-[12px]">
-                                <LightningBoltIcon className="w-5 h-5" />
+                                <ArrowUpRightIcon className="w-5 h-5" />
                                 Peça um Orçamento
                             </a>
                         </div>

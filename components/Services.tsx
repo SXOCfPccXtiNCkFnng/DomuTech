@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { MAIN_SERVICES } from '../constants';
-import { ArrowRightIcon, WhatsAppIcon, LightningBoltIcon } from './icons';
+import { ArrowRightIcon, WhatsAppIcon, ArrowUpRightIcon } from './icons';
 import AnimateOnScroll from './AnimateOnScroll';
 
 const Services: React.FC = () => {
@@ -69,7 +69,7 @@ const Services: React.FC = () => {
                         PRECISA DE ALGO SOB MEDIDA?
                     </p>
                     <a href="/chatbot-placeholder" className="btn-budget">
-                        <LightningBoltIcon className="w-5 h-5 fill-current" />
+                        <ArrowUpRightIcon className="w-5 h-5 fill-current" />
                         Peça um Orçamento
                     </a>
                 </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ABOUT_METRICS } from '../constants';
 import AnimateOnScroll from './AnimateOnScroll';
-import { LightningBoltIcon, WhatsAppIcon } from './icons';
+import { ArrowUpRightIcon, WhatsAppIcon } from './icons';
 
 /* ── Chips de serviço (Fidelity to DOMU TECH: Fotos / Vídeos / Textos) ─────────── */
 const CHIPS = [
@@ -90,7 +90,7 @@ const About: React.FC = () => {
                                     href="/chatbot-placeholder"
                                     className="btn-budget group !px-8 !py-4 !text-[12px]"
                                 >
-                                    <LightningBoltIcon className="w-5 h-5 fill-current transition-transform " />
+                                    <ArrowUpRightIcon className="w-5 h-5 fill-current transition-transform " />
                                     Peça um Orçamento
                                 </a>
                             </div>

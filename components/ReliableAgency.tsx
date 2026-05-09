@@ -1,6 +1,6 @@
 import React from 'react';
 import AnimateOnScroll from './AnimateOnScroll';
-import { LightningBoltIcon, WhatsAppIcon } from './icons';
+import { ArrowUpRightIcon, WhatsAppIcon } from './icons';
 
 const FEATURES = [
     'Criação de sites personalizados para empresas',
@@ -75,7 +75,7 @@ const ReliableAgency: React.FC = () => {
                                 href="/chatbot-placeholder" 
                                 className="btn-budget w-full"
                             >
-                                <LightningBoltIcon className="w-5 h-5 fill-current" />
+                                <ArrowUpRightIcon className="w-5 h-5 fill-current" />
                                 Solicitar Orçamento
                             </a>
                         </div>

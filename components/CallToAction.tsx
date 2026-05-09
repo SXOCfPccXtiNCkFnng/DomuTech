@@ -1,7 +1,7 @@
 
 import React from 'react';
 import AnimateOnScroll from './AnimateOnScroll';
-import { WhatsAppIcon, LightningBoltIcon } from './icons';
+import { WhatsAppIcon, ArrowUpRightIcon } from './icons';
 
 interface CallToActionProps {
     title: string;
@@ -37,7 +37,7 @@ const CallToAction: React.FC<CallToActionProps> = ({ title, subtitle, primaryBut
                                     {variant === 'whatsapp' ? (
                                         <WhatsAppIcon className="w-5 h-5 md:w-6 md:h-6 fill-current transition-transform" />
                                     ) : (
-                                        <LightningBoltIcon className="w-5 h-5 md:w-6 md:h-6 fill-current transition-transform" />
+                                        <ArrowUpRightIcon className="w-5 h-5 md:w-6 md:h-6 fill-current transition-transform" />
                                     )}
                                     {primaryButtonText}
                                 </a>

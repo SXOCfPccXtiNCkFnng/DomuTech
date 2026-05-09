@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import AnimateOnScroll from './AnimateOnScroll';
-import { LightningBoltIcon } from './icons';
+import { ArrowUpRightIcon } from './icons';
 
 /* ── Ícones SVG simples para cada feature ─────────────────────────────────── */
 const IconResponsivo = () => (
@@ -105,7 +105,7 @@ const Features: React.FC = () => {
                                 href="/chatbot-placeholder"
                                 className="btn-budget group w-full md:w-auto"
                             >
-                                <LightningBoltIcon className="w-5 h-5 fill-current" />
+                                <ArrowUpRightIcon className="w-5 h-5 fill-current" />
                                 Peça um Orçamento
                             </a>
                         </div>

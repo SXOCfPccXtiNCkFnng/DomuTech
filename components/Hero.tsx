@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { LightningBoltIcon } from './icons';
+import { ArrowUpRightIcon } from './icons';
+import AnimateOnScroll from './AnimateOnScroll';
 
 const Hero: React.FC = () => {
     return (
@@ -30,43 +31,51 @@ const Hero: React.FC = () => {
                 <div className="flex flex-col items-center text-center">
                     
                     {/* 1. Tagline: Estúdio de Alta Performance */}
-                    <div className="inline-flex items-center gap-3 bg-white/[0.03] border border-white/10 px-6 py-2.5 rounded-xl backdrop-blur-xl shadow-[0_5px_15px_rgba(0,0,0,0.2)] mb-8 md:mb-12 animate-fade-in">
-                        <span className="text-white/60 font-black text-[10px] md:text-[11px] uppercase tracking-[0.3em]">
-                            Estúdio de Alta Performance
-                        </span> 
-                        <div className="w-1 h-1 bg-white/40 rounded-full"></div> 
-                        <span className="text-white font-black text-[10px] md:text-[11px] uppercase tracking-[0.3em] flex items-center gap-2">
-                             ★ 4.9 no Google
-                        </span>
-                    </div>
+                    <AnimateOnScroll delay={200} className="fade-in">
+                        <div className="inline-flex items-center gap-3 bg-white/[0.03] border border-white/10 px-6 py-2.5 rounded-xl backdrop-blur-xl shadow-[0_5px_15px_rgba(0,0,0,0.2)] mb-8 md:mb-12">
+                            <span className="text-white/60 font-black text-[10px] md:text-[11px] uppercase tracking-[0.3em]">
+                                Estúdio de Alta Performance
+                            </span> 
+                            <div className="w-1 h-1 bg-white/40 rounded-full"></div> 
+                            <span className="text-white font-black text-[10px] md:text-[11px] uppercase tracking-[0.3em] flex items-center gap-2">
+                                 ★ 4.9 no Google
+                            </span>
+                        </div>
+                    </AnimateOnScroll>
 
                     {/* 2. Main Title */}
-                    <h1 className="h1-domu text-white mb-8 md:mb-12 max-w-5xl mx-auto leading-[1.05] tracking-[-0.04em] drop-shadow-2xl">
-                        Soluções digitais que<br className="hidden md:block" /> 
-                        <span className="text-gradient"> transformam resultados</span>
-                    </h1>
+                    <AnimateOnScroll delay={400}>
+                        <h1 className="h1-domu text-white mb-8 md:mb-12 max-w-5xl mx-auto leading-[1.05] tracking-[-0.04em] drop-shadow-2xl">
+                            Soluções digitais que<br className="hidden md:block" /> 
+                            <span className="text-gradient"> transformam resultados</span>
+                        </h1>
+                    </AnimateOnScroll>
 
                     {/* 3. Subtitle */}
-                    <p className="text-secondary text-[16px] md:text-[20px] mb-12 md:mb-16 max-w-[720px] mx-auto leading-relaxed font-medium opacity-90">
-                        A <span className="text-white font-bold tracking-tight">DOMU TECH</span> impulsiona sua marca com estratégias de alto impacto e tecnologia de ponta.
-                    </p>
+                    <AnimateOnScroll delay={600}>
+                        <p className="text-secondary text-[16px] md:text-[20px] mb-12 md:mb-16 max-w-[720px] mx-auto leading-relaxed font-medium opacity-90">
+                            A <span className="text-white font-bold tracking-tight">DOMU TECH</span> impulsiona sua marca com estratégias de alto impacto e tecnologia de ponta.
+                        </p>
+                    </AnimateOnScroll>
 
                     {/* 4. Action Buttons */}
-                    <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12 md:mb-16 w-full sm:w-auto">
-                        <a 
-                            href="/chatbot-placeholder" 
-                            className="btn-budget group w-full sm:w-auto min-w-[240px]"
-                        >
-                            <LightningBoltIcon className="w-5 h-5" />
-                            Peça um Orçamento
-                        </a>
-                        <a 
-                            href="#portfolio" 
-                            className="btn-domu-outline group w-full sm:w-auto min-w-[240px]"
-                        >
-                            Ver Portfólio
-                        </a>
-                    </div>
+                    <AnimateOnScroll delay={800} className="scale-up">
+                        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12 md:mb-16 w-full sm:w-auto">
+                            <a 
+                                href="/chatbot-placeholder" 
+                                className="btn-budget group w-full sm:w-auto min-w-[240px]"
+                            >
+                                <ArrowUpRightIcon className="w-5 h-5" />
+                                Peça um Orçamento
+                            </a>
+                            <a 
+                                href="#portfolio" 
+                                className="btn-domu-outline group w-full sm:w-auto min-w-[240px]"
+                            >
+                                Ver Portfólio
+                            </a>
+                        </div>
+                    </AnimateOnScroll>
                 </div>
 
 
