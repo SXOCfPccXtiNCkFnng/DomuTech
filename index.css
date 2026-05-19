@@ -1,403 +1,416 @@
 html {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
-    overflow-x: clip; /* Clip não quebra o sticky! */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  overflow-x: clip; /* Clip não quebra o sticky! */
 }
 
 body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: clip;
-    position: relative;
-    background-color: var(--domu-bg);
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-y: none; /* Evita o bounce excessivo que tira o sticky do lugar */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: clip;
+  position: relative;
+  background-color: var(--domu-bg);
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none; /* Evita o bounce excessivo que tira o sticky do lugar */
 }
 
 #root {
-    width: 100%;
-    position: relative;
-    overflow-x: clip;
+  width: 100%;
+  position: relative;
+  overflow-x: clip;
 }
 
 :root {
-    /* Core Backgrounds */
-    --domu-bg: #050505;
-    --domu-black: #0A0A0A;
-    
-    /* Surfaces & Containers */
-    --domu-surface-1: #111111;
-    --domu-surface-2: #181818;
-    --domu-surface-3: #222222;
-    
-    /* Typography */
-    --domu-primary: #ffffff;
-    --domu-secondary: #e1e1e1;
-    --domu-muted: #a3a1a2;
-    --domu-light: #f1f0f5;
-    
-    /* Brand Accents */
-    --domu-accent: #587f81;
-    --domu-accent-hover: #668d8e;
-    --domu-accent-dark: #3b5b5e;
-    --domu-accent-light: #91b6b1;
-    --domu-accent-muted: #c0b5be;
-    
-    /* Semantic Utilities */
-    --domu-white: #ffffff;
-    --domu-border: rgba(255, 255, 255, 0.08);
+  /* Core Backgrounds */
+  --domu-bg: #050505;
+  --domu-black: #0a0a0a;
 
-    /* Legacy Compatibility (Mapping to new palette) */
-    --upsites-blue-dark: var(--domu-bg);
-    --upsites-blue: var(--domu-accent);
-    --upsites-green: var(--domu-accent-light);
-    --upsites-cyan: var(--domu-accent);
-    --upsites-light-blue: var(--domu-surface-1);
-    --upsites-text-primary: var(--domu-primary);
-    --upsites-text-secondary: var(--domu-secondary);
-    --upsites-white: var(--domu-white);
-    --upsites-gray: var(--domu-black);
+  /* Surfaces & Containers */
+  --domu-surface-1: #111111;
+  --domu-surface-2: #181818;
+  --domu-surface-3: #222222;
+
+  /* Typography */
+  --domu-primary: #ffffff;
+  --domu-secondary: #e1e1e1;
+  --domu-muted: #a3a1a2;
+  --domu-light: #f1f0f5;
+
+  /* Brand Accents */
+  --domu-accent: #587f81;
+  --domu-accent-hover: #668d8e;
+  --domu-accent-dark: #3b5b5e;
+  --domu-accent-light: #91b6b1;
+  --domu-accent-muted: #c0b5be;
+
+  /* Semantic Utilities */
+  --domu-white: #ffffff;
+  --domu-border: rgba(255, 255, 255, 0.08);
+
+  /* Legacy Compatibility (Mapping to new palette) */
+  --upsites-blue-dark: var(--domu-bg);
+  --upsites-blue: var(--domu-accent);
+  --upsites-green: var(--domu-accent-light);
+  --upsites-cyan: var(--domu-accent);
+  --upsites-light-blue: var(--domu-surface-1);
+  --upsites-text-primary: var(--domu-primary);
+  --upsites-text-secondary: var(--domu-secondary);
+  --upsites-white: var(--domu-white);
+  --upsites-gray: var(--domu-black);
 }
 
 body {
-    font-family: "Plus Jakarta Sans", sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--domu-bg);
-    color: var(--domu-primary);
-    -webkit-font-smoothing: antialiased;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--domu-bg);
+  color: var(--domu-primary);
+  -webkit-font-smoothing: antialiased;
 }
 
 /* TIPOGRAFIA PADRONIZADA (Sensei: o luxo está no equilíbrio) */
 .h1-domu {
-    font-size: clamp(2.5rem, 5vw, 3.5rem); /* Voltando para ~56px max para dar imponência */
-    font-weight: 900;
-    line-height: 1.1;
-    letter-spacing: -0.04em;
+  font-size: clamp(
+    2.5rem,
+    5vw,
+    3.5rem
+  ); /* Voltando para ~56px max para dar imponência */
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
 }
 
 .h2-domu {
-    font-size: clamp(1.75rem, 3.5vw, 2.25rem); /* Reduzido para ~36px max */
-    font-weight: 900;
-    line-height: 1.2;
-    letter-spacing: -0.03em;
-    color: var(--domu-primary);
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem); /* Reduzido para ~36px max */
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: var(--domu-primary);
 }
 
 .h3-domu {
-    font-size: clamp(1.25rem, 2.5vw, 1.75rem); /* Reduzido para ~28px max */
-    font-weight: 900;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem); /* Reduzido para ~28px max */
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 .p-domu {
-    font-size: clamp(0.8125rem, 1.1vw, 0.875rem); /* Reduzido para ~14px max para mais elegância */
-    line-height: 1.6;
-    color: var(--domu-muted);
-    font-weight: 500;
+  font-size: clamp(
+    0.8125rem,
+    1.1vw,
+    0.875rem
+  ); /* Reduzido para ~14px max para mais elegância */
+  line-height: 1.6;
+  color: var(--domu-muted);
+  font-weight: 500;
 }
 
 .tag-domu {
-    font-size: clamp(0.5rem, 1vw, 0.625rem); /* text-xxs responsivo */
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-    color: var(--domu-muted);
+  font-size: clamp(0.5rem, 1vw, 0.625rem); /* text-xxs responsivo */
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--domu-muted);
 }
 
 .text-gradient {
-    background: linear-gradient(
-        to bottom right,
-        var(--domu-white) 10%,
-        var(--domu-accent) 90%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  background: linear-gradient(
+    to bottom right,
+    var(--domu-white) 10%,
+    var(--domu-accent) 90%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* utilitários de texto */
 .text-muted {
-    color: var(--domu-muted);
+  color: var(--domu-muted);
 }
 .text-secondary {
-    color: var(--domu-secondary);
+  color: var(--domu-secondary);
 }
 .text-dark {
-    color: var(--domu-text-dark);
+  color: var(--domu-text-dark);
 }
 
-/* BOTÕES - Padrão Domu tech (Responsivo) */
+/* BOTÕES - Padrão Domu Tech (Responsivo) */
 .btn-domu-primary,
 .btn-domu-outline,
 .btn-whatsapp,
 .btn-budget,
 .btn-view-all {
-    height: 42px; /* Altura fixa para garantir simetria perfeita */
-    padding: 0 28px; /* Padding vertical removido em favor da height */
-    border-radius: 12px;
-    font-weight: 900;
-    text-transform: uppercase;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 42px; /* Altura fixa para garantir simetria perfeita */
+  padding: 0 28px; /* Padding vertical removido em favor da height */
+  border-radius: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media (min-width: 768px) {
-    .btn-domu-primary,
-    .btn-domu-outline,
-    .btn-whatsapp,
-    .btn-budget,
-    .btn-view-all {
-        gap: 12px;
-    }
+  .btn-domu-primary,
+  .btn-domu-outline,
+  .btn-whatsapp,
+  .btn-budget,
+  .btn-view-all {
+    gap: 12px;
+  }
 }
 
 /* Botão com Brilho (Shimmer) - Para Peça um Orçamento / Chatbot */
-.btn-budget, .btn-domu-primary {
-    background-color: var(--domu-accent) !important;
-    color: var(--domu-white) !important;
-    border: 2px solid var(--domu-accent) !important;
-    box-shadow: 0 10px 20px -10px rgba(88, 127, 129, 0.3);
+.btn-budget,
+.btn-domu-primary {
+  background-color: var(--domu-accent) !important;
+  color: var(--domu-white) !important;
+  border: 2px solid var(--domu-accent) !important;
+  box-shadow: 0 10px 20px -10px rgba(88, 127, 129, 0.3);
 }
 
-.btn-budget::after, .btn-domu-primary::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -120px;
-    width: 120px;
-    height: 100%;
-    background: linear-gradient(
-        to right,
-        transparent 0%,
-        var(--domu-accent) 50%,
-        transparent 100%
-    );
-    opacity: 0.6;
-    transform: skewX(-30deg);
-    pointer-events: none;
+.btn-budget::after,
+.btn-domu-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120px;
+  width: 120px;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--domu-accent) 50%,
+    transparent 100%
+  );
+  opacity: 0.6;
+  transform: skewX(-30deg);
+  pointer-events: none;
 }
 
-.btn-budget:hover::after, .btn-domu-primary:hover::after {
-    animation: shimmer-premium 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+.btn-budget:hover::after,
+.btn-domu-primary:hover::after {
+  animation: shimmer-premium 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-.btn-budget:hover, .btn-domu-primary:hover {
-    background-color: transparent !important;
-    color: var(--domu-accent) !important;
+.btn-budget:hover,
+.btn-domu-primary:hover {
+  background-color: transparent !important;
+  color: var(--domu-accent) !important;
 }
 
 /* Botão WhatsApp - Estilo Clean, Sem Brilho, Verde no Hover */
 .btn-whatsapp {
-    background-color: transparent !important;
-    color: #ffffff !important;
-    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
 }
 
 .btn-whatsapp:hover {
-    background-color: transparent !important;
-    border-color: #25D366 !important;
-    color: #25D366 !important;
+  background-color: transparent !important;
+  border-color: #25d366 !important;
+  color: #25d366 !important;
 }
 
 /* Botão Ver Todos - Animação Diferente */
 .btn-view-all {
-    background-color: transparent !important;
-    color: #ffffff !important;
-    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
 }
 
 .btn-view-all:hover {
-    background-color: var(--domu-accent) !important;
-    color: var(--domu-white) !important;
-    border-color: var(--domu-accent) !important;
+  background-color: var(--domu-accent) !important;
+  color: var(--domu-white) !important;
+  border-color: var(--domu-accent) !important;
 }
 
 .btn-domu-outline {
-    background-color: transparent !important;
-    color: #ffffff !important;
-    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
 }
 
 .btn-domu-outline:hover {
-    background-color: var(--domu-accent) !important;
-    color: var(--domu-white) !important;
-    border-color: var(--domu-accent) !important;
+  background-color: var(--domu-accent) !important;
+  color: var(--domu-white) !important;
+  border-color: var(--domu-accent) !important;
 }
 
 /* Inputs e Seções */
 section {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .bg-surface-1 {
-    background-color: var(--domu-surface-1);
+  background-color: var(--domu-surface-1);
 }
 .bg-surface-2 {
-    background-color: var(--domu-surface-2);
+  background-color: var(--domu-surface-2);
 }
 
 /* Animations focus */
 @keyframes infinite-scroll {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 .animate-infinite-scroll {
-    animation: infinite-scroll 40s linear infinite;
+  animation: infinite-scroll 40s linear infinite;
 }
 
 @keyframes shimmer-premium {
-    0% {
-        left: -120px;
-    }
-    100% {
-        left: 100%;
-    }
+  0% {
+    left: -120px;
+  }
+  100% {
+    left: 100%;
+  }
 }
 
 .animate-shimmer-premium-slow {
-    animation: shimmer-premium 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: shimmer-premium 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes shimmer {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 .animate-shimmer {
-    animation: shimmer 2.5s infinite;
+  animation: shimmer 2.5s infinite;
 }
 
 /* Novos Utilitários p/ Hero Organizado */
 .animate-fade-in {
-    animation: fadeIn 1s ease-out forwards;
+  animation: fadeIn 1s ease-out forwards;
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .mask-fade-sides {
-    mask-image: linear-gradient(
-        to right,
-        transparent,
-        black 15%,
-        black 85%,
-        transparent
-    );
-    -webkit-mask-image: linear-gradient(
-        to right,
-        transparent,
-        black 15%,
-        black 85%,
-        transparent
-    );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
 }
 
 ::selection {
-    background-color: var(--domu-accent);
-    color: var(--domu-white);
+  background-color: var(--domu-accent);
+  color: var(--domu-white);
 }
 
 ::-webkit-scrollbar {
-    width: 16px;
+  width: 16px;
 }
 ::-webkit-scrollbar-track {
-    background: var(--domu-black);
+  background: var(--domu-black);
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--domu-accent);
-    border-radius: 99px;
-    border: 4px solid var(--domu-black); /* Borda maior para manter a elegância */
+  background: var(--domu-accent);
+  border-radius: 99px;
+  border: 4px solid var(--domu-black); /* Borda maior para manter a elegância */
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: color-mix(in srgb, var(--domu-accent), transparent 20%);
+  background: color-mix(in srgb, var(--domu-accent), transparent 20%);
 }
 ::-webkit-scrollbar-thumb:active {
-    background: color-mix(in srgb, var(--domu-accent), transparent 40%);
+  background: color-mix(in srgb, var(--domu-accent), transparent 40%);
 }
 
 .custom-scrollbar::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: var(--domu-accent);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--domu-accent);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: color-mix(in srgb, var(--domu-accent), transparent 20%);
+  background: color-mix(in srgb, var(--domu-accent), transparent 20%);
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:active {
-    background: color-mix(in srgb, var(--domu-accent), transparent 40%);
+  background: color-mix(in srgb, var(--domu-accent), transparent 40%);
 }
 
 /* --- SCROLL ANIMATIONS --- */
 .animate-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
-                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: opacity, transform;
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
 }
 
 .animate-scroll.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Variation: Fade In Only */
 .animate-scroll.fade-in {
-    transform: none;
+  transform: none;
 }
 
 /* Variation: Slide from Left */
 .animate-scroll.slide-left {
-    transform: translateX(-50px);
+  transform: translateX(-50px);
 }
 .animate-scroll.slide-left.is-visible {
-    transform: translateX(0);
+  transform: translateX(0);
 }
 
 /* Variation: Scale Up */
 .animate-scroll.scale-up {
-    transform: scale(0.9);
+  transform: scale(0.9);
 }
 .animate-scroll.scale-up.is-visible {
-    transform: scale(1);
+  transform: scale(1);
 }
