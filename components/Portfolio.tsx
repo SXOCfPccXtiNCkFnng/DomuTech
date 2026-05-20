@@ -15,7 +15,7 @@ const GAP           = 20;     // px entre cards (ajustado de 28)
 const AUTO_PLAY_MS  = 6000;   // intervalo do autoplay (ms)
 
 /* ── Componente isolado para o Card (Evita erro de Hooks) ──────────────── */
-const PortfolioCard = ({ project, index, STEP, slideW, containerW, trackX, isMobile, onClick }: any) => {
+const PortfolioCard = ({ project, index, STEP, slideW, containerW, trackX, isMobile, isActive, onClick }: any) => {
     const slideCenter = useTransform(
         trackX,
         (v: any) => v + index * STEP + slideW / 2,
@@ -42,6 +42,7 @@ const PortfolioCard = ({ project, index, STEP, slideW, containerW, trackX, isMob
                 scale,
                 transformOrigin: 'center center',
             }}
+            className="cursor-pointer"
             onClick={onClick}
         >
             <div className="w-full aspect-[1904/932] rounded-xl overflow-hidden shadow-2xl relative group/card">
@@ -240,10 +241,13 @@ const Portfolio: React.FC = () => {
                                 containerW={containerW}
                                 trackX={trackX}
                                 isMobile={isMobile}
+                                isActive={current === index}
                                 onClick={() => {
-                                    if (currentRef.current !== index) {
+                                    if (current !== index) {
                                         isAnimating.current = false;
                                         goTo(index);
+                                    } else if (project.link && project.link !== '#') {
+                                        window.open(project.link, '_blank', 'noopener,noreferrer');
                                     }
                                 }}
                             />

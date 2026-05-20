@@ -251,7 +251,7 @@ export const PORTFOLIO_PROJECTS: Project[] = [
     description:
       "Desenvolvimento de site moderno para a AGB Campinas, com foco em performance, acessibilidade e design profissional.",
     image: "/projeto/img-agbcampinas.png",
-    link: "#",
+    link: "https://agbcampinas.com.br/",
   },
 ];
 
