@@ -6,7 +6,7 @@ import Pricing from './Pricing';
 import Process from './Process';
 import { ArrowUpRightIcon, ArrowRightIcon, TargetIcon, CheckIcon } from './icons';
 
-const TRAFFIC_THEME_COLOR = '#f97316'; // Laranja Vexel Tráfego
+const TRAFFIC_THEME_COLOR = '#f97316'; // Laranja Domu Tráfego
 
 const TrafficServicePage: React.FC = () => {
     const navigate = useNavigate();

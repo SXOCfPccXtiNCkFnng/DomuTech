@@ -7,7 +7,7 @@ import Pricing from './Pricing';
 import Process from './Process';
 import { ArrowUpRightIcon, ArrowRightIcon, AutomationIcon, CheckIcon } from './icons';
 
-const AUTOMATION_THEME_COLOR = '#a855f7'; // Roxo Vexel Automação
+const AUTOMATION_THEME_COLOR = '#a855f7'; // Roxo Domu Automação
 
 const AutomationServicePage: React.FC = () => {
     const navigate = useNavigate();

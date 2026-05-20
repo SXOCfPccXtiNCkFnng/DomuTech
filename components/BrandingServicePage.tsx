@@ -7,7 +7,7 @@ import Pricing from './Pricing';
 import Process from './Process';
 import { ArrowUpRightIcon, ArrowRightIcon, PaletteIcon, CheckIcon } from './icons';
 
-const BRANDING_THEME_COLOR = '#ec4899'; // Rosa Vexel Branding
+const BRANDING_THEME_COLOR = '#ec4899'; // Rosa Domu Branding
 
 const BrandingServicePage: React.FC = () => {
     const navigate = useNavigate();

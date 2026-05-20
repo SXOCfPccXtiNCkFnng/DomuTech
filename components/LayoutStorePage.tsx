@@ -6,7 +6,7 @@ import { ArrowRightIcon, ShoppingBagIcon, SparklesIcon, ZapIcon, LayoutIcon, Che
 const LAYOUTS = [
     {
         id: '1',
-        name: 'Vexel Elite - E-commerce',
+        name: 'Domu Elite - E-commerce',
         category: 'E-commerce',
         price: 'R$ 11.999,99',
         image: '/projeto/img-AlanX.png',
@@ -15,7 +15,7 @@ const LAYOUTS = [
     },
     {
         id: '2',
-        name: 'Vexel Tech - SaaS',
+        name: 'Domu Tech - SaaS',
         category: 'Software House',
         price: 'R$ 9.850,00',
         image: '/projeto/img-petlife.png',
@@ -24,7 +24,7 @@ const LAYOUTS = [
     },
     {
         id: '3',
-        name: 'Vexel Health - Clinic',
+        name: 'Domu Health - Clinic',
         category: 'Landing Page',
         price: 'R$ 8.400,00',
         image: '/projeto/img-mundoinvertido.png',
@@ -33,7 +33,7 @@ const LAYOUTS = [
     },
     {
         id: '4',
-        name: 'Vexel Ads - Performance',
+        name: 'Domu Ads - Performance',
         category: 'Tráfego & Performance',
         price: 'Consultar Projeto',
         image: '/projeto/img-agbcampinas.png',
@@ -57,7 +57,7 @@ const LayoutStorePage: React.FC = () => {
                         className="inline-flex items-center gap-2 px-4 py-2 bg-[#587f81]/10 border border-[#587f81]/20 rounded-full mb-8"
                     >
                         <SparklesIcon className="w-4 h-4 text-[#587f81]" />
-                        <span className="text-[#587f81] font-black text-[10px] uppercase tracking-[0.3em]">Catálogo Exclusivo Vexel</span>
+                        <span className="text-[#587f81] font-black text-[10px] uppercase tracking-[0.3em]">Catálogo Exclusivo Domu</span>
                     </motion.div>
 
                     <motion.h1

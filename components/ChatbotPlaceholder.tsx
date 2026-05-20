@@ -61,7 +61,7 @@ const ChatbotPlaceholder: React.FC = () => {
 
     const generateWhatsAppLink = () => {
         const message = encodeURIComponent(
-            `Olá VexelTech! Acabei de fazer uma simulação no site.\n\n` +
+            `Olá DomuTech! Acabei de fazer uma simulação no site.\n\n` +
             `*Objetivo:* ${answers[0]}\n` +
             `*Tamanho:* ${answers[1]}\n` +
             `*Prazo:* ${answers[2]}\n` +

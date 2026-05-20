@@ -110,7 +110,7 @@ const Header: React.FC = () => {
                         <a href="/#home" className="flex items-center gap-3 group relative z-10">
                             <img 
                                 src="/logos/logoheaderfooter.png" 
-                                alt="VexelTech" 
+                                alt="DomuTech" 
                                 className="h-10 md:h-14 w-auto transition-all duration-500 group-hover:scale-105"
                             />
                         </a>

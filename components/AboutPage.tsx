@@ -25,7 +25,7 @@ const AboutPage: React.FC = () => {
                             <span className="text-gradient">Ideias em Impacto Real</span>
                         </h1>
                         <p className="text-[var(--domu-muted)] text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-                            A VexelTech nasceu da paixão por engenharia de software e design de alta performance. Somos focados em entregar resultados que escalam negócios.
+                            A DomuTech nasceu da paixão por engenharia de software e design de alta performance. Somos focados em entregar resultados que escalam negócios.
                         </p>
                     </AnimateOnScroll>
                 </div>
@@ -60,7 +60,7 @@ const AboutPage: React.FC = () => {
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <AnimateOnScroll>
                             <h2 className="h2-domu text-white mb-8">
-                                POR QUE ESCOLHER A VEXELTECH?
+                                POR QUE ESCOLHER A DOMUTECH?
                             </h2>
                             <div className="space-y-6 text-white/60">
                                 <p>Combinamos a agilidade de um estúdio boutique com a robustez técnica de uma grande software house.</p>
@@ -77,7 +77,7 @@ const AboutPage: React.FC = () => {
                         
                         <AnimateOnScroll delay={300}>
                             <div className="relative rounded-[40px] overflow-hidden border border-white/10">
-                                <img src="/img/fundo-web.png" alt="Processo VexelTech" className="w-full opacity-60" />
+                                <img src="/img/fundo-web.png" alt="Processo DomuTech" className="w-full opacity-60" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--domu-bg)] to-transparent"></div>
                             </div>
                         </AnimateOnScroll>

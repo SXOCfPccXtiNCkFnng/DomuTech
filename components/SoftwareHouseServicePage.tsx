@@ -6,7 +6,7 @@ import Pricing from './Pricing';
 import Process from './Process';
 import { ArrowUpRightIcon, ArrowRightIcon, CodeIcon, CheckIcon } from './icons';
 
-const SOFTWARE_THEME_COLOR = '#3b82f6'; // Azul Vexel Software
+const SOFTWARE_THEME_COLOR = '#3b82f6'; // Azul Domu Software
 
 const SoftwareHouseServicePage: React.FC = () => {
     const navigate = useNavigate();

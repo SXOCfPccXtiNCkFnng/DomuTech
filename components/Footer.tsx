@@ -15,12 +15,12 @@ const Footer: React.FC = () => {
                         <a href="/#home" className="flex items-center mb-8 group">
                             <img 
                                 src="/logos/logoheaderfooter.png" 
-                                alt="VexelTech" 
+                                alt="DomuTech" 
                                 className="h-12 md:h-16 w-auto transition-transform group-hover:scale-105"
                             />
                         </a>
                         <p className="text-[var(--domu-muted)] text-[13px] leading-relaxed mb-10 max-w-xs font-medium opacity-70">
-                            A VEXELTECH impulsiona sua marca com engenharia de software de elite, design de alto impacto e estratégias digitais focadas em escala.
+                            A DOMUTECH impulsiona sua marca com engenharia de software de elite, design de alto impacto e estratégias digitais focadas em escala.
                         </p>
                         
                         <div className="flex flex-col items-start gap-4 w-full">
@@ -92,7 +92,7 @@ const Footer: React.FC = () => {
             <div className="mt-12 md:mt-16 border-t border-white/5 pt-10">
                 <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-left md:text-center">
                     <p className="text-[var(--domu-muted)] text-[10px] font-black uppercase tracking-[0.2em] opacity-30">
-                        © {new Date().getFullYear()} VEXELTECH • CNPJ: 54.123.884/0001-50
+                        © {new Date().getFullYear()} DOMUTECH • CNPJ: 54.123.884/0001-50
                     </p>
                     <a href="#" className="text-[var(--domu-muted)] text-[10px] font-black uppercase tracking-[0.2em] hover:text-[var(--domu-white)] opacity-30 hover:opacity-100 transition-opacity">
                         Privacidade
