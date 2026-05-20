@@ -71,13 +71,19 @@ const Footer: React.FC = () => {
             <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
                 <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
                     <div className="flex gap-6">
-                        {['instagram', 'linkedin', 'twitter'].map(social => (
+                        {[
+                            { name: 'instagram', url: 'https://www.instagram.com/domu_tech/' },
+                            { name: 'linkedin', url: '#linkedin' },
+                            { name: 'twitter', url: '#twitter' }
+                        ].map(social => (
                             <a 
-                                key={social} 
-                                href={`#${social}`} 
+                                key={social.name} 
+                                href={social.url} 
+                                target={social.url.startsWith('http') ? "_blank" : undefined}
+                                rel={social.url.startsWith('http') ? "noreferrer" : undefined}
                                 className="text-[var(--domu-muted)] hover:text-[var(--domu-white)] transition-colors"
                             >
-                                <span className="uppercase text-[10px] font-black tracking-widest">{social}</span>
+                                <span className="uppercase text-[10px] font-black tracking-widest">{social.name}</span>
                             </a>
                         ))}
                     </div>
