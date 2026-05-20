@@ -7,7 +7,7 @@ import ProfessionalDevelopment from './ProfessionalDevelopment';
 import Process from './Process';
 import { ArrowUpRightIcon, ArrowRightIcon } from './icons';
 
-const SITE_THEME_COLOR = '#ffcc00'; // Amarelo Domu Sites
+const SITE_THEME_COLOR = '#34d399'; // Verde-Esmeralda
 
 const SiteServicePage: React.FC = () => {
     const navigate = useNavigate();
