@@ -197,12 +197,29 @@ export const COMPANY_VALUES: Value[] = [
 export const PORTFOLIO_PROJECTS: Project[] = [
   {
     tag: "Criação de Sites",
-    title: "Domu Tech - Site Institucional",
+    title: "Rede Centro-Norte Brasil - UNICAMP",
     description:
-      "Site institutional moderno para a Domu Tech, com foco em apresentação clara de serviços, performance e conversão de visitantes.",
+      "Desenvolvimento de portal acadêmico e científico para a Rede Centro-Norte Brasil da UNICAMP, com quiz interativo e um jogo educativo escondido.",
+    image: "/projeto/img-redeterritorios.png",
+    link: "https://www.ige.unicamp.br/rede-centro-norte-brasil/",
+    isFeatured: true,
+  },
+  {
+    tag: "Criação de Sites",
+    title: "AGB Campinas - Site Institucional",
+    description:
+      "Desenvolvimento de site moderno para a AGB Campinas, com foco em performance, acessibilidade e design profissional.",
+    image: "/projeto/img-agbcampinas.png",
+    link: "https://agbcampinas.com.br/",
+    isFeatured: true,
+  },
+  {
+    tag: "Criação de Sites",
+    title: "AlanX - Site Institucional",
+    description:
+      "Site institucional moderno para a AlanX, com foco em apresentação clara de serviços, performance e conversão de visitantes.",
     image: "/projeto/img-AlanX.png",
     link: "https://alanx.netlify.app/",
-    isFeatured: true,
   },
   {
     tag: "Criação de Sites",
@@ -211,16 +228,8 @@ export const PORTFOLIO_PROJECTS: Project[] = [
       "Landing page da PetLife com foco em conversão, layout moderno e navegação direta para apresentar serviços e benefícios.",
     image: "/projeto/img-petlife.png",
     link: "https://alanfelipem.github.io/PetLife/",
-    isFeatured: true,
   },
-  {
-    tag: "Criação de Sites",
-    title: "Portfolio Alan Felipe",
-    description:
-      "Criação de portfólio profissional sob medida, com foco em destacar projetos, habilidades e facilitar o contato.",
-    image: "/projeto/img-portfolioalan.png",
-    link: "https://portfolio-alan-felipe.netlify.app/",
-  },
+
   {
     tag: "Criação de Sites",
     title: "Landing Page - Mundo Invertido",
@@ -231,11 +240,11 @@ export const PORTFOLIO_PROJECTS: Project[] = [
   },
   {
     tag: "Criação de Sites",
-    title: "Gestor de Estoque Web",
+    title: "Portfolio Alan Felipe",
     description:
-      "Gestor de estoque web para controle de produtos, entradas e saídas com visão clara e organizada.",
-    image: "/projeto/img-gestorestoque.png",
-    link: "https://gestor-estoque.netlify.app",
+      "Criação de portfólio profissional sob medida, com foco em destacar projetos, habilidades e facilitar o contato.",
+    image: "/projeto/img-portfolioalan.png",
+    link: "https://portfolio-alan-felipe.netlify.app/",
   },
   {
     tag: "Página de destino",
@@ -244,14 +253,6 @@ export const PORTFOLIO_PROJECTS: Project[] = [
       "Projeto institucional para advocacia, reforçando credibilidade, serviços jurídicos e canais de contato eficientes, entre outros.",
     image: "",
     link: "#",
-  },
-  {
-    tag: "Criação de Sites",
-    title: "AGB Campinas - Site Institucional",
-    description:
-      "Desenvolvimento de site moderno para a AGB Campinas, com foco em performance, acessibilidade e design profissional.",
-    image: "/projeto/img-agbcampinas.png",
-    link: "https://agbcampinas.com.br/",
   },
 ];
 

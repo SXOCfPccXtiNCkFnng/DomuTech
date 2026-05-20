@@ -3,9 +3,8 @@ import AnimateOnScroll from './AnimateOnScroll';
 import { ArrowUpRightIcon, LayoutIcon, MobileIcon, CodeIcon } from './icons';
 
 const ABOUT_METRICS = [
-    { label: 'Projetos Entregues', value: '150+' },
-    { label: 'Anos de Mercado', value: '8+' },
-    { label: 'Satisfação Google', value: '4.9/5' },
+    { label: 'Projetos Entregues', value: '15+' },
+    { label: 'Anos de Mercado', value: '3+' },
     { label: 'Performance Média', value: '95+' },
 ];
 
@@ -122,7 +121,7 @@ const About: React.FC = () => {
                 </div>
 
                 {/* Metrics */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 pt-16 border-t border-white/10">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 pt-16 border-t border-white/10">
                     {ABOUT_METRICS.map((metric, index) => (
                         <AnimateOnScroll key={metric.label} delay={index * 100}>
                             <MetricItem metric={metric} />

@@ -350,22 +350,32 @@ const Portfolio: React.FC = () => {
                                 <div className="p-5">
                                     {/* Badge */}
                                     <span
-                                        className={`inline-block px-3 py-1 mb-2 rounded-full font-black text-xxs uppercase tracking-widest ${
-                                            index === 0 ? 'bg-yellow-500/10 text-yellow-500' : 
-                                            index === 1 ? 'bg-blue-500/10 text-blue-500' : 
-                                            'bg-purple-500/10 text-purple-500'
-                                        }`}
+                                        className="inline-block px-3 py-1 mb-2 rounded-full font-black text-xxs uppercase tracking-widest bg-[var(--domu-accent)]/10 text-[var(--domu-accent-light)]"
                                     >
-                                        {['E-commerce', 'Software House', 'IA & Chatbot'][index]}
+                                        Site Institucional
                                     </span>
 
                                     <p className="text-white/60 font-bold text-xxs uppercase tracking-widest mb-1">
-                                        {['Soluções Contábeis', 'Gestão Empresarial', 'Gestão de Frotas'][index]}
+                                        Soluções para o seu negócio
                                     </p>
 
-                                    <h4 className="text-sm font-black text-white  tracking-tight leading-tight mb-3">
+                                    <h4 className="text-sm font-black text-white  tracking-tight leading-tight mb-2">
                                         {project.title.split(' - ')[0]}
                                     </h4>
+
+                                    {project.description && (
+                                        <p 
+                                            className="text-[var(--domu-muted)] text-[12px] leading-relaxed mb-4"
+                                            style={{
+                                                display: '-webkit-box',
+                                                WebkitLineClamp: 3,
+                                                WebkitBoxOrient: 'vertical',
+                                                overflow: 'hidden',
+                                            }}
+                                        >
+                                            {project.description}
+                                        </p>
+                                    )}
 
                                     {/* "Ver projeto" só aparece no hover */}
                                     <a

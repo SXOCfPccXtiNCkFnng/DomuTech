@@ -26,10 +26,6 @@ const Hero: React.FC = () => {
                             <span className="tag-domu !text-white/60">
                                 Estúdio de Alta Performance
                             </span> 
-                            <div className="w-1 h-1 bg-white/40 rounded-full"></div> 
-                            <span className="tag-domu !text-white flex items-center gap-2">
-                                 ★ 4.9 no Google
-                            </span>
                         </div>
                     </AnimateOnScroll>
 

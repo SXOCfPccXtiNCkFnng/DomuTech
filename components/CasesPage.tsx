@@ -3,12 +3,10 @@ import AnimateOnScroll from './AnimateOnScroll';
 import { ExternalLinkIcon, ArrowUpRightIcon } from './icons';
 
 const CASES = [
-    { title: "KaBuM!", category: "E-commerce / Performance", img: "/img/fundo-web.png", link: "#" },
-    { title: "Flow Games", category: "Plataforma Web", img: "/img/fundo-web.png", link: "#" },
-    { title: "Unimed", category: "Sistema de Gestão", img: "/img/fundo-web.png", link: "#" },
-    { title: "Asksuite", category: "Automação de IA", img: "/img/fundo-web.png", link: "#" },
-    { title: "Controller BMS", category: "Dashboard BI", img: "/img/fundo-web.png", link: "#" },
-    { title: "Confirp", category: "Portal Institucional", img: "/img/fundo-web.png", link: "#" },
+    { title: "AGB Campinas", category: "Site Institucional", img: "/projeto/img-agbcampinas.png", link: "https://agbcampinas.com.br/" },
+    { title: "Rede Centro-Norte Brasil", category: "Portal Científico / UNICAMP", img: "/projeto/img-redeterritorios.png", link: "https://www.ige.unicamp.br/rede-centro-norte-brasil/" },
+    { title: "PetLife", category: "Landing Page", img: "/projeto/img-petlife.png", link: "https://alanfelipem.github.io/PetLife/" },
+    { title: "Mundo Invertido", category: "Landing Page Temática", img: "/projeto/img-mundoinvertido.png", link: "https://alanfelipem.github.io/Landing-Page-no-Mundo-Invertido/" },
 ];
 
 const CasesPage: React.FC = () => {

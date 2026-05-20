@@ -9,11 +9,11 @@ const SERVICES_LIST = [
         desc: 'Desenvolvimento de sites institucionais, landing pages e e-commerces de alta conversão.',
         href: '/servico/site-sob-medida',
         icon: GlobeIcon,
-        color: 'from-yellow-400 to-amber-500',
-        iconColor: 'text-yellow-400',
-        hoverBorder: 'group-hover:border-yellow-500/50',
-        hoverGlow: 'group-hover:shadow-[0_0_30px_rgba(234,179,8,0.15)]',
-        hoverBg: 'group-hover:bg-yellow-500/10'
+        color: 'from-emerald-400 to-teal-500',
+        iconColor: 'text-emerald-400',
+        hoverBorder: 'group-hover:border-emerald-500/50',
+        hoverGlow: 'group-hover:shadow-[0_0_30px_rgba(16,185,129,0.15)]',
+        hoverBg: 'group-hover:bg-emerald-500/10'
     },
     { 
         name: 'IA & Automação', 

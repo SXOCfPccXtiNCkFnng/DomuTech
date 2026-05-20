@@ -157,7 +157,7 @@
         position: fixed;
         inset: 0;
         z-index: 99999;
-        background: #121112;
+        background: #070709;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -165,96 +165,134 @@
         transition:
           opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1),
           visibility 0.8s;
+        overflow: hidden;
+      }
+      /* Tech Grid Pattern overlay */
+      .grid-overlay {
+        position: absolute;
+        inset: 0;
+        background-image: 
+          linear-gradient(rgba(88, 127, 129, 0.02) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(88, 127, 129, 0.02) 1px, transparent 1px);
+        background-size: 40px 40px;
+        background-position: center;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .grid-overlay::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at center, transparent 35%, #070709 85%);
       }
       #preloader.loaded {
         opacity: 0;
         visibility: hidden;
       }
-      .spinner-container {
+      .tech-loader-content {
         position: relative;
-        width: 180px;
-        height: 180px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        width: 300px;
+      }
+      .scan-container {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        margin-bottom: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 40px;
+        overflow: hidden;
+        border-radius: 18px;
+        border: 1px solid rgba(88, 127, 129, 0.15);
+        background: rgba(88, 127, 129, 0.02);
+        box-shadow: inset 0 0 15px rgba(88, 127, 129, 0.05);
       }
-      .spinner-ring {
+      .scan-grid {
         position: absolute;
-        border-radius: 50%;
-        border: 2px solid transparent;
+        inset: 0;
+        background-image: 
+          linear-gradient(rgba(88, 127, 129, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(88, 127, 129, 0.05) 1px, transparent 1px);
+        background-size: 12px 12px;
+        background-position: center;
       }
-      .ring1 {
-        width: 180px;
-        height: 180px;
-        border-top-color: #587f81;
-        animation: spin 2s linear infinite;
-        opacity: 0.8;
-      }
-      .ring2 {
-        width: 150px;
-        height: 150px;
-        border-bottom-color: #91b6b1;
-        animation: spin-reverse 2.5s linear infinite;
-        opacity: 0.4;
-      }
-      .ring3 {
-        width: 120px;
-        height: 120px;
-        border-right-color: #3b5b5e;
-        animation: spin 3s linear infinite;
-        opacity: 0.2;
+      .scan-line {
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, #587f81, #91b6b1, #587f81, transparent);
+        box-shadow: 0 0 8px rgba(88, 127, 129, 0.8), 0 0 15px rgba(88, 127, 129, 0.5);
+        top: 0;
+        left: 0;
+        animation: scan-anim 2.5s ease-in-out infinite;
       }
       #preloader .logo {
-        width: 60px;
-        height: 60px;
-        animation: logo-float 3s ease-in-out infinite;
-        z-index: 1;
-        filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+        width: 52px;
+        height: 52px;
+        animation: logo-pulse 2.5s ease-in-out infinite;
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+        z-index: 2;
       }
-      .loading-text {
-        color: #ffffff;
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: clamp(9px, 1.2vw, 11px);
-        font-weight: 900;
-        letter-spacing: 0.4em;
+      
+      .tech-loader {
+        width: 100%;
+        font-family: monospace;
+      }
+      .terminal-header {
+        font-size: 9px;
+        letter-spacing: 0.2em;
+        color: rgba(88, 127, 129, 0.8);
         text-transform: uppercase;
-        opacity: 0.6;
-        animation: pulse-text 2s ease-in-out infinite;
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .cyber-bar {
+        width: 100%;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 2px;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 12px;
+      }
+      #progress-bar-fill {
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(90deg, #587f81, #91b6b1);
+        box-shadow: 0 0 6px #587f81;
+        transition: width 0.08s ease-out;
+      }
+      .terminal-status {
+        display: flex;
+        justify-content: space-between;
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.35);
+        letter-spacing: 0.05em;
+      }
+      #load-percentage {
+        color: rgba(255, 255, 255, 0.85);
+        font-weight: bold;
       }
 
-      @keyframes spin {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
+      @keyframes scan-anim {
+        0%, 100% { top: 0%; }
+        50% { top: 98%; }
       }
-      @keyframes spin-reverse {
-        from {
-          transform: rotate(360deg);
-        }
-        to {
-          transform: rotate(0deg);
-        }
-      }
-      @keyframes logo-float {
-        0%,
-        100% {
-          transform: translateY(0) scale(1);
-        }
-        50% {
-          transform: translateY(-8px) scale(1.05);
-        }
-      }
-      @keyframes pulse-text {
-        0%,
-        100% {
-          opacity: 0.3;
-        }
-        50% {
+      @keyframes logo-pulse {
+        0%, 100% {
+          transform: scale(0.97);
           opacity: 0.8;
+        }
+        50% {
+          transform: scale(1.03);
+          opacity: 1;
         }
       }
 
@@ -275,16 +313,85 @@
   </head>
   <body>
     <div id="preloader">
-      <div class="spinner-container">
-        <div class="spinner-ring ring1"></div>
-        <div class="spinner-ring ring2"></div>
-        <div class="spinner-ring ring3"></div>
-        <img src="/logos/logobranca.png" class="logo" alt="Logo Domu Tech" />
-      </div>
-      <div class="loading-text">
-        Carregando<span class="loading-dots">...</span>
+      <div class="grid-overlay"></div>
+      <div class="tech-loader-content">
+        <div class="scan-container">
+          <div class="scan-grid"></div>
+          <div class="scan-line"></div>
+          <img src="/logos/logobranca.png" class="logo" alt="Logo Domu Tech" />
+        </div>
+        <div class="tech-loader">
+          <div class="terminal-header">
+            <span>SYS_INIT // BOOT_SEQ</span>
+            <span>v2.4</span>
+          </div>
+          <div class="cyber-bar">
+            <div id="progress-bar-fill"></div>
+          </div>
+          <div class="terminal-status">
+            <span id="status-msg">> BOOTING_SYSTEM...</span>
+            <span id="load-percentage">00%</span>
+          </div>
+        </div>
       </div>
     </div>
+    <script>
+      (function() {
+        var count = 0;
+        var counterEl = document.getElementById('load-percentage');
+        var loaderEl = document.getElementById('preloader');
+        var progressBar = document.getElementById('progress-bar-fill');
+        var statusEl = document.getElementById('status-msg');
+        
+        var statuses = [
+          { min: 0, text: '> BOOTING_SYSTEM...' },
+          { min: 25, text: '> INITIALIZING_IA_CORES...' },
+          { min: 50, text: '> LOADING_INTERFACE...' },
+          { min: 75, text: '> COMPILING_ASSETS...' },
+          { min: 100, text: '> SYSTEM_ONLINE' }
+        ];
+
+        function getStatusText(val) {
+          var currentText = statuses[0].text;
+          for (var i = 0; i < statuses.length; i++) {
+            if (val >= statuses[i].min) {
+              currentText = statuses[i].text;
+            }
+          }
+          return currentText;
+        }
+        
+        var interval = setInterval(function() {
+          if (count < 85) {
+            count += Math.floor(Math.random() * 5) + 1;
+            if (count > 85) count = 85;
+            update(count);
+          }
+        }, 80);
+
+        window.addEventListener('load', function() {
+          clearInterval(interval);
+          var endInterval = setInterval(function() {
+            if (count < 100) {
+              count += 3;
+              if (count > 100) count = 100;
+              update(count);
+            } else {
+              clearInterval(endInterval);
+              setTimeout(function() {
+                loaderEl.classList.add('loaded');
+              }, 400);
+            }
+          }, 20);
+        });
+
+        function update(val) {
+          if (counterEl) counterEl.textContent = String(val).padStart(2, '0') + '%';
+          if (progressBar) progressBar.style.width = val + '%';
+          if (statusEl) statusEl.textContent = getStatusText(val);
+        }
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>
