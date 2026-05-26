@@ -13,20 +13,20 @@ const Services: React.FC = () => {
       <div className="absolute top-0 left-0 w-full h-[30%] bg-[var(--domu-black)]"></div>
 
       {/* Branding Ghosts Constellation - Forced to Background */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.06] z-0">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15] z-0">
         <img
-          src="/logos/logobranca.png"
+          src="/logos/logo-glitch.png"
           className="absolute top-[20%] right-0 w-64 h-64 animate-spin-slow"
           style={{ animationDuration: "60s" }}
           alt=""
         />
         <img
-          src="/logos/logobranca.png"
+          src="/logos/logo-glitch.png"
           className="absolute bottom-[10%] left-[5%] w-32 h-32 animate-float"
           alt=""
         />
         <img
-          src="/logos/logobranca.png"
+          src="/logos/logo-glitch.png"
           className="absolute top-[60%] right-[15%] w-20 h-20 animate-float-delayed"
           alt=""
         />

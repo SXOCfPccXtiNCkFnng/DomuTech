@@ -25,26 +25,30 @@ body {
 
 :root {
   /* Core Backgrounds */
-  --domu-bg: #050505;
-  --domu-black: #0a0a0a;
+  --domu-bg: #0A0F18;
+  --domu-black: #060A10;
 
   /* Surfaces & Containers */
-  --domu-surface-1: #111111;
-  --domu-surface-2: #181818;
-  --domu-surface-3: #222222;
+  --domu-surface-1: #111827;
+  --domu-surface-2: #1f2937;
+  --domu-surface-3: #374151;
 
   /* Typography */
   --domu-primary: #ffffff;
-  --domu-secondary: #e1e1e1;
-  --domu-muted: #a3a1a2;
+  --domu-secondary: #CBD5E1;
+  --domu-muted: #94A3B8;
   --domu-light: #f1f0f5;
 
   /* Brand Accents */
-  --domu-accent: #587f81;
-  --domu-accent-hover: #668d8e;
-  --domu-accent-dark: #3b5b5e;
-  --domu-accent-light: #91b6b1;
-  --domu-accent-muted: #c0b5be;
+  --domu-accent: #005BFF;
+  --domu-accent-hover: #1A6CFF;
+  --domu-accent-dark: #0045C0;
+  --domu-accent-light: #00D4FF;
+  --domu-accent-muted: #7B61FF;
+
+  /* Custom Brand Gradients */
+  --domu-gradient-premium: linear-gradient(135deg, #005BFF 0%, #7B61FF 100%);
+  --domu-gradient-secondary: linear-gradient(135deg, #7B61FF 0%, #00D4FF 100%);
 
   /* Semantic Utilities */
   --domu-white: #ffffff;
@@ -118,14 +122,32 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(
-    to bottom right,
-    var(--domu-white) 10%,
-    var(--domu-accent) 90%
-  );
+  background: var(--domu-gradient-premium);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.text-gradient-premium {
+  background: var(--domu-gradient-premium);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-secondary {
+  background: var(--domu-gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient-premium {
+  background: var(--domu-gradient-premium);
+}
+
+.bg-gradient-secondary {
+  background: var(--domu-gradient-secondary);
 }
 
 /* utilitários de texto */
@@ -176,10 +198,10 @@ body {
 /* Botão com Brilho (Shimmer) - Para Peça um Orçamento / Chatbot */
 .btn-budget,
 .btn-domu-primary {
-  background-color: var(--domu-accent) !important;
+  background: var(--domu-gradient-premium) !important;
   color: var(--domu-white) !important;
-  border: 2px solid var(--domu-accent) !important;
-  box-shadow: 0 10px 20px -10px rgba(88, 127, 129, 0.3);
+  border: none !important;
+  box-shadow: 0 10px 25px -10px rgba(0, 91, 255, 0.4), 0 10px 25px -10px rgba(123, 97, 255, 0.3);
 }
 
 .btn-budget::after,
@@ -193,7 +215,7 @@ body {
   background: linear-gradient(
     to right,
     transparent 0%,
-    var(--domu-accent) 50%,
+    rgba(255, 255, 255, 0.15) 50%,
     transparent 100%
   );
   opacity: 0.6;
@@ -208,46 +230,51 @@ body {
 
 .btn-budget:hover,
 .btn-domu-primary:hover {
-  background-color: transparent !important;
-  color: var(--domu-accent) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -10px rgba(0, 91, 255, 0.6), 0 15px 30px -10px rgba(123, 97, 255, 0.4);
+  color: var(--domu-white) !important;
+  filter: brightness(1.1);
 }
 
 /* Botão WhatsApp - Estilo Clean, Sem Brilho, Verde no Hover */
 .btn-whatsapp {
   background-color: transparent !important;
   color: #ffffff !important;
-  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 .btn-whatsapp:hover {
   background-color: transparent !important;
   border-color: #25d366 !important;
   color: #25d366 !important;
+  transform: translateY(-2px);
 }
 
 /* Botão Ver Todos - Animação Diferente */
 .btn-view-all {
-  background-color: transparent !important;
+  background-color: rgba(255, 255, 255, 0.02) !important;
   color: #ffffff !important;
-  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.08) !important;
 }
 
 .btn-view-all:hover {
-  background-color: var(--domu-accent) !important;
+  background-color: rgba(0, 91, 255, 0.05) !important;
+  border-color: rgba(0, 91, 255, 0.4) !important;
   color: var(--domu-white) !important;
-  border-color: var(--domu-accent) !important;
+  transform: translateY(-2px);
 }
 
 .btn-domu-outline {
-  background-color: transparent !important;
+  background-color: rgba(255, 255, 255, 0.02) !important;
   color: #ffffff !important;
-  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.08) !important;
 }
 
 .btn-domu-outline:hover {
-  background-color: var(--domu-accent) !important;
+  background-color: rgba(0, 91, 255, 0.05) !important;
+  border-color: rgba(0, 91, 255, 0.4) !important;
   color: var(--domu-white) !important;
-  border-color: var(--domu-accent) !important;
+  transform: translateY(-2px);
 }
 
 /* Inputs e Seções */

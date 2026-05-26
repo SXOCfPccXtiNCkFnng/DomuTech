@@ -114,14 +114,14 @@ const Testimonials: React.FC = () => {
       className="py-10 md:py-16 bg-[var(--domu-bg)] relative overflow-hidden"
     >
       {/* Branding Ghosts Constellation */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.06]">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15]">
         <img
-          src="/logos/logobranca.png"
+          src="/logos/logo-glitch.png"
           className="absolute top-[10%] right-[10%] w-32 h-32 animate-float"
           alt=""
         />
         <img
-          src="/logos/logobranca.png"
+          src="/logos/logo-glitch.png"
           className="absolute bottom-[10%] left-[-5%] w-56 h-56 animate-spin-slow"
           style={{ animationDuration: "45s" }}
           alt=""
@@ -187,7 +187,7 @@ const Testimonials: React.FC = () => {
                     minWidth: slideW,
                     width: slideW,
                   }}
-                  className="bg-white/5 border border-white/10 rounded-xl p-8 md:p-12 flex flex-col min-h-[420px] md:h-[380px] flex-shrink-0"
+                  className="bg-[var(--domu-surface-1)] border border-white/5 rounded-3xl p-8 md:p-12 flex flex-col min-h-[420px] md:h-[380px] flex-shrink-0"
                 >
                   {/* Quote Icon */}
                   <div className="text-white opacity-10 mb-6 md:mb-8">
@@ -206,7 +206,7 @@ const Testimonials: React.FC = () => {
                     "{item.text}"
                   </p>
 
-                  <div className="mt-auto pt-6 border-t border-white/10">
+                  <div className="mt-auto pt-6 border-t border-white/5">
                     <h4 className="text-white font-black text-lg md:text-xl  tracking-tighter mb-1">
                       {item.name}
                     </h4>

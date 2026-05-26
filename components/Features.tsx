@@ -155,7 +155,7 @@ const Features: React.FC = () => {
             {/* Mascote Branding */}
             <div className="relative w-full max-w-[200px] md:max-w-[280px] mx-auto lg:mx-0 mb-10 md:mb-12">
               <img
-                src="/logos/logobranca.png"
+                src="/logos/logopreta.png"
                 alt="Mascote Domu Tech"
                 className="relative z-10 w-full h-auto opacity-100 animate-float"
               />

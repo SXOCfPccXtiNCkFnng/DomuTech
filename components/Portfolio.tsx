@@ -192,10 +192,10 @@ const Portfolio: React.FC = () => {
     return (
         <section id="portfolio" className="py-10 md:py-32 bg-[var(--domu-bg)] overflow-hidden relative">
             {/* Branding Ghosts Constellation - Forced to Background */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.05] z-0">
-                <img src="/logos/logobranca.png" className="absolute top-[15%] left-[5%] w-32 h-32 animate-float" alt="" />
-                <img src="/logos/logobranca.png" className="absolute top-[40%] right-0 w-64 h-64 animate-spin-slow" style={{ animationDuration: '70s' }} alt="" />
-                <img src="/logos/logobranca.png" className="absolute bottom-[10%] left-[10%] w-24 h-24 animate-float-delayed" alt="" />
+            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15] z-0">
+                <img src="/logos/logo-glitch.png" className="absolute top-[15%] left-[5%] w-32 h-32 animate-float" alt="" />
+                <img src="/logos/logo-glitch.png" className="absolute top-[40%] right-0 w-64 h-64 animate-spin-slow" style={{ animationDuration: '70s' }} alt="" />
+                <img src="/logos/logo-glitch.png" className="absolute bottom-[10%] left-[10%] w-24 h-24 animate-float-delayed" alt="" />
             </div>
             
             <div className="container mx-auto px-4 relative z-10">

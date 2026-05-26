@@ -18,20 +18,20 @@ const ReliableAgency: React.FC = () => {
   return (
     <section className="py-10 md:py-24 bg-[var(--domu-black)] overflow-hidden relative border-t border-white/5">
       {/* Branding Ghosts Constellation */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.05]">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15]">
         <img
-          src="/logos/logobranca.png"
+          src="/logos/logo-glitch.png"
           className="absolute top-[10%] left-[-5%] w-56 h-56 animate-spin-slow opacity-40"
           style={{ animationDuration: "70s" }}
           alt=""
         />
         <img
-          src="/logos/logobranca.png"
+          src="/logos/logo-glitch.png"
           className="absolute bottom-[15%] right-[5%] w-32 h-32 animate-float opacity-70"
           alt=""
         />
         <img
-          src="/logos/logobranca.png"
+          src="/logos/logo-glitch.png"
           className="absolute top-[50%] right-[-10%] w-48 h-48 animate-spin-slow opacity-20"
           style={{ animationDuration: "90s" }}
           alt=""
@@ -115,7 +115,7 @@ const ReliableAgency: React.FC = () => {
 
         {/* Branding espiando no fundo */}
         <div className="absolute -bottom-10 right-1/4 w-32 h-32 opacity-20 animate-float pointer-events-none">
-          <img src="/logos/logobranca.png" alt="" className="w-full h-auto" />
+          <img src="/logos/logo-glitch.png" alt="" className="w-full h-auto" />
         </div>
       </div>
     </section>

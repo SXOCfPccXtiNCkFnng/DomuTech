@@ -101,7 +101,7 @@ const Header: React.FC = () => {
             {/* Main Header */}
             <header 
                 className={`sticky top-0 left-0 right-0 z-50 border-b border-white/5 transition-all duration-500 ${isScrolled ? 'bg-[var(--domu-bg)] shadow-2xl py-2' : 'bg-[var(--domu-bg)] py-2'}`}
-                style={{ '--domu-accent': '#587f81' } as React.CSSProperties}
+                style={{ '--domu-accent': '#005BFF' } as React.CSSProperties}
             >
                 <div className="container mx-auto px-4 md:px-8">
                     <div className="flex items-center justify-between h-14 md:h-16">
@@ -118,7 +118,7 @@ const Header: React.FC = () => {
                         {/* Navigation */}
                         <nav className="hidden min-[1440px]:flex items-center gap-8 absolute left-1/2 -translate-x-1/2 h-full">
                             <a href="/" className="group relative h-full flex items-center overflow-hidden">
-                                <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[#587f81] transition-all duration-300">Home</span>
+                                <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[#005BFF] transition-all duration-300">Home</span>
                             </a>
                             
                             {/* Services Dropdown */}
@@ -127,9 +127,9 @@ const Header: React.FC = () => {
                                 onMouseEnter={handleMouseEnter}
                                 onMouseLeave={handleMouseLeave}
                             >
-                                <button className={`font-black text-[11px] uppercase tracking-[0.1em] transition-all flex items-center gap-1.5 focus:outline-none py-2 ${isServicesOpen ? 'text-[#587f81]' : 'text-[var(--domu-muted)] hover:text-[#587f81]'}`}>
+                                <button className={`font-black text-[11px] uppercase tracking-[0.1em] transition-all flex items-center gap-1.5 focus:outline-none py-2 ${isServicesOpen ? 'text-[#005BFF]' : 'text-[var(--domu-muted)] hover:text-[#005BFF]'}`}>
                                     Serviços
-                                    <ChevronDownIcon className={`w-3 h-3 transition-transform duration-300 ${isServicesOpen ? 'rotate-180 text-[#587f81]' : ''}`} />
+                                    <ChevronDownIcon className={`w-3 h-3 transition-transform duration-300 ${isServicesOpen ? 'rotate-180 text-[#005BFF]' : ''}`} />
                                 </button>
 
                                 {/* Mega Menu Restaurado na Hierarquia */}
@@ -185,16 +185,16 @@ const Header: React.FC = () => {
                             </div>
 
                             <a href="/cases" className="group relative h-full flex items-center overflow-hidden">
-                                <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[#587f81] transition-all duration-300">Cases</span>
+                                <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[#005BFF] transition-all duration-300">Cases</span>
                             </a>
                             <a href="/sobre" className="group relative h-full flex items-center overflow-hidden">
-                                <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[#587f81] transition-all duration-300">Sobre Nós</span>
+                                <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[#005BFF] transition-all duration-300">Sobre Nós</span>
                             </a>
                             <a href="/chatbot-placeholder" className="group relative h-full flex items-center overflow-hidden">
-                                <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[#587f81] transition-all duration-300">Orçamento</span>
+                                <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[#005BFF] transition-all duration-300">Orçamento</span>
                             </a>
                             <a href="/layouts" className="group relative h-full flex items-center ml-2">
-                                <span className="relative text-[#587f81] font-black text-[10px] uppercase tracking-[0.2em] px-5 py-2.5 border border-[#587f81]/40 rounded-full hover:bg-[#587f81] hover:text-white transition-all duration-500">
+                                <span className="relative text-[#005BFF] font-black text-[10px] uppercase tracking-[0.2em] px-5 py-2.5 border border-[#005BFF]/40 rounded-full hover:bg-[#005BFF] hover:text-white transition-all duration-500">
                                     Loja de Layouts
                                 </span>
                             </a>
@@ -247,9 +247,9 @@ const Header: React.FC = () => {
                                 <a href="/cases" className="text-white font-black text-4xl uppercase tracking-tighter" onClick={() => setIsMenuOpen(false)}>Cases</a>
                                 <a href="/sobre" className="text-white font-black text-4xl uppercase tracking-tighter" onClick={() => setIsMenuOpen(false)}>Sobre Nós</a>
                                 <a href="/chatbot-placeholder" className="text-white font-black text-4xl uppercase tracking-tighter" onClick={() => setIsMenuOpen(false)}>Orçamento</a>
-                                <a href="/layouts" className="text-[#587f81] font-black text-4xl uppercase tracking-tighter flex items-center gap-4" onClick={() => setIsMenuOpen(false)}>
+                                <a href="/layouts" className="text-[#005BFF] font-black text-4xl uppercase tracking-tighter flex items-center gap-4" onClick={() => setIsMenuOpen(false)}>
                                     Loja de Layouts
-                                    <span className="w-2 h-2 bg-[#587f81] rounded-full animate-ping" />
+                                    <span className="w-2 h-2 bg-[#005BFF] rounded-full animate-ping" />
                                 </a>
                             </nav>
                         </div>

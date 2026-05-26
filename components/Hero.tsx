@@ -15,6 +15,9 @@ const Hero: React.FC = () => {
                 <div className="absolute inset-0 opacity-[0.03] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]"
                      style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}>
                 </div>
+                {/* Ambient glow bubbles */}
+                <div className="absolute top-[20%] left-[-10%] w-[350px] h-[350px] bg-[#005BFF] opacity-10 blur-[130px] rounded-full" />
+                <div className="absolute bottom-[10%] right-[-5%] w-[400px] h-[400px] bg-[#7B61FF] opacity-10 blur-[140px] rounded-full" />
             </div>
             
             <div className="container mx-auto px-6 relative z-10">

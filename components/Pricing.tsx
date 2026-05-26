@@ -35,20 +35,20 @@ const Pricing: React.FC = () => {
       className="py-10 md:py-24 bg-[var(--domu-bg)] relative overflow-hidden lg:min-h-[90vh] flex items-center"
     >
       {/* Branding Ghosts Constellation - Forced to Background */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.06] z-0">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15] z-0">
         <img
-          src="/logos/logobranca.png"
+          src="/logos/logo-glitch.png"
           className="absolute bottom-[10%] left-0 w-64 h-64 animate-spin-slow"
           style={{ animationDuration: "55s" }}
           alt=""
         />
         <img
-          src="/logos/logobranca.png"
+          src="/logos/logo-glitch.png"
           className="absolute top-[15%] right-[10%] w-32 h-32 animate-float"
           alt=""
         />
         <img
-          src="/logos/logobranca.png"
+          src="/logos/logo-glitch.png"
           className="absolute top-[50%] left-[10%] w-20 h-20 animate-float-delayed"
           alt=""
         />
@@ -61,9 +61,9 @@ const Pricing: React.FC = () => {
         <div className="grid lg:grid-cols-[1.2fr_0.8fr_1.2fr] gap-8 md:gap-10 items-stretch max-w-[1400px] mx-auto">
           {/* Card 1: Site Expresso */}
           <AnimateOnScroll>
-            <div className="group bg-[var(--domu-surface-1)] rounded-xl p-8 md:p-10 shadow-2xl border border-white/5 hover:border-white/10 transition-all duration-500 h-full flex flex-col hover:-translate-y-1">
+            <div className="group bg-[var(--domu-surface-1)] rounded-3xl p-8 md:p-10 shadow-2xl border border-white/5 hover:border-white/10 transition-all duration-500 h-full flex flex-col hover:-translate-y-1">
               <div className="text-center mb-6">
-                <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 bg-[var(--domu-surface-2)] border border-white/5 rounded-2xl flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -84,7 +84,7 @@ const Pricing: React.FC = () => {
                 </p>
               </div>
 
-              <div className="text-center mb-6 py-6 border-y border-white/5 relative bg-white/[0.02] rounded-xl flex flex-col items-center justify-center min-h-[140px]">
+              <div className="text-center mb-6 py-6 border-y border-white/5 relative bg-[var(--domu-surface-2)] border border-white/5 rounded-2xl flex flex-col items-center justify-center min-h-[140px]">
                 <span className="text-[9px] font-black text-white/40 uppercase tracking-[0.2em] mb-1">
                   A partir de
                 </span>
@@ -104,7 +104,7 @@ const Pricing: React.FC = () => {
                 <ul className="space-y-4">
                   {EXPRESSO_FEATURES.map((f, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <div className="mt-0.5 w-4 h-4 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+                      <div className="mt-0.5 w-4 h-4 bg-[#7B61FF]/20 rounded-full flex items-center justify-center flex-shrink-0">
                         <svg
                           viewBox="0 0 24 24"
                           fill="none"
@@ -148,7 +148,7 @@ const Pricing: React.FC = () => {
               <div className="relative w-48 h-48 mb-8 group mx-auto">
                 <div className="absolute inset-0 bg-white/5 rounded-full blur-3xl scale-125"></div>
                 <img
-                  src="/logos/logobranca.png"
+                  src="/logos/logo-glitch.png"
                   alt="Domu Tech"
                   className="relative z-10 w-full h-full object-contain animate-float opacity-90"
                 />
@@ -172,9 +172,9 @@ const Pricing: React.FC = () => {
 
           {/* Card 2: Site Sob Medida */}
           <AnimateOnScroll delay={300}>
-            <div className="group bg-[var(--domu-surface-2)] rounded-xl p-8 md:p-10 shadow-2xl border border-white/10 hover:border-white/20 transition-all duration-500 h-full flex flex-col hover:-translate-y-1">
+            <div className="group bg-[var(--domu-surface-1)] rounded-3xl p-8 md:p-10 shadow-2xl border border-white/5 hover:border-white/10 transition-all duration-500 h-full flex flex-col hover:-translate-y-1">
               <div className="text-center mb-6">
-                <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 bg-[var(--domu-surface-2)] border border-white/5 rounded-2xl flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -193,7 +193,7 @@ const Pricing: React.FC = () => {
                 </p>
               </div>
 
-              <div className="text-center mb-6 py-6 border-y border-white/10 relative bg-white/[0.05] rounded-xl flex flex-col items-center justify-center min-h-[140px]">
+              <div className="text-center mb-6 py-6 border-y border-white/5 relative bg-[var(--domu-surface-2)] border border-white/5 rounded-2xl flex flex-col items-center justify-center min-h-[140px]">
                 <div className="flex items-center justify-center">
                   <span className="text-white font-black text-3xl tracking-tight">
                     Personalizado
@@ -209,7 +209,7 @@ const Pricing: React.FC = () => {
                 <ul className="space-y-4">
                   {CUSTOM_FEATURES.map((f, i) => (
                     <li key={i} className="flex items-start gap-4">
-                      <div className="mt-0.5 w-4 h-4 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                      <div className="mt-0.5 w-4 h-4 bg-[#7B61FF]/20 rounded-full flex items-center justify-center flex-shrink-0">
                         <svg
                           viewBox="0 0 24 24"
                           fill="none"

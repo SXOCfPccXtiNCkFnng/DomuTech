@@ -30,12 +30,12 @@ const About: React.FC = () => {
         <section id="about" className="py-20 md:py-32 bg-[var(--domu-bg)] relative overflow-hidden border-t border-white/5">
             {/* Ambient Background Lights */}
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-[var(--domu-accent)] opacity-5 blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#587f81] opacity-5 blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#7B61FF] opacity-5 blur-[120px] pointer-events-none" />
 
             {/* Branding Ghosts Constellation */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.05]">
-                <img src="/logos/logobranca.png" className="absolute top-[15%] right-[-5%] w-64 h-64 animate-spin-slow opacity-40" style={{ animationDuration: '80s' }} alt="" />
-                <img src="/logos/logobranca.png" className="absolute bottom-[20%] left-[-10%] w-96 h-96 animate-float opacity-30" alt="" />
+            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15]">
+                <img src="/logos/logo-glitch.png" className="absolute top-[15%] right-[-5%] w-64 h-64 animate-spin-slow opacity-40" style={{ animationDuration: '80s' }} alt="" />
+                <img src="/logos/logo-glitch.png" className="absolute bottom-[20%] left-[-10%] w-96 h-96 animate-float opacity-30" alt="" />
             </div>
 
             <div className="container mx-auto px-4 relative z-10">
@@ -110,9 +110,9 @@ const About: React.FC = () => {
                             {/* Main Mascot Visual */}
                             <div className="relative z-10 w-full group">
                                 <img 
-                                    src="/logos/roboprincipal.png" 
+                                    src="/logos/mascote.png" 
                                     alt="Mascote DOMU TECH" 
-                                    className="w-full h-auto drop-shadow-2xl animate-float"
+                                    className="w-full h-auto drop-shadow-2xl"
                                     loading="lazy"
                                 />
                             </div>

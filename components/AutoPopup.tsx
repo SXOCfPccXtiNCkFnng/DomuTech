@@ -148,7 +148,7 @@ const AutoPopup: React.FC = () => {
 
                             {/* Ghost Logo Accent - Bem sutil */}
                             <div className="absolute bottom-[-5%] right-[-5%] w-48 h-48 rotate-[-15deg] opacity-[0.03] pointer-events-none">
-                                <img src="/logos/logobranca.png" alt="" className="w-full h-auto" />
+                                <img src="/logos/logo-glitch.png" alt="" className="w-full h-auto" />
                             </div>
                         </motion.div>
                     </div>

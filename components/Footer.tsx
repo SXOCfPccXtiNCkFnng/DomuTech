@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
                         <ul className="space-y-4 md:space-y-5">
                             {FOOTER_INSTITUCIONAL.map(link => (
                                 <li key={link.name}>
-                                    <a href={link.href} className="text-[var(--domu-muted)] hover:text-[#587f81] text-[14px] font-medium transition-all duration-300">{link.name}</a>
+                                    <a href={link.href} className="text-[var(--domu-muted)] hover:text-[var(--domu-accent)] text-[14px] font-medium transition-all duration-300">{link.name}</a>
                                 </li>
                             ))}
                         </ul>
@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
                         <ul className="space-y-4 md:space-y-5">
                             {FOOTER_SERVICOS.map(link => (
                                 <li key={link.name}>
-                                    <a href={link.href} className="text-[var(--domu-muted)] hover:text-[#587f81] text-[14px] font-medium transition-all duration-300">{link.name}</a>
+                                    <a href={link.href} className="text-[var(--domu-muted)] hover:text-[var(--domu-accent)] text-[14px] font-medium transition-all duration-300">{link.name}</a>
                                 </li>
                             ))}
                         </ul>
