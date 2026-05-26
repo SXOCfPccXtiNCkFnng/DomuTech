@@ -2,8 +2,8 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/logos/logobranca.png" />
-    <link rel="apple-touch-icon" href="/logos/logobranca.png" />
+    <link rel="icon" type="image/png" href="/logos/logopreta.png" />
+    <link rel="apple-touch-icon" href="/logos/logopreta.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Domu Tech | Sites e Automação com IA</title>
     <meta
@@ -20,7 +20,7 @@
       property="og:description"
       content="Sites modernos e automação com IA com foco em performance, produtividade e resultados."
     />
-    <meta property="og:image" content="/logos/logobranca.png" />
+    <meta property="og:image" content="/logos/logopreta.png" />
     <meta property="og:site_name" content="Domu Tech" />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -29,7 +29,7 @@
       name="twitter:description"
       content="Sites modernos e automação com IA com foco em performance, produtividade e resultados."
     />
-    <meta name="twitter:image" content="/logos/logobranca.png" />
+    <meta name="twitter:image" content="/logos/logopreta.png" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -94,7 +94,13 @@
             },
             colors: {
               "domu-primary": "#ffffff",
-              "domu-bg": "#19181e",
+              "domu-bg": "#0A0F18",
+              "domu-black": "#060A10",
+              "domu-surface-1": "#111827",
+              "domu-surface-2": "#1f2937",
+              "domu-accent": "#005BFF",
+              "domu-accent-light": "#00D4FF",
+              "domu-accent-purple": "#7B61FF",
             },
             animation: {
               "fade-in-up": "fadeInUp 0.8s ease-out forwards",
@@ -157,7 +163,7 @@
         position: fixed;
         inset: 0;
         z-index: 99999;
-        background: #070709;
+        background: #0A0F18;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -167,97 +173,65 @@
           visibility 0.8s;
         overflow: hidden;
       }
-      /* Tech Grid Pattern overlay */
-      .grid-overlay {
+      /* Soft premium ambient glow in center */
+      .loader-glow {
         position: absolute;
-        inset: 0;
-        background-image: 
-          linear-gradient(rgba(88, 127, 129, 0.02) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(88, 127, 129, 0.02) 1px, transparent 1px);
-        background-size: 40px 40px;
-        background-position: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(0, 91, 255, 0.08) 0%, transparent 70%);
         pointer-events: none;
         z-index: 0;
-      }
-      .grid-overlay::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at center, transparent 35%, #070709 85%);
       }
       #preloader.loaded {
         opacity: 0;
         visibility: hidden;
       }
-      .tech-loader-content {
+      .loader-content {
         position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         z-index: 1;
-        width: 300px;
+        width: 320px;
+        transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.5s;
       }
-      .scan-container {
+      #preloader.loaded .loader-content {
+        transform: scale(1.05);
+        opacity: 0;
+      }
+      .loader-logo-container {
         position: relative;
-        width: 120px;
-        height: 120px;
-        margin-bottom: 30px;
+        margin-bottom: 24px;
         display: flex;
         align-items: center;
         justify-content: center;
-        overflow: hidden;
-        border-radius: 18px;
-        border: 1px solid rgba(88, 127, 129, 0.15);
-        background: rgba(88, 127, 129, 0.02);
-        box-shadow: inset 0 0 15px rgba(88, 127, 129, 0.05);
-      }
-      .scan-grid {
-        position: absolute;
-        inset: 0;
-        background-image: 
-          linear-gradient(rgba(88, 127, 129, 0.05) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(88, 127, 129, 0.05) 1px, transparent 1px);
-        background-size: 12px 12px;
-        background-position: center;
-      }
-      .scan-line {
-        position: absolute;
-        width: 100%;
-        height: 3px;
-        background: linear-gradient(90deg, transparent, #587f81, #91b6b1, #587f81, transparent);
-        box-shadow: 0 0 8px rgba(88, 127, 129, 0.8), 0 0 15px rgba(88, 127, 129, 0.5);
-        top: 0;
-        left: 0;
-        animation: scan-anim 2.5s ease-in-out infinite;
       }
       #preloader .logo {
-        width: 52px;
-        height: 52px;
-        animation: logo-pulse 2.5s ease-in-out infinite;
-        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
-        z-index: 2;
+        width: 64px;
+        height: auto;
+        animation: loader-pulse 2.5s ease-in-out infinite;
+        filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.05));
       }
-      
-      .tech-loader {
-        width: 100%;
-        font-family: monospace;
-      }
-      .terminal-header {
-        font-size: 9px;
-        letter-spacing: 0.2em;
-        color: rgba(88, 127, 129, 0.8);
+      .loader-brand {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 13px;
+        font-weight: 900;
+        color: #ffffff;
+        letter-spacing: 0.5em;
         text-transform: uppercase;
-        margin-bottom: 8px;
-        display: flex;
-        justify-content: space-between;
+        margin-bottom: 32px;
+        text-indent: 0.5em; /* Compensate for letter-spacing on center */
+        opacity: 0.85;
       }
-      .cyber-bar {
-        width: 100%;
-        height: 4px;
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 2px;
+      .loader-progress-track {
+        width: 160px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 99px;
         position: relative;
         overflow: hidden;
         margin-bottom: 12px;
@@ -265,34 +239,28 @@
       #progress-bar-fill {
         width: 0%;
         height: 100%;
-        background: linear-gradient(90deg, #587f81, #91b6b1);
-        box-shadow: 0 0 6px #587f81;
+        background: linear-gradient(90deg, #005BFF, #7B61FF, #00D4FF);
+        box-shadow: 0 0 8px rgba(0, 91, 255, 0.4);
+        border-radius: 99px;
         transition: width 0.08s ease-out;
       }
-      .terminal-status {
-        display: flex;
-        justify-content: space-between;
-        font-size: 10px;
-        color: rgba(255, 255, 255, 0.35);
-        letter-spacing: 0.05em;
-      }
       #load-percentage {
-        color: rgba(255, 255, 255, 0.85);
-        font-weight: bold;
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.35);
+        letter-spacing: 0.25em;
+        text-indent: 0.25em;
       }
 
-      @keyframes scan-anim {
-        0%, 100% { top: 0%; }
-        50% { top: 98%; }
-      }
-      @keyframes logo-pulse {
+      @keyframes loader-pulse {
         0%, 100% {
-          transform: scale(0.97);
-          opacity: 0.8;
+          transform: scale(0.98);
+          filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.03));
         }
         50% {
-          transform: scale(1.03);
-          opacity: 1;
+          transform: scale(1.02);
+          filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.08));
         }
       }
 
@@ -313,26 +281,16 @@
   </head>
   <body>
     <div id="preloader">
-      <div class="grid-overlay"></div>
-      <div class="tech-loader-content">
-        <div class="scan-container">
-          <div class="scan-grid"></div>
-          <div class="scan-line"></div>
+      <div class="loader-glow"></div>
+      <div class="loader-content">
+        <div class="loader-logo-container">
           <img src="/logos/logobranca.png" class="logo" alt="Logo Domu Tech" />
         </div>
-        <div class="tech-loader">
-          <div class="terminal-header">
-            <span>SYS_INIT // BOOT_SEQ</span>
-            <span>v2.4</span>
-          </div>
-          <div class="cyber-bar">
-            <div id="progress-bar-fill"></div>
-          </div>
-          <div class="terminal-status">
-            <span id="status-msg">> BOOTING_SYSTEM...</span>
-            <span id="load-percentage">00%</span>
-          </div>
+        <div class="loader-brand">DOMU TECH</div>
+        <div class="loader-progress-track">
+          <div id="progress-bar-fill"></div>
         </div>
+        <div id="load-percentage">00%</div>
       </div>
     </div>
     <script>
@@ -341,25 +299,6 @@
         var counterEl = document.getElementById('load-percentage');
         var loaderEl = document.getElementById('preloader');
         var progressBar = document.getElementById('progress-bar-fill');
-        var statusEl = document.getElementById('status-msg');
-        
-        var statuses = [
-          { min: 0, text: '> BOOTING_SYSTEM...' },
-          { min: 25, text: '> INITIALIZING_IA_CORES...' },
-          { min: 50, text: '> LOADING_INTERFACE...' },
-          { min: 75, text: '> COMPILING_ASSETS...' },
-          { min: 100, text: '> SYSTEM_ONLINE' }
-        ];
-
-        function getStatusText(val) {
-          var currentText = statuses[0].text;
-          for (var i = 0; i < statuses.length; i++) {
-            if (val >= statuses[i].min) {
-              currentText = statuses[i].text;
-            }
-          }
-          return currentText;
-        }
         
         var interval = setInterval(function() {
           if (count < 85) {
@@ -380,7 +319,7 @@
               clearInterval(endInterval);
               setTimeout(function() {
                 loaderEl.classList.add('loaded');
-              }, 400);
+              }, 300);
             }
           }, 20);
         });
@@ -388,7 +327,6 @@
         function update(val) {
           if (counterEl) counterEl.textContent = String(val).padStart(2, '0') + '%';
           if (progressBar) progressBar.style.width = val + '%';
-          if (statusEl) statusEl.textContent = getStatusText(val);
         }
       })();
     </script>
