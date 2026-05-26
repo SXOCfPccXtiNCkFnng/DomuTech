@@ -29,7 +29,7 @@ const TrafficServicePage: React.FC = () => {
         <div className="min-h-screen bg-[var(--domu-bg)] font-sans text-white overflow-hidden selection:bg-[var(--domu-accent)] selection:text-white">
             {/* Hero Section */}
             <section className="relative py-24 md:py-32 overflow-hidden bg-[var(--domu-bg)]">
-                <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.05]">
+                <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15]">
                     <TargetIcon className="absolute top-[10%] left-[5%] w-32 h-32 animate-float opacity-60" />
                     <TargetIcon className="absolute top-[20%] right-[10%] w-48 h-48 animate-spin-slow opacity-40" style={{ animationDuration: '55s' }} />
                 </div>
@@ -110,13 +110,14 @@ const TrafficServicePage: React.FC = () => {
                                                     <span>{val}%</span>
                                                 </div>
                                                 <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                                                    <div className="h-full bg-[var(--domu-accent)] rounded-full animate-scroll" style={{ width: `${val}%`, transitionDelay: `${i*200}ms` }}></div>
+                                                    <div className="h-full bg-[var(--domu-accent)] rounded-full transition-all duration-[1500ms] ease-out" style={{ width: `${val}%` }}></div>
                                                 </div>
                                             </div>
                                         ))}
                                     </div>
                                     <p className="mt-8 text-sm text-[var(--domu-muted)] italic">
-                                        "Transparência total: você acompanha cada centavo investido e o retorno gerado em dashboards exclusivos."\n                                    </p>
+                                        "Transparência total: você acompanha cada centavo investido e o retorno gerado em dashboards exclusivos."
+                                    </p>
                                 </div>
                             </div>
                         </AnimateOnScroll>
