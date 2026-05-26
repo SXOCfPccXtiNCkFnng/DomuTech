@@ -41,8 +41,8 @@ const ProfessionalDevelopment: React.FC = () => {
 
               {/* Cards de destaque inferiores */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
-                <div className="bg-white/[0.03] p-6 rounded-2xl border border-white/5 flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
-                  <div className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center flex-shrink-0 text-white border border-white/10">
+                <div className="bg-[var(--domu-surface-1)] p-6 rounded-3xl border border-white/5 flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left hover:border-white/10 transition-all duration-300">
+                  <div className="w-10 h-10 bg-[var(--domu-surface-2)] border border-white/5 rounded-xl flex items-center justify-center flex-shrink-0 text-white">
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
@@ -64,8 +64,8 @@ const ProfessionalDevelopment: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="bg-white/[0.03] p-6 rounded-2xl border border-white/5 flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
-                  <div className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center flex-shrink-0 text-white border border-white/10">
+                <div className="bg-[var(--domu-surface-1)] p-6 rounded-3xl border border-white/5 flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left hover:border-white/10 transition-all duration-300">
+                  <div className="w-10 h-10 bg-[var(--domu-surface-2)] border border-white/5 rounded-xl flex items-center justify-center flex-shrink-0 text-white">
                     <svg
                       viewBox="0 0 24 24"
                       fill="none"
@@ -93,23 +93,12 @@ const ProfessionalDevelopment: React.FC = () => {
           <AnimateOnScroll delay={300}>
             <div className="relative flex items-center justify-center scale-90 lg:scale-100">
               <div className="absolute w-[70%] aspect-square bg-white/[0.02] rounded-full blur-[60px]" />
-              <div className="relative z-10 w-full animate-float flex items-center justify-center">
+              <div className="relative z-10 w-full flex items-center justify-center">
                 <img
-                  src="/logos/logobranca.png"
+                  src="/logos/mascote-site.png"
                   alt="Domu Tech"
-                  className="w-[60%] h-auto opacity-60 drop-shadow-2xl"
+                  className="w-[80%] md:w-[65%] h-auto opacity-100 drop-shadow-2xl"
                 />
-                <div className="absolute top-1/2 right-4 bg-white rounded-full p-3 shadow-2xl border border-white/10 translate-x-1/2 hover:scale-110 transition-transform cursor-pointer">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#1f1f1f"
-                    strokeWidth={3}
-                    className="w-6 h-6"
-                  >
-                    <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
-                  </svg>
-                </div>
               </div>
             </div>
           </AnimateOnScroll>
