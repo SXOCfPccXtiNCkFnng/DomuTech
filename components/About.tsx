@@ -34,13 +34,13 @@ const About: React.FC = () => {
 
             {/* Branding Ghosts Constellation */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15]">
-                <img src="/logos/logo-glitch.png" className="absolute top-[15%] right-[-5%] w-64 h-64 animate-spin-slow opacity-40" style={{ animationDuration: '80s' }} alt="" />
-                <img src="/logos/logo-glitch.png" className="absolute bottom-[20%] left-[-10%] w-96 h-96 animate-float opacity-30" alt="" />
+                <img src="/logos/logo-glitch.png" className="absolute top-[15%] right-[-5%] w-64 h-64 animate-spin-slow opacity-40 object-contain" style={{ animationDuration: '80s' }} alt="" />
+                <img src="/logos/logo-glitch.png" className="absolute bottom-[20%] left-[-10%] w-96 h-96 animate-float opacity-30 object-contain" alt="" />
             </div>
 
             <div className="container mx-auto px-4 relative z-10">
 
-                <div className="grid lg:grid-cols-[75%_25%] gap-12 lg:gap-16 items-center mb-16">
+                <div className="grid lg:grid-cols-[55%_45%] gap-12 lg:gap-16 items-center mb-16">
 
                     {/* Left Column - Content */}
                     <AnimateOnScroll>
@@ -110,7 +110,7 @@ const About: React.FC = () => {
                             {/* Main Mascot Visual */}
                             <div className="relative z-10 w-full group">
                                 <img 
-                                    src="/logos/mascote.png" 
+                                    src="/logos/img-solucao.png?v=6" 
                                     alt="Mascote DOMU TECH" 
                                     className="w-full h-auto drop-shadow-2xl"
                                     loading="lazy"
