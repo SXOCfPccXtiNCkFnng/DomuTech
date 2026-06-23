@@ -173,18 +173,6 @@
           visibility 0.8s;
         overflow: hidden;
       }
-      /* Soft premium ambient glow in center */
-      .loader-glow {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(circle, rgba(0, 91, 255, 0.08) 0%, transparent 70%);
-        pointer-events: none;
-        z-index: 0;
-      }
       #preloader.loaded {
         opacity: 0;
         visibility: hidden;
@@ -203,65 +191,101 @@
         transform: scale(1.05);
         opacity: 0;
       }
+
       .loader-logo-container {
-        position: relative;
-        margin-bottom: 24px;
+        margin-bottom: 18px;
         display: flex;
         align-items: center;
         justify-content: center;
       }
       #preloader .logo {
-        width: 64px;
+        width: 60px;
         height: auto;
+        margin-top: -8px;
+        margin-bottom: -8px;
         animation: loader-pulse 2.5s ease-in-out infinite;
         filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.05));
       }
-      .loader-brand {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 13px;
-        font-weight: 900;
-        color: #ffffff;
-        letter-spacing: 0.5em;
-        text-transform: uppercase;
-        margin-bottom: 32px;
-        text-indent: 0.5em; /* Compensate for letter-spacing on center */
-        opacity: 0.85;
+
+      /* Bouncy Text */
+      .bouncy-loading {
+        display: flex;
+        gap: 2px;
+        justify-content: center;
+        margin-bottom: 14px;
       }
+      .bouncy-loading span {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 18px;
+        font-weight: 300;
+        color: #ffffff;
+        text-transform: lowercase;
+        display: inline-block;
+        animation: bounce-letter 1.2s infinite ease-in-out;
+      }
+      .bouncy-loading span:nth-child(1) { animation-delay: 0.0s; }
+      .bouncy-loading span:nth-child(2) { animation-delay: 0.1s; }
+      .bouncy-loading span:nth-child(3) { animation-delay: 0.2s; }
+      .bouncy-loading span:nth-child(4) { animation-delay: 0.3s; }
+      .bouncy-loading span:nth-child(5) { animation-delay: 0.4s; }
+      .bouncy-loading span:nth-child(6) { animation-delay: 0.5s; }
+      .bouncy-loading span:nth-child(7) { animation-delay: 0.6s; }
+      .bouncy-loading span:nth-child(8) { animation-delay: 0.7s; }
+      .bouncy-loading span:nth-child(9) { animation-delay: 0.8s; }
+      .bouncy-loading span:nth-child(10) { animation-delay: 0.9s; }
+
+      @keyframes bounce-letter {
+        0%, 100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+      @keyframes loader-pulse {
+        0%, 100% {
+          transform: scale(0.97);
+          filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.03));
+        }
+        50% {
+          transform: scale(1.03);
+          filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.08));
+        }
+      }
+
+      /* Simple Loading Bar */
       .loader-progress-track {
-        width: 160px;
+        width: 110px;
         height: 2px;
-        background: rgba(255, 255, 255, 0.04);
+        background: rgba(255, 255, 255, 0.08);
         border-radius: 99px;
         position: relative;
         overflow: hidden;
-        margin-bottom: 12px;
       }
       #progress-bar-fill {
         width: 0%;
         height: 100%;
-        background: linear-gradient(90deg, #005BFF, #7B61FF, #00D4FF);
-        box-shadow: 0 0 8px rgba(0, 91, 255, 0.4);
+        background: linear-gradient(90deg, #005BFF, #00D4FF);
         border-radius: 99px;
         transition: width 0.08s ease-out;
       }
       #load-percentage {
         font-family: "Plus Jakarta Sans", sans-serif;
         font-size: 10px;
-        font-weight: 700;
-        color: rgba(255, 255, 255, 0.35);
-        letter-spacing: 0.25em;
-        text-indent: 0.25em;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.4);
+        margin-top: 6px;
+        letter-spacing: 0.05em;
       }
-
-      @keyframes loader-pulse {
-        0%, 100% {
-          transform: scale(0.98);
-          filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.03));
-        }
-        50% {
-          transform: scale(1.02);
-          filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.08));
-        }
+      #loader-status {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-size: 8px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.25);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        margin-top: 10px;
+        min-height: 10px;
       }
 
       /* Scroll Animation */
@@ -281,24 +305,27 @@
   </head>
   <body>
     <div id="preloader">
-      <div class="loader-glow"></div>
       <div class="loader-content">
         <div class="loader-logo-container">
           <img src="/logos/logobranca.png" class="logo" alt="Logo Domu Tech" />
         </div>
-        <div class="loader-brand">DOMU TECH</div>
+        <div class="bouncy-loading">
+          <span>l</span><span>o</span><span>a</span><span>d</span><span>i</span><span>n</span><span>g</span><span>.</span><span>.</span><span>.</span>
+        </div>
         <div class="loader-progress-track">
           <div id="progress-bar-fill"></div>
         </div>
-        <div id="load-percentage">00%</div>
+        <div id="load-percentage">0%</div>
+        <div id="loader-status">INICIALIZANDO SISTEMA...</div>
       </div>
     </div>
     <script>
       (function() {
         var count = 0;
-        var counterEl = document.getElementById('load-percentage');
         var loaderEl = document.getElementById('preloader');
         var progressBar = document.getElementById('progress-bar-fill');
+        var counterEl = document.getElementById('load-percentage');
+        var statusEl = document.getElementById('loader-status');
         
         var interval = setInterval(function() {
           if (count < 85) {
@@ -325,8 +352,24 @@
         });
 
         function update(val) {
-          if (counterEl) counterEl.textContent = String(val).padStart(2, '0') + '%';
           if (progressBar) progressBar.style.width = val + '%';
+          if (counterEl) counterEl.textContent = val + '%';
+          
+          if (statusEl) {
+            if (val < 20) {
+              statusEl.textContent = 'INICIALIZANDO MÓDULOS DE IA...';
+            } else if (val < 40) {
+              statusEl.textContent = 'CARREGANDO DESIGN PREMIUM...';
+            } else if (val < 65) {
+              statusEl.textContent = 'CONECTANDO FLUXOS DE AUTOMAÇÃO...';
+            } else if (val < 85) {
+              statusEl.textContent = 'ESTABELECENDO CONEXÕES SEGURAS...';
+            } else if (val < 98) {
+              statusEl.textContent = 'OTIMIZANDO AGENTES DE PERFORMANCE...';
+            } else {
+              statusEl.textContent = 'SISTEMA PRONTO!';
+            }
+          }
         }
       })();
     </script>

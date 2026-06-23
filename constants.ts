@@ -215,6 +215,33 @@ export const PORTFOLIO_PROJECTS: Project[] = [
   },
   {
     tag: "Criação de Sites",
+    title: "Projeto Rio Silveira - UNICAMP",
+    description:
+      "Desenvolvimento de portal acadêmico e de divulgação científica para o Projeto Rio Silveira (UNICAMP), com foco em educação ambiental e preservação de recursos hídricos.",
+    image: "/projeto/img-projetoriosilveira.png",
+    link: "https://www.ige.unicamp.br/projetoriosilveira/",
+    isFeatured: true,
+  },
+  {
+    tag: "Criação de Sites",
+    title: "La Dolce Vita Viaggi",
+    description:
+      "Criação de site institucional completo e interativo para a agência de viagens La Dolce Vita Viaggi, com roteiros exclusivos, galeria de destinos e integração direta para orçamentos via WhatsApp.",
+    image: "/projeto/img-ladolcevita.png",
+    link: "https://www.ladolcevitaviaggi.com.br/",
+    isFeatured: true,
+  },
+  {
+    tag: "Criação de Sites",
+    title: "Dara ADV - Advocacia Especializada",
+    description:
+      "Website institucional moderno e responsivo para o escritório de advocacia Dara ADV, estruturado para transmitir credibilidade, apresentar áreas de atuação jurídica e simplificar o contato com novos clientes.",
+    image: "/projeto/img-daraadv.png",
+    link: "https://daraadv.vercel.app/",
+    isFeatured: true,
+  },
+  {
+    tag: "Criação de Sites",
     title: "AlanX - Site Institucional",
     description:
       "Site institucional moderno para a AlanX, com foco em apresentação clara de serviços, performance e conversão de visitantes.",
@@ -223,36 +250,11 @@ export const PORTFOLIO_PROJECTS: Project[] = [
   },
   {
     tag: "Criação de Sites",
-    title: "PetLife - Landing Page",
-    description:
-      "Landing page da PetLife com foco em conversão, layout moderno e navegação direta para apresentar serviços e benefícios.",
-    image: "/projeto/img-petlife.png",
-    link: "https://alanfelipem.github.io/PetLife/",
-  },
-
-  {
-    tag: "Criação de Sites",
-    title: "Landing Page - Mundo Invertido",
-    description:
-      "Criação de landing page temática com foco em impacto visual, narrativa e conversão de visitantes.",
-    image: "/projeto/img-mundoinvertido.png",
-    link: "https://alanfelipem.github.io/Landing-Page-no-Mundo-Invertido/",
-  },
-  {
-    tag: "Criação de Sites",
     title: "Portfolio Alan Felipe",
     description:
       "Criação de portfólio profissional sob medida, com foco em destacar projetos, habilidades e facilitar o contato.",
     image: "/projeto/img-portfolioalan.png",
     link: "https://portfolio-alan-felipe.netlify.app/",
-  },
-  {
-    tag: "Página de destino",
-    title: "Site Advogada - Institucional",
-    description:
-      "Projeto institucional para advocacia, reforçando credibilidade, serviços jurídicos e canais de contato eficientes, entre outros.",
-    image: "",
-    link: "#",
   },
 ];
 

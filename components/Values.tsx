@@ -7,10 +7,10 @@ const Values: React.FC = () => {
         <section id="values" className="py-10 md:py-16 bg-[var(--domu-bg)] relative overflow-hidden">
             {/* Branding Ghosts Constellation - Forced to Background */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15] z-0">
-                <img src="/logos/logo-glitch.png" className="absolute top-[5%] right-[5%] w-32 h-32 animate-float opacity-70" alt="" />
-                <img src="/logos/logo-glitch.png" className="absolute top-[40%] left-0 w-48 h-48 animate-spin-slow opacity-40" style={{ animationDuration: '60s' }} alt="" />
-                <img src="/logos/logo-glitch.png" className="absolute bottom-[10%] right-[10%] w-24 h-24 animate-float-delayed opacity-60" alt="" />
-                <img src="/logos/logo-glitch.png" className="absolute top-[70%] left-[15%] w-16 h-16 animate-float opacity-30" alt="" />
+                <img src="/logos/logo-glitch.png" className="absolute top-[5%] right-[5%] w-32 h-32 animate-float opacity-70 object-contain" alt="" />
+                <img src="/logos/logo-glitch.png" className="absolute top-[40%] left-0 w-48 h-48 animate-spin-slow opacity-40 object-contain" style={{ animationDuration: '60s' }} alt="" />
+                <img src="/logos/logo-glitch.png" className="absolute bottom-[10%] right-[10%] w-24 h-24 animate-float-delayed opacity-60 object-contain" alt="" />
+                <img src="/logos/logo-glitch.png" className="absolute top-[70%] left-[15%] w-16 h-16 animate-float opacity-30 object-contain" alt="" />
             </div>
             <div className="container mx-auto px-4 relative z-10">
                 <AnimateOnScroll>

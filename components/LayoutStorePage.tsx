@@ -18,7 +18,7 @@ const LAYOUTS = [
         name: 'Domu Tech - SaaS',
         category: 'Software House',
         price: 'R$ 9.850,00',
-        image: '/projeto/img-petlife.png',
+        image: '/projeto/img-projetoriosilveira.png',
         features: ['Painel Administrativo', 'Dark Mode Nativo', 'Escalável'],
         isPopular: false
     },
@@ -27,7 +27,7 @@ const LAYOUTS = [
         name: 'Domu Health - Clinic',
         category: 'Landing Page',
         price: 'R$ 8.400,00',
-        image: '/projeto/img-mundoinvertido.png',
+        image: '/projeto/img-ladolcevita.png',
         features: ['Agendamento Online', 'SEO Otimizado', 'Design Zen'],
         isPopular: false
     },

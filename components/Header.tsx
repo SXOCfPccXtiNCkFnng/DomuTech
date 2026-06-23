@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MenuIcon, XIcon, ArrowRightIcon, ArrowUpRightIcon, ChevronDownIcon, WhatsAppIcon, GlobeIcon, AutomationIcon, CodeIcon, TargetIcon, PaletteIcon } from './icons';
 
@@ -107,19 +108,19 @@ const Header: React.FC = () => {
                     <div className="flex items-center justify-between h-14 md:h-16">
                         
                         {/* Logo */}
-                        <a href="/#home" className="flex items-center gap-3 group relative z-10">
+                        <Link to="/" className="flex items-center gap-3 group relative z-10">
                             <img 
                                 src="/logos/logoheaderfooter.png" 
                                 alt="DomuTech" 
-                                className="h-10 md:h-14 w-auto transition-all duration-500 group-hover:scale-105"
+                                className="h-8 md:h-10 w-auto transition-all duration-500 group-hover:scale-105 object-contain"
                             />
-                        </a>
+                        </Link>
 
                         {/* Navigation */}
                         <nav className="hidden min-[1440px]:flex items-center gap-8 absolute left-1/2 -translate-x-1/2 h-full">
-                            <a href="/" className="group relative h-full flex items-center overflow-hidden">
+                            <Link to="/" className="group relative h-full flex items-center overflow-hidden">
                                 <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[#005BFF] transition-all duration-300">Home</span>
-                            </a>
+                            </Link>
                             
                             {/* Services Dropdown */}
                             <div 
@@ -153,9 +154,9 @@ const Header: React.FC = () => {
                                                     
                                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                         {SERVICES_LIST.map((svc) => (
-                                                            <a 
+                                                            <Link 
                                                                 key={svc.name} 
-                                                                href={svc.href}
+                                                                to={svc.href}
                                                                 className="group relative flex flex-col gap-3 p-6 bg-white/[0.01] border border-white/5 rounded-2xl hover:bg-white/[0.03] hover:border-white/10 transition-all duration-500 ease-out overflow-hidden"
                                                             >
                                                                 {/* Ghost Icon Background */}
@@ -174,7 +175,7 @@ const Header: React.FC = () => {
                                                                 <p className="text-white/30 font-medium text-[14px] leading-relaxed relative z-10">
                                                                     {svc.desc}
                                                                 </p>
-                                                            </a>
+                                                            </Link>
                                                         ))}
                                                     </div>
                                                 </div>
@@ -184,20 +185,20 @@ const Header: React.FC = () => {
                                 </AnimatePresence>
                             </div>
 
-                            <a href="/cases" className="group relative h-full flex items-center overflow-hidden">
+                            <Link to="/cases" className="group relative h-full flex items-center overflow-hidden">
                                 <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[#005BFF] transition-all duration-300">Cases</span>
-                            </a>
-                            <a href="/sobre" className="group relative h-full flex items-center overflow-hidden">
+                            </Link>
+                            <Link to="/sobre" className="group relative h-full flex items-center overflow-hidden">
                                 <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[#005BFF] transition-all duration-300">Sobre Nós</span>
-                            </a>
-                            <a href="/chatbot-placeholder" className="group relative h-full flex items-center overflow-hidden">
+                            </Link>
+                            <Link to="/chatbot-placeholder" className="group relative h-full flex items-center overflow-hidden">
                                 <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[#005BFF] transition-all duration-300">Orçamento</span>
-                            </a>
-                            <a href="/layouts" className="group relative h-full flex items-center ml-2">
+                            </Link>
+                            <Link to="/layouts" className="group relative h-full flex items-center ml-2">
                                 <span className="relative text-[#005BFF] font-black text-[10px] uppercase tracking-[0.2em] px-5 py-2.5 border border-[#005BFF]/40 rounded-full hover:bg-[#005BFF] hover:text-white transition-all duration-500">
                                     Loja de Layouts
                                 </span>
-                            </a>
+                            </Link>
                         </nav>
 
 
@@ -229,7 +230,7 @@ const Header: React.FC = () => {
                 <div className={`fixed inset-0 bg-[var(--domu-bg)] z-[100] transition-all duration-500 ease-in-out ${isMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'}`}>
                    <div className="p-6 flex justify-between items-center border-b border-white/5 bg-[var(--domu-bg)]">
                         <div className="flex items-center gap-2">
-                             <img src="/logos/logoheaderfooter.png" alt="DOMU TECH" className="h-8 w-auto" />
+                             <img src="/logos/logoheaderfooter.png" alt="DOMU TECH" className="h-8 w-auto object-contain" />
                         </div>
                         <button 
                             onClick={() => setIsMenuOpen(false)}
@@ -243,14 +244,14 @@ const Header: React.FC = () => {
                         <div className="flex flex-col gap-4">
                             <span className="text-white/30 font-black text-[10px] uppercase tracking-[0.3em]">Navegação</span>
                             <nav className="flex flex-col gap-4">
-                                <a href="/" className="text-white font-black text-4xl uppercase tracking-tighter" onClick={() => setIsMenuOpen(false)}>Home</a>
-                                <a href="/cases" className="text-white font-black text-4xl uppercase tracking-tighter" onClick={() => setIsMenuOpen(false)}>Cases</a>
-                                <a href="/sobre" className="text-white font-black text-4xl uppercase tracking-tighter" onClick={() => setIsMenuOpen(false)}>Sobre Nós</a>
-                                <a href="/chatbot-placeholder" className="text-white font-black text-4xl uppercase tracking-tighter" onClick={() => setIsMenuOpen(false)}>Orçamento</a>
-                                <a href="/layouts" className="text-[#005BFF] font-black text-4xl uppercase tracking-tighter flex items-center gap-4" onClick={() => setIsMenuOpen(false)}>
+                                <Link to="/" className="text-white font-black text-4xl uppercase tracking-tighter" onClick={() => setIsMenuOpen(false)}>Home</Link>
+                                <Link to="/cases" className="text-white font-black text-4xl uppercase tracking-tighter" onClick={() => setIsMenuOpen(false)}>Cases</Link>
+                                <Link to="/sobre" className="text-white font-black text-4xl uppercase tracking-tighter" onClick={() => setIsMenuOpen(false)}>Sobre Nós</Link>
+                                <Link to="/chatbot-placeholder" className="text-white font-black text-4xl uppercase tracking-tighter" onClick={() => setIsMenuOpen(false)}>Orçamento</Link>
+                                <Link to="/layouts" className="text-[#005BFF] font-black text-4xl uppercase tracking-tighter flex items-center gap-4" onClick={() => setIsMenuOpen(false)}>
                                     Loja de Layouts
                                     <span className="w-2 h-2 bg-[#005BFF] rounded-full animate-ping" />
-                                </a>
+                                </Link>
                             </nav>
                         </div>
                         
@@ -258,27 +259,27 @@ const Header: React.FC = () => {
                             <span className="text-white/30 font-black text-[10px] uppercase tracking-[0.3em]">Nossos Serviços</span>
                             <div className="grid grid-cols-1 gap-2">
                                 {SERVICES_LIST.slice(0, 6).map(svc => (
-                                    <a 
+                                    <Link 
                                         key={svc.name} 
-                                        href={svc.href} 
+                                        to={svc.href} 
                                         className="text-white/60 hover:text-white font-bold text-lg uppercase tracking-tight py-1" 
                                         onClick={() => setIsMenuOpen(false)}
                                     >
                                         {svc.name}
-                                    </a>
+                                    </Link>
                                 ))}
                             </div>
                         </div>
                         
                         <div className="mt-auto pt-8 border-t border-white/5">
-                            <a 
-                                href="/chatbot-placeholder" 
+                            <Link 
+                                to="/chatbot-placeholder" 
                                 className="w-full btn-budget flex items-center justify-center gap-3"
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 <ArrowUpRightIcon className="w-5 h-5 fill-current" />
                                 Solicitar Orçamento
-                            </a>
+                            </Link>
                         </div>
                    </div>
                 </div>

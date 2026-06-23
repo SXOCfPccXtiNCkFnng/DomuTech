@@ -117,12 +117,12 @@ const Testimonials: React.FC = () => {
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15]">
         <img
           src="/logos/logo-glitch.png"
-          className="absolute top-[10%] right-[10%] w-32 h-32 animate-float"
+          className="absolute top-[10%] right-[10%] w-32 h-32 animate-float object-contain"
           alt=""
         />
         <img
           src="/logos/logo-glitch.png"
-          className="absolute bottom-[10%] left-[-5%] w-56 h-56 animate-spin-slow"
+          className="absolute bottom-[10%] left-[-5%] w-56 h-56 animate-spin-slow object-contain"
           style={{ animationDuration: "45s" }}
           alt=""
         />

@@ -18,18 +18,18 @@ const FAQ: React.FC = () => {
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15] z-0">
         <img
           src="/logos/logo-glitch.png"
-          className="absolute bottom-[-2%] right-[-2%] w-64 h-64 animate-spin-slow"
+          className="absolute bottom-[-2%] right-[-2%] w-64 h-64 animate-spin-slow object-contain"
           style={{ animationDuration: "65s" }}
           alt=""
         />
         <img
           src="/logos/logo-glitch.png"
-          className="absolute top-[10%] left-0 w-40 h-40 animate-float"
+          className="absolute top-[10%] left-0 w-40 h-40 animate-float object-contain"
           alt=""
         />
         <img
           src="/logos/logo-glitch.png"
-          className="absolute top-[40%] right-[10%] w-24 h-24 animate-float-delayed"
+          className="absolute top-[40%] right-[10%] w-24 h-24 animate-float-delayed object-contain"
           alt=""
         />
       </div>

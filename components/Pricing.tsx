@@ -38,18 +38,18 @@ const Pricing: React.FC = () => {
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15] z-0">
         <img
           src="/logos/logo-glitch.png"
-          className="absolute bottom-[10%] left-0 w-64 h-64 animate-spin-slow"
+          className="absolute bottom-[10%] left-0 w-64 h-64 animate-spin-slow object-contain"
           style={{ animationDuration: "55s" }}
           alt=""
         />
         <img
           src="/logos/logo-glitch.png"
-          className="absolute top-[15%] right-[10%] w-32 h-32 animate-float"
+          className="absolute top-[15%] right-[10%] w-32 h-32 animate-float object-contain"
           alt=""
         />
         <img
           src="/logos/logo-glitch.png"
-          className="absolute top-[50%] left-[10%] w-20 h-20 animate-float-delayed"
+          className="absolute top-[50%] left-[10%] w-20 h-20 animate-float-delayed object-contain"
           alt=""
         />
       </div>

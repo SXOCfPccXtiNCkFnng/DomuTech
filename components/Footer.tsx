@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FOOTER_INSTITUCIONAL, FOOTER_SERVICOS } from '../constants';
 import { WhatsAppIcon } from './icons';
 
@@ -12,13 +13,13 @@ const Footer: React.FC = () => {
                     
                     {/* Column 1: Info */}
                     <div className="col-span-2 lg:col-span-6 flex flex-col items-start text-left">
-                        <a href="/#home" className="flex items-center mb-8 group">
+                        <Link to="/" className="flex items-center mb-8 group">
                             <img 
-                                src="/logos/logoheaderfooter.png" 
-                                alt="DomuTech" 
-                                className="h-12 md:h-16 w-auto transition-transform group-hover:scale-105"
+                                 src="/logos/logoheaderfooter.png" 
+                                 alt="DomuTech" 
+                                 className="h-10 md:h-12 w-auto transition-transform group-hover:scale-105 object-contain"
                             />
-                        </a>
+                        </Link>
                         <p className="text-[var(--domu-muted)] text-[13px] leading-relaxed mb-10 max-w-xs font-medium opacity-70">
                             A DOMUTECH impulsiona sua marca com engenharia de software de elite, design de alto impacto e estratégias digitais focadas em escala.
                         </p>
@@ -42,7 +43,11 @@ const Footer: React.FC = () => {
                         <ul className="space-y-4 md:space-y-5">
                             {FOOTER_INSTITUCIONAL.map(link => (
                                 <li key={link.name}>
-                                    <a href={link.href} className="text-[var(--domu-muted)] hover:text-[var(--domu-accent)] text-[14px] font-medium transition-all duration-300">{link.name}</a>
+                                    {link.href.startsWith('#') ? (
+                                        <a href={link.href} className="text-[var(--domu-muted)] hover:text-[var(--domu-accent)] text-[14px] font-medium transition-all duration-300">{link.name}</a>
+                                    ) : (
+                                        <Link to={link.href} className="text-[var(--domu-muted)] hover:text-[var(--domu-accent)] text-[14px] font-medium transition-all duration-300">{link.name}</Link>
+                                    )}
                                 </li>
                             ))}
                         </ul>
@@ -54,7 +59,7 @@ const Footer: React.FC = () => {
                         <ul className="space-y-4 md:space-y-5">
                             {FOOTER_SERVICOS.map(link => (
                                 <li key={link.name}>
-                                    <a href={link.href} className="text-[var(--domu-muted)] hover:text-[var(--domu-accent)] text-[14px] font-medium transition-all duration-300">{link.name}</a>
+                                    <Link to={link.href} className="text-[var(--domu-muted)] hover:text-[var(--domu-accent)] text-[14px] font-medium transition-all duration-300">{link.name}</Link>
                                 </li>
                             ))}
                         </ul>

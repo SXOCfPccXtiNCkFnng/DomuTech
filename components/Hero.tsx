@@ -75,8 +75,8 @@ const Hero: React.FC = () => {
                     <div className="overflow-hidden relative mask-fade-sides">
                         <div className="flex whitespace-nowrap animate-infinite-scroll items-center gap-20 md:gap-40 w-max grayscale opacity-[0.15] hover:opacity-[0.4] transition-all duration-500">
                             {[
-                                'AGB CAMPINAS', 'UNICAMP', 'REDE CENTRO-NORTE', 'PETLIFE', 'DaraADV',
-                                'AGB CAMPINAS', 'UNICAMP', 'REDE CENTRO-NORTE', 'PETLIFE', 'DaraADV'
+                                'AGB CAMPINAS', 'UNICAMP', 'REDE CENTRO-NORTE', 'LA DOLCE VITA', 'DaraADV',
+                                'AGB CAMPINAS', 'UNICAMP', 'REDE CENTRO-NORTE', 'LA DOLCE VITA', 'DaraADV'
                             ].map((logo, i) => (
                                 <span key={i} className="text-2xl md:text-4xl font-black text-white tracking-[0.1em] uppercase italic opacity-70 hover:opacity-100 cursor-default transition-opacity">{logo}</span>
                             ))}

@@ -32,9 +32,9 @@ const SiteServicePage: React.FC = () => {
             <section className="relative py-24 md:py-32 overflow-hidden bg-[var(--domu-bg)]">
                 {/* Branding Ghosts Constellation */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15]">
-                    <img src="/logos/logo-glitch.png" className="absolute top-[10%] left-[5%] w-32 h-32 animate-float opacity-60" alt="" />
-                    <img src="/logos/logo-glitch.png" className="absolute top-[20%] right-[10%] w-48 h-48 animate-spin-slow opacity-40" style={{ animationDuration: '55s' }} alt="" />
-                    <img src="/logos/logo-glitch.png" className="absolute bottom-[10%] left-[20%] w-24 h-24 animate-float-delayed opacity-50" alt="" />
+                    <img src="/logos/logo-glitch.png" className="absolute top-[10%] left-[5%] w-32 h-32 animate-float opacity-60 object-contain" alt="" />
+                    <img src="/logos/logo-glitch.png" className="absolute top-[20%] right-[10%] w-48 h-48 animate-spin-slow opacity-40 object-contain" style={{ animationDuration: '55s' }} alt="" />
+                    <img src="/logos/logo-glitch.png" className="absolute bottom-[10%] left-[20%] w-24 h-24 animate-float-delayed opacity-50 object-contain" alt="" />
                 </div>
                 <div className="absolute inset-0 bg-[url('/img/fundo-web.png')] bg-cover bg-center opacity-10"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black"></div>

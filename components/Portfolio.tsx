@@ -33,6 +33,13 @@ const PortfolioCard = ({ project, index, STEP, slideW, containerW, trackX, isMob
         [0.86, 1, 0.86],
     );
 
+    const handleAccessClick = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        if (project.link && project.link !== '#') {
+            window.open(project.link, '_blank', 'noopener,noreferrer');
+        }
+    };
+
     return (
         <motion.div
             style={{
@@ -54,7 +61,10 @@ const PortfolioCard = ({ project, index, STEP, slideW, containerW, trackX, isMob
                 />
                 
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div className={`w-20 h-20 bg-black/60 backdrop-blur-md border border-white/10 rounded-full shadow-2xl flex flex-col items-center justify-center text-white transition-all duration-300 ease-out ${isMobile ? 'opacity-80 scale-100' : 'opacity-0 scale-50 group-hover/card:opacity-100 group-hover/card:scale-100'}`}>
+                    <div 
+                        className={`w-20 h-20 bg-black/60 backdrop-blur-md border border-white/10 rounded-full shadow-2xl flex flex-col items-center justify-center text-white transition-all duration-300 ease-out pointer-events-auto cursor-pointer ${isActive ? (isMobile ? 'opacity-80 scale-100' : 'opacity-0 scale-50 group-hover/card:opacity-100 group-hover/card:scale-100') : 'opacity-0 pointer-events-none'}`}
+                        onClick={handleAccessClick}
+                    >
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="w-5 h-5 mb-1">
                             <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
                             <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
@@ -193,9 +203,9 @@ const Portfolio: React.FC = () => {
         <section id="portfolio" className="py-10 md:py-32 bg-[var(--domu-bg)] overflow-hidden relative">
             {/* Branding Ghosts Constellation - Forced to Background */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15] z-0">
-                <img src="/logos/logo-glitch.png" className="absolute top-[15%] left-[5%] w-32 h-32 animate-float" alt="" />
-                <img src="/logos/logo-glitch.png" className="absolute top-[40%] right-0 w-64 h-64 animate-spin-slow" style={{ animationDuration: '70s' }} alt="" />
-                <img src="/logos/logo-glitch.png" className="absolute bottom-[10%] left-[10%] w-24 h-24 animate-float-delayed" alt="" />
+                <img src="/logos/logo-glitch.png" className="absolute top-[15%] left-[5%] w-32 h-32 animate-float object-contain" alt="" />
+                <img src="/logos/logo-glitch.png" className="absolute top-[40%] right-0 w-64 h-64 animate-spin-slow object-contain" style={{ animationDuration: '70s' }} alt="" />
+                <img src="/logos/logo-glitch.png" className="absolute bottom-[10%] left-[10%] w-24 h-24 animate-float-delayed object-contain" alt="" />
             </div>
             
             <div className="container mx-auto px-4 relative z-10">
@@ -246,8 +256,6 @@ const Portfolio: React.FC = () => {
                                     if (current !== index) {
                                         isAnimating.current = false;
                                         goTo(index);
-                                    } else if (project.link && project.link !== '#') {
-                                        window.open(project.link, '_blank', 'noopener,noreferrer');
                                     }
                                 }}
                             />

@@ -5,8 +5,9 @@ import { ExternalLinkIcon, ArrowUpRightIcon } from './icons';
 const CASES = [
     { title: "AGB Campinas", category: "Site Institucional", img: "/projeto/img-agbcampinas.png", link: "https://agbcampinas.com.br/" },
     { title: "Rede Centro-Norte Brasil", category: "Portal Científico / UNICAMP", img: "/projeto/img-redeterritorios.png", link: "https://www.ige.unicamp.br/rede-centro-norte-brasil/" },
-    { title: "PetLife", category: "Landing Page", img: "/projeto/img-petlife.png", link: "https://alanfelipem.github.io/PetLife/" },
-    { title: "Mundo Invertido", category: "Landing Page Temática", img: "/projeto/img-mundoinvertido.png", link: "https://alanfelipem.github.io/Landing-Page-no-Mundo-Invertido/" },
+    { title: "Projeto Rio Silveira", category: "Portal Científico / UNICAMP", img: "/projeto/img-projetoriosilveira.png", link: "https://www.ige.unicamp.br/projetoriosilveira/" },
+    { title: "La Dolce Vita Viaggi", category: "Site Institucional", img: "/projeto/img-ladolcevita.png", link: "https://www.ladolcevitaviaggi.com.br/" },
+    { title: "Dara ADV", category: "Site de Advocacia", img: "/projeto/img-daraadv.png", link: "https://daraadv.vercel.app/" },
 ];
 
 const CasesPage: React.FC = () => {

@@ -21,18 +21,18 @@ const ReliableAgency: React.FC = () => {
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15]">
         <img
           src="/logos/logo-glitch.png"
-          className="absolute top-[10%] left-[-5%] w-56 h-56 animate-spin-slow opacity-40"
+          className="absolute top-[10%] left-[-5%] w-56 h-56 animate-spin-slow opacity-40 object-contain"
           style={{ animationDuration: "70s" }}
           alt=""
         />
         <img
           src="/logos/logo-glitch.png"
-          className="absolute bottom-[15%] right-[5%] w-32 h-32 animate-float opacity-70"
+          className="absolute bottom-[15%] right-[5%] w-32 h-32 animate-float opacity-70 object-contain"
           alt=""
         />
         <img
           src="/logos/logo-glitch.png"
-          className="absolute top-[50%] right-[-10%] w-48 h-48 animate-spin-slow opacity-20"
+          className="absolute top-[50%] right-[-10%] w-48 h-48 animate-spin-slow opacity-20 object-contain"
           style={{ animationDuration: "90s" }}
           alt=""
         />

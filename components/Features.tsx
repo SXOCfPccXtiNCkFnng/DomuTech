@@ -152,12 +152,31 @@ const Features: React.FC = () => {
         <div className="grid lg:grid-cols-[25%_75%] gap-16 lg:gap-20 items-start">
           {/* ── Coluna esquerda — Sticky Centralizado ─────────────────── */}
           <div className="lg:sticky lg:top-0 lg:h-screen self-start flex flex-col items-center justify-center text-center">
-            {/* Mascote Branding */}
-            <div className="relative w-full max-w-[200px] md:max-w-[280px] mx-auto lg:mx-0 mb-10 md:mb-12">
-              <img
-                src="/logos/logopreta.png"
-                alt="Mascote Domu Tech"
-                className="relative z-10 w-full h-auto opacity-100 animate-float"
+            {/* SVG Filter for Video Chroma Key (Luminance based background removal) */}
+            <svg width="0" height="0" className="absolute pointer-events-none" style={{ position: "absolute", width: 0, height: 0 }}>
+              <defs>
+                <filter id="keyout-black" colorInterpolationFilters="sRGB">
+                  <feColorMatrix
+                    type="matrix"
+                    values="1 0 0 0 0
+                            0 1 0 0 0
+                            0 0 1 0 0
+                            2 2 2 0 -0.15"
+                  />
+                </filter>
+              </defs>
+            </svg>
+
+            {/* Mascote Branding Video */}
+            <div className="relative w-full max-w-[240px] md:max-w-[320px] mx-auto lg:mx-0 mb-2">
+              <video
+                src="/img/video-domu.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-auto object-cover block"
+                style={{ filter: "url(#keyout-black) saturate(1.2)" }}
               />
             </div>
 
