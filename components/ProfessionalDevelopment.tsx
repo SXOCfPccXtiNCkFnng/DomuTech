@@ -91,13 +91,13 @@ const ProfessionalDevelopment: React.FC = () => {
 
           {/* Imagem Direita (Branding) */}
           <AnimateOnScroll delay={300}>
-            <div className="relative flex items-center justify-center scale-90 lg:scale-100">
-              <div className="absolute w-[70%] aspect-square bg-white/[0.02] rounded-full blur-[60px]" />
+            <div className="relative flex items-center justify-center">
+              <div className="absolute w-[80%] aspect-square bg-white/[0.02] rounded-full blur-[60px]" />
               <div className="relative z-10 w-full flex items-center justify-center">
                 <img
-                  src="/logos/mascote-site.png"
+                  src="/logos/img-site.png"
                   alt="Domu Tech"
-                  className="w-[80%] md:w-[65%] h-auto opacity-100 drop-shadow-2xl"
+                  className="w-full max-w-[550px] lg:max-w-none h-auto opacity-100 drop-shadow-2xl"
                 />
               </div>
             </div>

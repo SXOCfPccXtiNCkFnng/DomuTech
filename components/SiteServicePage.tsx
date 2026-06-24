@@ -104,13 +104,18 @@ const SiteServicePage: React.FC = () => {
                                 </ul>
                             </AnimateOnScroll>
                             <AnimateOnScroll delay={200}>
-                                <div className="relative bg-white/5 p-4 rounded-xl border border-white/10 overflow-hidden shadow-2xl">
-                                    <img src="/img/fundo-web.png" alt="Gestão de Site" className="rounded-lg opacity-50" />
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        <div className="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-md border border-white/20">
-                                            <ArrowUpRightIcon className="w-8 h-8 text-white" />
-                                        </div>
-                                    </div>
+                                <div className="relative flex items-center justify-center rounded-2xl overflow-hidden">
+                                    {/* Brilho difuso de fundo integrado (Integrated Ambient Glow) */}
+                                    <div className="absolute w-[80%] h-[80%] bg-[var(--domu-accent)]/10 rounded-full blur-[60px] pointer-events-none"></div>
+                                    
+                                    <img 
+                                        src="/logos/img-seusite.png" 
+                                        alt="Gestão de Site" 
+                                        className="w-full h-auto relative z-10 rounded-2xl" 
+                                    />
+                                    
+                                    {/* Sombra interna retangular para sumir com as bordas da imagem */}
+                                    <div className="absolute inset-0 z-20 shadow-[inset_0_0_35px_15px_#060A10] pointer-events-none rounded-2xl"></div>
                                 </div>
                             </AnimateOnScroll>
                         </div>
