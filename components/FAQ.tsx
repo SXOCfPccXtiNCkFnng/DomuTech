@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import { FAQ_DATA } from "../constants";
 import AnimateOnScroll from "./AnimateOnScroll";
 
@@ -84,19 +85,7 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({
         <div
           className={`flex-shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
         >
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#FFFFFF"
-            strokeWidth={3}
-            className="w-4 h-4"
-          >
-            <path
-              d="M6 9l6 6 6-6"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <ChevronDown className="w-4 h-4 text-white" strokeWidth={3} />
         </div>
       </button>
 

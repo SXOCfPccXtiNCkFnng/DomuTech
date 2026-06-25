@@ -1,4 +1,5 @@
 import React from "react";
+import { CreditCard, Shield } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
 
 const ProfessionalDevelopment: React.FC = () => {
@@ -43,16 +44,7 @@ const ProfessionalDevelopment: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
                 <div className="bg-[var(--domu-surface-1)] p-6 rounded-3xl border border-white/5 flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left hover:border-white/10 transition-all duration-300">
                   <div className="w-10 h-10 bg-[var(--domu-surface-2)] border border-white/5 rounded-xl flex items-center justify-center flex-shrink-0 text-white">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      className="w-5 h-5"
-                    >
-                      <rect x="2" y="6" width="20" height="12" rx="2" />
-                      <path d="M17 20H7" />
-                    </svg>
+                    <CreditCard className="w-5 h-5" strokeWidth={2} />
                   </div>
                   <div>
                     <p className="text-white font-black text-[11px] uppercase tracking-tight mb-1">
@@ -66,15 +58,7 @@ const ProfessionalDevelopment: React.FC = () => {
 
                 <div className="bg-[var(--domu-surface-1)] p-6 rounded-3xl border border-white/5 flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left hover:border-white/10 transition-all duration-300">
                   <div className="w-10 h-10 bg-[var(--domu-surface-2)] border border-white/5 rounded-xl flex items-center justify-center flex-shrink-0 text-white">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      className="w-5 h-5"
-                    >
-                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                    </svg>
+                    <Shield className="w-5 h-5" strokeWidth={2} />
                   </div>
                   <div>
                     <p className="text-white font-black text-[11px] uppercase tracking-tight mb-1">

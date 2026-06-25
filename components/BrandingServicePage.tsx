@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { PenTool, Layers, Book, Share2 } from 'lucide-react';
 import AnimateOnScroll from './AnimateOnScroll';
 import CallToAction from './CallToAction';
 import ReliableAgency from './ReliableAgency';
@@ -90,44 +91,22 @@ const BrandingServicePage: React.FC = () => {
                                     { 
                                         title: "Naming & Logo", 
                                         desc: "Nomes impactantes e identidades memoráveis que grudam na mente do seu cliente.",
-                                        icon: (
-                                            <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-[var(--domu-accent-light)]" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                                                <path d="M12 20h9" />
-                                                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
-                                            </svg>
-                                        )
+                                        icon: <PenTool className="w-5 h-5 text-[var(--domu-accent-light)]" strokeWidth={1.5} />
                                     },
                                     { 
                                         title: "UX/UI Design", 
                                         desc: "Interfaces digitais ultra-intuitivas e sofisticadas focadas em conversão.",
-                                        icon: (
-                                            <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-[var(--domu-accent-light)]" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                                            </svg>
-                                        )
+                                        icon: <Layers className="w-5 h-5 text-[var(--domu-accent-light)]" strokeWidth={1.5} />
                                     },
                                     { 
                                         title: "Brandbook", 
                                         desc: "Guia completo de tom de voz, regras visuais e posicionamento estratégico de marca.",
-                                        icon: (
-                                            <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-[var(--domu-accent-light)]" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-                                            </svg>
-                                        )
+                                        icon: <Book className="w-5 h-5 text-[var(--domu-accent-light)]" strokeWidth={1.5} />
                                     },
                                     { 
                                         title: "Social Design", 
                                         desc: "Presença digital imponente e de alta autoridade em todos os pontos de contato.",
-                                        icon: (
-                                            <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-[var(--domu-accent-light)]" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                                                <path d="M18 8A3 3 0 1 0 18 2A3 3 0 1 0 18 8Z" />
-                                                <path d="M6 15A3 3 0 1 0 6 9A3 3 0 1 0 6 15Z" />
-                                                <path d="M18 22A3 3 0 1 0 18 16A3 3 0 1 0 18 22Z" />
-                                                <path d="M8.59 13.51l5.83 3.4" />
-                                                <path d="M14.41 7.1l-5.82 3.4" />
-                                            </svg>
-                                        )
+                                        icon: <Share2 className="w-5 h-5 text-[var(--domu-accent-light)]" strokeWidth={1.5} />
                                     }
                                 ].map((item, i) => (
                                     <div key={i} className="relative group p-6 rounded-[24px] bg-white/[0.03] hover:bg-white/[0.05] border border-white/10 hover:border-[var(--domu-accent)]/30 transition-all duration-500 shadow-md hover:shadow-[0_20px_40px_-20px_rgba(0,91,255,0.25)] overflow-hidden">

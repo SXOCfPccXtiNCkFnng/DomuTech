@@ -1,10 +1,22 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FOOTER_INSTITUCIONAL, FOOTER_SERVICOS } from '../constants';
 import { WhatsAppIcon } from './icons';
 
 const Footer: React.FC = () => {
+    const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+
+    useEffect(() => {
+        const checkTheme = () => {
+            setTheme(document.documentElement.classList.contains('light-theme') ? 'light' : 'dark');
+        };
+        checkTheme();
+        const observer = new MutationObserver(checkTheme);
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <footer id="footer" className="bg-[var(--domu-bg)] pt-10 md:pt-24 pb-8 md:pb-12 border-t border-white/5">
             <div className="container mx-auto px-6">
@@ -15,7 +27,7 @@ const Footer: React.FC = () => {
                     <div className="col-span-2 lg:col-span-6 flex flex-col items-start text-left">
                         <Link to="/" className="flex items-center mb-8 group">
                             <img 
-                                 src="/logos/logoheaderfooter.png" 
+                                 src={theme === 'light' ? "/logos/logopreta.png" : "/logos/logoheaderfooter.png"} 
                                  alt="DomuTech" 
                                  className="h-10 md:h-12 w-auto transition-transform group-hover:scale-105 object-contain"
                             />
@@ -76,21 +88,14 @@ const Footer: React.FC = () => {
             <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
                 <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
                     <div className="flex gap-6">
-                        {[
-                            { name: 'instagram', url: 'https://www.instagram.com/domu_tech/' },
-                            { name: 'linkedin', url: '#linkedin' },
-                            { name: 'twitter', url: '#twitter' }
-                        ].map(social => (
-                            <a 
-                                key={social.name} 
-                                href={social.url} 
-                                target={social.url.startsWith('http') ? "_blank" : undefined}
-                                rel={social.url.startsWith('http') ? "noreferrer" : undefined}
-                                className="text-[var(--domu-muted)] hover:text-[var(--domu-white)] transition-colors"
-                            >
-                                <span className="uppercase text-[10px] font-black tracking-widest">{social.name}</span>
-                            </a>
-                        ))}
+                        <a 
+                            href="https://www.instagram.com/domu_tech/" 
+                            target="_blank"
+                            rel="noreferrer"
+                            className="text-[var(--domu-muted)] hover:text-[var(--domu-white)] transition-colors"
+                        >
+                            <span className="uppercase text-[10px] font-black tracking-widest">instagram</span>
+                        </a>
                     </div>
                     
                     <p className="text-[var(--domu-muted)] text-[12px] font-black uppercase tracking-widest opacity-40">
@@ -103,7 +108,7 @@ const Footer: React.FC = () => {
             <div className="mt-12 md:mt-16 border-t border-white/5 pt-10">
                 <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-left md:text-center">
                     <p className="text-[var(--domu-muted)] text-[10px] font-black uppercase tracking-[0.2em] opacity-30">
-                        © {new Date().getFullYear()} DOMUTECH • CNPJ: 54.123.884/0001-50
+                        © {new Date().getFullYear()} DOMUTECH
                     </p>
                     <a href="#" className="text-[var(--domu-muted)] text-[10px] font-black uppercase tracking-[0.2em] hover:text-[var(--domu-white)] opacity-30 hover:opacity-100 transition-opacity">
                         Privacidade

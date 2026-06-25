@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Calculator, X } from 'lucide-react';
 
 const AutoPopup: React.FC = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -78,10 +79,7 @@ const AutoPopup: React.FC = () => {
                         <div className="absolute inset-0 bg-white/20 rounded-full animate-ping opacity-20 group-hover:opacity-40 transition-opacity" />
 
                         <div className="relative z-10 flex items-center justify-center">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="w-6 h-6 md:w-7 md:h-7 opacity-80 group-hover:opacity-100 transition-opacity">
-                                <rect x="4" y="2" width="16" height="20" rx="2" />
-                                <path d="M8 6h8M8 10h8M8 14h8M8 18h8" />
-                            </svg>
+                            <Calculator className="w-6 h-6 md:w-7 md:h-7 opacity-80 group-hover:opacity-100 transition-opacity" strokeWidth={2} />
                             {/* Pontinho de atenção - more refined */}
                             <span className="absolute -top-1 -right-1 w-3 h-3 bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.8)] border-2 border-black/50" />
                         </div>
@@ -117,9 +115,7 @@ const AutoPopup: React.FC = () => {
                                 onClick={closePopup}
                                 className="absolute top-8 right-8 text-white/20 hover:text-white transition-all z-50 hover:scale-110"
                             >
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                                    <path d="M18 6L6 18M6 6l12 12" />
-                                </svg>
+                                <X className="w-5 h-5" strokeWidth={2.5} />
                             </button>
 
                             <div className="p-8 md:p-14 relative z-10">
@@ -138,10 +134,7 @@ const AutoPopup: React.FC = () => {
                                     onClick={handleAction}
                                     className="w-full bg-[var(--domu-accent)] text-white py-5 rounded-2xl font-black uppercase text-[12px] tracking-[0.15em] transition-all flex items-center justify-center gap-4 shadow-[0_15px_30px_rgba(88,127,129,0.2)]"
                                 >
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-5 h-5">
-                                        <rect x="4" y="2" width="16" height="20" rx="2" />
-                                        <path d="M8 6h8M8 10h8M8 14h8M8 18h8" />
-                                    </svg>
+                                    <Calculator className="w-5 h-5" strokeWidth={2.5} />
                                     <span>Calcular agora</span>
                                 </motion.button>
                             </div>

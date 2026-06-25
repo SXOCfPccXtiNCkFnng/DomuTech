@@ -1,95 +1,16 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Smartphone, Search, Code, Zap, Layout, Shield } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
 import { ArrowUpRightIcon } from "./icons";
 
-/* ── Ícones SVG simples para cada feature ─────────────────────────────────── */
-const IconResponsivo = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    className="w-5 h-5"
-    stroke="currentColor"
-    strokeWidth={1.8}
-  >
-    <rect x="5" y="2" width="14" height="20" rx="2" />
-    <circle cx="12" cy="18" r="1" fill="currentColor" stroke="none" />
-  </svg>
-);
-const IconSEO = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    className="w-5 h-5"
-    stroke="currentColor"
-    strokeWidth={1.8}
-  >
-    <circle cx="11" cy="11" r="8" />
-    <path d="M21 21l-4.35-4.35" strokeLinecap="round" />
-  </svg>
-);
-const IconTech = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    className="w-5 h-5"
-    stroke="currentColor"
-    strokeWidth={1.8}
-  >
-    <polyline
-      points="16 18 22 12 16 6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <polyline
-      points="8 6 2 12 8 18"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-const IconConversao = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    className="w-5 h-5"
-    stroke="currentColor"
-    strokeWidth={1.8}
-  >
-    <path
-      d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-const IconLayout = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    className="w-5 h-5"
-    stroke="currentColor"
-    strokeWidth={1.8}
-  >
-    <rect x="3" y="3" width="18" height="18" rx="2" />
-    <path d="M3 9h18M9 21V9" strokeLinecap="round" />
-  </svg>
-);
-const IconSecurity = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    className="w-5 h-5"
-    stroke="currentColor"
-    strokeWidth={1.8}
-  >
-    <path
-      d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
+/* ── Ícones Lucide para cada feature ─────────────────────────────────── */
+const IconResponsivo = () => <Smartphone className="w-5 h-5" strokeWidth={1.8} />;
+const IconSEO = () => <Search className="w-5 h-5" strokeWidth={1.8} />;
+const IconTech = () => <Code className="w-5 h-5" strokeWidth={1.8} />;
+const IconConversao = () => <Zap className="w-5 h-5" strokeWidth={1.8} />;
+const IconLayout = () => <Layout className="w-5 h-5" strokeWidth={1.8} />;
+const IconSecurity = () => <Shield className="w-5 h-5" strokeWidth={1.8} />;
 
 const FEATURES = [
   {

@@ -66,6 +66,197 @@ body {
   --upsites-gray: var(--domu-black);
 }
 
+.light-theme {
+  /* Core Backgrounds */
+  --domu-bg: #FAFAFC;
+  --domu-black: #F1F3F9;
+
+  /* Surfaces & Containers */
+  --domu-surface-1: #FFFFFF;
+  --domu-surface-2: #F0F2F7;
+  --domu-surface-3: #E1E4EC;
+
+  /* Typography */
+  --domu-primary: #0A0F18;
+  --domu-secondary: #334155;
+  --domu-muted: #64748B;
+  --domu-light: #FAFAFC;
+
+  /* Semantic Utilities */
+  --domu-white: #0A0F18;
+  --domu-border: rgba(0, 0, 0, 0.08);
+}
+
+/* Light Mode Overrides for Tailwind classes */
+
+/* Text colors */
+.light-theme .text-white,
+.light-theme .\!text-white {
+  color: var(--domu-primary) !important;
+}
+.light-theme .text-white\/95,
+.light-theme .\!text-white\/95 {
+  color: rgba(10, 15, 24, 0.95) !important;
+}
+.light-theme .text-white\/90,
+.light-theme .\!text-white\/90 {
+  color: rgba(10, 15, 24, 0.9) !important;
+}
+.light-theme .text-white\/80,
+.light-theme .\!text-white\/80 {
+  color: rgba(10, 15, 24, 0.8) !important;
+}
+.light-theme .text-white\/70,
+.light-theme .\!text-white\/70 {
+  color: rgba(10, 15, 24, 0.7) !important;
+}
+.light-theme .text-white\/60,
+.light-theme .\!text-white\/60 {
+  color: rgba(10, 15, 24, 0.6) !important;
+}
+.light-theme .text-white\/50,
+.light-theme .\!text-white\/50 {
+  color: rgba(10, 15, 24, 0.5) !important;
+}
+.light-theme .text-white\/40,
+.light-theme .\!text-white\/40 {
+  color: rgba(10, 15, 24, 0.4) !important;
+}
+.light-theme .text-white\/30,
+.light-theme .\!text-white\/30 {
+  color: rgba(10, 15, 24, 0.3) !important;
+}
+.light-theme .text-white\/20,
+.light-theme .\!text-white\/20 {
+  color: rgba(10, 15, 24, 0.2) !important;
+}
+.light-theme .text-white\/10,
+.light-theme .\!text-white\/10 {
+  color: rgba(10, 15, 24, 0.1) !important;
+}
+
+/* Backgrounds */
+.light-theme .bg-white\/5,
+.light-theme .\!bg-white\/5 {
+  background-color: rgba(10, 15, 24, 0.04) !important;
+}
+.light-theme .bg-white\/10,
+.light-theme .\!bg-white\/10 {
+  background-color: rgba(10, 15, 24, 0.08) !important;
+}
+.light-theme .bg-white\/20,
+.light-theme .\!bg-white\/20 {
+  background-color: rgba(10, 15, 24, 0.12) !important;
+}
+.light-theme .bg-white\/30,
+.light-theme .\!bg-white\/30 {
+  background-color: rgba(10, 15, 24, 0.18) !important;
+}
+.light-theme .bg-white\/40,
+.light-theme .\!bg-white\/40 {
+  background-color: rgba(10, 15, 24, 0.25) !important;
+}
+.light-theme .bg-white\/\[0\.03\],
+.light-theme .\!bg-white\/\[0\.03\] {
+  background-color: rgba(10, 15, 24, 0.02) !important;
+}
+.light-theme .bg-white\/\[0\.02\],
+.light-theme .\!bg-white\/\[0\.02\] {
+  background-color: rgba(10, 15, 24, 0.015) !important;
+}
+.light-theme .bg-white,
+.light-theme .\!bg-white {
+  background-color: #FFFFFF !important;
+}
+
+/* Specific elements using bg-white that should be dark in light mode */
+.light-theme .bg-white.rounded-full,
+.light-theme .\!bg-white.rounded-full,
+.light-theme .bg-white.rounded-lg,
+.light-theme .bg-white.rounded-xl {
+  background-color: var(--domu-primary) !important;
+}
+.light-theme .bg-white.rounded-full svg,
+.light-theme .bg-white.rounded-lg svg,
+.light-theme .bg-white.rounded-xl svg {
+  color: #FAFAFC !important;
+}
+
+/* Borders */
+.light-theme .border-white\/5,
+.light-theme .\!border-white\/5 {
+  border-color: rgba(10, 15, 24, 0.06) !important;
+}
+.light-theme .border-white\/10,
+.light-theme .\!border-white\/10 {
+  border-color: rgba(10, 15, 24, 0.08) !important;
+}
+.light-theme .border-white\/15,
+.light-theme .\!border-white\/15 {
+  border-color: rgba(10, 15, 24, 0.12) !important;
+}
+.light-theme .border-white\/20,
+.light-theme .\!border-white\/20 {
+  border-color: rgba(10, 15, 24, 0.16) !important;
+}
+
+/* Buttons */
+.light-theme .btn-domu-outline {
+  background-color: rgba(10, 15, 24, 0.02) !important;
+  color: var(--domu-primary) !important;
+  border: 1.5px solid rgba(10, 15, 24, 0.08) !important;
+}
+.light-theme .btn-domu-outline:hover {
+  background-color: rgba(0, 91, 255, 0.05) !important;
+  border-color: rgba(0, 91, 255, 0.4) !important;
+  color: var(--domu-accent) !important;
+}
+.light-theme .btn-whatsapp {
+  background-color: #25D366 !important;
+  color: #ffffff !important;
+}
+.light-theme .btn-budget {
+  background-color: var(--domu-accent) !important;
+  color: #ffffff !important;
+}
+
+/* Tag style overrides */
+.light-theme .tag-domu {
+  color: var(--domu-secondary) !important;
+  background-color: rgba(10, 15, 24, 0.05) !important;
+  border-color: rgba(10, 15, 24, 0.1) !important;
+}
+
+/* Gradient background overlays */
+.light-theme .bg-gradient-to-b.from-black\/80 {
+  background-image: linear-gradient(to bottom, rgba(250, 250, 252, 0.98), rgba(250, 250, 252, 0.6), rgba(250, 250, 252, 0.98)) !important;
+}
+.light-theme .bg-gradient-to-br.from-black\/80 {
+  background-image: linear-gradient(to bottom right, rgba(250, 250, 252, 0.98), rgba(250, 250, 252, 0.8), rgba(250, 250, 252, 0.98)) !important;
+}
+
+/* Section dividers & layout fixes */
+.light-theme header.sticky {
+  background-color: rgba(250, 250, 252, 0.8) !important;
+  backdrop-filter: blur(20px) !important;
+}
+.light-theme header.bg-white\/5 {
+  background-color: rgba(250, 250, 252, 0.8) !important;
+}
+.light-theme button[aria-label="Alterar tema"] {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+.light-theme .fixed.inset-0.bg-\[var\(--domu-bg\)\] {
+  background-color: var(--domu-bg) !important;
+}
+
+/* Pricing checklist icons */
+.light-theme .bg-\[\#7B61FF\]\/20 svg {
+  color: #7B61FF !important;
+}
+
+
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
   margin: 0;

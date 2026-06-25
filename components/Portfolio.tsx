@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { motion, useMotionValue, useTransform, animate, AnimatePresence } from 'framer-motion';
+import { Link2 } from 'lucide-react';
 import { PORTFOLIO_PROJECTS } from '../constants';
 import { ArrowUpRightIcon, ArrowRightIcon } from './icons';
 import AnimateOnScroll from './AnimateOnScroll';
@@ -65,10 +66,7 @@ const PortfolioCard = ({ project, index, STEP, slideW, containerW, trackX, isMob
                         className={`w-20 h-20 bg-black/60 backdrop-blur-md border border-white/10 rounded-full shadow-2xl flex flex-col items-center justify-center text-white transition-all duration-300 ease-out pointer-events-auto cursor-pointer ${isActive ? (isMobile ? 'opacity-80 scale-100' : 'opacity-0 scale-50 group-hover/card:opacity-100 group-hover/card:scale-100') : 'opacity-0 pointer-events-none'}`}
                         onClick={handleAccessClick}
                     >
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="w-5 h-5 mb-1">
-                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-                        </svg>
+                        <Link2 className="w-5 h-5 mb-1" strokeWidth={2.5} />
                         <span className="text-xxs font-black uppercase tracking-widest leading-none">Acessar</span>
                     </div>
                 </div>
@@ -280,7 +278,7 @@ const Portfolio: React.FC = () => {
                                 <h3 className="text-base font-black text-white  tracking-tight truncate leading-tight">
                                     {active.title.split(' - ')[0]}
                                 </h3>
-                                <span className="text-[#FFFFFF] font-bold text-xs uppercase tracking-[0.18em] block">
+                                <span className="text-white font-bold text-xs uppercase tracking-[0.18em] block">
                                     {active.tag === 'Criação de Sites'
                                         ? 'Soluções para o seu negócio'
                                         : active.tag}
@@ -296,9 +294,9 @@ const Portfolio: React.FC = () => {
                                         <span className="text-white/40 font-bold text-xxs uppercase tracking-widest group-hover:text-white/70 transition-colors">
                                             Veja Online
                                         </span>
-                                        <span className="text-[#FFFFFF] font-black text-xxs uppercase tracking-widest group-hover:text-[#FFFFFF] transition-colors truncate max-w-[260px]">
-                                            {active.link.replace(/^https?:\/\//, '').replace(/\/$/, '')}
-                                        </span>
+                                        <span className="text-white font-black text-xxs uppercase tracking-widest group-hover:text-white transition-colors truncate max-w-[260px]">
+                                             {active.link.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+                                         </span>
                                     </a>
                                 )}
                             </motion.div>

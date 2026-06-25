@@ -23,11 +23,11 @@ const Hero: React.FC = () => {
             <div className="container mx-auto px-6 relative z-10">
                 <div className="flex flex-col items-center text-center">
                     
-                    {/* 1. Tagline: Estúdio de Alta Performance */}
+                    {/* 1. Tagline: Desenvolvimento & Design de Alto Impacto */}
                     <AnimateOnScroll delay={200} className="fade-in">
                         <div className="inline-flex items-center gap-3 bg-white/[0.03] border border-white/10 px-6 py-2.5 rounded-xl backdrop-blur-xl shadow-[0_5px_15px_rgba(0,0,0,0.2)] mb-8 md:mb-12">
                             <span className="tag-domu !text-white/60">
-                                Estúdio de Alta Performance
+                                Desenvolvimento & Design de Alto Impacto
                             </span> 
                         </div>
                     </AnimateOnScroll>

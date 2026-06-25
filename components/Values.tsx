@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Monitor, Settings, Zap } from 'lucide-react';
 import AnimateOnScroll from './AnimateOnScroll';
 
 const Values: React.FC = () => {
@@ -30,32 +31,17 @@ const Values: React.FC = () => {
                         { 
                             title: 'Escolha do Projeto', 
                             desc: 'Definimos se seu negócio precisa de um Site Institucional, Landing Page de alta conversão ou Loja Virtual robusta.', 
-                            icon: (
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
-                                    <path d="M2 17V7a2 2 0 012-2h16a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2z" strokeLinecap="round" />
-                                    <path d="M8 21h8m-4-4v4" strokeLinecap="round" />
-                                </svg>
-                            )
+                            icon: <Monitor className="w-6 h-6" strokeWidth={1.5} />
                         },
                         { 
                             title: 'Definição de Recursos', 
                             desc: 'Escolha as funcionalidades: SEO avançado, Blogs, Multi-idioma, Dashboards Inteligentes e Integrações de Pagamento.', 
-                            icon: (
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-8 h-8">
-                                    <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
-                                    <circle cx="12" cy="12" r="3" />
-                                    <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z" />
-                                </svg>
-                            )
+                            icon: <Settings className="w-6 h-6" strokeWidth={1.5} />
                         },
                         { 
                             title: 'Início e Execução', 
                             desc: 'Com briefing estratégico e contrato, nosso squad inicia o design e código para colocar sua visão no ar o quanto antes.', 
-                            icon: (
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-6 h-6">
-                                    <path d="M13 10V3L4 14h7v7l9-11h-7z" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            )
+                            icon: <Zap className="w-6 h-6" strokeWidth={1.5} />
                         }
                     ].map((step, index) => (
                         <AnimateOnScroll key={step.title} delay={index * 150}>

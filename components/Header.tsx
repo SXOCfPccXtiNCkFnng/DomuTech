@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MenuIcon, XIcon, ArrowRightIcon, ArrowUpRightIcon, ChevronDownIcon, WhatsAppIcon, GlobeIcon, AutomationIcon, CodeIcon, TargetIcon, PaletteIcon } from './icons';
+import { MenuIcon, XIcon, ArrowRightIcon, ArrowUpRightIcon, ChevronDownIcon, WhatsAppIcon, GlobeIcon, AutomationIcon, CodeIcon, TargetIcon, PaletteIcon, SunIcon, MoonIcon } from './icons';
 
 const SERVICES_LIST = [
     { 
@@ -67,6 +67,30 @@ const Header: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isServicesOpen, setIsServicesOpen] = useState(false);
     const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout | null>(null);
+    const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+
+    const toggleTheme = () => {
+        const nextTheme = theme === 'dark' ? 'light' : 'dark';
+        setTheme(nextTheme);
+        if (nextTheme === 'light') {
+            document.documentElement.classList.add('light-theme');
+            localStorage.setItem('domu_theme', 'light');
+        } else {
+            document.documentElement.classList.remove('light-theme');
+            localStorage.setItem('domu_theme', 'dark');
+        }
+    };
+
+    useEffect(() => {
+        const savedTheme = localStorage.getItem('domu_theme');
+        if (savedTheme === 'light') {
+            document.documentElement.classList.add('light-theme');
+            setTheme('light');
+        } else {
+            document.documentElement.classList.remove('light-theme');
+            setTheme('dark');
+        }
+    }, []);
 
     const handleMouseEnter = () => {
         if (closeTimeout) {
@@ -110,7 +134,7 @@ const Header: React.FC = () => {
                         {/* Logo */}
                         <Link to="/" className="flex items-center gap-3 group relative z-10">
                             <img 
-                                src="/logos/logoheaderfooter.png" 
+                                src={theme === 'light' ? "/logos/logopreta.png" : "/logos/logoheaderfooter.png"} 
                                 alt="DomuTech" 
                                 className="h-8 md:h-10 w-auto transition-all duration-500 group-hover:scale-105 object-contain"
                             />
@@ -202,27 +226,45 @@ const Header: React.FC = () => {
                         </nav>
 
 
-                        {/* Phone Button */}
-                        <div className="hidden min-[1440px]:block relative z-10">
-                            <a 
-                                href="tel:+5511934430659" 
-                                className="btn-whatsapp group overflow-hidden"
+                        {/* Actions (WhatsApp + Theme Toggle + Mobile Menu Toggle) */}
+                        <div className="flex items-center gap-4 relative z-10">
+                            {/* Theme Toggle Button */}
+                            <button
+                                onClick={toggleTheme}
+                                className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 shadow-sm"
+                                aria-label="Alternar tema"
                             >
-                                <div className="relative flex items-center gap-2">
-                                    <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
-                                    <span>Falar no WhatsApp</span>
-                                </div>
-                            </a>
-                        </div>
+                                {theme === 'light' ? (
+                                    <MoonIcon className="w-5 h-5 text-black hover:text-neutral-700" />
+                                ) : (
+                                    <SunIcon className="w-5 h-5 text-white hover:text-neutral-200" />
+                                )}
+                            </button>
 
-                        {/* Mobile Toggle */}
-                        <button 
-                            className="min-[1440px]:hidden p-2 -mr-2 flex items-center justify-center" 
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            aria-label="Menu"
-                        >
-                             <MenuIcon className="w-8 h-8 text-white" />
-                        </button>
+                            {/* Phone Button */}
+                            <div className="hidden min-[1440px]:block">
+                                <a 
+                                    href="https://wa.me/5511934430659" 
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="btn-whatsapp group overflow-hidden"
+                                >
+                                    <div className="relative flex items-center gap-2">
+                                        <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
+                                        <span>Falar no WhatsApp</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            {/* Mobile Toggle */}
+                            <button 
+                                className="min-[1440px]:hidden p-2 -mr-2 flex items-center justify-center text-white" 
+                                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                                aria-label="Menu"
+                            >
+                                 <MenuIcon className="w-8 h-8" />
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -230,7 +272,7 @@ const Header: React.FC = () => {
                 <div className={`fixed inset-0 bg-[var(--domu-bg)] z-[100] transition-all duration-500 ease-in-out ${isMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'}`}>
                    <div className="p-6 flex justify-between items-center border-b border-white/5 bg-[var(--domu-bg)]">
                         <div className="flex items-center gap-2">
-                             <img src="/logos/logoheaderfooter.png" alt="DOMU TECH" className="h-8 w-auto object-contain" />
+                             <img src={theme === 'light' ? "/logos/logopreta.png" : "/logos/logoheaderfooter.png"} alt="DOMU TECH" className="h-8 w-auto object-contain" />
                         </div>
                         <button 
                             onClick={() => setIsMenuOpen(false)}

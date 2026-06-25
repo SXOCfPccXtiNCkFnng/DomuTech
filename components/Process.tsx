@@ -1,50 +1,31 @@
 import React from 'react';
+import { Search, Paintbrush, Code, TrendingUp } from 'lucide-react';
 import AnimateOnScroll from './AnimateOnScroll';
 
 const STEPS = [
     {
         number: '01',
         title: 'Imersão & Diagnóstico',
-        description: 'Analisamos seus desafios e objetivos para construir uma estratégia personalizada focada em resultados reais.',
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-6 h-6">
-                <path d="M12 11c0 3.517-2.103 6.542-5.11 7.79l1.11 2.21H16v-2l1-1h4v-5h-9z" />
-                <path d="M18 7c0-1.105-.895-2-2-2a2 2 0 0 0-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2z" />
-            </svg>
-        )
+        description: 'Analisamos seus desafios and objetivos para construir uma estratégia personalizada focada em resultados reais.',
+        icon: <Search className="w-6 h-6" strokeWidth={2} />
     },
     {
         number: '02',
         title: 'Design & UX',
         description: 'Projetamos experiências intuitivas e interfaces de alto impacto que conectam sua marca ao público certo.',
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-6 h-6">
-                <path d="M12 19l7-7 3 3-7 7-3-3z" />
-                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
-                <path d="M2 2l7.586 7.586" />
-                <circle cx="11" cy="11" r="2" />
-            </svg>
-        )
+        icon: <Paintbrush className="w-6 h-6" strokeWidth={2} />
     },
     {
         number: '03',
         title: 'Engenharia & Implementação',
         description: 'Transformamos o planejamento em soluções robustas e performáticas utilizando as melhores tecnologias do mercado.',
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-6 h-6">
-                <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
-            </svg>
-        )
+        icon: <Code className="w-6 h-6" strokeWidth={2} />
     },
     {
         number: '04',
         title: 'Performance & Escala',
         description: 'Monitoramos, otimizamos e escalamos sua solução para garantir crescimento contínuo e sustentável no digital.',
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-6 h-6">
-                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
-            </svg>
-        )
+        icon: <TrendingUp className="w-6 h-6" strokeWidth={2} />
     }
 ];
 

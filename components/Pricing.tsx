@@ -1,4 +1,5 @@
 import React from "react";
+import { Monitor, Star, Check } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
 import { ArrowUpRightIcon, PhoneIcon, WhatsAppIcon } from "./icons";
 
@@ -64,17 +65,7 @@ const Pricing: React.FC = () => {
             <div className="group bg-[var(--domu-surface-1)] rounded-3xl p-8 md:p-10 shadow-2xl border border-white/5 hover:border-white/10 transition-all duration-500 h-full flex flex-col hover:-translate-y-1">
               <div className="text-center mb-6">
                 <div className="w-14 h-14 bg-[var(--domu-surface-2)] border border-white/5 rounded-2xl flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={1.5}
-                    className="w-7 h-7"
-                  >
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                    <line x1="8" y1="21" x2="16" y2="21" />
-                    <line x1="12" y1="17" x2="12" y2="21" />
-                  </svg>
+                  <Monitor className="w-7 h-7" strokeWidth={1.5} />
                 </div>
                 <h3 className="text-white font-black text-2xl  tracking-tight mb-2">
                   Site Expresso
@@ -105,19 +96,7 @@ const Pricing: React.FC = () => {
                   {EXPRESSO_FEATURES.map((f, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <div className="mt-0.5 w-4 h-4 bg-[#7B61FF]/20 rounded-full flex items-center justify-center flex-shrink-0">
-                        <svg
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="white"
-                          strokeWidth={4}
-                          className="w-2 h-2"
-                        >
-                          <path
-                            d="M5 13l4 4L19 7"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
+                        <Check className="w-2 h-2 text-white" strokeWidth={4} />
                       </div>
                       <span className="text-[var(--domu-secondary)] text-[13px] font-medium leading-tight">
                         {f}
@@ -175,15 +154,7 @@ const Pricing: React.FC = () => {
             <div className="group bg-[var(--domu-surface-1)] rounded-3xl p-8 md:p-10 shadow-2xl border border-white/5 hover:border-white/10 transition-all duration-500 h-full flex flex-col hover:-translate-y-1">
               <div className="text-center mb-6">
                 <div className="w-14 h-14 bg-[var(--domu-surface-2)] border border-white/5 rounded-2xl flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={1.5}
-                    className="w-7 h-7"
-                  >
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                  </svg>
+                  <Star className="w-7 h-7" strokeWidth={1.5} />
                 </div>
                 <h3 className="text-white font-black text-2xl  tracking-tight mb-2">
                   Site Sob Medida
@@ -210,19 +181,7 @@ const Pricing: React.FC = () => {
                   {CUSTOM_FEATURES.map((f, i) => (
                     <li key={i} className="flex items-start gap-4">
                       <div className="mt-0.5 w-4 h-4 bg-[#7B61FF]/20 rounded-full flex items-center justify-center flex-shrink-0">
-                        <svg
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="white"
-                          strokeWidth={4}
-                          className="w-2 h-2"
-                        >
-                          <path
-                            d="M5 13l4 4L19 7"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
+                        <Check className="w-2 h-2 text-white" strokeWidth={4} />
                       </div>
                       <span className="text-[var(--domu-secondary)] text-[13px] font-medium leading-tight">
                         {f}

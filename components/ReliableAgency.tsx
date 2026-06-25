@@ -1,4 +1,5 @@
 import React from "react";
+import { Check } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
 import { ArrowUpRightIcon } from "./icons";
 
@@ -88,15 +89,7 @@ const ReliableAgency: React.FC = () => {
                 {FEATURES.map((feature, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <div className="mt-1 w-4 h-4 rounded-full bg-white flex items-center justify-center flex-shrink-0">
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="black"
-                        strokeWidth={4}
-                        className="w-2.5 h-2.5"
-                      >
-                        <path d="M5 13l4 4L19 7" />
-                      </svg>
+                      <Check className="w-2.5 h-2.5 text-black" strokeWidth={4} />
                     </div>
                     <span className="text-white/90 text-sm font-medium">
                       {feature}

@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import { motion, useMotionValue, animate } from "framer-motion";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import AnimateOnScroll from "./AnimateOnScroll";
 
 const RAW_TESTIMONIALS = [
@@ -144,30 +145,14 @@ const Testimonials: React.FC = () => {
             onClick={() => goTo(currentRef.current - 1)}
             className="absolute left-[-10px] md:left-[-10px] lg:left-[-60px] top-[50%] -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full border border-white/5 text-white bg-white/5 backdrop-blur-md hover:bg-white hover:text-black transition-all z-30 shadow-2xl hidden sm:flex"
           >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={3}
-              className="w-5 h-5 md:w-6 md:h-6 rotate-180"
-            >
-              <path d="M9 18l6-6-6-6" />
-            </svg>
+            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2.5} />
           </button>
 
           <button
             onClick={() => goTo(currentRef.current + 1)}
             className="absolute right-[-10px] md:right-[-10px] lg:right-[-60px] top-[50%] -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full border border-white/5 text-white bg-white/5 backdrop-blur-md hover:bg-white hover:text-black transition-all z-30 shadow-2xl hidden sm:flex"
           >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={3}
-              className="w-5 h-5 md:w-6 md:h-6"
-            >
-              <path d="M9 18l6-6-6-6" />
-            </svg>
+            <ChevronRight className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2.5} />
           </button>
 
           <div
@@ -191,14 +176,7 @@ const Testimonials: React.FC = () => {
                 >
                   {/* Quote Icon */}
                   <div className="text-white opacity-10 mb-6 md:mb-8">
-                    <svg
-                      width="34"
-                      height="24"
-                      viewBox="0 0 34 24"
-                      fill="currentColor"
-                    >
-                      <path d="M0 24V11.232C0 7.824 0.768 4.944 2.304 2.592C3.84 0.24 6.24 -0.528 9.504 0.288L11.088 2.88C8.592 3.84 7.248 5.472 7.056 7.776H11.376V24H0ZM19.296 24V11.232C19.296 7.824 20.064 4.944 21.6 2.592C23.136 0.24 25.536 -0.528 28.8 0.288L30.384 2.88C27.888 3.84 26.544 5.472 26.352 7.776H30.672V24H19.296Z" />
-                    </svg>
+                    <Quote className="w-8 h-8 fill-current" />
                   </div>
 
                   {/* Testimonial Text */}

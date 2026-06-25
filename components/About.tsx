@@ -1,4 +1,5 @@
 import React from 'react';
+import { Star } from 'lucide-react';
 import AnimateOnScroll from './AnimateOnScroll';
 import { ArrowUpRightIcon, LayoutIcon, MobileIcon, CodeIcon } from './icons';
 
@@ -88,9 +89,7 @@ const About: React.FC = () => {
                             {/* Mission Card */}
                             <div className="flex items-start gap-5 p-6 bg-white/[0.02] rounded-lg border border-white/5 hover:border-white/10 transition-colors max-w-[440px]">
                                 <div className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center flex-shrink-0 text-white shadow-xl border border-white/5">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-5 h-5">
-                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                    </svg>
+                                    <Star className="w-5 h-5" strokeWidth={2} />
                                 </div>
                                 <div>
                                     <p className="text-white font-black text-xs uppercase tracking-tight mb-1">
