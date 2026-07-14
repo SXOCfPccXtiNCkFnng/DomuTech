@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-br" class="light-theme">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/logos/logopreta.png" />
-    <link rel="apple-touch-icon" href="/logos/logopreta.png" />
+    <link rel="icon" type="image/png" href="/fraucon.png" />
+    <link rel="apple-touch-icon" href="/fraucon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Domu Tech | Sites e Automação com IA</title>
     <meta
@@ -11,7 +11,7 @@
       content="Domu Tech cria sites modernos e soluções de automação com IA para transformar sua produtividade e resultados digitais."
     />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#0047FF" />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
@@ -20,7 +20,7 @@
       property="og:description"
       content="Sites modernos e automação com IA com foco em performance, produtividade e resultados."
     />
-    <meta property="og:image" content="/logos/logopreta.png" />
+    <meta property="og:image" content="/logo_nova.png" />
     <meta property="og:site_name" content="Domu Tech" />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -29,7 +29,7 @@
       name="twitter:description"
       content="Sites modernos e automação com IA com foco em performance, produtividade e resultados."
     />
-    <meta name="twitter:image" content="/logos/logopreta.png" />
+    <meta name="twitter:image" content="/logo_nova.png" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -66,46 +66,63 @@
             fontFamily: {
               sans: ["'Plus Jakarta Sans'", "sans-serif"],
             },
+            container: {
+              center: true,
+              padding: {
+                DEFAULT: "1.5rem",
+                sm: "2rem",
+                md: "2.75rem",
+                lg: "3.5rem",
+                xl: "4rem",
+                "2xl": "4rem",
+              },
+              screens: {
+                sm: "640px",
+                md: "768px",
+                lg: "1024px",
+                xl: "1280px",
+                "2xl": "1440px",
+              },
+            },
+            borderRadius: {
+              sm: "var(--domu-radius)",
+              DEFAULT: "var(--domu-radius)",
+              md: "var(--domu-radius)",
+              lg: "var(--domu-radius)",
+              xl: "var(--domu-radius)",
+              "2xl": "var(--domu-radius)",
+              "3xl": "var(--domu-radius)",
+            },
             fontSize: {
-              xxs: ["clamp(0.5rem, 1vw, 0.625rem)", { lineHeight: "1rem" }],
-              xs: ["clamp(0.65rem, 1.2vw, 0.75rem)", { lineHeight: "1rem" }],
-              sm: [
-                "clamp(0.75rem, 1.5vw, 0.875rem)",
-                { lineHeight: "1.25rem" },
-              ],
-              base: ["clamp(0.875rem, 1.8vw, 1rem)", { lineHeight: "1.5rem" }],
-              lg: ["clamp(1rem, 2vw, 1.125rem)", { lineHeight: "1.75rem" }],
-              xl: [
-                "clamp(1.125rem, 2.2vw, 1.25rem)",
-                { lineHeight: "1.75rem" },
-              ],
-              "2xl": ["clamp(1.25rem, 2.5vw, 1.5rem)", { lineHeight: "2rem" }],
-              "3xl": [
-                "clamp(1.5rem, 3vw, 1.875rem)",
-                { lineHeight: "2.25rem" },
-              ],
-              "4xl": [
-                "clamp(1.875rem, 3.5vw, 2.25rem)",
-                { lineHeight: "2.5rem" },
-              ],
-              "5xl": ["clamp(2.25rem, 4vw, 2.75rem)", { lineHeight: "1.1" }],
-              "6xl": ["clamp(2.75rem, 4.5vw, 3.25rem)", { lineHeight: "1.1" }],
-              "7xl": ["clamp(3.25rem, 5vw, 4rem)", { lineHeight: "1.05" }],
+              xxs: ["var(--fs-eyebrow)", { lineHeight: "1.4" }],
+              xs: ["var(--fs-caption)", { lineHeight: "1.5" }],
+              sm: ["var(--fs-body)", { lineHeight: "1.6" }],
+              base: ["var(--fs-body)", { lineHeight: "1.6" }],
+              lg: ["var(--fs-card)", { lineHeight: "1.35" }],
+              xl: ["var(--fs-card)", { lineHeight: "1.35" }],
+              "2xl": ["var(--fs-section)", { lineHeight: "1.25" }],
+              "3xl": ["var(--fs-section)", { lineHeight: "1.25" }],
+              "4xl": ["var(--fs-hero)", { lineHeight: "1.2" }],
+              "5xl": ["var(--fs-hero)", { lineHeight: "1.2" }],
+              "6xl": ["var(--fs-hero)", { lineHeight: "1.15" }],
+              "7xl": ["var(--fs-hero)", { lineHeight: "1.15" }],
             },
             colors: {
-              "domu-primary": "#ffffff",
-              "domu-bg": "#0A0F18",
-              "domu-black": "#060A10",
-              "domu-surface-1": "#111827",
-              "domu-surface-2": "#1f2937",
-              "domu-accent": "#005BFF",
-              "domu-accent-light": "#00D4FF",
-              "domu-accent-purple": "#7B61FF",
+              "domu-primary": "#0A0F18",
+              "domu-bg": "#FFFFFF",
+              "domu-black": "#FFFFFF",
+              "domu-surface-1": "#FFFFFF",
+              "domu-surface-2": "#F0F4FF",
+              "domu-accent": "#0047FF",
+              "domu-accent-light": "#4D7CFF",
+              "domu-accent-muted": "#3366FF",
             },
             animation: {
               "fade-in-up": "fadeInUp 0.8s ease-out forwards",
               "bounce-subtle": "bounce-subtle 2s ease-in-out infinite",
-              float: "float 6s ease-in-out infinite",
+              float: "brandOrbitA 14s ease-in-out infinite",
+              "float-delayed": "brandOrbitB 18s ease-in-out infinite",
+              "spin-slow": "brandOrbitC 22s ease-in-out infinite",
             },
             keyframes: {
               fadeInUp: {
@@ -122,9 +139,23 @@
                   animationTimingFunction: "cubic-bezier(0, 0, 0.2, 1)",
                 },
               },
-              float: {
-                "0%, 100%": { transform: "translateY(0px)" },
-                "50%": { transform: "translateY(-20px)" },
+              brandOrbitA: {
+                "0%, 100%": { transform: "translate3d(0, 0, 0) rotate(0deg)" },
+                "25%": { transform: "translate3d(18px, -22px, 0) rotate(2deg)" },
+                "50%": { transform: "translate3d(4px, -36px, 0) rotate(0deg)" },
+                "75%": { transform: "translate3d(-16px, -18px, 0) rotate(-2deg)" },
+              },
+              brandOrbitB: {
+                "0%, 100%": { transform: "translate3d(0, 0, 0) rotate(0deg)" },
+                "25%": { transform: "translate3d(-20px, -14px, 0) rotate(-3deg)" },
+                "50%": { transform: "translate3d(-6px, -30px, 0) rotate(0deg)" },
+                "75%": { transform: "translate3d(14px, -20px, 0) rotate(3deg)" },
+              },
+              brandOrbitC: {
+                "0%, 100%": { transform: "translate3d(0, 0, 0) rotate(0deg)" },
+                "25%": { transform: "translate3d(12px, -28px, 0) rotate(4deg)" },
+                "50%": { transform: "translate3d(-10px, -40px, 0) rotate(0deg)" },
+                "75%": { transform: "translate3d(-18px, -12px, 0) rotate(-3deg)" },
               },
             },
           },
@@ -132,17 +163,30 @@
       };
     </script>
     <script>
-      // Set theme on initial load. Default to dark unless 'light' is explicitly stored.
-      if (localStorage.getItem("theme") === "light") {
-        document.documentElement.classList.remove("dark");
-      } else {
-        document.documentElement.classList.add("dark");
-      }
+      // Clean Domu look (white) is the brand default.
+      // Migration key resets old "dark" preference from previous versions.
+      (function () {
+        var MIGRATION = "domu_clean_v2";
+        if (localStorage.getItem("domu_palette") !== MIGRATION) {
+          localStorage.setItem("domu_palette", MIGRATION);
+          localStorage.setItem("domu_theme", "light");
+          localStorage.removeItem("theme");
+        }
+        var stored = localStorage.getItem("domu_theme");
+        if (stored === "dark") {
+          document.documentElement.classList.remove("light-theme");
+          document.documentElement.classList.add("dark-theme", "dark");
+        } else {
+          document.documentElement.classList.add("light-theme");
+          document.documentElement.classList.remove("dark-theme", "dark");
+          localStorage.setItem("domu_theme", "light");
+        }
+      })();
     </script>
     <style>
       /* Smooth Scrolling */
       html {
-        scroll-padding-top: 5rem; /* Header height (h-20) */
+        scroll-padding-top: 5rem; /* sticky nav */
       }
       /* Button glow effect on hover */
       .btn-glow {
@@ -158,136 +202,6 @@
         background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAM4SURBVHja7J3NUppAEIa/w30YhWlYdOn2K449wTYs0lR2A5hD6A0y1I6z0I7T7kQYyF0WkI/oR7L1V34QIIlJ1u9XX7rdX8h1GIZhGIZhGIZhGIZhGIZhGIZhGIZhGIZhGIZh+A1QzH2dYq5+bB/f/fN//9v/Bxe9gB/8/d6r/8fH/+P//uvX/7+X/0B5zD/1ePj5y/8+fn//i4v/g/JpGf+dGZ+s8v973+n/PzNfR/JpGf+X/gHl0TL+t3l81c5/5zP/53wZf9XIf10l/5f+AeXf0/i/yY/1fL3v9b+d/uPjj/W8r+S7V/L9Kvn+lfxf+geU/U/j/W/zX/L6u/s/X/f5X+f5X/3+1vF/Jd+/lv/V/L/2Dyi+k8f8dflXJ/zV//ev1fP/y71/N9/evgPJfqfxf/P6X/3+lf/X/AEVPErj/yY/yvJ/s/p//5//O/81/yvf377C/yvf3//y/wHl31P4/w6/KuX/Tv/r/8v/V8n3ryb8l//v/x9W8v0r+f6V/F/6B5R/T+P/dnxVy/9u/uv/l//v//V/lvxf+geUvU/j/3Z8lcv/bvd3/T/+X/y/eP2v5ftX8v0r+f6V/F/6B5S9T+P/dlzW+T/u8q9e/uv/lf8fVvL9K/n+lfxf+geUfU/j/Zc1vg/bvM//Wv+1/u7/iv/P6zk+1fy/Sv5/pX8X/oHlH1P4/92ZNa9vv8P/yv9V//X/5c1/stf3r/y/wHll1L4/3d5/5L/tf/v/6/6fP/n/8n/7v/l/9XvX33/Sj60l+df/R/8P/yv/l8/fJ3/9x/e/+Pjj5+8//vL6f/x8/eXX1Vf/1//N//rP/j+l/++8v/7Vw5z/T0/f//v/6f/Bxe9gB/6/0B5pAz/l/4B5f4n8f/Jj7W8/5v/5Z/8P/h/8f5X/j94/St50V6efwPld1L4/yY/yvJ/M34/yv+l/+P8l3/fvgHll1L4/yY/yvJ/s+lf/f72D/6f/L+S71/J96/k+1fy/Sv5/pX8X/oHlL1P4/8mP8ryf7P6X/5/+geUvU/j/yb/V8n3r+T7V/L9K/n+lfxf+geUvU/j/yb/V8n3r+T7V/L9K/n+lfxf+geUvU/j/yZ5kcr/y/8H/y/9X/x/0f5P73+V/x/+v/hf+geUPU/j/yb5kcr/5f8Dyh+k8f8N/6v+X/+v/p//V8n3ryb8V8n3r+b/2j+gfCSN/03+1/y/+l/9P/h/8f6V/H/x/pX8/yY/5XW9//j44+P/39//4+P/kS7b/wHlN/T5//f/+Lh8/v//+B+A4u+p7L9y/Sv5/pX8X/pX+o2GYRiGYRiGYRiGYRiGYRiGYRiGYRiGYRiGYRiGYRiGYfgBvgEACjU0l4Kz9hMAAAAASUVORK5CYII=");
         background-repeat: repeat;
       }
-      /* Critical CSS for Preloader */
-      #preloader {
-        position: fixed;
-        inset: 0;
-        z-index: 99999;
-        background: #0A0F18;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition:
-          opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1),
-          visibility 0.8s;
-        overflow: hidden;
-      }
-      #preloader.loaded {
-        opacity: 0;
-        visibility: hidden;
-      }
-      .loader-content {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        z-index: 1;
-        width: 320px;
-        transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.5s;
-      }
-      #preloader.loaded .loader-content {
-        transform: scale(1.05);
-        opacity: 0;
-      }
-
-      .loader-logo-container {
-        margin-bottom: 18px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      #preloader .logo {
-        width: 60px;
-        height: auto;
-        margin-top: -8px;
-        margin-bottom: -8px;
-        animation: loader-pulse 2.5s ease-in-out infinite;
-        filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.05));
-      }
-
-      /* Bouncy Text */
-      .bouncy-loading {
-        display: flex;
-        gap: 2px;
-        justify-content: center;
-        margin-bottom: 14px;
-      }
-      .bouncy-loading span {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 18px;
-        font-weight: 300;
-        color: #ffffff;
-        text-transform: lowercase;
-        display: inline-block;
-        animation: bounce-letter 1.2s infinite ease-in-out;
-      }
-      .bouncy-loading span:nth-child(1) { animation-delay: 0.0s; }
-      .bouncy-loading span:nth-child(2) { animation-delay: 0.1s; }
-      .bouncy-loading span:nth-child(3) { animation-delay: 0.2s; }
-      .bouncy-loading span:nth-child(4) { animation-delay: 0.3s; }
-      .bouncy-loading span:nth-child(5) { animation-delay: 0.4s; }
-      .bouncy-loading span:nth-child(6) { animation-delay: 0.5s; }
-      .bouncy-loading span:nth-child(7) { animation-delay: 0.6s; }
-      .bouncy-loading span:nth-child(8) { animation-delay: 0.7s; }
-      .bouncy-loading span:nth-child(9) { animation-delay: 0.8s; }
-      .bouncy-loading span:nth-child(10) { animation-delay: 0.9s; }
-
-      @keyframes bounce-letter {
-        0%, 100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-6px);
-        }
-      }
-      @keyframes loader-pulse {
-        0%, 100% {
-          transform: scale(0.97);
-          filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.03));
-        }
-        50% {
-          transform: scale(1.03);
-          filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.08));
-        }
-      }
-
-      /* Simple Loading Bar */
-      .loader-progress-track {
-        width: 110px;
-        height: 2px;
-        background: rgba(255, 255, 255, 0.08);
-        border-radius: 99px;
-        position: relative;
-        overflow: hidden;
-      }
-      #progress-bar-fill {
-        width: 0%;
-        height: 100%;
-        background: linear-gradient(90deg, #005BFF, #00D4FF);
-        border-radius: 99px;
-        transition: width 0.08s ease-out;
-      }
-      #load-percentage {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 10px;
-        font-weight: 400;
-        color: rgba(255, 255, 255, 0.4);
-        margin-top: 6px;
-        letter-spacing: 0.05em;
-      }
-      #loader-status {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        font-size: 8px;
-        font-weight: 600;
-        color: rgba(255, 255, 255, 0.25);
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        margin-top: 10px;
-        min-height: 10px;
-      }
-
       /* Scroll Animation */
       .animate-scroll {
         opacity: 0;
@@ -304,75 +218,6 @@
     <link rel="stylesheet" href="/index.css" />
   </head>
   <body>
-    <div id="preloader">
-      <div class="loader-content">
-        <div class="loader-logo-container">
-          <img src="/logos/logobranca.png" class="logo" alt="Logo Domu Tech" />
-        </div>
-        <div class="bouncy-loading">
-          <span>l</span><span>o</span><span>a</span><span>d</span><span>i</span><span>n</span><span>g</span><span>.</span><span>.</span><span>.</span>
-        </div>
-        <div class="loader-progress-track">
-          <div id="progress-bar-fill"></div>
-        </div>
-        <div id="load-percentage">0%</div>
-        <div id="loader-status">INICIALIZANDO SISTEMA...</div>
-      </div>
-    </div>
-    <script>
-      (function() {
-        var count = 0;
-        var loaderEl = document.getElementById('preloader');
-        var progressBar = document.getElementById('progress-bar-fill');
-        var counterEl = document.getElementById('load-percentage');
-        var statusEl = document.getElementById('loader-status');
-        
-        var interval = setInterval(function() {
-          if (count < 85) {
-            count += Math.floor(Math.random() * 5) + 1;
-            if (count > 85) count = 85;
-            update(count);
-          }
-        }, 80);
-
-        window.addEventListener('load', function() {
-          clearInterval(interval);
-          var endInterval = setInterval(function() {
-            if (count < 100) {
-              count += 3;
-              if (count > 100) count = 100;
-              update(count);
-            } else {
-              clearInterval(endInterval);
-              setTimeout(function() {
-                loaderEl.classList.add('loaded');
-              }, 300);
-            }
-          }, 20);
-        });
-
-        function update(val) {
-          if (progressBar) progressBar.style.width = val + '%';
-          if (counterEl) counterEl.textContent = val + '%';
-          
-          if (statusEl) {
-            if (val < 20) {
-              statusEl.textContent = 'INICIALIZANDO MÓDULOS DE IA...';
-            } else if (val < 40) {
-              statusEl.textContent = 'CARREGANDO DESIGN PREMIUM...';
-            } else if (val < 65) {
-              statusEl.textContent = 'CONECTANDO FLUXOS DE AUTOMAÇÃO...';
-            } else if (val < 85) {
-              statusEl.textContent = 'ESTABELECENDO CONEXÕES SEGURAS...';
-            } else if (val < 98) {
-              statusEl.textContent = 'OTIMIZANDO AGENTES DE PERFORMANCE...';
-            } else {
-              statusEl.textContent = 'SISTEMA PRONTO!';
-            }
-          }
-        }
-      })();
-    </script>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

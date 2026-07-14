@@ -59,7 +59,7 @@ const AutomationServicePage: React.FC = () => {
                         
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
                             <a href="/chatbot-placeholder" className="btn-budget">
-                                <ArrowUpRightIcon className="w-5 h-5" />
+                                <ArrowUpRightIcon className="w-3.5 h-3.5" />
                                 Automatizar meu Negócio
                             </a>
                         </div>
@@ -129,7 +129,7 @@ const AutomationServicePage: React.FC = () => {
                         Sua empresa está pronta para a IA?
                     </h2>
                     <a href="/chatbot-placeholder" className="btn-budget mx-auto">
-                        <ArrowUpRightIcon className="w-5 h-5" />
+                        <ArrowUpRightIcon className="w-3.5 h-3.5" />
                         Falar com Especialista
                     </a>
                 </AnimateOnScroll>

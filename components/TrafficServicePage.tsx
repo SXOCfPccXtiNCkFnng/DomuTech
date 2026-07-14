@@ -58,7 +58,7 @@ const TrafficServicePage: React.FC = () => {
                         
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
                             <a href="/chatbot-placeholder" className="btn-budget">
-                                <ArrowUpRightIcon className="w-5 h-5" />
+                                <ArrowUpRightIcon className="w-3.5 h-3.5" />
                                 Escalar minhas Vendas
                             </a>
                         </div>
@@ -97,7 +97,7 @@ const TrafficServicePage: React.FC = () => {
                         
                         <AnimateOnScroll delay={200}>
                             <div className="relative p-1 bg-gradient-to-br from-white/10 to-transparent rounded-3xl">
-                                <div className="bg-[var(--domu-bg)] p-8 rounded-[22px] border border-white/5">
+                                <div className="bg-[var(--domu-bg)] p-8 rounded-lg border border-white/5">
                                     <h3 className="text-xl font-black mb-6 flex items-center gap-3">
                                         <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
                                         Relatório em tempo real
@@ -136,7 +136,7 @@ const TrafficServicePage: React.FC = () => {
                         Cansado de queimar dinheiro com anúncios?
                     </h2>
                     <a href="/chatbot-placeholder" className="btn-budget mx-auto">
-                        <ArrowUpRightIcon className="w-5 h-5" />
+                        <ArrowUpRightIcon className="w-3.5 h-3.5" />
                         Analisar minha Conta Gratuitamente
                     </a>
                 </AnimateOnScroll>

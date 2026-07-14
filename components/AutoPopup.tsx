@@ -1,52 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calculator, X } from 'lucide-react';
+import { Calculator, X } from '@phosphor-icons/react';
 
 const AutoPopup: React.FC = () => {
     const [isVisible, setIsVisible] = useState(false);
-    const [hasClosedManually, setHasClosedManually] = useState(false);
 
-    const showPopup = () => {
-        setIsVisible(true);
-        setHasClosedManually(false);
-    };
+    const showPopup = () => setIsVisible(true);
 
     const closePopup = () => {
         setIsVisible(false);
-        setHasClosedManually(true);
-        // Salva o timestamp do fechamento para evitar incomodar o usuário
         localStorage.setItem('domu_popup_last_closed', Date.now().toString());
     };
 
     useEffect(() => {
         const checkCooldown = () => {
             const lastClosed = localStorage.getItem('domu_popup_last_closed');
-            const COOLDOWN_TIME = 60 * 60 * 1000; // 1 hora de paz
-
+            const COOLDOWN_TIME = 60 * 60 * 1000;
             if (lastClosed) {
-                const timePassed = Date.now() - parseInt(lastClosed);
+                const timePassed = Date.now() - parseInt(lastClosed, 10);
                 if (timePassed < COOLDOWN_TIME) return false;
             }
             return true;
         };
 
-        // Aparece no load inicial (após delay) se não estiver no cooldown
         const timer = setTimeout(() => {
-            if (checkCooldown()) {
-                showPopup();
-            }
-        }, 10000); // 10 segundos para não ser agressivo
+            if (checkCooldown()) showPopup();
+        }, 10000);
 
-        // Lógica de Reaparecer ao voltar para a guia (com cautela)
         const handleVisibilityChange = () => {
             if (document.visibilityState === 'visible' && checkCooldown()) {
-                // Pequeno delay ao voltar para a aba
                 setTimeout(showPopup, 3000);
             }
         };
 
         window.addEventListener('visibilitychange', handleVisibilityChange);
-
         return () => {
             clearTimeout(timer);
             window.removeEventListener('visibilitychange', handleVisibilityChange);
@@ -54,94 +41,114 @@ const AutoPopup: React.FC = () => {
     }, []);
 
     const handleAction = () => {
-        setIsVisible(false);
-        localStorage.setItem('domo_popup_last_closed', Date.now().toString());
-        window.location.href = '/chatbot-placeholder'; 
+        closePopup();
+        window.location.href = '/chatbot-placeholder';
     };
 
     return (
         <>
-            {/* Botão Flutuante Esquerdo (Toggle) - Sempre visível se o modal estiver fechado */}
             <AnimatePresence>
                 {!isVisible && (
                     <motion.button
-                        initial={{ scale: 0, rotate: -20, opacity: 0 }}
-                        animate={{ scale: 1, rotate: 0, opacity: 1 }}
-                        exit={{ scale: 0, rotate: 20, opacity: 0 }}
-                        transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        initial={{ scale: 0, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0, opacity: 0 }}
+                        transition={{ type: 'spring', stiffness: 280, damping: 22 }}
+                        whileHover={{ scale: 1.06 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={showPopup}
-                        className="fixed bottom-6 left-6 md:bottom-10 md:left-10 z-[999] w-14 h-14 md:w-16 md:h-16 bg-white/[0.08] backdrop-blur-xl text-white rounded-full flex items-center justify-center shadow-2xl border border-white/10 group overflow-hidden"
+                        className="fixed bottom-[5.75rem] right-5 z-[999] w-14 h-14 rounded-full flex items-center justify-center bg-[var(--domu-accent)] shadow-[0_10px_28px_-8px_rgba(0,71,255,0.55)] border border-white/20 hover:bg-[var(--domu-accent-hover)] transition-colors"
                         aria-label="Ver calculadora de orçamento"
                     >
-                        {/* Pulse effect background */}
-                        <div className="absolute inset-0 bg-white/20 rounded-full animate-ping opacity-20 group-hover:opacity-40 transition-opacity" />
-
-                        <div className="relative z-10 flex items-center justify-center">
-                            <Calculator className="w-6 h-6 md:w-7 md:h-7 opacity-80 group-hover:opacity-100 transition-opacity" strokeWidth={2} />
-                            {/* Pontinho de atenção - more refined */}
-                            <span className="absolute -top-1 -right-1 w-3 h-3 bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.8)] border-2 border-black/50" />
-                        </div>
+                        <Calculator className="w-7 h-7 text-white" weight="bold" color="#ffffff" />
+                        <span className="absolute top-0.5 right-0.5 flex h-3.5 w-3.5 z-10">
+                            <span
+                                className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-70"
+                                style={{ backgroundColor: '#ffffff' }}
+                            />
+                            <span
+                                className="relative inline-flex rounded-full h-3.5 w-3.5 border-2 border-[var(--domu-accent)] shadow-sm"
+                                style={{ backgroundColor: '#ffffff' }}
+                            />
+                        </span>
                     </motion.button>
                 )}
             </AnimatePresence>
 
-            {/* Modal de Pop-up */}
             <AnimatePresence>
                 {isVisible && (
                     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
-                        {/* Overlay */}
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             onClick={closePopup}
-                            className="absolute inset-0 bg-black/90 backdrop-blur-sm"
+                            className="absolute inset-0 bg-[var(--domu-dark-bg)]/40 backdrop-blur-[2px]"
                         />
 
-                        {/* Popup Card */}
-                        <motion.div 
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 10 }}
-                            className="relative w-full max-w-[440px] bg-black/60 backdrop-blur-2xl rounded-[32px] overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10"
+                        <motion.div
+                            role="dialog"
+                            aria-modal="true"
+                            aria-labelledby="calc-popup-title"
+                            initial={{ opacity: 0, y: 16, scale: 0.98 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 12, scale: 0.98 }}
+                            transition={{ type: 'spring', stiffness: 280, damping: 26 }}
+                            className="relative w-full max-w-[420px] overflow-hidden rounded-lg border border-white/12 bg-[var(--domu-dark-bg)] shadow-[0_24px_64px_-24px_rgba(0,0,0,0.65)]"
                         >
-                            {/* Subtle internal glow */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] to-transparent pointer-events-none" />
+                            <div className="absolute -top-20 -right-16 w-56 h-56 rounded-full bg-[var(--domu-accent)]/25 blur-[90px] pointer-events-none" />
+                            <div className="absolute -bottom-24 -left-16 w-56 h-56 rounded-full bg-[var(--domu-accent)]/15 blur-[90px] pointer-events-none" />
 
-                            {/* Close Button */}
-                            <button 
+                            <button
+                                type="button"
                                 onClick={closePopup}
-                                className="absolute top-8 right-8 text-white/20 hover:text-white transition-all z-50 hover:scale-110"
+                                className="absolute top-4 right-4 z-20 w-9 h-9 rounded-lg flex items-center justify-center hover:brightness-95 transition-all shadow-sm"
+                                style={{ backgroundColor: '#ffffff' }}
+                                aria-label="Fechar"
                             >
-                                <X className="w-5 h-5" strokeWidth={2.5} />
+                                <X className="w-4 h-4" weight="bold" color="#0047FF" />
                             </button>
 
-                            <div className="p-8 md:p-14 relative z-10">
-                                <h2 className="text-white font-black text-3xl md:text-4xl leading-[1.1]  tracking-[-0.02em] mb-6">
-                                    QUANTO CUSTA <br />
-                                    O SEU <span className="text-gradient">PRÓXIMO SITE?</span>
-                                </h2>
-                                
-                                <p className="text-white/50 text-sm md:text-base leading-relaxed mb-10">
-                                    Descubra o investimento ideal para o seu projeto com nossa calculadora de precisão.
+                            <div className="relative z-10 p-7 md:p-8">
+                                <div className="w-11 h-11 rounded-lg flex items-center justify-center mb-5 bg-[var(--domu-accent)]">
+                                    <Calculator className="w-5 h-5" weight="bold" color="#ffffff" />
+                                </div>
+
+                                <p className="type-eyebrow mb-3" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                                    Calculadora de orçamento
                                 </p>
 
-                                <motion.button 
-                                    whileHover={{ scale: 1.02, y: -2 }}
-                                    whileTap={{ scale: 0.98 }}
-                                    onClick={handleAction}
-                                    className="w-full bg-[var(--domu-accent)] text-white py-5 rounded-2xl font-black uppercase text-[12px] tracking-[0.15em] transition-all flex items-center justify-center gap-4 shadow-[0_15px_30px_rgba(88,127,129,0.2)]"
+                                <h2
+                                    id="calc-popup-title"
+                                    className="font-black text-[1.5rem] md:text-[1.75rem] leading-tight tracking-tight mb-3"
+                                    style={{ color: '#ffffff' }}
                                 >
-                                    <Calculator className="w-5 h-5" strokeWidth={2.5} />
-                                    <span>Calcular agora</span>
-                                </motion.button>
-                            </div>
+                                    Quanto custa o seu{' '}
+                                    <span style={{ color: '#4D7CFF' }}>próximo site?</span>
+                                </h2>
 
-                            {/* Ghost Logo Accent - Bem sutil */}
-                            <div className="absolute bottom-[-5%] right-[-5%] w-48 h-48 rotate-[-15deg] opacity-[0.03] pointer-events-none">
-                                <img src="/logos/logo-glitch.png" alt="" className="w-full h-auto" />
+                                <p
+                                    className="type-body mb-7 max-w-[34ch]"
+                                    style={{ color: 'rgba(255,255,255,0.65)' }}
+                                >
+                                    Descubra o investimento ideal para o seu projeto com nossa estimativa rápida e sem compromisso.
+                                </p>
+
+                                <button
+                                    type="button"
+                                    onClick={handleAction}
+                                    className="btn-budget w-full !text-white"
+                                >
+                                    <Calculator className="w-3.5 h-3.5" weight="bold" color="#ffffff" />
+                                    Calcular agora
+                                </button>
+
+                                <p
+                                    className="type-eyebrow text-center mt-4"
+                                    style={{ color: 'rgba(255,255,255,0.35)' }}
+                                >
+                                    Resposta em poucos minutos
+                                </p>
                             </div>
                         </motion.div>
                     </div>

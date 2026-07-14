@@ -1,95 +1,106 @@
-
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MenuIcon, XIcon, ArrowRightIcon, ArrowUpRightIcon, ChevronDownIcon, WhatsAppIcon, GlobeIcon, AutomationIcon, CodeIcon, TargetIcon, PaletteIcon, SunIcon, MoonIcon } from './icons';
+import {
+    House,
+    Briefcase,
+    FolderSimple,
+    UsersThree,
+    Calculator,
+    Storefront,
+} from '@phosphor-icons/react';
+import {
+    MenuIcon,
+    XIcon,
+    ArrowUpRightIcon,
+    ChevronDownIcon,
+    WhatsAppIcon,
+    GlobeIcon,
+    AutomationIcon,
+    CodeIcon,
+    TargetIcon,
+    PaletteIcon,
+    SunIcon,
+    MoonIcon,
+} from './icons';
 
 const SERVICES_LIST = [
-    { 
-        name: 'Criação de Sites', 
-        desc: 'Desenvolvimento de sites institucionais, landing pages e e-commerces de alta conversão.',
-        href: '/servico/site-sob-medida',
-        icon: GlobeIcon,
-        color: 'from-emerald-400 to-teal-500',
-        iconColor: 'text-emerald-400',
-        hoverBorder: 'group-hover:border-emerald-500/50',
-        hoverGlow: 'group-hover:shadow-[0_0_30px_rgba(16,185,129,0.15)]',
-        hoverBg: 'group-hover:bg-emerald-500/10'
-    },
-    { 
-        name: 'IA & Automação', 
-        desc: 'Otimize processos e escale seu atendimento com integrações inteligentes de IA e chatbots.',
-        href: '/servico/automacao-ia',
-        icon: AutomationIcon,
-        color: 'from-purple-500 to-pink-400',
-        iconColor: 'text-purple-400',
-        hoverBorder: 'group-hover:border-purple-500/50',
-        hoverGlow: 'group-hover:shadow-[0_0_30px_rgba(168,85,247,0.15)]',
-        hoverBg: 'group-hover:bg-purple-500/10'
-    },
-    { 
-        name: 'Software House', 
-        desc: 'Engenharia de software para criação de sistemas robustos, apps e plataformas personalizadas.',
-        href: '/servico/software-house',
-        icon: CodeIcon,
-        color: 'from-blue-500 to-indigo-600',
-        iconColor: 'text-blue-400',
-        hoverBorder: 'group-hover:border-blue-500/50',
-        hoverGlow: 'group-hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]',
-        hoverBg: 'group-hover:bg-blue-500/10'
-    },
-    { 
-        name: 'Tráfego & Performance', 
-        desc: 'Estratégias avançadas de tráfego pago (Google e Meta Ads) para maximizar o seu faturamento.',
-        href: '/servico/trafego-performance',
-        icon: TargetIcon,
-        color: 'from-orange-500 to-red-600',
-        iconColor: 'text-orange-400',
-        hoverBorder: 'group-hover:border-orange-500/50',
-        hoverGlow: 'group-hover:shadow-[0_0_30px_rgba(249,115,22,0.15)]',
-        hoverBg: 'group-hover:bg-orange-500/10'
-    },
-    { 
-        name: 'Branding & Design UX', 
-        desc: 'Criação de identidades visuais impactantes e interfaces focadas na experiência do usuário (UX/UI).',
-        href: '/servico/branding-design',
-        icon: PaletteIcon,
-        color: 'from-pink-500 to-rose-400',
-        iconColor: 'text-pink-400',
-        hoverBorder: 'group-hover:border-pink-500/50',
-        hoverGlow: 'group-hover:shadow-[0_0_30px_rgba(236,72,153,0.15)]',
-        hoverBg: 'group-hover:bg-pink-500/10'
-    },
+    { name: 'Criação de Sites', href: '/servico/site-sob-medida', icon: GlobeIcon },
+    { name: 'Software House', href: '/servico/software-house', icon: CodeIcon },
+    { name: 'IA & Automação', href: '/servico/automacao-ia', icon: AutomationIcon },
+    { name: 'Tráfego & Performance', href: '/servico/trafego-performance', icon: TargetIcon },
+    { name: 'Branding & Design UX', href: '/servico/branding-design', icon: PaletteIcon },
 ];
 
+const NAV_ITEMS = [
+    { name: 'Home', href: '/', icon: House, type: 'link' as const },
+    { name: 'Serviços', href: '#services', icon: Briefcase, type: 'services' as const },
+    { name: 'Cases', href: '/cases', icon: FolderSimple, type: 'link' as const },
+    { name: 'Sobre', href: '/sobre', icon: UsersThree, type: 'link' as const },
+    { name: 'Orçamento', href: '/chatbot-placeholder', icon: Calculator, type: 'link' as const },
+];
+
+const ANNOUNCE_ITEMS = [
+    { text: 'Orçamento sob medida para o seu negócio', cta: 'Pedir orçamento', href: '/chatbot-placeholder' },
+    { text: 'Resposta rápida no WhatsApp', cta: 'Falar agora', href: '/chatbot-placeholder' },
+    { text: 'Sites, e-commerces e apps sob medida', cta: 'Ver soluções', href: '/#services' },
+    { text: 'Comece seu projeto digital hoje', cta: 'Solicitar proposta', href: '/chatbot-placeholder' },
+] as const;
+
+const ANNOUNCE_LOOPS = 4;
+
+function buildAnnounceStrip(stripId: string) {
+    const items: { text: string; cta: string; href: string; key: string }[] = [];
+    for (let loop = 0; loop < ANNOUNCE_LOOPS; loop++) {
+        ANNOUNCE_ITEMS.forEach((item, i) => {
+            items.push({ ...item, key: `${stripId}-${loop}-${i}` });
+        });
+    }
+    return items;
+}
+
 const Header: React.FC = () => {
+    const location = useLocation();
+    const headerRef = useRef<HTMLElement>(null);
+    const [spacerH, setSpacerH] = useState(112);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isServicesOpen, setIsServicesOpen] = useState(false);
-    const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout | null>(null);
-    const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+    const [closeTimeout, setCloseTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
+    const [theme, setTheme] = useState<'dark' | 'light'>('light');
 
-    const toggleTheme = () => {
-        const nextTheme = theme === 'dark' ? 'light' : 'dark';
-        setTheme(nextTheme);
-        if (nextTheme === 'light') {
+    const applyChromeHeight = (h: number) => {
+        setSpacerH(h);
+        document.documentElement.style.setProperty('--site-chrome-h', `${h}px`);
+    };
+
+    const isActive = (href: string) => {
+        if (href === '/') return location.pathname === '/';
+        return location.pathname === href || location.pathname.startsWith(`${href}/`);
+    };
+    const servicesActive = location.pathname.startsWith('/servico');
+
+    const applyTheme = (next: 'dark' | 'light') => {
+        setTheme(next);
+        localStorage.setItem('domu_theme', next);
+        if (next === 'light') {
             document.documentElement.classList.add('light-theme');
-            localStorage.setItem('domu_theme', 'light');
+            document.documentElement.classList.remove('dark-theme', 'dark');
         } else {
+            document.documentElement.classList.add('dark-theme', 'dark');
             document.documentElement.classList.remove('light-theme');
-            localStorage.setItem('domu_theme', 'dark');
         }
     };
 
+    const toggleTheme = () => applyTheme(theme === 'dark' ? 'light' : 'dark');
+
     useEffect(() => {
-        const savedTheme = localStorage.getItem('domu_theme');
-        if (savedTheme === 'light') {
-            document.documentElement.classList.add('light-theme');
-            setTheme('light');
-        } else {
-            document.documentElement.classList.remove('light-theme');
-            setTheme('dark');
+        if (localStorage.getItem('domu_palette') !== 'domu_clean_v2') {
+            localStorage.setItem('domu_palette', 'domu_clean_v2');
+            localStorage.setItem('domu_theme', 'light');
+            localStorage.removeItem('theme');
         }
+        applyTheme(localStorage.getItem('domu_theme') === 'dark' ? 'dark' : 'light');
     }, []);
 
     const handleMouseEnter = () => {
@@ -101,231 +112,371 @@ const Header: React.FC = () => {
     };
 
     const handleMouseLeave = () => {
-        const timeout = setTimeout(() => {
-            setIsServicesOpen(false);
-        }, 300); // Aumentado para 300ms para evitar fechamentos acidentais
+        const timeout = setTimeout(() => setIsServicesOpen(false), 280);
         setCloseTimeout(timeout);
     };
 
     useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
+        /* Histerese + snap suave: barra colapsa/expande sem loop */
+        const HIDE_AT = 80;
+        const SHOW_AT = 10;
+        const SNAP_ZONE = 64;
+
+        let announceHidden = window.scrollY > HIDE_AT;
+        let lastY = window.scrollY;
+        let snapping = false;
+        let snapTimer: ReturnType<typeof setTimeout> | null = null;
+
+        setIsScrolled(announceHidden);
+
+        const revealAnnounce = () => {
+            if (!announceHidden) return;
+            announceHidden = false;
+            setIsScrolled(false);
         };
-        window.addEventListener('scroll', handleScroll);
 
+        const hideAnnounce = () => {
+            if (announceHidden) return;
+            announceHidden = true;
+            setIsScrolled(true);
+        };
 
+        const finishSnap = () => {
+            snapping = false;
+            if (snapTimer) {
+                clearTimeout(snapTimer);
+                snapTimer = null;
+            }
+            if (window.scrollY <= SHOW_AT) revealAnnounce();
+        };
+
+        const handleScroll = () => {
+            if (snapping) {
+                if (window.scrollY <= SHOW_AT) finishSnap();
+                lastY = window.scrollY;
+                return;
+            }
+
+            const y = window.scrollY;
+            const goingUp = y < lastY - 0.5;
+
+            if (goingUp && y > 0 && y < SNAP_ZONE) {
+                snapping = true;
+                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+                snapTimer = setTimeout(finishSnap, 700);
+                lastY = y;
+                return;
+            }
+
+            if (!announceHidden && y >= HIDE_AT) {
+                hideAnnounce();
+            } else if (announceHidden && y <= SHOW_AT) {
+                revealAnnounce();
+            }
+
+            lastY = window.scrollY;
+        };
+
+        handleScroll();
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            if (snapTimer) clearTimeout(snapTimer);
             if (closeTimeout) clearTimeout(closeTimeout);
         };
     }, [closeTimeout]);
 
+    /* Spacer = altura real do header: conteúdo NUNCA fica por baixo do fixed */
+    useLayoutEffect(() => {
+        const el = headerRef.current;
+        if (!el) return;
+
+        const syncSpacer = () => {
+            applyChromeHeight(Math.ceil(el.getBoundingClientRect().height));
+        };
+
+        syncSpacer();
+        const ro = new ResizeObserver(syncSpacer);
+        ro.observe(el);
+        window.addEventListener('resize', syncSpacer);
+        return () => {
+            ro.disconnect();
+            window.removeEventListener('resize', syncSpacer);
+        };
+    }, [isScrolled]);
+
+    useEffect(() => {
+        document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isMenuOpen]);
+
+    const navIdle = 'header-nav-chip';
+    const navActive = 'header-nav-chip is-active';
+
+    const menuBtn =
+        theme === 'light'
+            ? 'bg-[var(--domu-accent)]/12 text-[var(--domu-accent)]'
+            : 'bg-white/10 text-white';
+    const dropIcon = theme === 'light' ? 'text-[var(--domu-accent)]' : 'text-white';
+
     return (
         <>
-
-            {/* Main Header */}
-            <header 
-                className={`sticky top-0 left-0 right-0 z-50 border-b border-white/5 transition-all duration-500 ${isScrolled ? 'bg-[var(--domu-bg)] shadow-2xl py-2' : 'bg-[var(--domu-bg)] py-2'}`}
-                style={{ '--domu-accent': '#005BFF' } as React.CSSProperties}
-            >
-                <div className="container mx-auto px-4 md:px-8">
-                    <div className="flex items-center justify-between h-14 md:h-16">
-                        
-                        {/* Logo */}
-                        <Link to="/" className="flex items-center gap-3 group relative z-10">
-                            <img 
-                                src={theme === 'light' ? "/logos/logopreta.png" : "/logos/logoheaderfooter.png"} 
-                                alt="DomuTech" 
-                                className="h-8 md:h-10 w-auto transition-all duration-500 group-hover:scale-105 object-contain"
-                            />
-                        </Link>
-
-                        {/* Navigation */}
-                        <nav className="hidden min-[1440px]:flex items-center gap-8 absolute left-1/2 -translate-x-1/2 h-full">
-                            <Link to="/" className="group relative h-full flex items-center overflow-hidden">
-                                <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[#005BFF] transition-all duration-300">Home</span>
-                            </Link>
-                            
-                            {/* Services Dropdown */}
-                            <div 
-                                className="group h-full flex items-center"
-                                onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave}
-                            >
-                                <button className={`font-black text-[11px] uppercase tracking-[0.1em] transition-all flex items-center gap-1.5 focus:outline-none py-2 ${isServicesOpen ? 'text-[#005BFF]' : 'text-[var(--domu-muted)] hover:text-[#005BFF]'}`}>
-                                    Serviços
-                                    <ChevronDownIcon className={`w-3 h-3 transition-transform duration-300 ${isServicesOpen ? 'rotate-180 text-[#005BFF]' : ''}`} />
-                                </button>
-
-                                {/* Mega Menu Restaurado na Hierarquia */}
-                                <AnimatePresence>
-                                    {isServicesOpen && (
-                                        <motion.div 
-                                            onMouseEnter={handleMouseEnter}
-                                            onMouseLeave={handleMouseLeave}
-                                            initial={{ opacity: 0, y: 10, x: "-50%" }}
-                                            animate={{ opacity: 1, y: 0, x: "-50%" }}
-                                            exit={{ opacity: 0, y: 0, x: "-50%" }}
-                                            transition={{ duration: 0.2 }}
-                                            className="absolute top-full left-1/2 w-screen max-w-5xl pt-0 z-[100] px-4"
-                                        >
-                                            <div className="absolute top-0 left-0 right-0 h-[40px] bg-transparent" />
-                                            <div className="bg-[var(--domu-bg)] border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8)] rounded-2xl overflow-hidden">
-                                                <div className="p-10">
-                                                    <div className="mb-8">
-                                                        <span className="text-white/30 font-black text-[11px] uppercase tracking-[0.25em]">Confira as nossas soluções especializadas:</span>
-                                                    </div>
-                                                    
-                                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                                        {SERVICES_LIST.map((svc) => (
-                                                            <Link 
-                                                                key={svc.name} 
-                                                                to={svc.href}
-                                                                className="group relative flex flex-col gap-3 p-6 bg-white/[0.01] border border-white/5 rounded-2xl hover:bg-white/[0.03] hover:border-white/10 transition-all duration-500 ease-out overflow-hidden"
-                                                            >
-                                                                {/* Ghost Icon Background */}
-                                                                <div className={`absolute -top-4 -right-4 opacity-[0.07] transform scale-150 rotate-12 ${svc.iconColor}`}>
-                                                                    <svc.icon className="w-24 h-24" />
-                                                                </div>
-
-                                                                <div className="flex items-center gap-4 relative z-10">
-                                                                    <div className={`flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 ${svc.iconColor}`}>
-                                                                        <svc.icon className="w-5 h-5" />
-                                                                    </div>
-                                                                    <span className={`font-black text-[16px] uppercase tracking-wider ${svc.iconColor}`}>
-                                                                        {svc.name}
-                                                                    </span>
-                                                                </div>
-                                                                <p className="text-white/30 font-medium text-[14px] leading-relaxed relative z-10">
-                                                                    {svc.desc}
-                                                                </p>
-                                                            </Link>
-                                                        ))}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
+            <header ref={headerRef} className="site-header">
+                <div
+                    className={`site-announce-slot ${isScrolled ? 'is-collapsed' : ''}`}
+                    aria-hidden={isScrolled}
+                >
+                    <div className="site-announce-slot__inner">
+                        <div className="site-announce">
+                            <div className="announce-marquee" aria-label="Avisos">
+                                <div className="announce-marquee__track">
+                                    <ul className="announce-marquee__group">
+                                        {buildAnnounceStrip('a').map((item) => (
+                                            <li key={item.key} className="announce-marquee__item">
+                                                <span className="announce-marquee__text">{item.text}</span>
+                                                <Link to={item.href} className="announce-marquee__cta">
+                                                    {item.cta}
+                                                    <ArrowUpRightIcon className="w-3 h-3" />
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <ul className="announce-marquee__group" aria-hidden>
+                                        {buildAnnounceStrip('b').map((item) => (
+                                            <li key={item.key} className="announce-marquee__item">
+                                                <span className="announce-marquee__text">{item.text}</span>
+                                                <Link to={item.href} className="announce-marquee__cta" tabIndex={-1}>
+                                                    {item.cta}
+                                                    <ArrowUpRightIcon className="w-3 h-3" />
+                                                </Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
-
-                            <Link to="/cases" className="group relative h-full flex items-center overflow-hidden">
-                                <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[#005BFF] transition-all duration-300">Cases</span>
-                            </Link>
-                            <Link to="/sobre" className="group relative h-full flex items-center overflow-hidden">
-                                <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[#005BFF] transition-all duration-300">Sobre Nós</span>
-                            </Link>
-                            <Link to="/chatbot-placeholder" className="group relative h-full flex items-center overflow-hidden">
-                                <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.1em] group-hover:text-[#005BFF] transition-all duration-300">Orçamento</span>
-                            </Link>
-                            <Link to="/layouts" className="group relative h-full flex items-center ml-2">
-                                <span className="relative text-[#005BFF] font-black text-[10px] uppercase tracking-[0.2em] px-5 py-2.5 border border-[#005BFF]/40 rounded-full hover:bg-[#005BFF] hover:text-white transition-all duration-500">
-                                    Loja de Layouts
-                                </span>
-                            </Link>
-                        </nav>
-
-
-                        {/* Actions (WhatsApp + Theme Toggle + Mobile Menu Toggle) */}
-                        <div className="flex items-center gap-4 relative z-10">
-                            {/* Theme Toggle Button */}
-                            <button
-                                onClick={toggleTheme}
-                                className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 shadow-sm"
-                                aria-label="Alternar tema"
-                            >
-                                {theme === 'light' ? (
-                                    <MoonIcon className="w-5 h-5 text-black hover:text-neutral-700" />
-                                ) : (
-                                    <SunIcon className="w-5 h-5 text-white hover:text-neutral-200" />
-                                )}
-                            </button>
-
-                            {/* Phone Button */}
-                            <div className="hidden min-[1440px]:block">
-                                <a 
-                                    href="https://wa.me/5511934430659" 
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="btn-whatsapp group overflow-hidden"
-                                >
-                                    <div className="relative flex items-center gap-2">
-                                        <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
-                                        <span>Falar no WhatsApp</span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            {/* Mobile Toggle */}
-                            <button 
-                                className="min-[1440px]:hidden p-2 -mr-2 flex items-center justify-center text-white" 
-                                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                                aria-label="Menu"
-                            >
-                                 <MenuIcon className="w-8 h-8" />
-                            </button>
                         </div>
                     </div>
                 </div>
 
-                {/* Mobile Menu Overlay */}
-                <div className={`fixed inset-0 bg-[var(--domu-bg)] z-[100] transition-all duration-500 ease-in-out ${isMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'}`}>
-                   <div className="p-6 flex justify-between items-center border-b border-white/5 bg-[var(--domu-bg)]">
-                        <div className="flex items-center gap-2">
-                             <img src={theme === 'light' ? "/logos/logopreta.png" : "/logos/logoheaderfooter.png"} alt="DOMU TECH" className="h-8 w-auto object-contain" />
-                        </div>
-                        <button 
-                            onClick={() => setIsMenuOpen(false)}
-                            className="w-10 h-10 flex items-center justify-center bg-white/5 rounded-full"
-                        >
-                            <XIcon className="w-6 h-6 text-white" />
-                        </button>
-                   </div>
-                   
-                   <div className="flex flex-col gap-8 pt-12 px-8 h-[calc(100vh-80px)] overflow-y-auto pb-20">
-                        <div className="flex flex-col gap-4">
-                            <span className="text-white/30 font-black text-[10px] uppercase tracking-[0.3em]">Navegação</span>
-                            <nav className="flex flex-col gap-4">
-                                <Link to="/" className="text-white font-black text-4xl uppercase tracking-tighter" onClick={() => setIsMenuOpen(false)}>Home</Link>
-                                <Link to="/cases" className="text-white font-black text-4xl uppercase tracking-tighter" onClick={() => setIsMenuOpen(false)}>Cases</Link>
-                                <Link to="/sobre" className="text-white font-black text-4xl uppercase tracking-tighter" onClick={() => setIsMenuOpen(false)}>Sobre Nós</Link>
-                                <Link to="/chatbot-placeholder" className="text-white font-black text-4xl uppercase tracking-tighter" onClick={() => setIsMenuOpen(false)}>Orçamento</Link>
-                                <Link to="/layouts" className="text-[#005BFF] font-black text-4xl uppercase tracking-tighter flex items-center gap-4" onClick={() => setIsMenuOpen(false)}>
-                                    Loja de Layouts
-                                    <span className="w-2 h-2 bg-[#005BFF] rounded-full animate-ping" />
-                                </Link>
-                            </nav>
-                        </div>
-                        
-                        <div className="flex flex-col gap-4 mt-4">
-                            <span className="text-white/30 font-black text-[10px] uppercase tracking-[0.3em]">Nossos Serviços</span>
-                            <div className="grid grid-cols-1 gap-2">
-                                {SERVICES_LIST.slice(0, 6).map(svc => (
-                                    <Link 
-                                        key={svc.name} 
-                                        to={svc.href} 
-                                        className="text-white/60 hover:text-white font-bold text-lg uppercase tracking-tight py-1" 
-                                        onClick={() => setIsMenuOpen(false)}
+                <div
+                    className={`site-header-bar ${isScrolled ? 'is-scrolled' : ''}`}
+                >
+                    <div className="site-header-bar__inner mx-auto max-w-[92rem] flex items-center gap-3 md:gap-4 h-16 md:h-[4.25rem]">
+                        <Link to="/" className="flex items-center shrink-0 group" aria-label="DomuTech">
+                            <img
+                                src="/frame-1.png"
+                                alt="DOMU TECH"
+                                className="site-logo h-9 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+                            />
+                        </Link>
+
+                        <nav className="hidden lg:flex flex-1 items-center justify-center gap-0.5 min-w-0">
+                            {NAV_ITEMS.map((item) => {
+                                if (item.type === 'services') {
+                                    const active = isServicesOpen || servicesActive;
+                                    return (
+                                        <div
+                                            key={item.name}
+                                            className="relative"
+                                            onMouseEnter={handleMouseEnter}
+                                            onMouseLeave={handleMouseLeave}
+                                        >
+                                            <button
+                                                type="button"
+                                                className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg ${
+                                                    active ? navActive : navIdle
+                                                }`}
+                                            >
+                                                <item.icon className="w-3.5 h-3.5" weight={active ? 'fill' : 'regular'} />
+                                                <span className="header-nav-label text-current">{item.name}</span>
+                                                <ChevronDownIcon
+                                                    className={`w-3 h-3 opacity-60 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`}
+                                                />
+                                            </button>
+
+                                            <AnimatePresence>
+                                                {isServicesOpen && (
+                                                    <motion.div
+                                                        onMouseEnter={handleMouseEnter}
+                                                        onMouseLeave={handleMouseLeave}
+                                                        initial={{ opacity: 0, y: 6, x: '-50%' }}
+                                                        animate={{ opacity: 1, y: 0, x: '-50%' }}
+                                                        exit={{ opacity: 0, y: 4, x: '-50%' }}
+                                                        transition={{ duration: 0.15 }}
+                                                        className="absolute top-full left-1/2 pt-2 z-[120]"
+                                                    >
+                                                        <div className="site-header-dropdown min-w-[13.5rem] rounded-lg border overflow-hidden p-1.5 shadow-[0_12px_32px_-12px_rgba(10,15,24,0.35)]">
+                                                            {SERVICES_LIST.map((svc) => (
+                                                                <Link
+                                                                    key={svc.name}
+                                                                    to={svc.href}
+                                                                    className="header-drop-item flex items-center gap-2.5 px-3 py-2 rounded-lg"
+                                                                >
+                                                                    <svc.icon className={`w-3.5 h-3.5 shrink-0 ${dropIcon}`} />
+                                                                    <span className="header-nav-label text-current">{svc.name}</span>
+                                                                </Link>
+                                                            ))}
+                                                        </div>
+                                                    </motion.div>
+                                                )}
+                                            </AnimatePresence>
+                                        </div>
+                                    );
+                                }
+
+                                const active = isActive(item.href);
+                                return (
+                                    <Link
+                                        key={item.name}
+                                        to={item.href}
+                                        className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg ${
+                                            active ? navActive : navIdle
+                                        }`}
                                     >
-                                        {svc.name}
+                                        <item.icon className="w-3.5 h-3.5" weight={active ? 'fill' : 'regular'} />
+                                        <span className="header-nav-label text-current">{item.name}</span>
                                     </Link>
-                                ))}
-                            </div>
-                        </div>
-                        
-                        <div className="mt-auto pt-8 border-t border-white/5">
-                            <Link 
-                                to="/chatbot-placeholder" 
-                                className="w-full btn-budget flex items-center justify-center gap-3"
-                                onClick={() => setIsMenuOpen(false)}
+                                );
+                            })}
+
+                            <Link
+                                to="/layouts"
+                                className={`header-capsule-btn inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg ${navIdle}`}
+                                title="Loja de Layouts"
                             >
-                                <ArrowUpRightIcon className="w-5 h-5 fill-current" />
-                                Solicitar Orçamento
+                                <Storefront className="w-3.5 h-3.5" weight="regular" />
+                                <span className="header-nav-label text-current">Layouts</span>
                             </Link>
+                        </nav>
+
+                        <div className="flex items-center gap-1.5 shrink-0 ml-auto lg:ml-0">
+                            <button
+                                type="button"
+                                onClick={toggleTheme}
+                                className="header-capsule-btn header-theme-toggle w-8 h-8 flex items-center justify-center rounded-lg transition-colors"
+                                aria-label="Alternar tema"
+                            >
+                                {theme === 'light' ? (
+                                    <MoonIcon className="w-4 h-4" />
+                                ) : (
+                                    <SunIcon className="w-4 h-4" />
+                                )}
+                            </button>
+
+                            <a
+                                href="https://wa.me/5511934430659"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="hidden sm:inline-flex items-center gap-1.5 h-8 px-2.5 rounded-lg text-[0.75rem] font-semibold text-[#25D366] bg-[#25D366]/10 border border-[#25D366]/35 hover:bg-[#25D366]/15 hover:border-[#25D366]/50 transition-colors"
+                            >
+                                <WhatsAppIcon className="w-4 h-4 shrink-0 text-[#25D366]" />
+                                <span className="text-[#25D366]">WhatsApp</span>
+                            </a>
+
+                            <button
+                                type="button"
+                                className={`header-capsule-btn lg:hidden w-9 h-9 flex items-center justify-center rounded-lg ${menuBtn}`}
+                                onClick={() => setIsMenuOpen(true)}
+                                aria-label="Abrir menu"
+                            >
+                                <MenuIcon className="w-5 h-5" />
+                            </button>
                         </div>
-                   </div>
+                    </div>
                 </div>
             </header>
+
+            {/* Empurra o site pra baixo: header fixed fica em cima do spacer, não do Hero */}
+            <div className="site-header-spacer" style={{ height: spacerH }} aria-hidden />
+
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="on-dark fixed inset-0 z-[100]"
+                        style={{ backgroundColor: 'var(--domu-dark-bg)' }}
+                    >
+                        <div className="flex items-center justify-between px-5 pt-5 pb-4 border-b border-white/10">
+                            <img src="/frame-1.png" alt="DOMU TECH" className="site-logo site-logo--white h-11 w-auto object-contain" />
+                            <button
+                                type="button"
+                                onClick={() => setIsMenuOpen(false)}
+                                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white"
+                                aria-label="Fechar menu"
+                            >
+                                <XIcon className="w-5 h-5" />
+                            </button>
+                        </div>
+
+                        <div className="page-pad-x pt-8 pb-10 h-[calc(100vh-5rem)] overflow-y-auto flex flex-col gap-8">
+                            <nav className="flex flex-col gap-1">
+                                {NAV_ITEMS.filter((i) => i.type === 'link').map((item) => (
+                                    <Link
+                                        key={item.name}
+                                        to={item.href}
+                                        onClick={() => setIsMenuOpen(false)}
+                                        className="flex items-center gap-3 rounded-xl px-3 py-3 text-white hover:bg-white/[0.05] transition-colors"
+                                    >
+                                        <item.icon className="w-5 h-5 text-[var(--domu-accent-light)]" weight="duotone" />
+                                        <span className="type-card-title !text-white">{item.name}</span>
+                                    </Link>
+                                ))}
+                                <Link
+                                    to="/layouts"
+                                    onClick={() => setIsMenuOpen(false)}
+                                    className="flex items-center gap-3 rounded-xl px-3 py-3 text-[var(--domu-accent-light)] hover:bg-white/[0.05] transition-colors"
+                                >
+                                    <Storefront className="w-5 h-5" weight="duotone" />
+                                    <span className="type-card-title !text-[var(--domu-accent-light)]">Loja de Layouts</span>
+                                </Link>
+                            </nav>
+
+                            <div>
+                                <p className="type-eyebrow mb-3 px-3" style={{ color: 'rgba(255,255,255,0.35)' }}>
+                                    Serviços
+                                </p>
+                                <div className="flex flex-col gap-1">
+                                    {SERVICES_LIST.map((svc) => (
+                                        <Link
+                                            key={svc.name}
+                                            to={svc.href}
+                                            onClick={() => setIsMenuOpen(false)}
+                                            className="rounded-xl px-3 py-2.5 type-link text-white/70 hover:text-white hover:bg-white/[0.05] transition-colors"
+                                        >
+                                            {svc.name}
+                                        </Link>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="mt-auto pt-6 border-t border-white/10 space-y-3">
+                                <a
+                                    href="https://wa.me/5511934430659"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="w-full btn-whatsapp-solid"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
+                                    WhatsApp
+                                </a>
+                                <Link
+                                    to="/chatbot-placeholder"
+                                    className="btn-budget w-full"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    <ArrowUpRightIcon className="w-3.5 h-3.5" />
+                                    Solicitar Orçamento
+                                </Link>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </>
     );
 };

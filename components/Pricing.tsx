@@ -1,5 +1,5 @@
 import React from "react";
-import { Monitor, Star, Check } from "lucide-react";
+import { DesktopTower, Star, Check } from "@phosphor-icons/react";
 import AnimateOnScroll from "./AnimateOnScroll";
 import { ArrowUpRightIcon, PhoneIcon, WhatsAppIcon } from "./icons";
 
@@ -38,18 +38,18 @@ const Pricing: React.FC = () => {
       {/* Branding Ghosts Constellation - Forced to Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15] z-0">
         <img
-          src="/logos/logo-glitch.png"
+          src="/fraucon.png"
           className="absolute bottom-[10%] left-0 w-64 h-64 animate-spin-slow object-contain"
           style={{ animationDuration: "55s" }}
           alt=""
         />
         <img
-          src="/logos/logo-glitch.png"
+          src="/fraucon.png"
           className="absolute top-[15%] right-[10%] w-32 h-32 animate-float object-contain"
           alt=""
         />
         <img
-          src="/logos/logo-glitch.png"
+          src="/fraucon.png"
           className="absolute top-[50%] left-[10%] w-20 h-20 animate-float-delayed object-contain"
           alt=""
         />
@@ -65,27 +65,27 @@ const Pricing: React.FC = () => {
             <div className="group bg-[var(--domu-surface-1)] rounded-3xl p-8 md:p-10 shadow-2xl border border-white/5 hover:border-white/10 transition-all duration-500 h-full flex flex-col hover:-translate-y-1">
               <div className="text-center mb-6">
                 <div className="w-14 h-14 bg-[var(--domu-surface-2)] border border-white/5 rounded-2xl flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform">
-                  <Monitor className="w-7 h-7" strokeWidth={1.5} />
+                  <DesktopTower className="w-7 h-7" weight="duotone" />
                 </div>
                 <h3 className="text-white font-black text-2xl  tracking-tight mb-2">
                   Site Expresso
                 </h3>
-                <p className="text-[var(--domu-muted)] text-[13px] leading-snug opacity-60 font-medium mx-auto">
+                <p className="p-domu opacity-70 mx-auto">
                   Rapidez e investimento inteligente para sua empresa escalar.
                 </p>
               </div>
 
               <div className="text-center mb-6 py-6 border-y border-white/5 relative bg-[var(--domu-surface-2)] border border-white/5 rounded-2xl flex flex-col items-center justify-center min-h-[140px]">
-                <span className="text-[9px] font-black text-white/40 uppercase tracking-[0.2em] mb-1">
+                <span className="tag-domu !text-white/40 mb-1">
                   A partir de
                 </span>
                 <div className="flex items-center justify-center gap-1">
                   <span className="text-white/60 font-black text-2xl">R$</span>
-                  <span className="text-white font-black text-5xl tracking-tighter">
+                  <span className="stat-domu text-white">
                     609
                   </span>
                 </div>
-                <p className="text-[9px] font-bold text-[var(--domu-muted)] uppercase tracking-widest mt-1">
+                <p className="tag-domu mt-1">
                   + HOSPEDAGEM E SUPORTE
                 </p>
               </div>
@@ -95,10 +95,10 @@ const Pricing: React.FC = () => {
                 <ul className="space-y-4">
                   {EXPRESSO_FEATURES.map((f, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <div className="mt-0.5 w-4 h-4 bg-[#7B61FF]/20 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Check className="w-2 h-2 text-white" strokeWidth={4} />
+                      <div className="mt-0.5 w-4 h-4 bg-[var(--domu-accent)]/20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Check className="w-2 h-2 text-white" weight="bold" />
                       </div>
-                      <span className="text-[var(--domu-secondary)] text-[13px] font-medium leading-tight">
+                      <span className="p-domu !text-[var(--domu-secondary)] leading-tight">
                         {f}
                       </span>
                     </li>
@@ -107,7 +107,7 @@ const Pricing: React.FC = () => {
               </div>
 
               <a href="/chatbot-placeholder" className="btn-budget w-full">
-                <ArrowUpRightIcon className="w-5 h-5" />
+                <ArrowUpRightIcon className="w-3.5 h-3.5" />
                 Peça um Orçamento
               </a>
             </div>
@@ -116,7 +116,7 @@ const Pricing: React.FC = () => {
           {/* Coluna Central: Info e Astro */}
           <div className="flex flex-col items-center justify-center text-center px-4 py-8 order-first lg:order-none">
             <AnimateOnScroll>
-              <span className="text-[var(--domu-muted)] font-black text-[10px] uppercase tracking-[0.3em] mb-6 block">
+              <span className="tag-domu mb-6 block">
                 Planos e Preços
               </span>
               <h2 className="h2-domu text-gradient mb-8">
@@ -127,12 +127,12 @@ const Pricing: React.FC = () => {
               <div className="relative w-48 h-48 mb-8 group mx-auto">
                 <div className="absolute inset-0 bg-white/5 rounded-full blur-3xl scale-125"></div>
                 <img
-                  src="/logos/logo-glitch.png"
+                  src="/fraucon.png"
                   alt="Domu Tech"
                   className="relative z-10 w-full h-full object-contain animate-float opacity-90"
                 />
               </div>
-              <p className="text-[var(--domu-muted)] text-[15px] font-medium leading-relaxed mb-8 max-w-[280px] mx-auto">
+              <p className="lead-domu mb-8 max-w-[280px] mx-auto">
                 Soluções inteligentes para elevar sua presença digital ao
                 próximo nível.
               </p>
@@ -143,7 +143,7 @@ const Pricing: React.FC = () => {
                 rel="noopener noreferrer"
                 className="btn-whatsapp"
               >
-                <WhatsAppIcon className="w-5 h-5 fill-current transition-transform " />
+                <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
                 Falar no WhatsApp
               </a>
             </AnimateOnScroll>
@@ -154,12 +154,12 @@ const Pricing: React.FC = () => {
             <div className="group bg-[var(--domu-surface-1)] rounded-3xl p-8 md:p-10 shadow-2xl border border-white/5 hover:border-white/10 transition-all duration-500 h-full flex flex-col hover:-translate-y-1">
               <div className="text-center mb-6">
                 <div className="w-14 h-14 bg-[var(--domu-surface-2)] border border-white/5 rounded-2xl flex items-center justify-center mx-auto mb-4 text-white group-hover:scale-110 transition-transform">
-                  <Star className="w-7 h-7" strokeWidth={1.5} />
+                  <Star className="w-7 h-7" weight="duotone" />
                 </div>
                 <h3 className="text-white font-black text-2xl  tracking-tight mb-2">
                   Site Sob Medida
                 </h3>
-                <p className="text-[var(--domu-muted)] text-[13px] leading-snug opacity-60 font-medium mx-auto">
+                <p className="p-domu opacity-70 mx-auto">
                   UX/UI Design exclusiva para autoridade e conversão máxima.
                 </p>
               </div>
@@ -170,7 +170,7 @@ const Pricing: React.FC = () => {
                     Personalizado
                   </span>
                 </div>
-                <p className="text-[9px] font-bold text-[var(--domu-muted)] uppercase tracking-widest mt-1">
+                <p className="tag-domu mt-1">
                   SOB ORÇAMENTO
                 </p>
               </div>
@@ -180,10 +180,10 @@ const Pricing: React.FC = () => {
                 <ul className="space-y-4">
                   {CUSTOM_FEATURES.map((f, i) => (
                     <li key={i} className="flex items-start gap-4">
-                      <div className="mt-0.5 w-4 h-4 bg-[#7B61FF]/20 rounded-full flex items-center justify-center flex-shrink-0">
-                        <Check className="w-2 h-2 text-white" strokeWidth={4} />
+                      <div className="mt-0.5 w-4 h-4 bg-[var(--domu-accent)]/20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Check className="w-2 h-2 text-white" weight="bold" />
                       </div>
-                      <span className="text-[var(--domu-secondary)] text-[13px] font-medium leading-tight">
+                      <span className="p-domu !text-[var(--domu-secondary)] leading-tight">
                         {f}
                       </span>
                     </li>
@@ -192,7 +192,7 @@ const Pricing: React.FC = () => {
               </div>
 
               <a href="/chatbot-placeholder" className="btn-budget w-full">
-                <ArrowUpRightIcon className="w-5 h-5" />
+                <ArrowUpRightIcon className="w-3.5 h-3.5" />
                 Peça um Orçamento
               </a>
             </div>

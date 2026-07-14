@@ -13,16 +13,21 @@ interface CallToActionProps {
 
 const CallToAction: React.FC<CallToActionProps> = ({ title, subtitle, primaryButtonText, primaryButtonLink, variant = 'whatsapp' }) => {
     return (
-        <section className="py-16 bg-[var(--domu-bg)]">
+        <section className="section-domu bg-[var(--domu-bg)]">
             <div className="container mx-auto px-4">
                 <AnimateOnScroll>
-                    <div className="relative bg-white/5 p-8 md:p-20 rounded-xl overflow-hidden border border-white/10">
-                        <div className="relative z-10 grid lg:grid-cols-2 gap-10 md:gap-12 items-center">
+                    <div className="on-dark relative p-7 md:p-12 lg:p-14 rounded-lg md:rounded-lg overflow-hidden border border-white/10 shadow-[0_10px_28px_-18px_rgba(10,15,24,0.2)]">
+                        <div className="absolute -top-24 -right-16 w-72 h-72 bg-[var(--domu-accent)]/18 rounded-full blur-[100px] pointer-events-none" />
+                        <div className="absolute -bottom-28 -left-20 w-80 h-80 bg-[var(--domu-accent)]/10 rounded-full blur-[110px] pointer-events-none" />
+                        <div className="absolute inset-0 opacity-[0.04] pointer-events-none"
+                             style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '28px 28px' }} />
+
+                        <div className="relative z-10 grid lg:grid-cols-2 gap-8 md:gap-10 items-center">
                             <div className="text-center lg:text-left">
-                                <h2 className="h2-domu text-gradient mb-6 md:mb-8">
+                                <h2 className="cta-title !text-white mb-3 md:mb-4">
                                     {title}
                                 </h2>
-                                <p className="text-[var(--domu-muted)] text-[15px] font-medium leading-relaxed mb-8 md:mb-10 max-w-lg mx-auto lg:mx-0">
+                                <p className="type-card-desc !text-white/60 mb-2 max-w-lg mx-auto lg:mx-0">
                                     {subtitle}
                                 </p>
                             </div>
@@ -33,16 +38,16 @@ const CallToAction: React.FC<CallToActionProps> = ({ title, subtitle, primaryBut
                                         href={primaryButtonLink} 
                                         target={variant === 'whatsapp' ? "_blank" : undefined}
                                         rel={variant === 'whatsapp' ? "noopener noreferrer" : undefined}
-                                        className={`${variant === 'whatsapp' ? 'btn-whatsapp' : 'btn-budget'} w-full md:w-auto`}
+                                        className={`${variant === 'whatsapp' ? 'btn-whatsapp' : 'btn-budget'} !text-white`}
                                     >
                                         {variant === 'whatsapp' ? (
-                                            <WhatsAppIcon className="w-5 h-5 md:w-6 md:h-6 fill-current transition-transform" />
+                                            <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
                                         ) : (
-                                            <ArrowUpRightIcon className="w-5 h-5 md:w-6 md:h-6 fill-current transition-transform" />
+                                            <ArrowUpRightIcon className="w-3.5 h-3.5" />
                                         )}
                                         {primaryButtonText}
                                     </a>
-                                    <span className="mt-4 md:mt-6 text-white/40 text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-center">
+                                    <span className="cta-support mt-3.5 md:mt-4 text-center">
                                         {variant === 'whatsapp' ? 'Resposta média em menos de 15 minutos' : 'Orçamento rápido e sem compromisso'}
                                     </span>
                                 </div>

@@ -32,9 +32,9 @@ const SiteServicePage: React.FC = () => {
             <section className="relative py-24 md:py-32 overflow-hidden bg-[var(--domu-bg)]">
                 {/* Branding Ghosts Constellation */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15]">
-                    <img src="/logos/logo-glitch.png" className="absolute top-[10%] left-[5%] w-32 h-32 animate-float opacity-60 object-contain" alt="" />
-                    <img src="/logos/logo-glitch.png" className="absolute top-[20%] right-[10%] w-48 h-48 animate-spin-slow opacity-40 object-contain" style={{ animationDuration: '55s' }} alt="" />
-                    <img src="/logos/logo-glitch.png" className="absolute bottom-[10%] left-[20%] w-24 h-24 animate-float-delayed opacity-50 object-contain" alt="" />
+                    <img src="/fraucon.png" className="absolute top-[10%] left-[5%] w-32 h-32 animate-float opacity-60 object-contain" alt="" />
+                    <img src="/fraucon.png" className="absolute top-[20%] right-[10%] w-48 h-48 animate-spin-slow opacity-40 object-contain" style={{ animationDuration: '55s' }} alt="" />
+                    <img src="/fraucon.png" className="absolute bottom-[10%] left-[20%] w-24 h-24 animate-float-delayed opacity-50 object-contain" alt="" />
                 </div>
                 <div className="absolute inset-0 bg-[url('/img/fundo-web.png')] bg-cover bg-center opacity-10"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black"></div>
@@ -62,7 +62,7 @@ const SiteServicePage: React.FC = () => {
                         
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
                             <a href="/chatbot-placeholder" className="btn-budget">
-                                <ArrowUpRightIcon className="w-5 h-5" />
+                                <ArrowUpRightIcon className="w-3.5 h-3.5" />
                                 Iniciar meu Projeto
                             </a>
                         </div>
@@ -138,7 +138,7 @@ const SiteServicePage: React.FC = () => {
                             { title: "Recursos", desc: "Desenvolvimento de novas funcionalidades sob demanda." }
                         ].map((item, i) => (
                             <AnimateOnScroll key={i} delay={i * 100}>
-                                <div className="p-8 bg-white/[0.02] border border-white/5 rounded-[32px] hover:border-[var(--domu-accent)] transition-all group">
+                                <div className="p-8 bg-white/[0.02] border border-white/5 rounded-lg hover:border-[var(--domu-accent)] transition-all group">
                                     <h3 className="text-lg font-black text-white mb-4  italic group-hover:text-[var(--domu-accent)] transition-colors">{item.title}</h3>
                                     <p className="text-white/40 text-sm leading-relaxed">{item.desc}</p>
                                 </div>
@@ -193,7 +193,7 @@ const SiteServicePage: React.FC = () => {
                         Vamos tirar sua ideia do papel?
                     </h2>
                     <a href="/chatbot-placeholder" className="btn-budget mx-auto">
-                        <ArrowUpRightIcon className="w-5 h-5" />
+                        <ArrowUpRightIcon className="w-3.5 h-3.5" />
                         Solicitar Orçamento Agora
                     </a>
                 </AnimateOnScroll>

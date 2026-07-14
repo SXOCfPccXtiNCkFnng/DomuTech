@@ -49,7 +49,7 @@ const CookieBanner: React.FC = () => {
                         <div className="flex items-center gap-4 relative z-10 pr-2">
                             <button
                                 onClick={handleAccept}
-                                className="bg-[var(--domu-white)] text-[var(--domu-black)] px-8 py-3.5 rounded-lg font-[950] text-[10px] uppercase tracking-[0.15em] hover:scale-[1.03] active:scale-95 transition-all whitespace-nowrap shadow-lg shadow-white/10 hover:shadow-white/20"
+                                className="btn-budget whitespace-nowrap"
                             >
                                 Aceitar Tudo
                             </button>

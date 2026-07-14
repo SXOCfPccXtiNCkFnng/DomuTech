@@ -32,7 +32,7 @@ const ServiceDetail: React.FC = () => {
                     </h2>
                     <button
                         onClick={() => navigate('/')}
-                        className="bg-gradient-to-r from-violet-500 to-purple-600 text-white font-semibold px-6 py-3 rounded-lg hover:scale-105 transition-transform"
+                        className="btn-budget"
                     >
                         Voltar para Home
                     </button>
@@ -78,7 +78,7 @@ const ServiceDetail: React.FC = () => {
                                     <currentService.icon className="w-12 h-12 sm:w-16 sm:h-16 text-white" />
                                 )}
                                 <div>
-                                    <h1 className="text-3xl sm:text-whitexl md:text-5xl lg:text-6xl font-extrabold text-white mb-3 break-words">
+                                    <h1 className="display-domu text-white mb-3 break-words">
                                         {currentService?.title}
                                     </h1>
                                     <div className="h-1.5 w-24 bg-black/50 rounded-full"></div>
@@ -199,7 +199,7 @@ const ServiceDetail: React.FC = () => {
                             <AnimateOnScroll>
                                 <div>
                                     <div className="text-center mb-12">
-                                        <h2 className="text-whitexl md:text-5xl font-bold text-white dark:text-white mb-4">
+                                        <h2 className="h2-domu !text-white mb-4">
                                             Benefícios
                                         </h2>
                                         <p className="text-lg text-[var(--domu-muted)]">
@@ -212,7 +212,7 @@ const ServiceDetail: React.FC = () => {
                                                 key={index}
                                                 className="group bg-[var(--domu-black)] p-8 rounded-2xl border-white/5 hover:border-[var(--domu-accent)] transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
                                             >
-                                                <div className="bg-gradient-to-br from-violet-500 to-purple-600 w-14 h-14 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                                                <div className="bg-gradient-to-br from-[#0047FF] to-[#3366FF] w-14 h-14 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
                                                     <StarIcon className="w-7 h-7 text-white" />
                                                 </div>
                                                 <h3 className="text-xl font-bold text-white dark:text-white mb-3">
@@ -232,13 +232,13 @@ const ServiceDetail: React.FC = () => {
                                 <div className="bg-gradient-to-br from-slate-900 to-slate-800 dark:from-neutral-900 dark:to-black p-10 md:p-16 rounded-3xl relative overflow-hidden">
                                     {/* Background decoration */}
                                     <div className="absolute inset-0 opacity-10">
-                                        <div className="absolute top-0 left-0 w-96 h-96 bg-violet-500 rounded-full blur-3xl"></div>
-                                        <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500 rounded-full blur-3xl"></div>
+                                        <div className="absolute top-0 left-0 w-96 h-96 bg-[var(--domu-accent)] rounded-full blur-3xl"></div>
+                                        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[var(--domu-accent)] rounded-full blur-3xl opacity-40"></div>
                                     </div>
                                     
                                     <div className="relative z-10">
                                         <div className="text-center mb-12">
-                                            <h2 className="text-whitexl md:text-5xl font-bold text-white mb-4">
+                                            <h2 className="h2-domu !text-white mb-4">
                                                 Como funciona nosso processo
                                             </h2>
                                             <p className="text-lg text-white/80">
@@ -249,7 +249,7 @@ const ServiceDetail: React.FC = () => {
                                             {detailedInfo.process.map((step, index) => (
                                                 <div key={index} className="relative">
                                                     <div className="bg-black/10 backdrop-blur-sm border border-white/20 p-8 rounded-2xl h-full hover:bg-black/15 transition-all group">
-                                                        <div className="bg-gradient-to-br from-violet-500 to-purple-600 text-white w-14 h-14 rounded-xl flex items-center justify-center font-bold text-2xl mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                                                        <div className="bg-gradient-to-br from-[#0047FF] to-[#3366FF] text-white w-14 h-14 rounded-xl flex items-center justify-center font-bold text-2xl mb-6 group-hover:scale-110 transition-transform shadow-lg">
                                                             {index + 1}
                                                         </div>
                                                         <h3 className="text-xl font-bold text-white mb-3">
@@ -278,8 +278,8 @@ const ServiceDetail: React.FC = () => {
                         <div className="mt-20 relative bg-[var(--domu-surface-1)] p-8 md:p-12 rounded-3xl text-center overflow-hidden shadow-2xl border border-white/10">
                             {/* Background decoration */}
                             <div className="absolute inset-0 opacity-10">
-                                <div className="absolute -top-24 -left-24 w-96 h-96 bg-violet-500 rounded-full blur-3xl"></div>
-                                <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-purple-500 rounded-full blur-3xl"></div>
+                                <div className="absolute -top-24 -left-24 w-96 h-96 bg-[var(--domu-accent)] rounded-full blur-3xl"></div>
+                                <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[var(--domu-accent)] rounded-full blur-3xl opacity-40"></div>
                             </div>
                             
                             <div className="relative z-10">
@@ -302,7 +302,7 @@ const ServiceDetail: React.FC = () => {
                                         href={buildWhatsAppLink(currentService?.title || '')}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-3 bg-violet-600 hover:bg-violet-700 text-white font-semibold px-8 py-3 rounded-2xl hover:scale-105 hover:shadow-xl transition-all text-base"
+                                        className="btn-budget inline-flex items-center gap-2"
                                     >
                                         <img src="/img/whatsapp-logo.png" alt="WhatsApp" className="w-6 h-6" />
                                         Solicitar Orçamento Agora

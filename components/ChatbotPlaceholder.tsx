@@ -72,10 +72,10 @@ const ChatbotPlaceholder: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen bg-[var(--domu-bg)] py-20 px-6 flex items-center justify-center">
+        <div className="min-h-screen bg-[var(--domu-bg)] py-20 page-pad-x flex items-center justify-center">
             <div className="max-w-3xl w-full">
                 {!isFinished ? (
-                    <AnimateOnScroll className="bg-white/5 border border-white/10 p-8 md:p-12 rounded-[32px] backdrop-blur-xl">
+                    <AnimateOnScroll className="bg-white/5 border border-white/10 p-8 md:p-12 rounded-lg backdrop-blur-xl">
                         <div className="flex justify-between items-center mb-12">
                             <span className="text-[var(--domu-accent)] font-black text-xs uppercase tracking-[0.3em]">
                                 Passo {currentStep + 1} de {STEPS.length}
@@ -105,7 +105,7 @@ const ChatbotPlaceholder: React.FC = () => {
                         </div>
                     </AnimateOnScroll>
                 ) : (
-                    <AnimateOnScroll className="text-center bg-white/5 border border-white/10 p-8 md:p-12 rounded-[32px] backdrop-blur-xl">
+                    <AnimateOnScroll className="text-center bg-white/5 border border-white/10 p-8 md:p-12 rounded-lg backdrop-blur-xl">
                         <div className="w-20 h-20 bg-[var(--domu-accent)] rounded-full flex items-center justify-center mx-auto mb-8 shadow-[0_0_30px_rgba(88,127,129,0.4)]">
                             <CheckIcon className="w-10 h-10 text-white" />
                         </div>
@@ -135,7 +135,7 @@ const ChatbotPlaceholder: React.FC = () => {
                                 rel="noreferrer"
                                 className="btn-budget"
                             >
-                                <ArrowUpRightIcon className="w-5 h-5" />
+                                <ArrowUpRightIcon className="w-3.5 h-3.5" />
                                 Validar no WhatsApp
                             </a>
                         </div>

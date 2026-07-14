@@ -1,12 +1,12 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { motion, useMotionValue, useTransform, animate, AnimatePresence } from 'framer-motion';
-import { Link2 } from 'lucide-react';
+import { LinkSimple } from '@phosphor-icons/react';
 import { PORTFOLIO_PROJECTS } from '../constants';
 import { ArrowUpRightIcon, ArrowRightIcon } from './icons';
 import AnimateOnScroll from './AnimateOnScroll';
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   Carrossel infinito — técnica de triplicação de slides
+   Carrossel infinito - técnica de triplicação de slides
    · extSlides = [...slides, ...slides, ...slides]  (3 cópias)
    · startIndex = N  (primeira posição na cópia do meio)
    · Quando passa de 2N ou fica abaixo de N → reposiciona silenciosamente
@@ -63,11 +63,13 @@ const PortfolioCard = ({ project, index, STEP, slideW, containerW, trackX, isMob
                 
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                     <div 
-                        className={`w-20 h-20 bg-black/60 backdrop-blur-md border border-white/10 rounded-full shadow-2xl flex flex-col items-center justify-center text-white transition-all duration-300 ease-out pointer-events-auto cursor-pointer ${isActive ? (isMobile ? 'opacity-80 scale-100' : 'opacity-0 scale-50 group-hover/card:opacity-100 group-hover/card:scale-100') : 'opacity-0 pointer-events-none'}`}
+                        className={`w-[5.25rem] h-[5.25rem] bg-white/95 backdrop-blur-md border-2 border-[var(--domu-accent)] rounded-full shadow-[0_12px_32px_-8px_rgba(0,71,255,0.45)] flex flex-col items-center justify-center transition-all duration-300 ease-out pointer-events-auto cursor-pointer hover:bg-[var(--domu-accent)] hover:shadow-[0_14px_36px_-8px_rgba(0,71,255,0.55)] group/btn ${isActive ? (isMobile ? 'opacity-90 scale-100' : 'opacity-0 scale-50 group-hover/card:opacity-100 group-hover/card:scale-100') : 'opacity-0 pointer-events-none'}`}
                         onClick={handleAccessClick}
                     >
-                        <Link2 className="w-5 h-5 mb-1" strokeWidth={2.5} />
-                        <span className="text-xxs font-black uppercase tracking-widest leading-none">Acessar</span>
+                        <LinkSimple className="w-5 h-5 mb-1 text-[var(--domu-accent)] group-hover/btn:text-white transition-colors" weight="bold" />
+                        <span className="text-[10px] font-bold uppercase tracking-widest leading-none text-[var(--domu-accent)] group-hover/btn:text-white transition-colors">
+                            Acessar
+                        </span>
                     </div>
                 </div>
             </div>
@@ -198,23 +200,23 @@ const Portfolio: React.FC = () => {
     /* ── Render ─────────────────────────────────────────────────────────────── */
 
     return (
-        <section id="portfolio" className="py-10 md:py-32 bg-[var(--domu-bg)] overflow-hidden relative">
+        <section id="portfolio" className="section-domu bg-[var(--domu-bg)] overflow-hidden relative">
             {/* Branding Ghosts Constellation - Forced to Background */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15] z-0">
-                <img src="/logos/logo-glitch.png" className="absolute top-[15%] left-[5%] w-32 h-32 animate-float object-contain" alt="" />
-                <img src="/logos/logo-glitch.png" className="absolute top-[40%] right-0 w-64 h-64 animate-spin-slow object-contain" style={{ animationDuration: '70s' }} alt="" />
-                <img src="/logos/logo-glitch.png" className="absolute bottom-[10%] left-[10%] w-24 h-24 animate-float-delayed object-contain" alt="" />
+                <img src="/fraucon.png" className="absolute top-[15%] left-[5%] w-32 h-32 animate-float object-contain" alt="" />
+                <img src="/fraucon.png" className="absolute top-[40%] right-0 w-64 h-64 animate-spin-slow object-contain" style={{ animationDuration: '70s' }} alt="" />
+                <img src="/fraucon.png" className="absolute bottom-[10%] left-[10%] w-24 h-24 animate-float-delayed object-contain" alt="" />
             </div>
             
             <div className="container mx-auto px-4 relative z-10">
 
                 {/* ── Header ─────────────────────────────────────────────── */}
                 <AnimateOnScroll>
-                    <div className="text-center mb-12 md:mb-20">
-                        <span className="tag-domu mb-4 block">
+                    <div className="text-center section-head-domu">
+                        <span className="tag-domu mb-3 block">
                             Projetos de alta performance
                         </span>
-                        <h2 className="h2-domu text-gradient mb-6 md:mb-8">
+                        <h2 className="h2-domu text-gradient">
                             Nosso Portfólio
                         </h2>
 
@@ -262,9 +264,8 @@ const Portfolio: React.FC = () => {
                 </div>
 
                 {/* ── Info Bar ───────────────────────────────────────────── */}
-                <div className="flex items-center justify-between gap-4 mt-7 px-1">
+                <div className="flex items-center justify-between gap-4 mt-6 px-1">
 
-                    {/* LEFT: nome + tag + veja online (empilhados, sem samba) */}
                     <div className="flex-1 min-w-0">
                         <AnimatePresence mode="wait">
                             <motion.div
@@ -273,53 +274,50 @@ const Portfolio: React.FC = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -8 }}
                                 transition={{ duration: 0.2 }}
-                                className="flex flex-col gap-0.5"
+                                className="flex flex-col gap-1.5"
                             >
-                                <h3 className="text-base font-black text-white  tracking-tight truncate leading-tight">
+                                <span className="type-eyebrow !text-[var(--domu-accent)]">
+                                    {active.tag}
+                                </span>
+                                <h3 className="type-card-title text-[var(--domu-primary)] truncate leading-tight">
                                     {active.title.split(' - ')[0]}
                                 </h3>
-                                <span className="text-white font-bold text-xs uppercase tracking-[0.18em] block">
-                                    {active.tag === 'Criação de Sites'
-                                        ? 'Soluções para o seu negócio'
-                                        : active.tag}
-                                </span>
                                 {active.link && (
                                     <a
                                         href={active.link}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="hidden md:inline-flex items-center gap-1.5 mt-1 group w-fit"
+                                        className="portfolio-online-link hidden md:inline-flex items-center gap-1.5 w-fit max-w-full"
                                         onClick={e => e.stopPropagation()}
                                     >
-                                        <span className="text-white/40 font-bold text-xxs uppercase tracking-widest group-hover:text-white/70 transition-colors">
-                                            Veja Online
+                                        <span className="portfolio-online-link__label shrink-0">
+                                            Veja online
                                         </span>
-                                        <span className="text-white font-black text-xxs uppercase tracking-widest group-hover:text-white transition-colors truncate max-w-[260px]">
-                                             {active.link.replace(/^https?:\/\//, '').replace(/\/$/, '')}
-                                         </span>
+                                        <span className="portfolio-online-link__url truncate">
+                                            {active.link.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+                                        </span>
                                     </a>
                                 )}
                             </motion.div>
                         </AnimatePresence>
                     </div>
 
-                    {/* RIGHT: setas + contador — sempre no mesmo lugar */}
-                    <div className="flex items-center gap-3 flex-shrink-0">
+                    <div className="portfolio-carousel-nav flex items-center gap-3.5 flex-shrink-0">
                         <button
                             id="portfolio-prev"
                             onClick={() => { isAnimating.current = false; goTo(currentRef.current - 1); }}
-                            className="w-8 h-8 flex items-center justify-center rounded-full border border-white/15 text-white hover:border-[var(--domu-accent)] hover:text-[var(--domu-accent)] transition-all"
+                            className="portfolio-carousel-nav__btn"
                             aria-label="Anterior"
                         >
-                            <ArrowRightIcon className="w-3 h-3 fill-current rotate-180" />
+                            <ArrowRightIcon className="w-3.5 h-3.5 rotate-180" />
                         </button>
 
-                        <span className="font-black text-xs tracking-widest whitespace-nowrap select-none">
-                            <span className="text-white">
+                        <span className="portfolio-carousel-nav__count tabular-nums whitespace-nowrap select-none">
+                            <span className="portfolio-carousel-nav__current">
                                 {String(realIndex + 1).padStart(2, '0')}
                             </span>
-                            <span className="text-white/30 mx-1">/</span>
-                            <span className="text-white/40">
+                            <span className="portfolio-carousel-nav__sep">/</span>
+                            <span className="portfolio-carousel-nav__total">
                                 {String(N).padStart(2, '0')}
                             </span>
                         </span>
@@ -327,54 +325,54 @@ const Portfolio: React.FC = () => {
                         <button
                             id="portfolio-next"
                             onClick={() => { isAnimating.current = false; goTo(currentRef.current + 1); }}
-                            className="w-8 h-8 flex items-center justify-center rounded-full border border-white/15 text-white hover:border-[var(--domu-accent)] hover:text-[var(--domu-accent)] transition-all"
+                            className="portfolio-carousel-nav__btn"
                             aria-label="Próximo"
                         >
-                            <ArrowRightIcon className="w-3 h-3 fill-current" />
+                            <ArrowRightIcon className="w-3.5 h-3.5" />
                         </button>
                     </div>
                 </div>
 
                 {/* ── Divisor ────────────────────────────────────────────── */}
-                <div className="h-px w-full bg-white/10 my-24" />
+                <div className="h-px w-full bg-[var(--domu-border)] my-10 md:my-12" />
 
                 {/* ── Grid 3 cards ─────────────────────────────────────── */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
                     {rawSlides.slice(0, 3).map((project, index) => (
                         <AnimateOnScroll key={`g${index}`} delay={index * 100}>
-                            <div className="group bg-white/5 rounded-xl overflow-hidden shadow-md border border-white/10 transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 backdrop-blur-sm">
-
-                                <div className="w-full aspect-[1904/932] overflow-hidden">
+                            <a
+                                href={project.link}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="group flex flex-col h-full rounded-2xl overflow-hidden bg-[var(--domu-surface-1)] border border-[var(--domu-border)] shadow-[0_16px_40px_-28px_rgba(10,15,24,0.2)] transition-all duration-500 hover:-translate-y-1.5 hover:border-[var(--domu-accent)]/35 hover:shadow-[0_24px_48px_-28px_rgba(0,71,255,0.28)]"
+                            >
+                                <div className="relative w-full aspect-[16/10] overflow-hidden bg-[var(--domu-surface-2)]">
                                     <img
                                         src={project.image}
                                         alt={project.title}
-                                        className="w-full h-full object-cover block opacity-80 group-hover:opacity-100 transition-opacity"
+                                        className="w-full h-full object-cover object-top block transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                                     />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--domu-primary)]/35 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                                    <span className="absolute top-3 left-3 type-eyebrow !text-white bg-[var(--domu-primary)]/70 backdrop-blur-sm px-2.5 py-1 rounded-md tracking-widest">
+                                        {String(index + 1).padStart(2, '0')}
+                                    </span>
                                 </div>
 
-                                {/* Área de texto */}
-                                <div className="p-5">
-                                    {/* Badge */}
-                                    <span
-                                        className="inline-block px-3 py-1 mb-2 rounded-full font-black text-xxs uppercase tracking-widest bg-[var(--domu-accent)]/10 text-[var(--domu-accent-light)]"
-                                    >
-                                        Site Institucional
+                                <div className="flex flex-col flex-1 p-5 md:p-6">
+                                    <span className="type-eyebrow !text-[var(--domu-accent)] block mb-2">
+                                        {project.tag}
                                     </span>
 
-                                    <p className="text-white/60 font-bold text-xxs uppercase tracking-widest mb-1">
-                                        Soluções para o seu negócio
-                                    </p>
-
-                                    <h4 className="text-sm font-black text-white  tracking-tight leading-tight mb-2">
+                                    <h4 className="type-card-title text-[var(--domu-primary)] mb-2 group-hover:text-[var(--domu-accent)] transition-colors duration-300">
                                         {project.title.split(' - ')[0]}
                                     </h4>
 
                                     {project.description && (
-                                        <p 
-                                            className="text-[var(--domu-muted)] text-[12px] leading-relaxed mb-4"
+                                        <p
+                                            className="type-card-desc mb-5 flex-1"
                                             style={{
                                                 display: '-webkit-box',
-                                                WebkitLineClamp: 3,
+                                                WebkitLineClamp: 2,
                                                 WebkitBoxOrient: 'vertical',
                                                 overflow: 'hidden',
                                             }}
@@ -383,30 +381,23 @@ const Portfolio: React.FC = () => {
                                         </p>
                                     )}
 
-                                    {/* "Ver projeto" só aparece no hover */}
-                                    <a
-                                        href={project.link}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                        className="inline-flex items-center gap-1.5 text-white font-black text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-250"
-                                    >
+                                    <span className="inline-flex items-center gap-1.5 type-eyebrow !text-[var(--domu-accent)] mt-auto">
                                         Ver projeto
-                                        <ArrowRightIcon className="w-3 h-3 fill-current" />
-                                    </a>
+                                        <ArrowRightIcon className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" />
+                                    </span>
                                 </div>
-
-                            </div>
+                            </a>
                         </AnimateOnScroll>
                     ))}
                 </div>
 
                 {/* ── CTA ────────────────────────────────────────────────── */}
-                <div className="mt-20 text-center">
+                <div className="mt-8 md:mt-10 text-center">
                     <a
                         href="#contact"
                         className="btn-domu-primary group"
                     >
-                        <ArrowUpRightIcon className="w-4 h-4 fill-current" />
+                        <ArrowUpRightIcon className="w-3.5 h-3.5" />
                         Ver todo o portfólio
                     </a>
                 </div>

@@ -1,131 +1,67 @@
 import React from 'react';
-import { Star } from 'lucide-react';
 import AnimateOnScroll from './AnimateOnScroll';
-import { ArrowUpRightIcon, LayoutIcon, MobileIcon, CodeIcon } from './icons';
-
-const ABOUT_METRICS = [
-    { label: 'Projetos Entregues', value: '15+' },
-    { label: 'Anos de Mercado', value: '3+' },
-    { label: 'Performance Média', value: '95+' },
-];
-
-const CHIPS = [
-    { label: 'Fotos', icon: <LayoutIcon className="w-5 h-5" /> },
-    { label: 'Vídeos', icon: <MobileIcon className="w-5 h-5" /> },
-    { label: 'Textos', icon: <CodeIcon className="w-5 h-5" /> },
-];
-
-const MetricItem = ({ metric }: { metric: typeof ABOUT_METRICS[0] }) => (
-    <div className="text-center lg:text-left">
-        <div className="text-3xl md:text-4xl font-black text-white mb-2 tracking-tighter">
-            {metric.value}
-        </div>
-        <div className="text-[var(--domu-muted)] text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-black">
-            {metric.label}
-        </div>
-    </div>
-);
+import { ArrowUpRightIcon } from './icons';
 
 const About: React.FC = () => {
     return (
-        <section id="about" className="py-20 md:py-32 bg-[var(--domu-bg)] relative overflow-hidden border-t border-white/5">
-            {/* Ambient Background Lights */}
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-[var(--domu-accent)] opacity-5 blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#7B61FF] opacity-5 blur-[120px] pointer-events-none" />
-
-            {/* Branding Ghosts Constellation */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15]">
-                <img src="/logos/logo-glitch.png" className="absolute top-[15%] right-[-5%] w-64 h-64 animate-spin-slow opacity-40 object-contain" style={{ animationDuration: '80s' }} alt="" />
-                <img src="/logos/logo-glitch.png" className="absolute bottom-[20%] left-[-10%] w-96 h-96 animate-float opacity-30 object-contain" alt="" />
+        <section
+            id="about"
+            className="on-dark relative overflow-hidden border-t border-white/[0.06]"
+        >
+            {/* Atmosphere - same blue tone as hero */}
+            <div className="absolute inset-0 pointer-events-none" aria-hidden>
+                <div className="absolute top-[10%] left-[-12%] w-[520px] h-[520px] rounded-full bg-[var(--domu-accent)] opacity-15 blur-[150px]" />
+                <div className="absolute bottom-[-10%] right-[-8%] w-[560px] h-[560px] rounded-full bg-[var(--domu-accent)] opacity-12 blur-[160px]" />
+                <img
+                    src="/Vector.png"
+                    alt=""
+                    className="absolute top-1/2 -translate-y-1/2 right-[-8%] w-[420px] opacity-[0.06] object-contain"
+                />
             </div>
 
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="container mx-auto px-6 relative z-10 py-20 md:py-28 lg:py-32">
+                <div className="grid lg:grid-cols-2 gap-16 lg:gap-28 xl:gap-32 items-center">
+                    <AnimateOnScroll delay={180} className="order-2 lg:order-1">
+                        <div className="relative flex items-center justify-center min-h-[280px] lg:pr-6">
+                            <div
+                                className="absolute w-[75%] aspect-square rounded-full bg-[var(--domu-accent)] opacity-20 blur-[120px]"
+                                aria-hidden
+                            />
+                            <img
+                                src="/logos/img-solucao.png?v=6"
+                                alt="Painel e soluções digitais Domu Tech"
+                                className="relative z-10 w-full max-w-[560px] h-auto"
+                                loading="lazy"
+                            />
+                        </div>
+                    </AnimateOnScroll>
 
-                <div className="grid lg:grid-cols-[55%_45%] gap-12 lg:gap-16 items-center mb-16">
+                    <AnimateOnScroll className="order-1 lg:order-2">
+                        <div className="max-w-[34rem] mx-auto lg:mx-0 text-center lg:text-left lg:pl-4 xl:pl-8">
+                            <p className="tag-domu !text-white/40 mb-5">
+                                Domu Tech
+                            </p>
 
-                    {/* Left Column - Content */}
-                    <AnimateOnScroll>
-                        <div className="max-w-full mx-auto lg:mx-0">
-                            <span className="tag-domu mb-4 block">
-                                SOLUÇÕES DIGITAIS INTELIGENTES
-                            </span>
-                            <h2 className="h2-domu text-gradient mb-6">
-                                Sua Empresa Com total<br />Autonomia no Digital
+                            <h2 className="display-domu !text-[clamp(1.75rem,1.2rem+2vw,2.75rem)] !leading-[1.12] !text-white mb-5">
+                                Autonomia digital
+                                <br />
+                                <span className="text-[var(--domu-accent)]">sem complexidade</span>
                             </h2>
 
-                            <div className="space-y-4 text-[var(--domu-muted)] text-base leading-relaxed mb-8">
-                                <p>
-                                    Na DOMU TECH, desenvolvemos ecossistemas profissionais preparados para escala.<br />
-                                    Você ganha controle total para gerenciar seus ativos digitais e dados em tempo real, sem burocracia.
-                                </p>
-                            </div>
+                            <p className="lead-domu !text-white/60 mb-8">
+                                Ecossistemas sob medida para você controlar sites, dados e operação
+                                em tempo real - com performance e clareza do primeiro dia.
+                            </p>
 
-                            {/* Service Chips */}
-                            <div className="flex flex-wrap gap-3 mb-8">
-                                {CHIPS.map(chip => (
-                                    <div
-                                        key={chip.label}
-                                        className="flex items-center gap-3 bg-white/[0.03] backdrop-blur-sm rounded-xl px-6 py-3.5 transition-all hover:bg-white/10 border border-white/5 group cursor-default"
-                                    >
-                                        <div className="text-white/40 group-hover:text-white transition-colors">
-                                            {chip.icon}
-                                        </div>
-                                        <span className="text-white font-black text-xs uppercase tracking-wider">{chip.label}</span>
-                                    </div>
-                                ))}
-                            </div>
-
-                            {/* Button */}
-                            <div className="mb-10">
-                                <a
-                                    href="/chatbot-placeholder"
-                                    className="btn-budget group"
-                                >
-                                    <ArrowUpRightIcon className="w-5 h-5 fill-current transition-transform " />
-                                    Peça um Orçamento
-                                </a>
-                            </div>
-
-                            {/* Mission Card */}
-                            <div className="flex items-start gap-5 p-6 bg-white/[0.02] rounded-lg border border-white/5 hover:border-white/10 transition-colors max-w-[440px]">
-                                <div className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center flex-shrink-0 text-white shadow-xl border border-white/5">
-                                    <Star className="w-5 h-5" strokeWidth={2} />
-                                </div>
-                                <div>
-                                    <p className="text-white font-black text-xs uppercase tracking-tight mb-1">
-                                        Foco em Resultados Reais
-                                    </p>
-                                    <p className="text-[var(--domu-muted)] text-xs leading-snug font-medium">
-                                        Nossa missão é construir seu braço direito no mundo digital com performance e total autonomia.
-                                    </p>
-                                </div>
-                            </div>
+                            <a
+                                href="/chatbot-placeholder"
+                                className="btn-budget group !text-white inline-flex"
+                            >
+                                <ArrowUpRightIcon className="w-4 h-4" />
+                                Peça um orçamento
+                            </a>
                         </div>
                     </AnimateOnScroll>
-
-                    {/* Right Column - Image with 3D Float Effect */}
-                    <AnimateOnScroll delay={300}>
-                        <div className="relative flex items-center justify-center lg:scale-110">
-                            {/* Main Mascot Visual */}
-                            <div className="relative z-10 w-full group">
-                                <img 
-                                    src="/logos/img-solucao.png?v=6" 
-                                    alt="Mascote DOMU TECH" 
-                                    className="w-full h-auto drop-shadow-2xl"
-                                    loading="lazy"
-                                />
-                            </div>
-                        </div>
-                    </AnimateOnScroll>
-                </div>
-
-                {/* Metrics */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 pt-16 border-t border-white/10">
-                    {ABOUT_METRICS.map((metric, index) => (
-                        <AnimateOnScroll key={metric.label} delay={index * 100}>
-                            <MetricItem metric={metric} />
-                        </AnimateOnScroll>
-                    ))}
                 </div>
             </div>
         </section>

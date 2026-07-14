@@ -1,16 +1,23 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Smartphone, Search, Code, Zap, Layout, Shield } from "lucide-react";
+import {
+  DeviceMobileCamera,
+  MagnifyingGlass,
+  CodeBlock,
+  Lightning,
+  SquaresFour,
+  ShieldCheck,
+} from "@phosphor-icons/react";
 import AnimateOnScroll from "./AnimateOnScroll";
+import BrandGhosts from "./BrandGhosts";
 import { ArrowUpRightIcon } from "./icons";
 
-/* ── Ícones Lucide para cada feature ─────────────────────────────────── */
-const IconResponsivo = () => <Smartphone className="w-5 h-5" strokeWidth={1.8} />;
-const IconSEO = () => <Search className="w-5 h-5" strokeWidth={1.8} />;
-const IconTech = () => <Code className="w-5 h-5" strokeWidth={1.8} />;
-const IconConversao = () => <Zap className="w-5 h-5" strokeWidth={1.8} />;
-const IconLayout = () => <Layout className="w-5 h-5" strokeWidth={1.8} />;
-const IconSecurity = () => <Shield className="w-5 h-5" strokeWidth={1.8} />;
+const IconResponsivo = () => <DeviceMobileCamera className="w-5 h-5" weight="duotone" />;
+const IconSEO = () => <MagnifyingGlass className="w-5 h-5" weight="duotone" />;
+const IconTech = () => <CodeBlock className="w-5 h-5" weight="duotone" />;
+const IconConversao = () => <Lightning className="w-5 h-5" weight="duotone" />;
+const IconLayout = () => <SquaresFour className="w-5 h-5" weight="duotone" />;
+const IconSecurity = () => <ShieldCheck className="w-5 h-5" weight="duotone" />;
 
 const FEATURES = [
   {
@@ -67,12 +74,13 @@ const Features: React.FC = () => {
   return (
     <section
       id="features"
-      className="py-10 md:py-24 bg-[var(--domu-bg)] relative overflow-visible"
+      className="section-domu bg-[var(--domu-bg)] relative overflow-visible"
     >
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-[25%_75%] gap-16 lg:gap-20 items-start">
-          {/* ── Coluna esquerda — Sticky Centralizado ─────────────────── */}
-          <div className="lg:sticky lg:top-0 lg:h-screen self-start flex flex-col items-center justify-center text-center">
+      <BrandGhosts variant="sides" />
+      <div className="mx-auto max-w-[92rem] page-pad-x relative z-10">
+        <div className="grid lg:grid-cols-[minmax(0,0.85fr)_minmax(0,2.15fr)] gap-8 lg:gap-12 items-start">
+          {/* ── Coluna esquerda - Sticky ─────────────────── */}
+          <div className="lg:sticky lg:top-24 self-start flex flex-col items-center lg:items-start text-center lg:text-left min-w-0">
             {/* SVG Filter for Video Chroma Key (Luminance based background removal) */}
             <svg width="0" height="0" className="absolute pointer-events-none" style={{ position: "absolute", width: 0, height: 0 }}>
               <defs>
@@ -102,25 +110,25 @@ const Features: React.FC = () => {
             </div>
 
             {/* CTA below logo */}
-            <div className="px-2">
-              <h3 className="text-gradient font-black tracking-tight text-xl md:text-2xl leading-tight mb-8">
+            <div className="px-2 w-full max-w-sm">
+              <h3 className="type-card-title text-gradient mb-4">
                 Pronto para decolar seu projeto digital?
               </h3>
               <a
                 href="/chatbot-placeholder"
-                className="btn-budget group w-full md:w-auto"
+                className="btn-budget group"
               >
-                <ArrowUpRightIcon className="w-5 h-5 fill-current" />
+                <ArrowUpRightIcon className="w-3.5 h-3.5" />
                 Peça um Orçamento
               </a>
             </div>
           </div>
 
-          {/* ── Coluna direita — Lista de funcionalidades ───────────── */}
-          <div className="pt-10 lg:pt-4 w-full">
+          {/* ── Coluna direita - Lista de funcionalidades ───────────── */}
+          <div className="pt-4 lg:pt-2 min-w-0 w-full overflow-hidden">
             <AnimateOnScroll>
-              <div className="text-center lg:text-left mb-12">
-                <span className="tag-domu mb-4 block">
+              <div className="text-center lg:text-left section-head-domu">
+                <span className="tag-domu mb-3 block">
                   SOLUÇÕES DIGITAIS DE ALTO IMPACTO
                 </span>
                 <h2 className="h2-domu text-gradient">
@@ -132,22 +140,22 @@ const Features: React.FC = () => {
             <div className="divide-y divide-white/5">
               {FEATURES.map((item, index) => (
                 <AnimateOnScroll key={index} delay={index * 60}>
-                  <div className="flex flex-col sm:flex-row gap-6 py-10 group items-center sm:items-start text-center sm:text-left">
+                    <div className="flex flex-col sm:flex-row gap-5 py-5 md:py-6 group items-center sm:items-start text-center sm:text-left min-w-0">
                     {/* Ícone quadrado - Clean Design */}
-                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110 shadow-2xl border border-white/10 bg-white/5 text-white">
+                    <div className="icon-tile w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-105 border border-[var(--domu-accent)]/15">
                       <item.Icon />
                     </div>
 
-                    <div className="max-w-full">
-                      <h4 className="text-white font-black text-lg mb-3 group-hover:text-white transition-colors duration-200 leading-snug tracking-tight">
+                    <div className="min-w-0 flex-1 w-full">
+                      <h4 className="type-card-title text-[var(--domu-primary)] mb-2 group-hover:text-[var(--domu-accent)] transition-colors duration-200">
                         {item.title}
                       </h4>
-                      <div className="p-domu opacity-70">
+                      <div className="type-card-desc opacity-95 text-justify">
                         {item.paragraphs.map((p, i) => (
                           <p
                             key={i}
                             className={
-                              i !== item.paragraphs.length - 1 ? "mb-4" : ""
+                              i !== item.paragraphs.length - 1 ? "mb-3" : ""
                             }
                           >
                             {p}

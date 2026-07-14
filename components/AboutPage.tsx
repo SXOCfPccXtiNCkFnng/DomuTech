@@ -70,13 +70,13 @@ const AboutPage: React.FC = () => {
                                 onClick={() => navigate('/chatbot-placeholder')}
                                 className="btn-budget mt-10"
                             >
-                                <ArrowUpRightIcon className="w-5 h-5" />
+                                <ArrowUpRightIcon className="w-3.5 h-3.5" />
                                 Vamos Conversar?
                             </button>
                         </AnimateOnScroll>
                         
                         <AnimateOnScroll delay={300}>
-                            <div className="relative rounded-[40px] overflow-hidden border border-white/10">
+                            <div className="relative rounded-lg overflow-hidden border border-white/10">
                                 <img src="/img/fundo-web.png" alt="Processo DomuTech" className="w-full opacity-60" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--domu-bg)] to-transparent"></div>
                             </div>

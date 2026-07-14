@@ -1,38 +1,40 @@
 import React from 'react';
-import { Search, Paintbrush, Code, TrendingUp } from 'lucide-react';
+import { MagnifyingGlass, PaintBrush, Code, TrendUp } from '@phosphor-icons/react';
 import AnimateOnScroll from './AnimateOnScroll';
+import BrandGhosts from './BrandGhosts';
 
 const STEPS = [
     {
         number: '01',
         title: 'Imersão & Diagnóstico',
         description: 'Analisamos seus desafios and objetivos para construir uma estratégia personalizada focada em resultados reais.',
-        icon: <Search className="w-6 h-6" strokeWidth={2} />
+        icon: <MagnifyingGlass className="w-6 h-6" weight="duotone" />
     },
     {
         number: '02',
         title: 'Design & UX',
         description: 'Projetamos experiências intuitivas e interfaces de alto impacto que conectam sua marca ao público certo.',
-        icon: <Paintbrush className="w-6 h-6" strokeWidth={2} />
+        icon: <PaintBrush className="w-6 h-6" weight="duotone" />
     },
     {
         number: '03',
         title: 'Engenharia & Implementação',
         description: 'Transformamos o planejamento em soluções robustas e performáticas utilizando as melhores tecnologias do mercado.',
-        icon: <Code className="w-6 h-6" strokeWidth={2} />
+        icon: <Code className="w-6 h-6" weight="duotone" />
     },
     {
         number: '04',
         title: 'Performance & Escala',
         description: 'Monitoramos, otimizamos e escalamos sua solução para garantir crescimento contínuo e sustentável no digital.',
-        icon: <TrendingUp className="w-6 h-6" strokeWidth={2} />
+        icon: <TrendUp className="w-6 h-6" weight="duotone" />
     }
 ];
 
 const Process: React.FC = () => {
     return (
         <section className="py-20 md:py-32 bg-[var(--domu-bg)] relative overflow-hidden">
-            <div className="container mx-auto px-6">
+            <BrandGhosts variant="default" />
+            <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center max-w-3xl mx-auto mb-20">
                     <AnimateOnScroll>
                         <span className="tag-domu mb-4 block">

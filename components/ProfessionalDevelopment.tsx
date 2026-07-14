@@ -1,11 +1,12 @@
 import React from "react";
-import { CreditCard, Shield } from "lucide-react";
+import { CreditCard, ShieldCheck } from "@phosphor-icons/react";
 import AnimateOnScroll from "./AnimateOnScroll";
+import BrandGhosts from "./BrandGhosts";
 
 const ProfessionalDevelopment: React.FC = () => {
   return (
     <section className="py-10 md:py-24 bg-[var(--domu-bg)] relative overflow-hidden border-t border-white/5">
-      {/* Background Accent */}
+      <BrandGhosts variant="corners" />
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/[0.01] rounded-full blur-[80px] translate-x-1/3 -translate-y-1/3"></div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -44,7 +45,7 @@ const ProfessionalDevelopment: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
                 <div className="bg-[var(--domu-surface-1)] p-6 rounded-3xl border border-white/5 flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left hover:border-white/10 transition-all duration-300">
                   <div className="w-10 h-10 bg-[var(--domu-surface-2)] border border-white/5 rounded-xl flex items-center justify-center flex-shrink-0 text-white">
-                    <CreditCard className="w-5 h-5" strokeWidth={2} />
+                    <CreditCard className="w-5 h-5" weight="duotone" />
                   </div>
                   <div>
                     <p className="text-white font-black text-[11px] uppercase tracking-tight mb-1">
@@ -58,7 +59,7 @@ const ProfessionalDevelopment: React.FC = () => {
 
                 <div className="bg-[var(--domu-surface-1)] p-6 rounded-3xl border border-white/5 flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left hover:border-white/10 transition-all duration-300">
                   <div className="w-10 h-10 bg-[var(--domu-surface-2)] border border-white/5 rounded-xl flex items-center justify-center flex-shrink-0 text-white">
-                    <Shield className="w-5 h-5" strokeWidth={2} />
+                    <ShieldCheck className="w-5 h-5" weight="duotone" />
                   </div>
                   <div>
                     <p className="text-white font-black text-[11px] uppercase tracking-tight mb-1">

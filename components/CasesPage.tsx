@@ -42,7 +42,7 @@ const CasesPage: React.FC = () => {
                             <AnimateOnScroll key={i} delay={i * 100}>
                                 <a 
                                     href={item.link} 
-                                    className="group relative block aspect-[16/10] overflow-hidden rounded-[32px] border border-white/10 bg-[var(--domu-black)]"
+                                    className="group relative block aspect-[16/10] overflow-hidden rounded-lg border border-white/10 bg-[var(--domu-black)]"
                                 >
                                     <img 
                                         src={item.img} 
@@ -74,7 +74,7 @@ const CasesPage: React.FC = () => {
                         Seu projeto pode ser o próximo!
                     </h2>
                     <a href="/chatbot-placeholder" className="btn-budget mx-auto">
-                        <ArrowUpRightIcon className="w-5 h-5" />
+                        <ArrowUpRightIcon className="w-3.5 h-3.5" />
                         Iniciar meu Projeto
                     </a>
                 </AnimateOnScroll>

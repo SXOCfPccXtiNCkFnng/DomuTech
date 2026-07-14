@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PenTool, Layers, Book, Share2 } from 'lucide-react';
+import { PenNib, Stack, BookOpen, ShareNetwork } from '@phosphor-icons/react';
 import AnimateOnScroll from './AnimateOnScroll';
 import CallToAction from './CallToAction';
 import ReliableAgency from './ReliableAgency';
@@ -60,7 +60,7 @@ const BrandingServicePage: React.FC = () => {
                         
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
                             <a href="/chatbot-placeholder" className="btn-budget">
-                                <ArrowUpRightIcon className="w-5 h-5" />
+                                <ArrowUpRightIcon className="w-3.5 h-3.5" />
                                 Criar minha Marca de Elite
                             </a>
                         </div>
@@ -91,25 +91,25 @@ const BrandingServicePage: React.FC = () => {
                                     { 
                                         title: "Naming & Logo", 
                                         desc: "Nomes impactantes e identidades memoráveis que grudam na mente do seu cliente.",
-                                        icon: <PenTool className="w-5 h-5 text-[var(--domu-accent-light)]" strokeWidth={1.5} />
+                                        icon: <PenNib className="w-5 h-5 text-[var(--domu-accent-light)]" weight="duotone" />
                                     },
                                     { 
                                         title: "UX/UI Design", 
                                         desc: "Interfaces digitais ultra-intuitivas e sofisticadas focadas em conversão.",
-                                        icon: <Layers className="w-5 h-5 text-[var(--domu-accent-light)]" strokeWidth={1.5} />
+                                        icon: <Stack className="w-5 h-5 text-[var(--domu-accent-light)]" weight="duotone" />
                                     },
                                     { 
                                         title: "Brandbook", 
                                         desc: "Guia completo de tom de voz, regras visuais e posicionamento estratégico de marca.",
-                                        icon: <Book className="w-5 h-5 text-[var(--domu-accent-light)]" strokeWidth={1.5} />
+                                        icon: <BookOpen className="w-5 h-5 text-[var(--domu-accent-light)]" weight="duotone" />
                                     },
                                     { 
                                         title: "Social Design", 
                                         desc: "Presença digital imponente e de alta autoridade em todos os pontos de contato.",
-                                        icon: <Share2 className="w-5 h-5 text-[var(--domu-accent-light)]" strokeWidth={1.5} />
+                                        icon: <ShareNetwork className="w-5 h-5 text-[var(--domu-accent-light)]" weight="duotone" />
                                     }
                                 ].map((item, i) => (
-                                    <div key={i} className="relative group p-6 rounded-[24px] bg-white/[0.03] hover:bg-white/[0.05] border border-white/10 hover:border-[var(--domu-accent)]/30 transition-all duration-500 shadow-md hover:shadow-[0_20px_40px_-20px_rgba(0,91,255,0.25)] overflow-hidden">
+                                    <div key={i} className="relative group p-6 rounded-lg bg-white/[0.03] hover:bg-white/[0.05] border border-white/10 hover:border-[var(--domu-accent)]/30 transition-all duration-500 shadow-md hover:shadow-[0_20px_40px_-20px_rgba(0,91,255,0.25)] overflow-hidden">
                                         <div className="absolute inset-0 bg-gradient-to-tr from-[var(--domu-accent)]/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                         <div className="relative z-10">
                                             <div className="w-10 h-10 bg-[var(--domu-accent)]/10 border border-[var(--domu-accent)]/20 rounded-xl flex items-center justify-center text-[var(--domu-accent-light)] group-hover:text-white group-hover:bg-gradient-premium transition-all duration-500 mb-6 shadow-inner">
@@ -133,7 +133,7 @@ const BrandingServicePage: React.FC = () => {
                                 <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-gradient-to-tr from-[var(--domu-accent)]/20 to-transparent rounded-full blur-[60px] pointer-events-none"></div>
 
                                 {/* Main mockup card container */}
-                                <div className="relative bg-gradient-to-br from-white/[0.06] to-white/[0.01] border border-white/10 rounded-[32px] p-8 shadow-2xl backdrop-blur-xl overflow-hidden group hover:border-[var(--domu-accent)]/30 transition-all duration-500">
+                                <div className="relative bg-gradient-to-br from-white/[0.06] to-white/[0.01] border border-white/10 rounded-lg p-8 shadow-2xl backdrop-blur-xl overflow-hidden group hover:border-[var(--domu-accent)]/30 transition-all duration-500">
                                     {/* Subtle interactive overlay grid */}
                                     <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none opacity-40 group-hover:opacity-60 transition-opacity"></div>
 
@@ -193,9 +193,9 @@ const BrandingServicePage: React.FC = () => {
                                         <span className="text-[9px] font-black text-white/40 tracking-[0.2em] uppercase mb-4 block">System Swatches</span>
                                         <div className="grid grid-cols-4 gap-3">
                                             {[
-                                                { name: "Accent Blue", hex: "#005BFF", bg: "bg-[#005BFF]" },
-                                                { name: "Royal Purple", hex: "#7B61FF", bg: "bg-[#7B61FF]" },
-                                                { name: "Cyan Light", hex: "#00D4FF", bg: "bg-[#00D4FF]" },
+                                                { name: "Domu Blue", hex: "#0047FF", bg: "bg-[#0047FF]" },
+                                                { name: "Blue Muted", hex: "#3366FF", bg: "bg-[#3366FF]" },
+                                                { name: "Blue Light", hex: "#4D7CFF", bg: "bg-[#4D7CFF]" },
                                                 { name: "Deep Dark", hex: "#0A0F18", bg: "bg-[#0A0F18] border border-white/10" }
                                             ].map((color, idx) => (
                                                 <div key={idx} className="bg-black/30 border border-white/5 rounded-xl p-2 flex flex-col gap-2 hover:translate-y-[-4px] hover:border-white/10 transition-all duration-300">
@@ -231,7 +231,7 @@ const BrandingServicePage: React.FC = () => {
                         Sua marca transmite o valor que você cobra?
                     </h2>
                     <a href="/chatbot-placeholder" className="btn-budget mx-auto">
-                        <ArrowUpRightIcon className="w-5 h-5" />
+                        <ArrowUpRightIcon className="w-3.5 h-3.5" />
                         Transformar minha Marca
                     </a>
                 </AnimateOnScroll>

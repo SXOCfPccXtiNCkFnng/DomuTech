@@ -7,26 +7,23 @@ const Services: React.FC = () => {
   return (
     <section
       id="services"
-      className="py-10 md:py-16 bg-[var(--domu-bg)] relative overflow-hidden"
+      className="section-domu bg-[var(--domu-bg)] relative overflow-hidden"
     >
-      {/* Background pattern similar to Domu Tech */}
-      <div className="absolute top-0 left-0 w-full h-[30%] bg-[var(--domu-black)]"></div>
-
       {/* Branding Ghosts Constellation - Forced to Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15] z-0">
         <img
-          src="/logos/logo-glitch.png"
+          src="/fraucon.png"
           className="absolute top-[20%] right-0 w-64 h-64 animate-spin-slow object-contain"
           style={{ animationDuration: "60s" }}
           alt=""
         />
         <img
-          src="/logos/logo-glitch.png"
+          src="/fraucon.png"
           className="absolute bottom-[10%] left-[5%] w-32 h-32 animate-float object-contain"
           alt=""
         />
         <img
-          src="/logos/logo-glitch.png"
+          src="/fraucon.png"
           className="absolute top-[60%] right-[15%] w-20 h-20 animate-float-delayed object-contain"
           alt=""
         />
@@ -34,13 +31,13 @@ const Services: React.FC = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <AnimateOnScroll>
-          <div className="text-center mb-24 text-white">
-            <span className="text-[var(--domu-muted)] font-black text-[10px] md:text-[11px] uppercase tracking-[0.4em] mb-6 block">
+          <div className="text-center section-head-domu">
+            <span className="text-[var(--domu-muted)] font-black text-[10px] md:text-[11px] uppercase tracking-[0.4em] mb-3 block">
               EXCELÊNCIA EM PERFORMANCE
             </span>
-            <h2 className="h2-domu text-gradient mb-8">NOSSOS SERVIÇOS</h2>
+            <h2 className="h2-domu text-gradient mb-4">NOSSOS SERVIÇOS</h2>
 
-            <p className="max-w-2xl mx-auto text-white/50 font-medium text-lg leading-relaxed">
+            <p className="max-w-2xl mx-auto text-white/50 font-medium text-base leading-relaxed">
               Desenvolvemos ecossistemas digitais de alta performance.
               <br />
               Design exclusivo unido à tecnologia de ponta.
@@ -78,12 +75,12 @@ const Services: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-20 text-center">
-          <p className="text-[var(--domu-muted)] font-bold text-sm uppercase tracking-widest mb-8">
+        <div className="mt-8 md:mt-10 text-center">
+          <p className="text-[var(--domu-muted)] font-bold text-sm uppercase tracking-widest mb-5">
             PRECISA DE ALGO SOB MEDIDA?
           </p>
           <a href="/chatbot-placeholder" className="btn-budget">
-            <ArrowUpRightIcon className="w-5 h-5 fill-current" />
+            <ArrowUpRightIcon className="w-3.5 h-3.5" />
             Peça um Orçamento
           </a>
         </div>

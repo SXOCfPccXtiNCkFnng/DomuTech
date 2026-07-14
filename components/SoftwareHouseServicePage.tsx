@@ -58,7 +58,7 @@ const SoftwareHouseServicePage: React.FC = () => {
                         
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
                             <a href="/chatbot-placeholder" className="btn-budget">
-                                <ArrowUpRightIcon className="w-5 h-5" />
+                                <ArrowUpRightIcon className="w-3.5 h-3.5" />
                                 Orçar meu Software
                             </a>
                         </div>
@@ -132,7 +132,7 @@ const SoftwareHouseServicePage: React.FC = () => {
                         </AnimateOnScroll>
 
                         <AnimateOnScroll delay={300}>
-                            <div className="p-10 bg-white/[0.02] border border-white/5 rounded-[40px] relative overflow-hidden">
+                            <div className="p-10 bg-white/[0.02] border border-white/5 rounded-lg relative overflow-hidden">
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--domu-accent)] opacity-10 blur-3xl"></div>
                                 <h3 className="text-xl font-black text-white mb-6  italic tracking-tighter">O que entregamos:</h3>
                                 <ul className="space-y-4">
@@ -166,7 +166,7 @@ const SoftwareHouseServicePage: React.FC = () => {
                         Pronto para construir algo grande?
                     </h2>
                     <a href="/chatbot-placeholder" className="btn-budget mx-auto">
-                        <ArrowUpRightIcon className="w-5 h-5" />
+                        <ArrowUpRightIcon className="w-3.5 h-3.5" />
                         Iniciar Consultoria Técnica
                     </a>
                 </AnimateOnScroll>
