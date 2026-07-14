@@ -1670,15 +1670,12 @@ html.dark .stats-card--soft .stats-card__desc {
   display: flex;
   flex-wrap: nowrap;
   width: max-content;
-  animation: trusted-marquee 40s linear infinite;
+  animation: trusted-marquee 80s linear infinite;
   will-change: transform;
   transform: translate3d(0, 0, 0);
 }
 
-.trusted-marquee:hover .trusted-marquee__track {
-  animation-play-state: paused;
-}
-
+/* Removed hover pause as requested */
 .trusted-marquee__group {
   display: flex;
   align-items: center;
@@ -1721,8 +1718,7 @@ html.dark .stats-card--soft .stats-card__desc {
 }
 
 .trusted-marquee__item:hover {
-  border-color: rgba(255, 255, 255, 0.28);
-  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
 }
 
 .trusted-marquee__name {
