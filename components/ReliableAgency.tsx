@@ -19,21 +19,21 @@ const ReliableAgency: React.FC = () => {
   return (
     <section className="py-10 md:py-24 bg-[var(--domu-bg)] overflow-hidden relative border-t border-[var(--domu-border)]">
       {/* Branding Ghosts Constellation */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15]">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.05]">
         <img
           src="/fraucon.png"
-          className="absolute top-[10%] left-[-5%] w-56 h-56 animate-spin-slow opacity-40 object-contain"
+          className="absolute top-[10%] left-[-5%] w-56 h-56 animate-spin-slow object-contain"
           style={{ animationDuration: "70s" }}
           alt=""
         />
         <img
           src="/fraucon.png"
-          className="absolute bottom-[15%] right-[5%] w-32 h-32 animate-float opacity-70 object-contain"
+          className="absolute bottom-[15%] right-[5%] w-32 h-32 animate-float object-contain"
           alt=""
         />
         <img
           src="/fraucon.png"
-          className="absolute top-[50%] right-[-10%] w-48 h-48 animate-spin-slow opacity-20 object-contain"
+          className="absolute top-[50%] right-[-10%] w-48 h-48 animate-spin-slow object-contain"
           style={{ animationDuration: "90s" }}
           alt=""
         />
@@ -107,7 +107,7 @@ const ReliableAgency: React.FC = () => {
         </div>
 
         {/* Branding espiando no fundo */}
-        <div className="absolute -bottom-10 right-1/4 w-32 h-32 opacity-20 animate-float pointer-events-none">
+        <div className="absolute -bottom-10 right-1/4 w-32 h-32 opacity-[0.05] animate-float pointer-events-none">
           <img src="/fraucon.png" alt="" className="w-full h-auto" />
         </div>
       </div>

@@ -17,6 +17,7 @@ const AUTO_PLAY_MS  = 6000;   // intervalo do autoplay (ms)
 
 /* ── Componente isolado para o Card (Evita erro de Hooks) ──────────────── */
 const PortfolioCard = ({ project, index, STEP, slideW, containerW, trackX, isMobile, isActive, onClick }: any) => {
+    const [showAccess, setShowAccess] = useState(false);
     const slideCenter = useTransform(
         trackX,
         (v: any) => v + index * STEP + slideW / 2,
@@ -41,6 +42,16 @@ const PortfolioCard = ({ project, index, STEP, slideW, containerW, trackX, isMob
         }
     };
 
+    useEffect(() => {
+        if (!isActive) setShowAccess(false);
+    }, [isActive]);
+
+    useEffect(() => {
+        if (!showAccess) return;
+        const timer = window.setTimeout(() => setShowAccess(false), 2600);
+        return () => window.clearTimeout(timer);
+    }, [showAccess]);
+
     return (
         <motion.div
             style={{
@@ -50,8 +61,17 @@ const PortfolioCard = ({ project, index, STEP, slideW, containerW, trackX, isMob
                 scale,
                 transformOrigin: 'center center',
             }}
-            className="cursor-pointer"
+            className={`portfolio-slide cursor-pointer ${isActive ? 'is-active' : ''}`}
             onClick={onClick}
+            onPointerUp={(event) => {
+                if (
+                    isMobile &&
+                    isActive &&
+                    !(event.target as HTMLElement).closest('.portfolio-access')
+                ) {
+                    setShowAccess(true);
+                }
+            }}
         >
             <div className="w-full aspect-[1904/932] rounded-xl overflow-hidden shadow-2xl relative group/card">
                 <img
@@ -62,15 +82,17 @@ const PortfolioCard = ({ project, index, STEP, slideW, containerW, trackX, isMob
                 />
                 
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div 
-                        className={`w-[5.25rem] h-[5.25rem] bg-white/95 backdrop-blur-md border-2 border-[var(--domu-accent)] rounded-full shadow-[0_12px_32px_-8px_rgba(0,71,255,0.45)] flex flex-col items-center justify-center transition-all duration-300 ease-out pointer-events-auto cursor-pointer hover:bg-[var(--domu-accent)] hover:shadow-[0_14px_36px_-8px_rgba(0,71,255,0.55)] group/btn ${isActive ? (isMobile ? 'opacity-90 scale-100' : 'opacity-0 scale-50 group-hover/card:opacity-100 group-hover/card:scale-100') : 'opacity-0 pointer-events-none'}`}
+                    <button
+                        type="button"
+                        className={`portfolio-access group/btn ${showAccess ? 'is-visible-touch' : ''}`}
                         onClick={handleAccessClick}
+                        aria-label={`Acessar projeto ${project.title}`}
                     >
-                        <LinkSimple className="w-5 h-5 mb-1 text-[var(--domu-accent)] group-hover/btn:text-white transition-colors" weight="bold" />
-                        <span className="text-[10px] font-bold uppercase tracking-widest leading-none text-[var(--domu-accent)] group-hover/btn:text-white transition-colors">
+                        <LinkSimple className="w-4 h-4 mb-1" weight="bold" />
+                        <span>
                             Acessar
                         </span>
-                    </div>
+                    </button>
                 </div>
             </div>
         </motion.div>
@@ -202,13 +224,13 @@ const Portfolio: React.FC = () => {
     return (
         <section id="portfolio" className="section-domu bg-[var(--domu-bg)] overflow-hidden relative">
             {/* Branding Ghosts Constellation - Forced to Background */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15] z-0">
+            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.05] z-0">
                 <img src="/fraucon.png" className="absolute top-[15%] left-[5%] w-32 h-32 animate-float object-contain" alt="" />
                 <img src="/fraucon.png" className="absolute top-[40%] right-0 w-64 h-64 animate-spin-slow object-contain" style={{ animationDuration: '70s' }} alt="" />
                 <img src="/fraucon.png" className="absolute bottom-[10%] left-[10%] w-24 h-24 animate-float-delayed object-contain" alt="" />
             </div>
             
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="mx-auto w-full max-w-[92rem] page-pad-x relative z-10">
 
                 {/* ── Header ─────────────────────────────────────────────── */}
                 <AnimateOnScroll>
@@ -263,46 +285,9 @@ const Portfolio: React.FC = () => {
                     </motion.div>
                 </div>
 
-                {/* ── Info Bar ───────────────────────────────────────────── */}
-                <div className="flex items-center justify-between gap-4 mt-6 px-1">
-
-                    <div className="flex-1 min-w-0">
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key={active.title}
-                                initial={{ opacity: 0, y: 8 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -8 }}
-                                transition={{ duration: 0.2 }}
-                                className="flex flex-col gap-1.5"
-                            >
-                                <span className="type-eyebrow !text-[var(--domu-accent)]">
-                                    {active.tag}
-                                </span>
-                                <h3 className="type-card-title text-[var(--domu-primary)] truncate leading-tight">
-                                    {active.title.split(' - ')[0]}
-                                </h3>
-                                {active.link && (
-                                    <a
-                                        href={active.link}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                        className="portfolio-online-link hidden md:inline-flex items-center gap-1.5 w-fit max-w-full"
-                                        onClick={e => e.stopPropagation()}
-                                    >
-                                        <span className="portfolio-online-link__label shrink-0">
-                                            Veja online
-                                        </span>
-                                        <span className="portfolio-online-link__url truncate">
-                                            {active.link.replace(/^https?:\/\//, '').replace(/\/$/, '')}
-                                        </span>
-                                    </a>
-                                )}
-                            </motion.div>
-                        </AnimatePresence>
-                    </div>
-
-                    <div className="portfolio-carousel-nav flex items-center gap-3.5 flex-shrink-0">
+                <div className="mt-5 px-1 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+                    {/* Mobile: navegação logo abaixo da imagem; desktop: à direita */}
+                    <div className="portfolio-carousel-nav order-1 md:order-2 flex items-center justify-center gap-3.5 md:flex-shrink-0">
                         <button
                             id="portfolio-prev"
                             onClick={() => { isAnimating.current = false; goTo(currentRef.current - 1); }}
@@ -331,13 +316,47 @@ const Portfolio: React.FC = () => {
                             <ArrowRightIcon className="w-3.5 h-3.5" />
                         </button>
                     </div>
+
+                    {/* Informações do projeto */}
+                    <div className="order-2 md:order-1 min-w-0 md:flex-1">
+                        <AnimatePresence mode="wait">
+                        <motion.div
+                            key={active.title}
+                            initial={{ opacity: 0, y: 8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -8 }}
+                            transition={{ duration: 0.2 }}
+                            className="flex flex-col gap-1.5"
+                        >
+                            <span className="type-eyebrow !text-[var(--domu-accent)]">
+                                {active.tag}
+                            </span>
+                            <h3 className="type-card-title text-[var(--domu-primary)] leading-tight">
+                                {active.title.split(' - ')[0]}
+                            </h3>
+                            {active.link && (
+                                <a
+                                    href={active.link}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="portfolio-online-link hidden md:inline-flex items-center gap-1.5 w-fit max-w-full"
+                                    onClick={e => e.stopPropagation()}
+                                >
+                                    <span className="portfolio-online-link__label shrink-0">
+                                        Veja online
+                                    </span>
+                                    <span className="portfolio-online-link__url truncate">
+                                        {active.link.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+                                    </span>
+                                </a>
+                            )}
+                        </motion.div>
+                        </AnimatePresence>
+                    </div>
                 </div>
 
-                {/* ── Divisor ────────────────────────────────────────────── */}
-                <div className="h-px w-full bg-[var(--domu-border)] my-10 md:my-12" />
-
                 {/* ── Grid 3 cards ─────────────────────────────────────── */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 mt-10 md:mt-12">
                     {rawSlides.slice(0, 3).map((project, index) => (
                         <AnimateOnScroll key={`g${index}`} delay={index * 100}>
                             <a

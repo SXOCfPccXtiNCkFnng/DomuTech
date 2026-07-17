@@ -27,7 +27,7 @@ const CookieBanner: React.FC = () => {
                     initial={{ y: 100, opacity: 0, x: '-50%' }}
                     animate={{ y: 0, opacity: 1, x: '-50%' }}
                     exit={{ y: 100, opacity: 0, x: '-50%' }}
-                    className="fixed bottom-6 md:bottom-10 left-1/2 z-[9999] w-[95%] max-w-3xl"
+                    className="site-cookie-banner fixed bottom-6 md:bottom-10 left-1/2 z-[9999] w-[95%] max-w-3xl"
                 >
                     <div className="bg-[var(--domu-black)]/60 backdrop-blur-2xl border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.4)] rounded-xl p-5 md:p-6 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative group">
                         {/* Shimmer effect on border hover */}

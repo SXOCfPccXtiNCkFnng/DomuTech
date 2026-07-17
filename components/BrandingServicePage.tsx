@@ -31,9 +31,9 @@ const BrandingServicePage: React.FC = () => {
         <div className="min-h-screen bg-[var(--domu-bg)] font-sans text-white overflow-hidden selection:bg-[var(--domu-accent)] selection:text-white">
             {/* Hero Section */}
             <section className="relative py-24 md:py-32 overflow-hidden bg-[var(--domu-bg)]">
-                <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15]">
-                    <PaletteIcon className="absolute top-[10%] left-[5%] w-32 h-32 animate-float opacity-60" />
-                    <PaletteIcon className="absolute top-[20%] right-[10%] w-48 h-48 animate-spin-slow opacity-40" style={{ animationDuration: '55s' }} />
+                <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.05]">
+                    <PaletteIcon className="absolute top-[10%] left-[5%] w-32 h-32 animate-float" />
+                    <PaletteIcon className="absolute top-[20%] right-[10%] w-48 h-48 animate-spin-slow" style={{ animationDuration: '55s' }} />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black"></div>
                 

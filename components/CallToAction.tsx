@@ -14,7 +14,7 @@ interface CallToActionProps {
 const CallToAction: React.FC<CallToActionProps> = ({ title, subtitle, primaryButtonText, primaryButtonLink, variant = 'whatsapp' }) => {
     return (
         <section className="section-domu bg-[var(--domu-bg)]">
-            <div className="container mx-auto px-4">
+            <div className="mx-auto w-full max-w-[92rem] page-pad-x">
                 <AnimateOnScroll>
                     <div className="on-dark relative p-7 md:p-12 lg:p-14 rounded-lg md:rounded-lg overflow-hidden border border-white/10 shadow-[0_10px_28px_-18px_rgba(10,15,24,0.2)]">
                         <div className="absolute -top-24 -right-16 w-72 h-72 bg-[var(--domu-accent)]/18 rounded-full blur-[100px] pointer-events-none" />

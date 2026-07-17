@@ -23,7 +23,7 @@ const FAQ: React.FC = () => {
     >
       <BrandGhosts variant="default" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="mx-auto w-full max-w-[92rem] page-pad-x relative z-10">
         <AnimateOnScroll>
           <div className="text-center section-head-domu">
             <span className="tag-domu mb-3 block">
@@ -33,7 +33,7 @@ const FAQ: React.FC = () => {
           </div>
         </AnimateOnScroll>
 
-        <div className="grid lg:grid-cols-2 gap-x-8 max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-x-8">
           <div className="space-y-4">
             {firstCol.map((item, i) => {
               const id = `faq-${i}`;

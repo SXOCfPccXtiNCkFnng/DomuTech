@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const COMPANIES = [
   'AGB Campinas',
@@ -39,12 +39,52 @@ const LogoRow = ({
 );
 
 const TrustedCompanies: React.FC = () => {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const frameRef = useRef<number | null>(null);
+
+  const rampPlaybackRate = (targetRate: number, duration: number) => {
+    const animation = trackRef.current?.getAnimations()[0];
+    if (!animation) return;
+
+    if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
+
+    const startRate = animation.playbackRate;
+    const startedAt = performance.now();
+    animation.play();
+
+    const update = (now: number) => {
+      const progress = Math.min((now - startedAt) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      animation.playbackRate = startRate + (targetRate - startRate) * eased;
+
+      if (progress < 1) {
+        frameRef.current = requestAnimationFrame(update);
+      } else {
+        animation.playbackRate = targetRate;
+        frameRef.current = null;
+      }
+    };
+
+    frameRef.current = requestAnimationFrame(update);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
+    };
+  }, []);
+
   return (
     <div className="trusted-band">
       <p className="trusted-band__label">Empresas que confiam</p>
 
-      <div className="trusted-marquee" aria-label="Empresas parceiras">
-        <div className="trusted-marquee__track">
+      <div
+        className="trusted-marquee"
+        aria-label="Empresas parceiras"
+        onMouseEnter={() => rampPlaybackRate(0, 700)}
+        onMouseLeave={() => rampPlaybackRate(1, 750)}
+      >
+        <div ref={trackRef} className="trusted-marquee__track">
           <LogoRow stripId="a" />
           <LogoRow stripId="b" ariaHidden />
         </div>

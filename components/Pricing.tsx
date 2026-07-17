@@ -36,7 +36,7 @@ const Pricing: React.FC = () => {
       className="py-10 md:py-24 bg-[var(--domu-bg)] relative overflow-hidden lg:min-h-[90vh] flex items-center"
     >
       {/* Branding Ghosts Constellation - Forced to Background */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15] z-0">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.05] z-0">
         <img
           src="/fraucon.png"
           className="absolute bottom-[10%] left-0 w-64 h-64 animate-spin-slow object-contain"

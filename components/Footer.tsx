@@ -1,25 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-    House,
-    FolderSimple,
-    UsersThree,
-    Calculator,
-    Storefront,
-    Cookie,
-    InstagramLogo,
-    ShieldCheck,
-    ChatCircleDots,
-} from '@phosphor-icons/react';
-import {
-    WhatsAppIcon,
-    ArrowUpRightIcon,
-    GlobeIcon,
-    AutomationIcon,
-    CodeIcon,
-    TargetIcon,
-    PaletteIcon,
-} from './icons';
+import { InstagramLogo } from '@phosphor-icons/react';
+import { WhatsAppIcon, ArrowUpRightIcon } from './icons';
 import AnimateOnScroll from './AnimateOnScroll';
 
 const CONTACT = {
@@ -27,208 +9,82 @@ const CONTACT = {
     instagram: 'https://www.instagram.com/domu_tech/',
 };
 
-type FooterLink = {
-    name: string;
-    href: string;
-    icon: React.ReactNode;
-    external?: boolean;
-};
-
-const ICON = 'site-footer__icon';
-
-const EMPRESA: FooterLink[] = [
-    { name: 'Home', href: '/', icon: <House className={ICON} weight="duotone" /> },
-    { name: 'Cases', href: '/cases', icon: <FolderSimple className={ICON} weight="duotone" /> },
-    { name: 'Sobre Nós', href: '/sobre', icon: <UsersThree className={ICON} weight="duotone" /> },
-    { name: 'Orçamento', href: '/chatbot-placeholder', icon: <Calculator className={ICON} weight="duotone" /> },
-    { name: 'Loja de Layouts', href: '/layouts', icon: <Storefront className={ICON} weight="duotone" /> },
-    { name: 'Aviso de Cookies', href: '#', icon: <Cookie className={ICON} weight="duotone" /> },
-];
-
-const SERVICOS: FooterLink[] = [
-    { name: 'Criação de Sites', href: '/servico/site-sob-medida', icon: <GlobeIcon className={ICON} /> },
-    { name: 'IA & Automação', href: '/servico/automacao-ia', icon: <AutomationIcon className={ICON} /> },
-    { name: 'Software House', href: '/servico/software-house', icon: <CodeIcon className={ICON} /> },
-    { name: 'Tráfego & Performance', href: '/servico/trafego-performance', icon: <TargetIcon className={ICON} /> },
-    { name: 'Branding & Design UX', href: '/servico/branding-design', icon: <PaletteIcon className={ICON} /> },
-];
-
-const CONECTE: FooterLink[] = [
-    {
-        name: 'Instagram',
-        href: CONTACT.instagram,
-        icon: <InstagramLogo className={ICON} weight="duotone" />,
-        external: true,
-    },
-    {
-        name: 'WhatsApp',
-        href: CONTACT.whatsapp,
-        icon: <WhatsAppIcon className={ICON} />,
-        external: true,
-    },
-    { name: 'Loja de Layouts', href: '/layouts', icon: <Storefront className={ICON} weight="duotone" /> },
-    { name: 'Privacidade', href: '#', icon: <ShieldCheck className={ICON} weight="duotone" /> },
-];
-
-function FooterNavLink({ link }: { link: FooterLink }) {
-    const className = 'site-footer__link';
-    const content = (
-        <>
-            {link.icon}
-            <span>{link.name}</span>
-        </>
-    );
-
-    if (link.external) {
-        return (
-            <a href={link.href} target="_blank" rel="noreferrer" className={className}>
-                {content}
-            </a>
-        );
-    }
-
-    if (link.href.startsWith('#')) {
-        return (
-            <a href={link.href} className={className}>
-                {content}
-            </a>
-        );
-    }
-
-    return (
-        <Link to={link.href} className={className}>
-            {content}
-        </Link>
-    );
-}
-
 const Footer: React.FC = () => {
     const year = new Date().getFullYear();
 
     return (
-        <footer id="footer" className="site-footer on-dark relative overflow-hidden">
-            <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[720px] h-[320px] bg-[var(--domu-accent)]/12 blur-[120px] pointer-events-none" />
-            <div
-                className="absolute inset-0 opacity-[0.035] pointer-events-none"
-                style={{
-                    backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
-                    backgroundSize: '28px 28px',
-                }}
-            />
-
-            <div className="relative mx-auto max-w-[92rem] page-pad-x pt-16 md:pt-20">
+        <footer id="footer" className="site-footer site-footer--light">
+            <div className="mx-auto max-w-[92rem] page-pad-x">
                 <AnimateOnScroll>
-                    <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 md:gap-10 pb-12 md:pb-14">
-                        <div className="max-w-2xl">
-                            <p className="site-footer__eyebrow mb-4">Domu Tech</p>
-                            <h2 className="site-footer__headline mb-4">
-                                Tecnologia com precisão.
-                                <br />
-                                <span className="site-footer__headline-muted">Design com intenção.</span>
-                            </h2>
-                            <p className="site-footer__copy max-w-md">
-                                Sites, sistemas, automação e performance - estruturados para empresas que tratam
-                                presença digital como ativo, não como improviso.
-                            </p>
+                    <div className="footer-cta-pro">
+                        <div>
+                            <p className="footer-cta-pro__eyebrow">Vamos conversar</p>
+                            <h2>Seu próximo projeto começa com uma boa ideia.</h2>
+                            <p>Conte o que sua empresa precisa. Nós ajudamos a transformar em uma solução digital clara e eficiente.</p>
                         </div>
-
-                        <div className="flex flex-col sm:flex-row gap-2.5 shrink-0">
-                            <a
-                                href={CONTACT.whatsapp}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="btn-whatsapp-solid"
-                            >
-                                <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
-                                WhatsApp Direto
-                            </a>
+                        <div className="footer-cta-pro__actions">
                             <Link to="/chatbot-placeholder" className="btn-budget">
+                                Solicitar proposta
                                 <ArrowUpRightIcon className="w-3.5 h-3.5" />
-                                Pedir orçamento
                             </Link>
+                            <a href={CONTACT.whatsapp} target="_blank" rel="noreferrer" className="footer-whatsapp-link">
+                                <WhatsAppIcon className="w-4 h-4" />
+                                Conversar no WhatsApp
+                            </a>
                         </div>
                     </div>
                 </AnimateOnScroll>
-            </div>
 
-            <div className="site-footer__rule" aria-hidden />
-
-            <div className="relative mx-auto max-w-[92rem] page-pad-x pt-12 md:pt-14 pb-12 md:pb-14">
-                <AnimateOnScroll delay={100}>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
-                        <div className="sm:col-span-2 lg:col-span-4">
-                            <Link to="/" className="inline-flex items-center mb-5 group">
-                                <img
-                                    src="/frame-1.png"
-                                    alt="DOMU TECH"
-                                    className="site-logo site-logo--white h-[4.25rem] md:h-[5rem] w-auto object-contain transition-transform group-hover:scale-[1.02]"
-                                />
-                            </Link>
-                            <p className="site-footer__copy max-w-xs">
-                                Engenharia, design e estratégia digital para acelerar o crescimento do seu negócio.
-                            </p>
-                            <div className="site-footer__meta">
-                                <h4 className="site-footer__eyebrow">Atendimento</h4>
-                                <a
-                                    href={CONTACT.whatsapp}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="site-footer__link"
-                                >
-                                    <WhatsAppIcon className="site-footer__icon" />
-                                    <span>WhatsApp comercial</span>
-                                </a>
-                                <p className="site-footer__meta-value">
-                                    <ChatCircleDots className="site-footer__icon" weight="duotone" />
-                                    Resposta rápida no primeiro contato
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="lg:col-span-2 lg:col-start-6">
-                            <h4 className="site-footer__eyebrow">Empresa</h4>
-                            <ul className="site-footer__list">
-                                {EMPRESA.map((link) => (
-                                    <li key={link.name}>
-                                        <FooterNavLink link={link} />
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        <div className="lg:col-span-3">
-                            <h4 className="site-footer__eyebrow">Serviços</h4>
-                            <ul className="site-footer__list">
-                                {SERVICOS.map((link) => (
-                                    <li key={link.name}>
-                                        <FooterNavLink link={link} />
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        <div className="lg:col-span-2">
-                            <h4 className="site-footer__eyebrow">Conecte-se</h4>
-                            <ul className="site-footer__list">
-                                {CONECTE.map((link) => (
-                                    <li key={link.name}>
-                                        <FooterNavLink link={link} />
-                                    </li>
-                                ))}
-                            </ul>
+                <div className="footer-main-pro">
+                    <div className="footer-brand-pro">
+                        <Link to="/" aria-label="Domu Tech">
+                            <img src="/frame-1.png" alt="DOMU TECH" className="site-logo" />
+                        </Link>
+                        <p>Tecnologia, design e estratégia para empresas que querem crescer com consistência.</p>
+                        <div className="footer-social-pro">
+                            <a href={CONTACT.instagram} target="_blank" rel="noreferrer" aria-label="Instagram">
+                                <InstagramLogo size={19} weight="regular" />
+                            </a>
+                            <a href={CONTACT.whatsapp} target="_blank" rel="noreferrer" aria-label="WhatsApp">
+                                <WhatsAppIcon className="w-[18px] h-[18px]" />
+                            </a>
                         </div>
                     </div>
-                </AnimateOnScroll>
-            </div>
 
-            <div className="site-footer__bar">
-                <div className="mx-auto max-w-[92rem] page-pad-x py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-                    <p className="site-footer__bar-text">
-                        © {year} Domu Tech · Todos os direitos reservados
-                    </p>
-                    <p className="site-footer__bar-text">
-                        Feito com precisão pela Domu Tech
-                    </p>
+                    <nav className="footer-column-pro" aria-label="Navegação institucional">
+                        <h3>Navegação</h3>
+                        <Link to="/">Home</Link>
+                        <Link to="/cases">Cases</Link>
+                        <Link to="/sobre">Sobre</Link>
+                        <Link to="/layouts">Layouts</Link>
+                    </nav>
+
+                    <nav className="footer-column-pro" aria-label="Soluções">
+                        <h3>Soluções</h3>
+                        <Link to="/servico/site-sob-medida">Criação de Sites</Link>
+                        <Link to="/servico/automacao-ia">IA & Automação</Link>
+                        <Link to="/servico/software-house">Software House</Link>
+                        <Link to="/servico/trafego-performance">Tráfego & Performance</Link>
+                        <Link to="/servico/branding-design">Branding & Design UX</Link>
+                    </nav>
+
+                    <div className="footer-column-pro footer-contact-pro">
+                        <h3>Contato</h3>
+                        <a href={CONTACT.whatsapp} target="_blank" rel="noreferrer">WhatsApp comercial</a>
+                        <a href={CONTACT.instagram} target="_blank" rel="noreferrer">@domu_tech</a>
+                        <p>
+                            <span />
+                            Atendimento online
+                        </p>
+                    </div>
+                </div>
+
+                <div className="footer-bottom-pro">
+                    <p>© {year} Domu Tech. Todos os direitos reservados.</p>
+                    <div>
+                        <a href="#">Privacidade</a>
+                        <a href="#">Cookies</a>
+                    </div>
                 </div>
             </div>
         </footer>

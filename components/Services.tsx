@@ -10,7 +10,7 @@ const Services: React.FC = () => {
       className="section-domu bg-[var(--domu-bg)] relative overflow-hidden"
     >
       {/* Branding Ghosts Constellation - Forced to Background */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.15] z-0">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.05] z-0">
         <img
           src="/fraucon.png"
           className="absolute top-[20%] right-0 w-64 h-64 animate-spin-slow object-contain"

@@ -6,7 +6,6 @@ import {
     Briefcase,
     FolderSimple,
     UsersThree,
-    Calculator,
     Storefront,
 } from '@phosphor-icons/react';
 import {
@@ -20,8 +19,6 @@ import {
     CodeIcon,
     TargetIcon,
     PaletteIcon,
-    SunIcon,
-    MoonIcon,
 } from './icons';
 
 const SERVICES_LIST = [
@@ -37,37 +34,16 @@ const NAV_ITEMS = [
     { name: 'Serviços', href: '#services', icon: Briefcase, type: 'services' as const },
     { name: 'Cases', href: '/cases', icon: FolderSimple, type: 'link' as const },
     { name: 'Sobre', href: '/sobre', icon: UsersThree, type: 'link' as const },
-    { name: 'Orçamento', href: '/chatbot-placeholder', icon: Calculator, type: 'link' as const },
 ];
-
-const ANNOUNCE_ITEMS = [
-    { text: 'Orçamento sob medida para o seu negócio', cta: 'Pedir orçamento', href: '/chatbot-placeholder' },
-    { text: 'Resposta rápida no WhatsApp', cta: 'Falar agora', href: '/chatbot-placeholder' },
-    { text: 'Sites, e-commerces e apps sob medida', cta: 'Ver soluções', href: '/#services' },
-    { text: 'Comece seu projeto digital hoje', cta: 'Solicitar proposta', href: '/chatbot-placeholder' },
-] as const;
-
-const ANNOUNCE_LOOPS = 4;
-
-function buildAnnounceStrip(stripId: string) {
-    const items: { text: string; cta: string; href: string; key: string }[] = [];
-    for (let loop = 0; loop < ANNOUNCE_LOOPS; loop++) {
-        ANNOUNCE_ITEMS.forEach((item, i) => {
-            items.push({ ...item, key: `${stripId}-${loop}-${i}` });
-        });
-    }
-    return items;
-}
 
 const Header: React.FC = () => {
     const location = useLocation();
     const headerRef = useRef<HTMLElement>(null);
-    const [spacerH, setSpacerH] = useState(112);
+    const [spacerH, setSpacerH] = useState(68);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isServicesOpen, setIsServicesOpen] = useState(false);
     const [closeTimeout, setCloseTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
-    const [theme, setTheme] = useState<'dark' | 'light'>('light');
 
     const applyChromeHeight = (h: number) => {
         setSpacerH(h);
@@ -80,27 +56,10 @@ const Header: React.FC = () => {
     };
     const servicesActive = location.pathname.startsWith('/servico');
 
-    const applyTheme = (next: 'dark' | 'light') => {
-        setTheme(next);
-        localStorage.setItem('domu_theme', next);
-        if (next === 'light') {
-            document.documentElement.classList.add('light-theme');
-            document.documentElement.classList.remove('dark-theme', 'dark');
-        } else {
-            document.documentElement.classList.add('dark-theme', 'dark');
-            document.documentElement.classList.remove('light-theme');
-        }
-    };
-
-    const toggleTheme = () => applyTheme(theme === 'dark' ? 'light' : 'dark');
-
     useEffect(() => {
-        if (localStorage.getItem('domu_palette') !== 'domu_clean_v2') {
-            localStorage.setItem('domu_palette', 'domu_clean_v2');
-            localStorage.setItem('domu_theme', 'light');
-            localStorage.removeItem('theme');
-        }
-        applyTheme(localStorage.getItem('domu_theme') === 'dark' ? 'dark' : 'light');
+        localStorage.setItem('domu_theme', 'light');
+        document.documentElement.classList.add('light-theme');
+        document.documentElement.classList.remove('dark-theme', 'dark');
     }, []);
 
     const handleMouseEnter = () => {
@@ -117,74 +76,16 @@ const Header: React.FC = () => {
     };
 
     useEffect(() => {
-        /* Histerese + snap suave: barra colapsa/expande sem loop */
-        const HIDE_AT = 80;
-        const SHOW_AT = 10;
-        const SNAP_ZONE = 64;
-
-        let announceHidden = window.scrollY > HIDE_AT;
-        let lastY = window.scrollY;
-        let snapping = false;
-        let snapTimer: ReturnType<typeof setTimeout> | null = null;
-
-        setIsScrolled(announceHidden);
-
-        const revealAnnounce = () => {
-            if (!announceHidden) return;
-            announceHidden = false;
-            setIsScrolled(false);
-        };
-
-        const hideAnnounce = () => {
-            if (announceHidden) return;
-            announceHidden = true;
-            setIsScrolled(true);
-        };
-
-        const finishSnap = () => {
-            snapping = false;
-            if (snapTimer) {
-                clearTimeout(snapTimer);
-                snapTimer = null;
-            }
-            if (window.scrollY <= SHOW_AT) revealAnnounce();
-        };
-
         const handleScroll = () => {
-            if (snapping) {
-                if (window.scrollY <= SHOW_AT) finishSnap();
-                lastY = window.scrollY;
-                return;
-            }
-
-            const y = window.scrollY;
-            const goingUp = y < lastY - 0.5;
-
-            if (goingUp && y > 0 && y < SNAP_ZONE) {
-                snapping = true;
-                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-                snapTimer = setTimeout(finishSnap, 700);
-                lastY = y;
-                return;
-            }
-
-            if (!announceHidden && y >= HIDE_AT) {
-                hideAnnounce();
-            } else if (announceHidden && y <= SHOW_AT) {
-                revealAnnounce();
-            }
-
-            lastY = window.scrollY;
+            setIsScrolled(window.scrollY > 16);
         };
 
         handleScroll();
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => {
             window.removeEventListener('scroll', handleScroll);
-            if (snapTimer) clearTimeout(snapTimer);
-            if (closeTimeout) clearTimeout(closeTimeout);
         };
-    }, [closeTimeout]);
+    }, []);
 
     /* Spacer = altura real do header: conteúdo NUNCA fica por baixo do fixed */
     useLayoutEffect(() => {
@@ -207,59 +108,33 @@ const Header: React.FC = () => {
 
     useEffect(() => {
         document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+        document.body.classList.toggle('mobile-menu-open', isMenuOpen);
+
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') setIsMenuOpen(false);
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
         return () => {
             document.body.style.overflow = '';
+            document.body.classList.remove('mobile-menu-open');
+            window.removeEventListener('keydown', handleKeyDown);
         };
     }, [isMenuOpen]);
+
+    useEffect(() => {
+        setIsMenuOpen(false);
+    }, [location.pathname]);
 
     const navIdle = 'header-nav-chip';
     const navActive = 'header-nav-chip is-active';
 
-    const menuBtn =
-        theme === 'light'
-            ? 'bg-[var(--domu-accent)]/12 text-[var(--domu-accent)]'
-            : 'bg-white/10 text-white';
-    const dropIcon = theme === 'light' ? 'text-[var(--domu-accent)]' : 'text-white';
+    const menuBtn = 'bg-[var(--domu-accent)]/12 text-[var(--domu-accent)]';
+    const dropIcon = 'text-[var(--domu-accent)]';
 
     return (
         <>
-            <header ref={headerRef} className="site-header">
-                <div
-                    className={`site-announce-slot ${isScrolled ? 'is-collapsed' : ''}`}
-                    aria-hidden={isScrolled}
-                >
-                    <div className="site-announce-slot__inner">
-                        <div className="site-announce">
-                            <div className="announce-marquee" aria-label="Avisos">
-                                <div className="announce-marquee__track">
-                                    <ul className="announce-marquee__group">
-                                        {buildAnnounceStrip('a').map((item) => (
-                                            <li key={item.key} className="announce-marquee__item">
-                                                <span className="announce-marquee__text">{item.text}</span>
-                                                <Link to={item.href} className="announce-marquee__cta">
-                                                    {item.cta}
-                                                    <ArrowUpRightIcon className="w-3 h-3" />
-                                                </Link>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                    <ul className="announce-marquee__group" aria-hidden>
-                                        {buildAnnounceStrip('b').map((item) => (
-                                            <li key={item.key} className="announce-marquee__item">
-                                                <span className="announce-marquee__text">{item.text}</span>
-                                                <Link to={item.href} className="announce-marquee__cta" tabIndex={-1}>
-                                                    {item.cta}
-                                                    <ArrowUpRightIcon className="w-3 h-3" />
-                                                </Link>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            <header ref={headerRef} className={`site-header ${isMenuOpen ? 'is-menu-open' : ''}`}>
                 <div
                     className={`site-header-bar ${isScrolled ? 'is-scrolled' : ''}`}
                 >
@@ -268,7 +143,7 @@ const Header: React.FC = () => {
                             <img
                                 src="/frame-1.png"
                                 alt="DOMU TECH"
-                                className="site-logo h-9 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+                                className="site-logo h-11 md:h-[3.1rem] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
                             />
                         </Link>
 
@@ -289,7 +164,6 @@ const Header: React.FC = () => {
                                                     active ? navActive : navIdle
                                                 }`}
                                             >
-                                                <item.icon className="w-3.5 h-3.5" weight={active ? 'fill' : 'regular'} />
                                                 <span className="header-nav-label text-current">{item.name}</span>
                                                 <ChevronDownIcon
                                                     className={`w-3 h-3 opacity-60 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`}
@@ -307,12 +181,12 @@ const Header: React.FC = () => {
                                                         transition={{ duration: 0.15 }}
                                                         className="absolute top-full left-1/2 pt-2 z-[120]"
                                                     >
-                                                        <div className="site-header-dropdown min-w-[13.5rem] rounded-lg border overflow-hidden p-1.5 shadow-[0_12px_32px_-12px_rgba(10,15,24,0.35)]">
+                                                        <div className="site-header-dropdown min-w-[16.5rem] rounded-lg border overflow-hidden p-1.5 shadow-[0_12px_32px_-12px_rgba(10,15,24,0.35)]">
                                                             {SERVICES_LIST.map((svc) => (
                                                                 <Link
                                                                     key={svc.name}
                                                                     to={svc.href}
-                                                                    className="header-drop-item flex items-center gap-2.5 px-3 py-2 rounded-lg"
+                                                                    className="header-drop-item flex items-center gap-2.5 px-3 py-2 rounded-lg whitespace-nowrap"
                                                                 >
                                                                     <svc.icon className={`w-3.5 h-3.5 shrink-0 ${dropIcon}`} />
                                                                     <span className="header-nav-label text-current">{svc.name}</span>
@@ -335,7 +209,6 @@ const Header: React.FC = () => {
                                             active ? navActive : navIdle
                                         }`}
                                     >
-                                        <item.icon className="w-3.5 h-3.5" weight={active ? 'fill' : 'regular'} />
                                         <span className="header-nav-label text-current">{item.name}</span>
                                     </Link>
                                 );
@@ -346,42 +219,27 @@ const Header: React.FC = () => {
                                 className={`header-capsule-btn inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg ${navIdle}`}
                                 title="Loja de Layouts"
                             >
-                                <Storefront className="w-3.5 h-3.5" weight="regular" />
                                 <span className="header-nav-label text-current">Layouts</span>
                             </Link>
                         </nav>
 
                         <div className="flex items-center gap-1.5 shrink-0 ml-auto lg:ml-0">
-                            <button
-                                type="button"
-                                onClick={toggleTheme}
-                                className="header-capsule-btn header-theme-toggle w-8 h-8 flex items-center justify-center rounded-lg transition-colors"
-                                aria-label="Alternar tema"
+                            <Link
+                                to="/chatbot-placeholder"
+                                className="header-primary-cta hidden sm:inline-flex"
                             >
-                                {theme === 'light' ? (
-                                    <MoonIcon className="w-4 h-4" />
-                                ) : (
-                                    <SunIcon className="w-4 h-4" />
-                                )}
-                            </button>
-
-                            <a
-                                href="https://wa.me/5511934430659"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="hidden sm:inline-flex items-center gap-1.5 h-8 px-2.5 rounded-lg text-[0.75rem] font-semibold text-[#25D366] bg-[#25D366]/10 border border-[#25D366]/35 hover:bg-[#25D366]/15 hover:border-[#25D366]/50 transition-colors"
-                            >
-                                <WhatsAppIcon className="w-4 h-4 shrink-0 text-[#25D366]" />
-                                <span className="text-[#25D366]">WhatsApp</span>
-                            </a>
+                                Fale com a Domu
+                                <ArrowUpRightIcon className="w-3.5 h-3.5" />
+                            </Link>
 
                             <button
                                 type="button"
-                                className={`header-capsule-btn lg:hidden w-9 h-9 flex items-center justify-center rounded-lg ${menuBtn}`}
-                                onClick={() => setIsMenuOpen(true)}
-                                aria-label="Abrir menu"
+                                className={`header-capsule-btn lg:hidden w-11 h-11 flex items-center justify-center rounded-lg ${menuBtn}`}
+                                onClick={() => setIsMenuOpen((open) => !open)}
+                                aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+                                aria-expanded={isMenuOpen}
                             >
-                                <MenuIcon className="w-5 h-5" />
+                                {isMenuOpen ? <XIcon className="w-7 h-7" /> : <MenuIcon className="w-7 h-7" />}
                             </button>
                         </div>
                     </div>
@@ -394,84 +252,98 @@ const Header: React.FC = () => {
             <AnimatePresence>
                 {isMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="on-dark fixed inset-0 z-[100]"
-                        style={{ backgroundColor: 'var(--domu-dark-bg)' }}
+                        initial={{ opacity: 0, x: 28 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 20 }}
+                        transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
+                        className="mobile-menu-panel fixed inset-0 z-[10050] flex h-[100dvh] flex-col overflow-hidden"
                     >
-                        <div className="flex items-center justify-between px-5 pt-5 pb-4 border-b border-white/10">
-                            <img src="/frame-1.png" alt="DOMU TECH" className="site-logo site-logo--white h-11 w-auto object-contain" />
+                        <div className="mobile-menu-panel__header">
+                            <Link to="/" onClick={() => setIsMenuOpen(false)} aria-label="Domu Tech">
+                                <img src="/frame-1.png" alt="DOMU TECH" className="site-logo h-11 w-auto object-contain" />
+                            </Link>
                             <button
                                 type="button"
                                 onClick={() => setIsMenuOpen(false)}
-                                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white"
+                                className="mobile-menu-panel__close"
                                 aria-label="Fechar menu"
                             >
-                                <XIcon className="w-5 h-5" />
+                                <XIcon className="w-6 h-6" />
                             </button>
                         </div>
 
-                        <div className="page-pad-x pt-8 pb-10 h-[calc(100vh-5rem)] overflow-y-auto flex flex-col gap-8">
-                            <nav className="flex flex-col gap-1">
+                        <div className="mobile-menu-panel__scroll">
+                            <div>
+                                <p className="mobile-menu-panel__label">Navegação</p>
+                                <nav className="mobile-menu-panel__primary">
                                 {NAV_ITEMS.filter((i) => i.type === 'link').map((item) => (
                                     <Link
                                         key={item.name}
                                         to={item.href}
                                         onClick={() => setIsMenuOpen(false)}
-                                        className="flex items-center gap-3 rounded-xl px-3 py-3 text-white hover:bg-white/[0.05] transition-colors"
+                                        className={`mobile-menu-panel__nav-item ${isActive(item.href) ? 'is-active' : ''}`}
                                     >
-                                        <item.icon className="w-5 h-5 text-[var(--domu-accent-light)]" weight="duotone" />
-                                        <span className="type-card-title !text-white">{item.name}</span>
+                                        <span className="mobile-menu-panel__nav-icon">
+                                            <item.icon className="w-5 h-5" weight="duotone" />
+                                        </span>
+                                        <span>{item.name}</span>
+                                        <ArrowUpRightIcon className="mobile-menu-panel__arrow" />
                                     </Link>
                                 ))}
                                 <Link
                                     to="/layouts"
                                     onClick={() => setIsMenuOpen(false)}
-                                    className="flex items-center gap-3 rounded-xl px-3 py-3 text-[var(--domu-accent-light)] hover:bg-white/[0.05] transition-colors"
+                                    className={`mobile-menu-panel__nav-item ${isActive('/layouts') ? 'is-active' : ''}`}
                                 >
-                                    <Storefront className="w-5 h-5" weight="duotone" />
-                                    <span className="type-card-title !text-[var(--domu-accent-light)]">Loja de Layouts</span>
+                                    <span className="mobile-menu-panel__nav-icon">
+                                        <Storefront className="w-5 h-5" weight="duotone" />
+                                    </span>
+                                    <span>Loja de Layouts</span>
+                                    <ArrowUpRightIcon className="mobile-menu-panel__arrow" />
                                 </Link>
-                            </nav>
+                                </nav>
+                            </div>
 
-                            <div>
-                                <p className="type-eyebrow mb-3 px-3" style={{ color: 'rgba(255,255,255,0.35)' }}>
-                                    Serviços
-                                </p>
-                                <div className="flex flex-col gap-1">
+                            <div className="mobile-menu-panel__services">
+                                <p className="mobile-menu-panel__label">Soluções</p>
+                                <div className="mobile-menu-panel__service-grid">
                                     {SERVICES_LIST.map((svc) => (
                                         <Link
                                             key={svc.name}
                                             to={svc.href}
                                             onClick={() => setIsMenuOpen(false)}
-                                            className="rounded-xl px-3 py-2.5 type-link text-white/70 hover:text-white hover:bg-white/[0.05] transition-colors"
+                                            className="mobile-menu-panel__service"
                                         >
-                                            {svc.name}
+                                            <svc.icon className="w-5 h-5" />
+                                            <span>{svc.name}</span>
                                         </Link>
                                     ))}
                                 </div>
                             </div>
 
-                            <div className="mt-auto pt-6 border-t border-white/10 space-y-3">
-                                <a
-                                    href="https://wa.me/5511934430659"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="w-full btn-whatsapp-solid"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
-                                    WhatsApp
-                                </a>
+                            <div className="mobile-menu-panel__contact">
+                                <div>
+                                    <p>Pronto para começar?</p>
+                                    <span>Conte sua ideia para a nossa equipe.</span>
+                                </div>
                                 <Link
                                     to="/chatbot-placeholder"
                                     className="btn-budget w-full"
                                     onClick={() => setIsMenuOpen(false)}
                                 >
+                                    Fale com a Domu
                                     <ArrowUpRightIcon className="w-3.5 h-3.5" />
-                                    Solicitar Orçamento
                                 </Link>
+                                <a
+                                    href="https://wa.me/5511934430659"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="mobile-menu-panel__whatsapp"
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    <WhatsAppIcon className="w-4 h-4" />
+                                    Conversar no WhatsApp
+                                </a>
                             </div>
                         </div>
                     </motion.div>

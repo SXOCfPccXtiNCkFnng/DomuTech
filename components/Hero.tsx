@@ -1,74 +1,91 @@
 import React from 'react';
-import { ArrowUpRightIcon } from './icons';
+import { ChatCircleDots, CheckCircle, PaperPlaneTilt, Sparkle } from '@phosphor-icons/react';
+import { ArrowUpRightIcon, WhatsAppIcon } from './icons';
 import AnimateOnScroll from './AnimateOnScroll';
+import BrandGhosts from './BrandGhosts';
 import TrustedCompanies from './TrustedCompanies';
 
 const Hero: React.FC = () => {
     return (
-        <section 
-            id="home" 
-            className="hero-section on-dark relative overflow-hidden"
-        >
-            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                <div
-                    className="absolute inset-0 opacity-[0.04] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]"
-                    style={{
-                        backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
-                        backgroundSize: '40px 40px',
-                    }}
-                />
-                <div className="absolute top-[15%] left-[-10%] w-[380px] h-[380px] bg-[var(--domu-accent)] opacity-20 blur-[130px] rounded-full" />
-                <div className="absolute bottom-[5%] right-[-8%] w-[460px] h-[460px] bg-[var(--domu-accent)] opacity-15 blur-[150px] rounded-full" />
-            </div>
-            
-            <div className="hero-section__inner container mx-auto px-6 relative z-10">
-                <div className="hero-section__main grid lg:grid-cols-2 gap-10 lg:gap-10 items-center">
-                    <div className="text-center lg:text-left">
+        <section id="home" className="hero-section hero-professional relative overflow-hidden">
+            <BrandGhosts variant="sides" opacity={0.05} />
+            <div className="hero-section__inner mx-auto w-full max-w-[92rem] page-pad-x relative z-10">
+                <div className="hero-section__main grid lg:grid-cols-[1.05fr_.95fr] gap-12 lg:gap-16 items-center">
+                    <div className="text-center lg:text-left max-w-[650px] mx-auto lg:mx-0">
                         <AnimateOnScroll immediate delay={160}>
-                            <h1 className="display-domu text-[var(--domu-primary)] mb-4 md:mb-6 max-w-xl mx-auto lg:mx-0 lg:max-w-[28ch]">
-                                Soluções digitais{' '}
-                                <span className="text-[var(--domu-accent)]">que impulsionam</span>{' '}
-                                o seu negócio.
+                            <h1 className="hero-professional__title">
+                                Tecnologia que{' '}
+                                <span>impulsiona resultados.</span>
                             </h1>
                         </AnimateOnScroll>
 
                         <AnimateOnScroll immediate delay={280}>
-                            <p className="lead-domu !text-white/65 mb-7 md:mb-9 max-w-[560px] mx-auto lg:mx-0">
-                                Sites modernos, e-commerces e aplicações sob medida para empresas que querem crescer com tecnologia.
+                            <p className="hero-professional__lead">
+                                Sites, automações e sistemas pensados para gerar valor real,
+                                simplificar processos e acelerar o crescimento do seu negócio.
                             </p>
                         </AnimateOnScroll>
 
                         <AnimateOnScroll immediate delay={400}>
-                            <div className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-2.5">
+                            <div className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-3">
                                 <a href="/chatbot-placeholder" className="btn-budget group">
+                                    Conheça nossas soluções
                                     <ArrowUpRightIcon className="w-4 h-4" />
-                                    Solicite um orçamento
                                 </a>
-                                <a href="#portfolio" className="btn-domu-outline group">
-                                    Ver Portfólio
+                                <a href="https://wa.me/5511934430659" className="hero-text-link">
+                                    <WhatsAppIcon className="w-4 h-4" />
+                                    Fale com um especialista
                                 </a>
                             </div>
                         </AnimateOnScroll>
                     </div>
 
-                    <div className="hero-logo-orbit relative hidden lg:flex items-center justify-center">
-                        <div
-                            className="hero-logo-glow absolute rounded-full bg-[var(--domu-accent)] opacity-20 blur-[140px] pointer-events-none"
-                            aria-hidden
-                        />
-                        <AnimateOnScroll immediate delay={320} className="w-full flex items-center justify-center">
-                            <div className="hero-logo-orbit__path">
-                                <img
-                                    src="/3d.png"
-                                    alt="DOMU TECH"
-                                    className="hero-logo-mark h-auto object-contain select-none"
-                                />
+                    <AnimateOnScroll immediate delay={260} className="w-full">
+                        <div className="hero-product">
+                            <div className="hero-product__browser">
+                                <span />
+                                <span />
+                                <span />
+                                <div className="hero-product__address">domutech.digital</div>
                             </div>
-                        </AnimateOnScroll>
-                    </div>
+
+                            <div className="hero-product__body">
+                                <div className="hero-product__intro">
+                                    <div className="hero-product__icon">
+                                        <ChatCircleDots size={22} weight="duotone" />
+                                    </div>
+                                    <div>
+                                        <p>Atendimento inteligente</p>
+                                        <span>Online agora</span>
+                                    </div>
+                                </div>
+
+                                <div className="hero-chat">
+                                    <div className="hero-chat__message hero-chat__message--bot">
+                                        <Sparkle size={15} weight="fill" />
+                                        Olá! Como podemos ajudar seu negócio hoje?
+                                    </div>
+                                    <div className="hero-chat__message hero-chat__message--user">
+                                        Quero automatizar meu atendimento.
+                                    </div>
+                                    <div className="hero-chat__status">
+                                        <CheckCircle size={15} weight="fill" />
+                                        Entendido. Temos a solução ideal para você.
+                                    </div>
+                                </div>
+
+                                <div className="hero-chat__input">
+                                    <span>Digite sua mensagem...</span>
+                                    <button type="button" aria-label="Enviar mensagem">
+                                        <PaperPlaneTilt size={17} weight="fill" />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </AnimateOnScroll>
                 </div>
 
-                <AnimateOnScroll immediate delay={520}>
+                <AnimateOnScroll immediate delay={520} className="hero-trusted">
                     <TrustedCompanies />
                 </AnimateOnScroll>
             </div>

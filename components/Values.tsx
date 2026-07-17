@@ -26,7 +26,7 @@ const Values: React.FC = () => {
     return (
         <section id="values" className="section-domu bg-[var(--domu-bg)] relative overflow-hidden">
             <BrandGhosts variant="spread" />
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="mx-auto w-full max-w-[92rem] page-pad-x relative z-10">
                 <AnimateOnScroll>
                     <div className="text-center section-head-domu max-w-3xl mx-auto">
                         <span className="tag-domu mb-4 block">

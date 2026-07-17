@@ -127,7 +127,7 @@ const Features: React.FC = () => {
           {/* ── Coluna direita - Lista de funcionalidades ───────────── */}
           <div className="pt-4 lg:pt-2 min-w-0 w-full overflow-hidden">
             <AnimateOnScroll>
-              <div className="text-center lg:text-left section-head-domu">
+              <div className="text-left section-head-domu">
                 <span className="tag-domu mb-3 block">
                   SOLUÇÕES DIGITAIS DE ALTO IMPACTO
                 </span>
@@ -140,14 +140,14 @@ const Features: React.FC = () => {
             <div className="divide-y divide-white/5">
               {FEATURES.map((item, index) => (
                 <AnimateOnScroll key={index} delay={index * 60}>
-                    <div className="flex flex-col sm:flex-row gap-5 py-5 md:py-6 group items-center sm:items-start text-center sm:text-left min-w-0">
+                    <div className="flex flex-col sm:flex-row gap-5 py-5 md:py-6 group items-start text-left min-w-0">
                     {/* Ícone quadrado - Clean Design */}
-                    <div className="icon-tile w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-105 border border-[var(--domu-accent)]/15">
+                    <div className="icon-tile w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 border border-[var(--domu-accent)]/15">
                       <item.Icon />
                     </div>
 
                     <div className="min-w-0 flex-1 w-full">
-                      <h4 className="type-card-title text-[var(--domu-primary)] mb-2 group-hover:text-[var(--domu-accent)] transition-colors duration-200">
+                      <h4 className="feature-item-title type-card-title text-[var(--domu-accent)] mb-2">
                         {item.title}
                       </h4>
                       <div className="type-card-desc opacity-95 text-justify">

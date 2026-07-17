@@ -147,7 +147,7 @@ const Testimonials: React.FC = () => {
     >
       <BrandGhosts variant="spread" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="mx-auto w-full max-w-[92rem] page-pad-x relative z-10">
         <AnimateOnScroll>
           <div className="text-center section-head-domu">
             <span className="tag-domu mb-3 block">Feedback dos clientes</span>
@@ -179,7 +179,7 @@ const Testimonials: React.FC = () => {
                 className="testimonial-card group box-border bg-[var(--domu-surface-1)] border border-[var(--domu-border)] rounded-2xl p-5 md:p-6 flex flex-col flex-shrink-0 shadow-[0_16px_40px_-28px_rgba(10,15,24,0.2)] transition-colors duration-300 hover:border-[var(--domu-accent)]/30"
               >
                 <div className="flex items-start justify-between gap-3 mb-4 shrink-0">
-                  <Quotes className="w-7 h-7 text-[var(--domu-accent)]" weight="duotone" />
+                  <Quotes className="w-8 h-8 text-[var(--domu-accent)]" weight="duotone" />
                   <span className="type-eyebrow !text-[var(--domu-accent)]/45">
                     {String((i % N) + 1).padStart(2, "0")}
                   </span>

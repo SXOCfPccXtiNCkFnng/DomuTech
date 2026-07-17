@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calculator, X } from '@phosphor-icons/react';
+import { Calculator, CheckCircle, Clock, X } from '@phosphor-icons/react';
 
 const AutoPopup: React.FC = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -57,18 +57,16 @@ const AutoPopup: React.FC = () => {
                         whileHover={{ scale: 1.06 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={showPopup}
-                        className="fixed bottom-[5.75rem] right-5 z-[999] w-14 h-14 rounded-full flex items-center justify-center bg-[var(--domu-accent)] shadow-[0_10px_28px_-8px_rgba(0,71,255,0.55)] border border-white/20 hover:bg-[var(--domu-accent-hover)] transition-colors"
+                        className="site-floating-action fixed bottom-[5.75rem] right-5 z-[999] w-14 h-14 rounded-full flex items-center justify-center bg-[var(--domu-accent)] shadow-[0_10px_28px_-8px_rgba(0,71,255,0.55)] border border-white/20 hover:bg-[var(--domu-accent-hover)] transition-colors"
                         aria-label="Ver calculadora de orçamento"
                     >
                         <Calculator className="w-7 h-7 text-white" weight="bold" color="#ffffff" />
                         <span className="absolute top-0.5 right-0.5 flex h-3.5 w-3.5 z-10">
                             <span
-                                className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-70"
-                                style={{ backgroundColor: '#ffffff' }}
+                                className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--domu-accent)] opacity-60"
                             />
                             <span
-                                className="relative inline-flex rounded-full h-3.5 w-3.5 border-2 border-[var(--domu-accent)] shadow-sm"
-                                style={{ backgroundColor: '#ffffff' }}
+                                className="relative inline-flex rounded-full h-3.5 w-3.5 bg-[var(--domu-accent)] border-2 border-white shadow-sm"
                             />
                         </span>
                     </motion.button>
@@ -77,13 +75,13 @@ const AutoPopup: React.FC = () => {
 
             <AnimatePresence>
                 {isVisible && (
-                    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
+                    <div className="auto-popup-layer fixed inset-0 z-[9999] flex items-center justify-center p-4">
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             onClick={closePopup}
-                            className="absolute inset-0 bg-[var(--domu-dark-bg)]/40 backdrop-blur-[2px]"
+                            className="absolute inset-0 bg-[#101828]/20"
                         />
 
                         <motion.div
@@ -94,60 +92,62 @@ const AutoPopup: React.FC = () => {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: 12, scale: 0.98 }}
                             transition={{ type: 'spring', stiffness: 280, damping: 26 }}
-                            className="relative w-full max-w-[420px] overflow-hidden rounded-lg border border-white/12 bg-[var(--domu-dark-bg)] shadow-[0_24px_64px_-24px_rgba(0,0,0,0.65)]"
+                            className="auto-popup-card relative w-full max-w-[440px]"
                         >
-                            <div className="absolute -top-20 -right-16 w-56 h-56 rounded-full bg-[var(--domu-accent)]/25 blur-[90px] pointer-events-none" />
-                            <div className="absolute -bottom-24 -left-16 w-56 h-56 rounded-full bg-[var(--domu-accent)]/15 blur-[90px] pointer-events-none" />
-
                             <button
                                 type="button"
                                 onClick={closePopup}
-                                className="absolute top-4 right-4 z-20 w-9 h-9 rounded-lg flex items-center justify-center hover:brightness-95 transition-all shadow-sm"
-                                style={{ backgroundColor: '#ffffff' }}
+                                className="auto-popup-card__close"
                                 aria-label="Fechar"
                             >
-                                <X className="w-4 h-4" weight="bold" color="#0047FF" />
+                                <X className="w-4 h-4" weight="bold" />
                             </button>
 
-                            <div className="relative z-10 p-7 md:p-8">
-                                <div className="w-11 h-11 rounded-lg flex items-center justify-center mb-5 bg-[var(--domu-accent)]">
-                                    <Calculator className="w-5 h-5" weight="bold" color="#ffffff" />
+                            <div className="auto-popup-card__content">
+                                <div className="auto-popup-card__intro">
+                                    <div className="auto-popup-card__icon">
+                                        <Calculator className="w-5 h-5" weight="duotone" />
+                                    </div>
+                                    <div>
+                                        <p>Calculadora de orçamento</p>
+                                        <span>Estimativa inicial gratuita</span>
+                                    </div>
                                 </div>
-
-                                <p className="type-eyebrow mb-3" style={{ color: 'rgba(255,255,255,0.45)' }}>
-                                    Calculadora de orçamento
-                                </p>
 
                                 <h2
                                     id="calc-popup-title"
-                                    className="font-black text-[1.5rem] md:text-[1.75rem] leading-tight tracking-tight mb-3"
-                                    style={{ color: '#ffffff' }}
+                                    className="auto-popup-card__title"
                                 >
-                                    Quanto custa o seu{' '}
-                                    <span style={{ color: '#4D7CFF' }}>próximo site?</span>
+                                    Descubra quanto investir no seu{' '}
+                                    <span>próximo projeto.</span>
                                 </h2>
 
-                                <p
-                                    className="type-body mb-7 max-w-[34ch]"
-                                    style={{ color: 'rgba(255,255,255,0.65)' }}
-                                >
-                                    Descubra o investimento ideal para o seu projeto com nossa estimativa rápida e sem compromisso.
+                                <p className="auto-popup-card__description">
+                                    Responda algumas perguntas e receba uma estimativa adequada às necessidades da sua empresa.
                                 </p>
+
+                                <div className="auto-popup-card__benefits">
+                                    <span>
+                                        <Clock size={16} weight="duotone" />
+                                        Leva menos de 2 minutos
+                                    </span>
+                                    <span>
+                                        <CheckCircle size={16} weight="duotone" />
+                                        Sem compromisso
+                                    </span>
+                                </div>
 
                                 <button
                                     type="button"
                                     onClick={handleAction}
-                                    className="btn-budget w-full !text-white"
+                                    className="btn-budget w-full"
                                 >
-                                    <Calculator className="w-3.5 h-3.5" weight="bold" color="#ffffff" />
-                                    Calcular agora
+                                    Calcular meu projeto
+                                    <Calculator className="w-3.5 h-3.5" weight="bold" />
                                 </button>
 
-                                <p
-                                    className="type-eyebrow text-center mt-4"
-                                    style={{ color: 'rgba(255,255,255,0.35)' }}
-                                >
-                                    Resposta em poucos minutos
+                                <p className="auto-popup-card__support">
+                                    Depois, nossa equipe pode ajudar você a refinar a estimativa.
                                 </p>
                             </div>
                         </motion.div>

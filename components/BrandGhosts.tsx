@@ -38,7 +38,7 @@ interface BrandGhostsProps {
 /** Logos Domu flutuando no fundo da seção, com órbita suave. */
 const BrandGhosts: React.FC<BrandGhostsProps> = ({
   variant = 'default',
-  opacity = 0.15,
+  opacity = 0.05,
   className = '',
 }) => (
   <div

@@ -8,7 +8,7 @@ const FloatingWhatsAppButton: React.FC = () => {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="fixed bottom-5 right-5 z-[60] transition-transform duration-300 hover:scale-105 active:scale-95"
+            className="site-floating-action fixed bottom-5 right-5 z-[60] transition-transform duration-300 hover:scale-105 active:scale-95"
             aria-label="Falar no WhatsApp"
         >
             <div className="relative">
