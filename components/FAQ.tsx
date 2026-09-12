@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AltArrowDownIcon } from './icons';
-import { FAQ_DATA } from '../constants';
+import { FAQ_DATA, HOME_SECTION, homeSectionIndex } from '../constants';
 import AnimateOnScroll from './AnimateOnScroll';
 
 const FAQ: React.FC = () => {
@@ -22,7 +22,7 @@ const FAQ: React.FC = () => {
                     <div className="bloom-faq__head">
                         <div>
                             <p className="bloom-band__label">Dúvidas</p>
-                            <span className="bloom-band__index">05</span>
+                            <span className="bloom-band__index">{homeSectionIndex(HOME_SECTION.duvidas)}</span>
                         </div>
                         <AnimateOnScroll from="right" delay={90}>
                             <h2 className="bloom-faq__title">

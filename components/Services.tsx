@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRightSolar, ArrowUpRightSolar } from './icons';
 import AnimateOnScroll from './AnimateOnScroll';
-import { PH } from '../constants';
+import { PH, HOME_SECTION, homeSectionIndex } from '../constants';
 
 const SERVICES = [
     {
@@ -43,7 +43,7 @@ const Services: React.FC = () => {
                 <div className="bloom-services__side">
                     <AnimateOnScroll from="up-left">
                         <p className="bloom-band__label">Soluções</p>
-                        <span className="bloom-band__index">02</span>
+                        <span className="bloom-band__index">{homeSectionIndex(HOME_SECTION.solucoes)}</span>
                     </AnimateOnScroll>
                     <AnimateOnScroll from="up" delay={120}>
                         <Link to="/layouts" className="bloom-services__cta">

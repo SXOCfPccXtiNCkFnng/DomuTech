@@ -16,6 +16,35 @@ export const PH = {
   button: "Botão placeholder",
 } as const;
 
+/** Seções numeradas da home (pós-hero). Formato: 04 / 08 */
+export const HOME_SECTION_TOTAL = 8;
+
+export const HOME_SECTION = {
+  sobre: 1,
+  solucoes: 2,
+  pilares: 3,
+  cases: 4,
+  perfil: 5,
+  avaliacoes: 6,
+  convite: 7,
+  duvidas: 8,
+} as const;
+
+export const homeSectionIndex = (n: number) =>
+  `${String(n).padStart(2, "0")} / ${String(HOME_SECTION_TOTAL).padStart(2, "0")}`;
+
+/** Nav do hero / menu: âncoras das seções da home (Domu, não Domo). */
+export const HOME_NAV = [
+  { name: "Sobre", href: "/#sobre-studio" },
+  { name: "Soluções", href: "/#solucoes" },
+  { name: "Pilares", href: "/#pilares" },
+  { name: "Cases", href: "/#cases-home" },
+  { name: "Estúdio", href: "/#studio-perfil" },
+  { name: "Avaliações", href: "/#avaliacoes" },
+  { name: "Contato", href: "/#convite" },
+  { name: "Dúvidas", href: "/#faq" },
+] as const;
+
 export const NAV_LINKS = [
   { name: "Home", href: "/#home" },
   { name: "Cases", href: "/cases" },

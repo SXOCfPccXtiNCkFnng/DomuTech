@@ -1,13 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { HERO_POSTER, HERO_VIDEO } from './hero-media';
-
-const NAV_ITEMS = [
-    { name: 'Soluções', href: '/#solucoes' },
-    { name: 'Cases', href: '/cases' },
-    { name: 'Avaliações', href: '/#avaliacoes' },
-    { name: 'Dúvidas', href: '/#faq' },
-];
+import { HOME_NAV } from '../constants';
+import { scrollToHomeHref } from './scroll-root';
 
 const Hero: React.FC = () => {
     const videoRef = useRef<HTMLVideoElement>(null);
@@ -23,6 +18,15 @@ const Hero: React.FC = () => {
         if (video.readyState >= 2) play();
         else video.addEventListener('loadeddata', play, { once: true });
     }, []);
+
+    const onNavClick = (
+        event: React.MouseEvent<HTMLAnchorElement>,
+        href: string,
+    ) => {
+        if (!scrollToHomeHref(href)) return;
+        event.preventDefault();
+        window.history.pushState(null, '', href);
+    };
 
     return (
         <section id="home" className="domu-hero" aria-label="Apresentação Domu Studio">
@@ -48,8 +52,13 @@ const Hero: React.FC = () => {
 
                 <div className="domu-hero__chrome-right">
                     <nav className="domu-hero__nav" aria-label="Seções">
-                        {NAV_ITEMS.map((item) => (
-                            <Link key={item.name} to={item.href} className="domu-hero__nav-link">
+                        {HOME_NAV.map((item) => (
+                            <Link
+                                key={item.name}
+                                to={item.href}
+                                className="domu-hero__nav-link"
+                                onClick={(event) => onNavClick(event, item.href)}
+                            >
                                 {item.name}
                             </Link>
                         ))}

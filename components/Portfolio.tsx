@@ -1,18 +1,17 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { motion, useMotionValue, useTransform, animate, AnimatePresence } from 'framer-motion';
 import { LinkIcon, ArrowUpRightIcon, ArrowRightIcon } from './icons';
-import { PORTFOLIO_PROJECTS } from '../constants';
+import { PORTFOLIO_PROJECTS, HOME_SECTION, homeSectionIndex } from '../constants';
 import AnimateOnScroll from './AnimateOnScroll';
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   Carrossel infinito - técnica de triplicação de slides
-   · extSlides = [...slides, ...slides, ...slides]  (3 cópias)
-   · startIndex = N  (primeira posição na cópia do meio)
-   · Quando passa de 2N ou fica abaixo de N → reposiciona silenciosamente
-     para a cópia do meio sem nenhuma animação (loop seamless).
+   Carrossel infinito: 9 dobras + passo ±1 na trilha
+   · Várias voltas completas sem teleporte (sem “flip” de retorno)
+   · Só recentraliza nas pontas do buffer, e sem animar
 ───────────────────────────────────────────────────────────────────────────── */
-const GAP           = 20;     // px entre cards (ajustado de 28)
-const AUTO_PLAY_MS  = 6000;   // intervalo do autoplay (ms)
+const GAP           = 20;
+const AUTO_PLAY_MS  = 6000;
+const FOLDS         = 9;
 
 /* ── Componente isolado para o Card (Evita erro de Hooks) ──────────────── */
 const PortfolioCard = ({ project, index, STEP, slideW, containerW, trackX, isMobile, isActive, onClick }: any) => {
@@ -72,7 +71,7 @@ const PortfolioCard = ({ project, index, STEP, slideW, containerW, trackX, isMob
                 }
             }}
         >
-            <div className="w-full aspect-[1904/932] rounded-xl overflow-hidden shadow-2xl relative group/card">
+            <div className="portfolio-slide__media w-full rounded-xl overflow-hidden shadow-2xl relative group/card">
                 <img
                     src={project.image}
                     alt={project.title}
@@ -116,71 +115,127 @@ const Portfolio: React.FC = () => {
     /* Slides reais (limitados a 6 para performance) */
     const rawSlides = PORTFOLIO_PROJECTS.filter(p => p.image).slice(0, 6);
 
-    /* Slides reais e triplicados (Só triplica se tiver 3 ou mais pra fazer o loop infinito) */
+    /* Slides reais e com dobras extras (loop + buffer pra clique rápido) */
     const N         = rawSlides.length;
-    if (N === 0) return null; // Trava de segurança: não renderiza se não tiver projeto
+    if (N === 0) return null;
     
     const shouldLoop = N >= 3;
-    const extSlides = shouldLoop ? [...rawSlides, ...rawSlides, ...rawSlides] : rawSlides;
-    const startIndex = shouldLoop ? N : 0;
+    const extSlides = shouldLoop
+        ? Array.from({ length: FOLDS }, () => rawSlides).flat()
+        : rawSlides;
+    const startIndex = shouldLoop ? N * 4 : 0;
 
-    /* Geometria dinâmica */
-    const centerRatio = isMobile ? 0.90 : 0.64; 
+    const centerRatio = isMobile ? 0.90 : 0.62; 
     const slideW  = Math.round(containerW * centerRatio);
     const STEP    = slideW + GAP;
-    const sidePad = Math.round((containerW - slideW) / 2); // centra qualquer slide
+    const sidePad = Math.round((containerW - slideW) / 2);
 
-    /* Estado: começa na cópia do meio (index N) → sangria dos dois lados desde o início */
     const [current, setCurrent] = useState(startIndex);
-    const currentRef  = useRef(startIndex);     // ref para acesso síncrono dentro de callbacks
-    const isAnimating = useRef(false);
-    const isPaused    = useRef(false);  // pausa o autoplay ao hover / drag
+    const currentRef  = useRef(startIndex);
+    const animRef     = useRef<{ stop: () => void } | null>(null);
+    const animTokenRef = useRef(0);
+    const isPaused    = useRef(false);
 
-    const trackX = useMotionValue(sidePad - startIndex * STEP); // posição inicial
+    const trackX = useMotionValue(sidePad - startIndex * STEP);
 
-
-    /* Real index para a info-bar (0..N-1) */
     const realIndex = shouldLoop ? (((current % N) + N) % N) : current;
     const active    = rawSlides[realIndex] ?? rawSlides[0];
 
-    /* ── goTo ─────────────────────────────────────────────────────────────── */
-    const goTo = useCallback(
-        (idx: number) => {
-            if (isAnimating.current) return;
-            isAnimating.current = true;
-            currentRef.current  = idx;
-            setCurrent(idx);
+    const xFor = useCallback(
+        (idx: number) => sidePad - idx * STEP,
+        [sidePad, STEP],
+    );
 
-            animate(trackX, sidePad - idx * STEP, {
+    const toHomeFold = useCallback(
+        (idx: number) => {
+            if (!shouldLoop) return idx;
+            let n = idx;
+            while (n < N * 4) n += N;
+            while (n >= N * 5) n -= N;
+            return n;
+        },
+        [N, shouldLoop],
+    );
+
+    const jumpTo = useCallback(
+        (idx: number) => {
+            animRef.current?.stop();
+            currentRef.current = idx;
+            setCurrent(idx);
+            const x = xFor(idx);
+            if (typeof (trackX as { jump?: (v: number) => void }).jump === 'function') {
+                (trackX as { jump: (v: number) => void }).jump(x);
+            } else {
+                trackX.set(x);
+            }
+        },
+        [trackX, xFor],
+    );
+
+    const inTravelZone = useCallback(
+        (idx: number) => idx >= N * 2 && idx < N * (FOLDS - 2),
+        [N],
+    );
+
+    const ensureBuffer = useCallback(
+        (idx: number) => {
+            if (!shouldLoop || inTravelZone(idx)) return idx;
+            const home = toHomeFold(idx);
+            jumpTo(home);
+            return home;
+        },
+        [shouldLoop, inTravelZone, toHomeFold, jumpTo],
+    );
+
+    const runTo = useCallback(
+        (target: number) => {
+            animRef.current?.stop();
+            const token = ++animTokenRef.current;
+
+            currentRef.current = target;
+            setCurrent(target);
+
+            animRef.current = animate(trackX, xFor(target), {
                 type:      'spring',
                 stiffness: 280,
                 damping:   34,
                 mass:      0.9,
                 onComplete: () => {
-                    isAnimating.current = false;
-
-                    /* Loop seamless: só acontece se estivermos no modo "shouldLoop" */
-                    if (!shouldLoop) {
-                        isAnimating.current = false;
-                        return;
-                    }
-
-                    let normalized = idx;
-                    if (idx >= N * 2) normalized = idx - N;
-                    else if (idx < N) normalized = idx + N;
-
-                    if (normalized !== idx) {
-                        currentRef.current = normalized;
-                        setCurrent(normalized);
-                        trackX.set(sidePad - normalized * STEP);
-                    }
+                    if (token !== animTokenRef.current) return;
+                    animRef.current = null;
+                    if (!shouldLoop) return;
+                    const idx = currentRef.current;
+                    if (!inTravelZone(idx)) jumpTo(toHomeFold(idx));
                 },
             });
         },
-        [N, sidePad, STEP, trackX, shouldLoop, startIndex],
+        [shouldLoop, trackX, xFor, inTravelZone, toHomeFold, jumpTo],
     );
 
-    /* ── Medir container ──────────────────────────────────────────────────── */
+    const goTo = useCallback(
+        (idx: number) => {
+            if (!shouldLoop) {
+                runTo(Math.max(0, Math.min(N - 1, idx)));
+                return;
+            }
+            ensureBuffer(currentRef.current);
+            runTo(idx);
+        },
+        [shouldLoop, N, ensureBuffer, runTo],
+    );
+
+    const goBy = useCallback(
+        (delta: number) => {
+            if (!shouldLoop) {
+                runTo(Math.max(0, Math.min(N - 1, currentRef.current + delta)));
+                return;
+            }
+            const from = ensureBuffer(currentRef.current);
+            runTo(from + delta);
+        },
+        [shouldLoop, N, ensureBuffer, runTo],
+    );
+
     useEffect(() => {
         const measure = () => {
             if (containerRef.current) setContainerW(containerRef.current.offsetWidth);
@@ -191,63 +246,57 @@ const Portfolio: React.FC = () => {
         return () => ro.disconnect();
     }, []);
 
-    /* Reposiciona sem animação quando o container muda de tamanho */
     useEffect(() => {
-        trackX.set(sidePad - currentRef.current * STEP);
+        trackX.set(xFor(currentRef.current));
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [containerW, sidePad, STEP]);
 
-    /* ── Auto-play ────────────────────────────────────────────────────────── */
     useEffect(() => {
         const timer = setInterval(() => {
-            if (!isPaused.current) goTo(currentRef.current + 1);
+            if (!isPaused.current) goBy(1);
         }, AUTO_PLAY_MS);
         return () => clearInterval(timer);
-    }, [goTo]);
+    }, [goBy]);
 
-    /* ── Drag ─────────────────────────────────────────────────────────────── */
     const dragLeft  = sidePad - (extSlides.length - 1) * STEP;
     const dragRight = sidePad;
 
     const onDragEnd = (_: unknown, info: { velocity: { x: number } }) => {
-        isPaused.current    = false;
-        isAnimating.current = false;
+        isPaused.current = false;
+        animRef.current?.stop();
+        animTokenRef.current += 1;
         const v   = info.velocity.x;
         const x   = trackX.get();
         const raw = -(x - sidePad) / STEP + (v < -250 ? 0.5 : v > 250 ? -0.5 : 0);
-        goTo(Math.round(raw));
+        const snapped = Math.round(raw);
+        currentRef.current = snapped;
+        runTo(snapped);
     };
 
     /* ── Render ─────────────────────────────────────────────────────────────── */
 
     return (
-        <section id="portfolio" className="section-domu tone-soft overflow-hidden relative">
-            {/* Branding Ghosts Constellation - Forced to Background */}
-            <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.05] z-0">
-                <img src="/placeholder.svg" className="absolute top-[15%] left-[5%] w-32 h-32 animate-float object-contain" alt="" />
-                <img src="/placeholder.svg" className="absolute top-[40%] right-0 w-64 h-64 animate-spin-slow object-contain" style={{ animationDuration: '70s' }} alt="" />
-                <img src="/placeholder.svg" className="absolute bottom-[10%] left-[10%] w-24 h-24 animate-float-delayed object-contain" alt="" />
-            </div>
-            
-            <div className="mx-auto w-full max-w-[92rem] page-pad-x relative z-10">
-
-                {/* ── Header ─────────────────────────────────────────────── */}
-                <AnimateOnScroll>
-                    <div className="text-center section-head-domu">
-                        <span className="tag-domu mb-3 block">
-                            Tag placeholder
-                        </span>
-                        <h2 className="h2-domu text-gradient">
-                            Título placeholder
-                        </h2>
-
+        <section id="cases-home" className="bloom-cases">
+            <div className="bloom-cases__inner">
+                <AnimateOnScroll from="left">
+                    <div className="bloom-cases__head">
+                        <div>
+                            <p className="bloom-band__label">Cases</p>
+                            <span className="bloom-band__index">
+                                {homeSectionIndex(HOME_SECTION.cases)}
+                            </span>
+                        </div>
+                        <AnimateOnScroll from="right" delay={90}>
+                            <h2 className="bloom-cases__title">
+                                Trabalhos com direção clara — sem ruído visual.
+                            </h2>
+                        </AnimateOnScroll>
                     </div>
                 </AnimateOnScroll>
 
-                {/* ── CARROSSEL ──────────────────────────────────────────── */}
                 <div
                     ref={containerRef}
-                    className="relative overflow-visible cursor-grab active:cursor-grabbing select-none"
+                    className="bloom-cases__carousel relative overflow-visible cursor-grab active:cursor-grabbing select-none"
                     onMouseEnter={() => { isPaused.current = true; }}
                     onMouseLeave={() => { isPaused.current = false; }}
                 >
@@ -257,8 +306,9 @@ const Portfolio: React.FC = () => {
                         dragElastic={0.04}
                         style={{ x: trackX, display: 'flex', gap: GAP }}
                         onDragStart={() => {
-                            isPaused.current    = true;
-                            isAnimating.current = false;
+                            isPaused.current = true;
+                            animRef.current?.stop();
+                            animTokenRef.current += 1;
                         }}
                         onDragEnd={onDragEnd}
                     >
@@ -272,24 +322,20 @@ const Portfolio: React.FC = () => {
                                 containerW={containerW}
                                 trackX={trackX}
                                 isMobile={isMobile}
-                                isActive={current === index}
+                                isActive={(index % N + N) % N === realIndex}
                                 onClick={() => {
-                                    if (current !== index) {
-                                        isAnimating.current = false;
-                                        goTo(index);
-                                    }
+                                    if (current !== index) goTo(index);
                                 }}
                             />
                         ))}
                     </motion.div>
                 </div>
 
-                <div className="mt-5 px-1 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-                    {/* Mobile: navegação logo abaixo da imagem; desktop: à direita */}
+                <div className="bloom-cases__meta flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
                     <div className="portfolio-carousel-nav order-1 md:order-2 flex items-center justify-center gap-3.5 md:flex-shrink-0">
                         <button
                             id="portfolio-prev"
-                            onClick={() => { isAnimating.current = false; goTo(currentRef.current - 1); }}
+                            onClick={() => goBy(-1)}
                             className="portfolio-carousel-nav__btn"
                             aria-label="Anterior"
                         >
@@ -308,7 +354,7 @@ const Portfolio: React.FC = () => {
 
                         <button
                             id="portfolio-next"
-                            onClick={() => { isAnimating.current = false; goTo(currentRef.current + 1); }}
+                            onClick={() => goBy(1)}
                             className="portfolio-carousel-nav__btn"
                             aria-label="Próximo"
                         >
@@ -316,7 +362,6 @@ const Portfolio: React.FC = () => {
                         </button>
                     </div>
 
-                    {/* Informações do projeto */}
                     <div className="order-2 md:order-1 min-w-0 md:flex-1">
                         <AnimatePresence mode="wait">
                         <motion.div
@@ -354,72 +399,12 @@ const Portfolio: React.FC = () => {
                     </div>
                 </div>
 
-                {/* ── Grid 3 cards ─────────────────────────────────────── */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 mt-10 md:mt-12">
-                    {rawSlides.slice(0, 3).map((project, index) => (
-                        <AnimateOnScroll key={`g${index}`} delay={index * 100}>
-                            <a
-                                href={project.link}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="group flex flex-col h-full rounded-2xl overflow-hidden bg-[var(--domu-surface-1)] border border-[var(--domu-border)] shadow-[0_16px_40px_-28px_rgba(10,10,11,0.2)] transition-all duration-500 hover:-translate-y-1.5 hover:border-[var(--domu-accent)]/35 hover:shadow-[0_24px_48px_-28px_rgba(10,10,11,0.22)]"
-                            >
-                                <div className="relative w-full aspect-[16/10] overflow-hidden bg-[var(--domu-surface-2)]">
-                                    <img
-                                        src={project.image}
-                                        alt={project.title}
-                                        className="w-full h-full object-cover object-top block transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--domu-primary)]/35 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
-                                    <span className="absolute top-3 left-3 type-eyebrow !text-white bg-[var(--domu-primary)]/70 backdrop-blur-sm px-2.5 py-1 rounded-md tracking-widest">
-                                        {String(index + 1).padStart(2, '0')}
-                                    </span>
-                                </div>
-
-                                <div className="flex flex-col flex-1 p-5 md:p-6">
-                                    <span className="type-eyebrow !text-[var(--domu-accent)] block mb-2">
-                                        {project.tag}
-                                    </span>
-
-                                    <h4 className="type-card-title text-[var(--domu-primary)] mb-2 group-hover:text-[var(--domu-accent)] transition-colors duration-300">
-                                        {project.title.split(' - ')[0]}
-                                    </h4>
-
-                                    {project.description && (
-                                        <p
-                                            className="type-card-desc mb-5 flex-1"
-                                            style={{
-                                                display: '-webkit-box',
-                                                WebkitLineClamp: 2,
-                                                WebkitBoxOrient: 'vertical',
-                                                overflow: 'hidden',
-                                            }}
-                                        >
-                                            {project.description}
-                                        </p>
-                                    )}
-
-                                    <span className="inline-flex items-center gap-1.5 type-eyebrow !text-[var(--domu-accent)] mt-auto">
-                                        Ver projeto
-                                        <ArrowRightIcon className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" />
-                                    </span>
-                                </div>
-                            </a>
-                        </AnimateOnScroll>
-                    ))}
-                </div>
-
-                {/* ── CTA ────────────────────────────────────────────────── */}
-                <div className="mt-8 md:mt-10 text-center">
-                    <a
-                        href="#contact"
-                        className="btn-domu-primary group"
-                    >
+                <div className="bloom-cases__foot">
+                    <a href="/cases" className="btn-domu-primary group">
                         <ArrowUpRightIcon className="w-3.5 h-3.5" />
                         Ver todo o portfólio
                     </a>
                 </div>
-
             </div>
         </section>
     );

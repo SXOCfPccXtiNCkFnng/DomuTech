@@ -104,6 +104,9 @@ const Header: React.FC = () => {
                                 <UserCircleIcon className="ns-header__login-icon" />
                                 Login
                             </Link>
+                            <Link to="/login" className="ns-header__cta">
+                                Criar site grátis
+                            </Link>
 
                             <button
                                 type="button"
@@ -191,7 +194,7 @@ const Header: React.FC = () => {
                                     onClick={closeMenu}
                                     className="ns-header__drawer-cta"
                                 >
-                                    Criar conta
+                                    Criar site grátis
                                 </Link>
                             </div>
                         </motion.div>

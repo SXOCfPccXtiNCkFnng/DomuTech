@@ -2,15 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { UserCircleIcon, XIcon, MenuIcon } from './icons';
+import { HOME_NAV } from '../constants';
+import { scrollToHomeHref } from './scroll-root';
 
-const NAV_ITEMS = [
-    { name: 'Soluções', href: '/#solucoes' },
-    { name: 'Cases', href: '/cases' },
-    { name: 'Avaliações', href: '/#avaliacoes' },
-    { name: 'Dúvidas', href: '/#faq' },
-];
-
-/** Cabeçalho do fundo: marca + Login (desktop) / menu (mobile). */
+/** Cabeçalho do fundo: marca + CTA + Login (desktop) / menu (mobile). */
 const OuterHeader: React.FC = () => {
     const location = useLocation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,6 +43,9 @@ const OuterHeader: React.FC = () => {
                     <Link to="/login" className="domu-outer-header__login">
                         <UserCircleIcon className="domu-outer-header__login-icon" />
                         Login
+                    </Link>
+                    <Link to="/login" className="domu-outer-header__cta">
+                        Criar site grátis
                     </Link>
 
                     <button
@@ -99,11 +97,17 @@ const OuterHeader: React.FC = () => {
                                 </button>
                             </div>
                             <nav className="ns-header__drawer-nav">
-                                {NAV_ITEMS.map((item, index) => (
+                                {HOME_NAV.map((item, index) => (
                                     <Link
                                         key={item.name}
                                         to={item.href}
-                                        onClick={closeMenu}
+                                        onClick={(event) => {
+                                            if (scrollToHomeHref(item.href)) {
+                                                event.preventDefault();
+                                                window.history.pushState(null, '', item.href);
+                                            }
+                                            closeMenu();
+                                        }}
                                         className="ns-header__drawer-link"
                                     >
                                         <span className="ns-header__drawer-index">
@@ -119,7 +123,7 @@ const OuterHeader: React.FC = () => {
                                     Login
                                 </Link>
                                 <Link to="/login" onClick={closeMenu} className="ns-header__drawer-cta">
-                                    Criar conta
+                                    Criar site grátis
                                 </Link>
                             </div>
                         </motion.div>

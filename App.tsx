@@ -3,13 +3,13 @@ import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import SiteShell from './components/SiteShell';
 import Hero from './components/Hero';
 import AboutBand from './components/AboutBand';
+import ProfileSplit from './components/ProfileSplit';
 import Values from './components/Values';
 import Services from './components/Services';
-import CasesStrip from './components/CasesStrip';
+import Portfolio from './components/Portfolio';
 import MediaBanner from './components/MediaBanner';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
-import CallToAction from './components/CallToAction';
 import Footer from './components/Footer';
 import CookieBanner from './components/CookieBanner';
 import AboutPage from './components/AboutPage';
@@ -19,28 +19,20 @@ import LoginPage from './components/LoginPage';
 import DashboardPage from './components/DashboardPage';
 
 /**
- * Home na linha Bloom: hero → sobre → pilares → soluções → cases →
- * banner imagem+CTA → avaliações → dúvidas → CTA.
+ * Home: hero → sobre → soluções → pilares → cases (carrossel) →
+ * perfil split → avaliações → banner → FAQ (CTA vai no footer).
  */
 const HomePage = () => (
     <>
         <Hero />
         <AboutBand />
-        <Values />
         <Services />
-        <CasesStrip />
-        <MediaBanner />
+        <Values />
+        <Portfolio />
+        <ProfileSplit />
         <Testimonials />
+        <MediaBanner />
         <FAQ />
-        <div id="precos">
-            <CallToAction
-                title="Pronto pra presença com direção?"
-                subtitle="Fale com a Domu e monte a base digital da sua marca sem parecer genérica."
-                primaryButtonText="Falar com a Domu"
-                primaryButtonLink="/login"
-                variant="platform"
-            />
-        </div>
     </>
 );
 

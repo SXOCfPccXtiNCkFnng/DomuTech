@@ -1,7 +1,7 @@
 import React from 'react';
 import { MonitorIcon, SettingsIcon, BoltIcon } from './icons';
 import AnimateOnScroll from './AnimateOnScroll';
-import { PH } from '../constants';
+import { PH, HOME_SECTION, homeSectionIndex } from '../constants';
 
 const STEPS = [
     {
@@ -32,7 +32,7 @@ const Values: React.FC = () => {
                     <div className="bloom-values__head">
                         <div>
                             <p className="bloom-band__label">Pilares</p>
-                            <span className="bloom-band__index">—</span>
+                            <span className="bloom-band__index">{homeSectionIndex(HOME_SECTION.pilares)}</span>
                         </div>
                         <AnimateOnScroll from="right" delay={100}>
                             <h2 className="bloom-values__title">

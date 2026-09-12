@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect, ReactNode, CSSProperties } from 'react';
+import { useScrollRoot } from './scroll-root';
 
 export type RevealFrom =
   | 'up'
@@ -38,11 +39,12 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
   style,
   from = 'up',
   delay = 0,
-  threshold = 0.12,
+  threshold = 0.18,
   triggerOnce = true,
   immediate = false,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
+  const scrollRoot = useScrollRoot();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -59,27 +61,29 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
       return () => window.cancelAnimationFrame(id);
     }
 
-    const reveal = () => setIsVisible(true);
+    const root = scrollRoot?.current ?? null;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          reveal();
+          setIsVisible(true);
           if (triggerOnce) observer.unobserve(el);
         } else if (!triggerOnce) {
           setIsVisible(false);
         }
       },
       {
+        root,
         threshold,
-        rootMargin: '0px 0px -8% 0px',
+        /* Dispara um pouco depois, quando o bloco já entrou na moldura */
+        rootMargin: '0px 0px -18% 0px',
       }
     );
 
     observer.observe(el);
 
     return () => observer.disconnect();
-  }, [threshold, triggerOnce, immediate]);
+  }, [threshold, triggerOnce, immediate, scrollRoot]);
 
   return (
     <div
