@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { EnvelopeSimple, GoogleLogo, AppleLogo } from '@phosphor-icons/react';
+import { EnvelopeIcon, GoogleIcon, AppleIcon } from './icons';
 
 type AuthMode = 'login' | 'signup';
 
@@ -12,12 +12,12 @@ const LoginPage: React.FC = () => {
     const [password, setPassword] = useState('');
     const [feedback, setFeedback] = useState<string | null>(null);
 
-    const headline = mode === 'login' ? 'Que bom ter você aqui!' : 'Crie sua conta Domu';
+    const headline = mode === 'login' ? 'Título placeholder' : 'Título placeholder';
     const switchLabel =
         mode === 'login'
-            ? 'Ainda não tem uma conta Domu?'
-            : 'Já tem uma conta Domu?';
-    const switchAction = mode === 'login' ? 'Criar agora' : 'Fazer login';
+            ? 'Texto placeholder?'
+            : 'Texto placeholder?';
+    const switchAction = mode === 'login' ? 'Botão placeholder' : 'Botão placeholder';
 
     const goToPanelDemo = () => {
         navigate('/painel');
@@ -44,7 +44,7 @@ const LoginPage: React.FC = () => {
             <div className="login-page__panel">
                 <div className="login-page__card">
                     <Link to="/" className="login-page__brand" aria-label="Voltar para a Domu">
-                        <img src="/frame-1.png" alt="DOMU TECH" className="login-page__logo" />
+                        <img src="/domu-mark.png" alt="DOMU STUDIO" className="login-page__logo" />
                     </Link>
 
                     <h1 className="login-page__title">{headline}</h1>
@@ -55,7 +55,7 @@ const LoginPage: React.FC = () => {
                             className="login-page__btn login-page__btn--primary"
                             onClick={() => handleProviderClick('Google')}
                         >
-                            <GoogleLogo className="w-5 h-5" weight="bold" />
+                            <GoogleIcon className="w-5 h-5" />
                             Entrar com Google
                         </button>
 
@@ -64,7 +64,7 @@ const LoginPage: React.FC = () => {
                             className="login-page__btn login-page__btn--primary"
                             onClick={() => handleProviderClick('Apple')}
                         >
-                            <AppleLogo className="w-5 h-5" weight="bold" />
+                            <AppleIcon className="w-5 h-5" />
                             Entrar com Apple
                         </button>
 
@@ -81,7 +81,7 @@ const LoginPage: React.FC = () => {
                                     setFeedback(null);
                                 }}
                             >
-                                <EnvelopeSimple className="w-5 h-5" weight="bold" />
+                                <EnvelopeIcon className="w-5 h-5" />
                                 Entrar com e-mail
                             </button>
                         ) : (
@@ -147,7 +147,7 @@ const LoginPage: React.FC = () => {
 
             <aside className="login-page__visual" aria-hidden>
                 <img
-                    src="/fraucon.png"
+                    src="/placeholder.svg"
                     alt=""
                     className="login-page__visual-img"
                 />

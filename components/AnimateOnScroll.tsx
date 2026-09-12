@@ -1,9 +1,22 @@
 import React, { useRef, useState, useEffect, ReactNode, CSSProperties } from 'react';
 
+export type RevealFrom =
+  | 'up'
+  | 'down'
+  | 'left'
+  | 'right'
+  | 'up-left'
+  | 'up-right'
+  | 'fade'
+  | 'scale'
+  | 'tilt';
+
 interface AnimateOnScrollProps {
   children: ReactNode;
   className?: string;
   style?: CSSProperties;
+  /** Direção / estilo de entrada (varia pra não ficar monótono) */
+  from?: RevealFrom;
   /** Atraso da transição após o trigger (ms) */
   delay?: number;
   threshold?: number;
@@ -23,8 +36,9 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
   children,
   className = '',
   style,
+  from = 'up',
   delay = 0,
-  threshold = 0.08,
+  threshold = 0.12,
   triggerOnce = true,
   immediate = false,
 }) => {
@@ -58,19 +72,11 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
       },
       {
         threshold,
-        /* margem positiva evita sumir conteúdo no final da página */
-        rootMargin: '48px 0px 48px 0px',
+        rootMargin: '0px 0px -8% 0px',
       }
     );
 
     observer.observe(el);
-
-    const rect = el.getBoundingClientRect();
-    const vh = window.innerHeight || document.documentElement.clientHeight;
-    if (rect.top < vh * 0.98 && rect.bottom > 0) {
-      reveal();
-      if (triggerOnce) observer.unobserve(el);
-    }
 
     return () => observer.disconnect();
   }, [threshold, triggerOnce, immediate]);
@@ -78,7 +84,7 @@ const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
   return (
     <div
       ref={ref}
-      className={`animate-scroll ${isVisible ? 'is-visible' : ''} ${className}`}
+      className={`animate-scroll reveal-${from} ${isVisible ? 'is-visible' : ''} ${className}`.trim()}
       style={{
         ...style,
         transitionDelay: isVisible ? `${delay}ms` : '0ms',

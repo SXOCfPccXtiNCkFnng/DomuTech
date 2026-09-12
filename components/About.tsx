@@ -3,23 +3,24 @@ import { Link } from 'react-router-dom';
 import AnimateOnScroll from './AnimateOnScroll';
 import BrandGhosts from './BrandGhosts';
 import { ArrowUpRightIcon } from './icons';
+import { PH } from '../constants';
 
 const STEPS = [
     {
-        title: 'Conta',
-        text: 'Você cria o login e entra na plataforma Domu.',
+        title: PH.title,
+        text: PH.text,
     },
     {
-        title: 'Escolha',
-        text: 'Seleciona o serviço ou template que faz sentido pro negócio.',
+        title: PH.title,
+        text: PH.text,
     },
     {
-        title: 'Personalização',
-        text: 'Ajusta conteúdo, plano e detalhes direto no painel.',
+        title: PH.title,
+        text: PH.text,
     },
     {
-        title: 'Operação',
-        text: 'Publica, acompanha e evolui tudo em um só lugar.',
+        title: PH.title,
+        text: PH.text,
     },
 ] as const;
 
@@ -33,17 +34,15 @@ const About: React.FC = () => {
 
                     <AnimateOnScroll>
                         <div className="process-pro-card__header">
-                            <p>Como a plataforma funciona</p>
-                            <h2>Do login ao resultado, no seu ritmo.</h2>
-                            <span>
-                                Um fluxo simples: conta, escolha, personalização e operação contínua.
-                            </span>
+                            <p>{PH.tag}</p>
+                            <h2>{PH.title}</h2>
+                            <span>{PH.text}</span>
                         </div>
                     </AnimateOnScroll>
 
                     <div className="process-flow">
                         {STEPS.map((step, index) => (
-                            <AnimateOnScroll key={step.title} delay={index * 60}>
+                            <AnimateOnScroll key={index} delay={index * 60}>
                                 <div className={`process-flow__item ${index % 2 === 0 ? 'is-left' : 'is-right'}`}>
                                     <div className="process-flow__card">
                                         <div className="process-flow__card-top">
@@ -62,9 +61,9 @@ const About: React.FC = () => {
 
                     <AnimateOnScroll delay={220}>
                         <div className="process-pro-card__footer">
-                            <p>Quer começar agora?</p>
+                            <p>{PH.subtitle}</p>
                             <Link to="/login" className="btn-budget group">
-                                Criar conta
+                                {PH.button}
                                 <ArrowUpRightIcon className="w-4 h-4" />
                             </Link>
                         </div>

@@ -49,7 +49,7 @@ const BrandGhosts: React.FC<BrandGhostsProps> = ({
     {LAYOUTS[variant].map((item, i) => (
       <div key={i} className={`${item.pos} ${item.size}`}>
         <img
-          src="/fraucon.png"
+          src="/placeholder.svg"
           alt=""
           className={`brand-ghost-orbit ${item.motion} w-full h-full object-contain`}
           style={item.duration ? { animationDuration: item.duration } : undefined}

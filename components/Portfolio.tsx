@@ -1,8 +1,7 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { motion, useMotionValue, useTransform, animate, AnimatePresence } from 'framer-motion';
-import { LinkSimple } from '@phosphor-icons/react';
+import { LinkIcon, ArrowUpRightIcon, ArrowRightIcon } from './icons';
 import { PORTFOLIO_PROJECTS } from '../constants';
-import { ArrowUpRightIcon, ArrowRightIcon } from './icons';
 import AnimateOnScroll from './AnimateOnScroll';
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -88,9 +87,9 @@ const PortfolioCard = ({ project, index, STEP, slideW, containerW, trackX, isMob
                         onClick={handleAccessClick}
                         aria-label={`Acessar projeto ${project.title}`}
                     >
-                        <LinkSimple className="w-4 h-4 mb-1" weight="bold" />
+                        <LinkIcon className="w-4 h-4 mb-1" />
                         <span>
-                            Acessar
+                            Placeholder
                         </span>
                     </button>
                 </div>
@@ -225,9 +224,9 @@ const Portfolio: React.FC = () => {
         <section id="portfolio" className="section-domu tone-soft overflow-hidden relative">
             {/* Branding Ghosts Constellation - Forced to Background */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-[0.05] z-0">
-                <img src="/fraucon.png" className="absolute top-[15%] left-[5%] w-32 h-32 animate-float object-contain" alt="" />
-                <img src="/fraucon.png" className="absolute top-[40%] right-0 w-64 h-64 animate-spin-slow object-contain" style={{ animationDuration: '70s' }} alt="" />
-                <img src="/fraucon.png" className="absolute bottom-[10%] left-[10%] w-24 h-24 animate-float-delayed object-contain" alt="" />
+                <img src="/placeholder.svg" className="absolute top-[15%] left-[5%] w-32 h-32 animate-float object-contain" alt="" />
+                <img src="/placeholder.svg" className="absolute top-[40%] right-0 w-64 h-64 animate-spin-slow object-contain" style={{ animationDuration: '70s' }} alt="" />
+                <img src="/placeholder.svg" className="absolute bottom-[10%] left-[10%] w-24 h-24 animate-float-delayed object-contain" alt="" />
             </div>
             
             <div className="mx-auto w-full max-w-[92rem] page-pad-x relative z-10">
@@ -236,10 +235,10 @@ const Portfolio: React.FC = () => {
                 <AnimateOnScroll>
                     <div className="text-center section-head-domu">
                         <span className="tag-domu mb-3 block">
-                            Projetos de alta performance
+                            Tag placeholder
                         </span>
                         <h2 className="h2-domu text-gradient">
-                            Nosso Portfólio
+                            Título placeholder
                         </h2>
 
                     </div>
@@ -343,7 +342,7 @@ const Portfolio: React.FC = () => {
                                     onClick={e => e.stopPropagation()}
                                 >
                                     <span className="portfolio-online-link__label shrink-0">
-                                        Veja online
+                                        Placeholder
                                     </span>
                                     <span className="portfolio-online-link__url truncate">
                                         {active.link.replace(/^https?:\/\//, '').replace(/\/$/, '')}

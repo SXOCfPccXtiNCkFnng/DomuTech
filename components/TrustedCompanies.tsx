@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 
 const COMPANIES = [
-  'AGB Campinas',
-  'Unicamp',
-  'Rede Centro-Norte',
-  'La Dolce Vita',
-  'DaraADV',
-  'CE Vita',
+  'Placeholder 01',
+  'Placeholder 02',
+  'Placeholder 03',
+  'Placeholder 04',
+  'Placeholder 05',
+  'Placeholder 06',
 ] as const;
 
 /** Quantas voltas da lista por faixa - o suficiente pra cobrir telas largas sem gap. */
@@ -76,7 +76,7 @@ const TrustedCompanies: React.FC = () => {
 
   return (
     <div className="trusted-band">
-      <p className="trusted-band__label">Empresas que confiam</p>
+      <p className="trusted-band__label">Label placeholder</p>
 
       <div
         className="trusted-marquee"

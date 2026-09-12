@@ -2,14 +2,14 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AnimateOnScroll from './AnimateOnScroll';
 import { ExternalLinkIcon, ArrowUpRightIcon } from './icons';
+import { PLACEHOLDER_IMG, PH } from '../constants';
 
-const CASES = [
-    { title: "AGB Campinas", category: "Site Institucional", img: "/projeto/img-agbcampinas.png", link: "https://agbcampinas.com.br/" },
-    { title: "Rede Centro-Norte Brasil", category: "Portal Científico / UNICAMP", img: "/projeto/img-redeterritorios.png", link: "https://www.ige.unicamp.br/rede-centro-norte-brasil/" },
-    { title: "Projeto Rio Silveira", category: "Portal Científico / UNICAMP", img: "/projeto/img-projetoriosilveira.png", link: "https://www.ige.unicamp.br/projetoriosilveira/" },
-    { title: "La Dolce Vita Viaggi", category: "Site Institucional", img: "/projeto/img-ladolcevita.png", link: "https://www.ladolcevitaviaggi.com.br/" },
-    { title: "Dara ADV", category: "Site de Advocacia", img: "/projeto/img-daraadv.png", link: "https://daraadv.vercel.app/" },
-];
+const CASES = Array.from({ length: 5 }, (_, i) => ({
+    title: `${PH.title} ${String(i + 1).padStart(2, '0')}`,
+    category: PH.category,
+    img: PLACEHOLDER_IMG,
+    link: '#',
+}));
 
 const CasesPage: React.FC = () => {
     useEffect(() => {
@@ -17,19 +17,18 @@ const CasesPage: React.FC = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-[var(--domu-bg)] font-sans text-white selection:bg-[var(--domu-accent)]">
+        <div className="min-h-screen bg-white font-sans text-[var(--domu-primary)] selection:bg-[var(--domu-accent)] selection:text-white">
             <section className="py-24 md:py-32">
                 <div className="container mx-auto px-6">
                     <AnimateOnScroll>
                         <span className="text-[var(--domu-muted)] font-black text-[11px] uppercase tracking-[0.4em] mb-6 block">
-                            Resultados reais
+                            {PH.tag}
                         </span>
-                        <h1 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter italic">
-                            Cases que validam <span className="text-gradient">a plataforma Domu</span>
+                        <h1 className="text-4xl md:text-7xl font-black text-[var(--domu-primary)] mb-8 tracking-tighter italic">
+                            {PH.title} <span className="text-gradient">placeholder</span>
                         </h1>
                         <p className="text-[var(--domu-muted)] text-lg max-w-2xl leading-relaxed">
-                            Projetos já entregues pela Domu. Essa mesma experiência agora entra no
-                            painel: conta, escolha de serviço e operação em um só lugar.
+                            {PH.text}
                         </p>
                     </AnimateOnScroll>
                 </div>
@@ -42,25 +41,23 @@ const CasesPage: React.FC = () => {
                             <AnimateOnScroll key={item.title} delay={i * 100}>
                                 <a
                                     href={item.link}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className="group relative block aspect-[16/10] overflow-hidden rounded-lg border border-white/10 bg-[var(--domu-black)]"
+                                    className="group relative block aspect-[16/10] overflow-hidden rounded-lg border border-[var(--domu-border)] bg-white"
                                 >
                                     <img
                                         src={item.img}
                                         alt={item.title}
-                                        className="h-full w-full object-cover opacity-40 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                                        className="h-full w-full object-cover opacity-70 grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--domu-bg)] via-transparent to-transparent opacity-80" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-90" />
 
                                     <div className="absolute bottom-10 left-10 right-10 flex justify-between items-end">
                                         <div>
                                             <span className="text-[var(--domu-accent)] font-black text-[10px] uppercase tracking-[0.2em] mb-2 block">
                                                 {item.category}
                                             </span>
-                                            <h3 className="text-2xl md:text-3xl font-black italic">{item.title}</h3>
+                                            <h3 className="text-2xl md:text-3xl font-black italic text-[var(--domu-primary)]">{item.title}</h3>
                                         </div>
-                                        <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border border-white/20 backdrop-blur-md group-hover:bg-[var(--domu-accent)] group-hover:border-[var(--domu-accent)] transition-all duration-300">
+                                        <div className="w-12 h-12 rounded-full bg-[var(--domu-accent-soft)] flex items-center justify-center border border-[var(--domu-border)] group-hover:bg-[var(--domu-accent)] group-hover:border-[var(--domu-accent)] group-hover:text-white transition-all duration-300">
                                             <ExternalLinkIcon className="w-5 h-5" />
                                         </div>
                                     </div>
@@ -71,21 +68,21 @@ const CasesPage: React.FC = () => {
                 </div>
             </section>
 
-            <section className="py-24 bg-[var(--domu-black)] text-center">
+            <section className="py-24 bg-white text-center border-t border-[var(--domu-border)]">
                 <AnimateOnScroll>
-                    <h2 className="text-3xl md:text-5xl font-black text-white mb-4 italic">
-                        Quer o seu próximo case na Domu?
+                    <h2 className="text-3xl md:text-5xl font-black text-[var(--domu-primary)] mb-4 italic">
+                        {PH.title}
                     </h2>
-                    <p className="text-white/50 max-w-xl mx-auto mb-10">
-                        Crie sua conta e entre no painel para escolher serviço ou layout.
+                    <p className="text-[var(--domu-muted)] max-w-xl mx-auto mb-10">
+                        {PH.text}
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                         <Link to="/login" className="btn-budget">
                             <ArrowUpRightIcon className="w-3.5 h-3.5" />
-                            Criar conta
+                            {PH.button}
                         </Link>
-                        <Link to="/painel" className="hero-text-link !text-white/80 hover:!text-white">
-                            Ver painel (demo)
+                        <Link to="/painel" className="hero-text-link text-[var(--domu-muted)] hover:text-[var(--domu-primary)]">
+                            {PH.button}
                         </Link>
                     </div>
                 </AnimateOnScroll>

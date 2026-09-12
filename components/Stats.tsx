@@ -1,16 +1,17 @@
 import React, { useMemo } from 'react';
 import {
-  Briefcase,
-  CalendarBlank,
-  ChartLineUp,
-  UsersThree,
-  Lightning,
-  SealCheck,
-  Headset,
-  CodeBlock,
-} from '@phosphor-icons/react';
+  CaseIcon,
+  CalendarMinimalisticIcon,
+  GraphUpIcon,
+  UsersGroupRoundedIcon,
+  BoltIcon,
+  VerifiedCheckIcon,
+  HeadphonesRoundIcon,
+  CodeSquareIcon,
+} from './icons';
 import AnimateOnScroll from './AnimateOnScroll';
 import BrandGhosts from './BrandGhosts';
+import { PH } from '../constants';
 
 type Tone = 'light' | 'blue' | 'dark' | 'soft';
 
@@ -18,57 +19,57 @@ type StatItem = {
   value: string;
   label: string;
   desc: string;
-  icon: typeof Briefcase;
+  icon: typeof CaseIcon;
 };
 
 const STATS: StatItem[] = [
   {
-    value: '15+',
-    label: 'Projetos na base',
-    desc: 'Sites e soluções que validam o modelo da plataforma Domu.',
-    icon: Briefcase,
+    value: PH.value,
+    label: PH.label,
+    desc: PH.text,
+    icon: CaseIcon,
   },
   {
-    value: '3+',
-    label: 'Anos de mercado',
-    desc: 'Experiência que agora vira produto: conta, painel e serviços digitais.',
-    icon: CalendarBlank,
+    value: PH.value,
+    label: PH.label,
+    desc: PH.text,
+    icon: CalendarMinimalisticIcon,
   },
   {
-    value: '95+',
-    label: 'Performance média',
-    desc: 'Velocidade, SEO e conversão como padrão das entregas na plataforma.',
-    icon: ChartLineUp,
+    value: PH.value,
+    label: PH.label,
+    desc: PH.text,
+    icon: GraphUpIcon,
   },
   {
-    value: '12+',
-    label: 'Tecnologias',
-    desc: 'Stack moderna por trás do painel, dos sites e das automações.',
-    icon: CodeBlock,
+    value: PH.value,
+    label: PH.label,
+    desc: PH.text,
+    icon: CodeSquareIcon,
   },
   {
-    value: '40+',
-    label: 'Empresas atendidas',
-    desc: 'Negócios que já confiaram na Domu e agora entram pelo mesmo funil de conta.',
-    icon: UsersThree,
+    value: PH.value,
+    label: PH.label,
+    desc: PH.text,
+    icon: UsersGroupRoundedIcon,
   },
   {
-    value: '1',
-    label: 'Painel único',
-    desc: 'Contrate e gerencie serviços sem trocar de ferramenta a cada projeto.',
-    icon: SealCheck,
+    value: PH.value,
+    label: PH.label,
+    desc: PH.text,
+    icon: VerifiedCheckIcon,
   },
   {
-    value: '24h',
-    label: 'Acesso à conta',
-    desc: 'Sua operação digital disponível quando você precisar.',
-    icon: Headset,
+    value: PH.value,
+    label: PH.label,
+    desc: PH.text,
+    icon: HeadphonesRoundIcon,
   },
   {
-    value: '3',
-    label: 'Passos para começar',
-    desc: 'Criar conta, escolher o serviço e personalizar no painel.',
-    icon: Lightning,
+    value: PH.value,
+    label: PH.label,
+    desc: PH.text,
+    icon: BoltIcon,
   },
 ];
 
@@ -110,9 +111,9 @@ const Stats: React.FC = () => {
       <div className="mx-auto w-full max-w-[92rem] page-pad-x relative z-10">
         <AnimateOnScroll>
           <div className="text-center section-head-domu max-w-2xl mx-auto">
-            <span className="tag-domu mb-4 block">Números da Domu</span>
+            <span className="tag-domu mb-4 block">{PH.tag}</span>
             <h2 className="h2-domu text-gradient">
-              Resultados que<br className="hidden sm:block" /> sustentam a plataforma
+              {PH.title}
             </h2>
           </div>
         </AnimateOnScroll>
@@ -121,11 +122,11 @@ const Stats: React.FC = () => {
           {STATS.map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <AnimateOnScroll key={stat.label} delay={60 + index * 55}>
+              <AnimateOnScroll key={index} delay={60 + index * 55}>
                 <article className={`stats-card stats-card--${tonePattern[index]}`}>
                   <div className="stats-card__top">
                     <span className="stats-card__icon" aria-hidden>
-                      <Icon className="w-5 h-5" weight="duotone" />
+                      <Icon className="w-5 h-5" />
                     </span>
                     <span className="stats-card__idx">
                       {String(index + 1).padStart(2, '0')}

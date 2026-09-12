@@ -29,19 +29,19 @@ const CookieBanner: React.FC = () => {
                     exit={{ y: 100, opacity: 0, x: '-50%' }}
                     className="site-cookie-banner fixed bottom-6 md:bottom-10 left-1/2 z-[9999] w-[95%] max-w-3xl"
                 >
-                    <div className="bg-[var(--domu-black)]/60 backdrop-blur-2xl border border-white/10 shadow-[0_20px_80px_rgba(0,0,0,0.4)] rounded-xl p-5 md:p-6 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative group">
-                        {/* Shimmer effect on border hover */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-shimmer pointer-events-none" />
-
+                    <div className="bg-white border border-[var(--domu-border)] shadow-[0_20px_80px_rgba(10,15,24,0.12)] rounded-xl p-5 md:p-6 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative group">
                         <div className="flex items-center gap-5 relative z-10 px-2 lg:px-4">
-                            <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0 border border-white/5">
-                                <span className="text-xl md:text-2xl">🍪</span>
+                            <div className="w-10 h-10 md:w-12 md:h-12 bg-[var(--domu-accent-soft)] rounded-lg flex items-center justify-center flex-shrink-0 border border-[var(--domu-border)] overflow-hidden">
+                                <img
+                                    src="/placeholder.svg"
+                                    alt=""
+                                    className="w-full h-full object-cover"
+                                />
                             </div>
                             <div className="flex flex-col gap-1">
-                                <h4 className="text-white font-[950] text-[10px] md:text-[11px]  tracking-[0.2em]">Controle de Cookies</h4>
+                                <h4 className="text-[var(--domu-primary)] font-[950] text-[10px] md:text-[11px] tracking-[0.2em]">Título placeholder</h4>
                                 <p className="text-[10px] md:text-[11px] text-[var(--domu-muted)] font-medium leading-relaxed max-w-lg uppercase">
-                                    Utilizamos cookies para personalizar sua experiência e melhorar nosso desempenho. 
-                                    Ao continuar, você concorda com nossos <a href="#" className="text-white underline decoration-white/30 hover:decoration-white transition-all underline-offset-4">Termos e Privacidade</a>.
+                                    Texto placeholder. Conteúdo temporário para layout e revisão visual.
                                 </p>
                             </div>
                         </div>
@@ -51,7 +51,7 @@ const CookieBanner: React.FC = () => {
                                 onClick={handleAccept}
                                 className="btn-budget whitespace-nowrap"
                             >
-                                Aceitar Tudo
+                                Botão placeholder
                             </button>
                         </div>
                     </div>

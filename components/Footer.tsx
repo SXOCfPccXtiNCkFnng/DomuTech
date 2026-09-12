@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { InstagramLogo } from '@phosphor-icons/react';
-import { ArrowUpRightIcon } from './icons';
+import { InstagramIcon, ArrowUpRightIcon } from './icons';
 import AnimateOnScroll from './AnimateOnScroll';
 
 const CONTACT = {
@@ -17,20 +16,19 @@ const Footer: React.FC = () => {
                 <AnimateOnScroll>
                     <div className="footer-cta-pro">
                         <div>
-                            <p className="footer-cta-pro__eyebrow">Entre na plataforma</p>
-                            <h2>Seu próximo passo começa com uma conta Domu.</h2>
+                            <p className="footer-cta-pro__eyebrow">Tag placeholder</p>
+                            <h2>Título placeholder</h2>
                             <p>
-                                Crie sua conta, escolha o que precisa e gerencie sites e serviços
-                                em um painel só.
+                                Texto placeholder. Conteúdo temporário para layout e revisão visual.
                             </p>
                         </div>
                         <div className="footer-cta-pro__actions">
                             <Link to="/login" className="btn-budget">
-                                Criar conta
+                                Botão placeholder
                                 <ArrowUpRightIcon className="w-3.5 h-3.5" />
                             </Link>
                             <Link to="/login" className="footer-whatsapp-link">
-                                Já tenho conta: Login
+                                Botão placeholder
                             </Link>
                         </div>
                     </div>
@@ -39,11 +37,10 @@ const Footer: React.FC = () => {
                 <div className="footer-main-pro">
                     <div className="footer-brand-pro">
                         <Link to="/" aria-label="Domu Tech">
-                            <img src="/frame-1.png" alt="DOMU TECH" className="site-logo" />
+                            <img src="/domu-mark.png" alt="DOMU STUDIO" className="site-logo" />
                         </Link>
                         <p>
-                            Plataforma para empresas que querem contratar e gerenciar soluções
-                            digitais em um só lugar.
+                            Texto placeholder. Conteúdo temporário para layout e revisão visual.
                         </p>
                         <div className="footer-social-pro">
                             <a
@@ -52,7 +49,7 @@ const Footer: React.FC = () => {
                                 rel="noreferrer"
                                 aria-label="Instagram"
                             >
-                                <InstagramLogo size={19} weight="regular" />
+                                <InstagramIcon className="w-[19px] h-[19px]" />
                             </a>
                         </div>
                     </div>

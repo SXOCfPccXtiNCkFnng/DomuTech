@@ -24,10 +24,10 @@ const CallToAction: React.FC<CallToActionProps> = ({
     const resolvedSupport =
         supportText ??
         (variant === 'whatsapp'
-            ? 'Resposta média em menos de 15 minutos'
+            ? 'Texto placeholder'
             : variant === 'budget'
-              ? 'Orçamento rápido e sem compromisso'
-              : 'Acesso imediato ao painel da plataforma');
+              ? 'Texto placeholder'
+              : 'Texto placeholder');
 
     const buttonClass = variant === 'whatsapp' ? 'btn-whatsapp' : 'btn-budget';
 
@@ -43,29 +43,21 @@ const CallToAction: React.FC<CallToActionProps> = ({
     );
 
     return (
-        <section className="section-domu tone-paper">
-            <div className="mx-auto w-full max-w-[92rem] page-pad-x">
-                <AnimateOnScroll>
-                    <div className="on-dark relative p-7 md:p-12 lg:p-14 rounded-lg md:rounded-lg overflow-hidden border border-white/10 shadow-[0_10px_28px_-18px_rgba(10,15,24,0.2)]">
-                        <div className="absolute -top-24 -right-16 w-72 h-72 bg-[var(--domu-accent)]/18 rounded-full blur-[100px] pointer-events-none" />
-                        <div className="absolute -bottom-28 -left-20 w-80 h-80 bg-[var(--domu-accent)]/10 rounded-full blur-[110px] pointer-events-none" />
-                        <div
-                            className="absolute inset-0 opacity-[0.04] pointer-events-none"
-                            style={{
-                                backgroundImage:
-                                    'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
-                                backgroundSize: '28px 28px',
-                            }}
-                        />
-
+        <section className="bloom-cta">
+            <div className="bloom-cta__inner">
+                <AnimateOnScroll from="up">
+                    <div className="cta-panel relative p-7 md:p-12 lg:p-14 rounded-lg overflow-hidden border border-[var(--domu-border)] bg-white">
                         <div className="relative z-10 grid lg:grid-cols-2 gap-8 md:gap-10 items-center">
+                            <AnimateOnScroll from="left" delay={80}>
                             <div className="text-center lg:text-left">
-                                <h2 className="cta-title !text-white mb-3 md:mb-4">{title}</h2>
-                                <p className="type-card-desc !text-white/60 mb-2 max-w-lg mx-auto lg:mx-0">
+                                <h2 className="cta-title text-[var(--domu-primary)] mb-3 md:mb-4">{title}</h2>
+                                <p className="type-card-desc text-[var(--domu-muted)] mb-2 max-w-lg mx-auto lg:mx-0">
                                     {subtitle}
                                 </p>
                             </div>
+                            </AnimateOnScroll>
 
+                            <AnimateOnScroll from="right" delay={160}>
                             <div className="flex flex-col items-center lg:items-end">
                                 <div className="flex flex-col items-center">
                                     {isExternal ? (
@@ -73,23 +65,21 @@ const CallToAction: React.FC<CallToActionProps> = ({
                                             href={primaryButtonLink}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className={`${buttonClass} !text-white`}
+                                            className={buttonClass}
                                         >
                                             {buttonContent}
                                         </a>
                                     ) : (
-                                        <Link
-                                            to={primaryButtonLink}
-                                            className={`${buttonClass} !text-white`}
-                                        >
+                                        <Link to={primaryButtonLink} className={buttonClass}>
                                             {buttonContent}
                                         </Link>
                                     )}
-                                    <span className="cta-support mt-3.5 md:mt-4 text-center">
+                                    <span className="cta-support cta-support--light mt-3.5 md:mt-4 text-center">
                                         {resolvedSupport}
                                     </span>
                                 </div>
                             </div>
+                            </AnimateOnScroll>
                         </div>
                     </div>
                 </AnimateOnScroll>

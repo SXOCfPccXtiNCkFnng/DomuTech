@@ -1,67 +1,66 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
-    SquaresFour,
-    Storefront,
-    GearSix,
-    SignOut,
-    GlobeHemisphereWest,
-    Lightning,
-    Layout,
-    Plus,
-    Code,
-    Palette,
-    CheckCircle,
-    Clock,
-} from '@phosphor-icons/react';
+    Widget4Icon,
+    ShopIcon,
+    SettingsIcon,
+    LogoutIcon,
+    GlobalIcon,
+    BoltIcon,
+    CodeSolar,
+    PaletteSolar,
+    CheckCircleIcon,
+    ClockCircleIcon,
+    AddIcon,
+} from './icons';
 
 type TabId = 'inicio' | 'servicos' | 'layouts' | 'conta';
 
-const NAV: { id: TabId; label: string; icon: typeof SquaresFour }[] = [
-    { id: 'inicio', label: 'Início', icon: SquaresFour },
-    { id: 'servicos', label: 'Serviços', icon: GlobeHemisphereWest },
-    { id: 'layouts', label: 'Layouts', icon: Layout },
-    { id: 'conta', label: 'Conta', icon: GearSix },
+const NAV: { id: TabId; label: string; icon: typeof Widget4Icon }[] = [
+    { id: 'inicio', label: 'Início', icon: Widget4Icon },
+    { id: 'servicos', label: 'Serviços', icon: GlobalIcon },
+    { id: 'layouts', label: 'Layouts', icon: Widget4Icon },
+    { id: 'conta', label: 'Conta', icon: SettingsIcon },
 ];
 
 const CATALOG = [
     {
-        title: 'Site sob medida',
-        desc: 'Template fixo + personalização no painel (fase 1 do produto).',
-        price: 'Setup + mensalidade',
-        icon: GlobeHemisphereWest,
+        title: 'Título placeholder 01',
+        desc: 'Texto placeholder. Conteúdo temporário para layout e revisão visual.',
+        price: 'R$ 0,00',
+        icon: GlobalIcon,
     },
     {
-        title: 'IA & Automação',
-        desc: 'Fluxos e atendimento inteligente ligados à sua conta.',
-        price: 'Em definição',
-        icon: Lightning,
+        title: 'Título placeholder 02',
+        desc: 'Texto placeholder. Conteúdo temporário para layout e revisão visual.',
+        price: 'R$ 0,00',
+        icon: BoltIcon,
     },
     {
-        title: 'Software House',
-        desc: 'Demanda sob medida fora do catálogo padrão.',
-        price: 'Sob consulta',
-        icon: Code,
+        title: 'Título placeholder 03',
+        desc: 'Texto placeholder. Conteúdo temporário para layout e revisão visual.',
+        price: 'R$ 0,00',
+        icon: CodeSolar,
     },
     {
-        title: 'Branding & UX',
-        desc: 'Identidade e interfaces para o produto publicado.',
-        price: 'Sob consulta',
-        icon: Palette,
+        title: 'Título placeholder 04',
+        desc: 'Texto placeholder. Conteúdo temporário para layout e revisão visual.',
+        price: 'R$ 0,00',
+        icon: PaletteSolar,
     },
 ] as const;
 
 const LAYOUTS = [
-    { name: 'Glassmorphism', category: 'LP / Site / E-commerce', status: 'Em breve' },
-    { name: 'Institucional Clean', category: 'Site institucional', status: 'Em breve' },
-    { name: 'Landing Conversão', category: 'Landing page', status: 'Em breve' },
+    { name: 'Título placeholder 01', category: 'Categoria placeholder', status: 'Placeholder' },
+    { name: 'Título placeholder 02', category: 'Categoria placeholder', status: 'Placeholder' },
+    { name: 'Título placeholder 03', category: 'Categoria placeholder', status: 'Placeholder' },
 ] as const;
 
 const TITLES: Record<TabId, { eyebrow: string; title: string }> = {
-    inicio: { eyebrow: 'Painel Domu', title: 'Olá! Bem-vindo à plataforma.' },
-    servicos: { eyebrow: 'Catálogo', title: 'Serviços para contratar' },
-    layouts: { eyebrow: 'Templates', title: 'Layouts disponíveis' },
-    conta: { eyebrow: 'Preferências', title: 'Sua conta' },
+    inicio: { eyebrow: 'Tag placeholder', title: 'Título placeholder' },
+    servicos: { eyebrow: 'Tag placeholder', title: 'Título placeholder' },
+    layouts: { eyebrow: 'Tag placeholder', title: 'Título placeholder' },
+    conta: { eyebrow: 'Tag placeholder', title: 'Título placeholder' },
 };
 
 const DashboardPage: React.FC = () => {
@@ -86,7 +85,7 @@ const DashboardPage: React.FC = () => {
         <div className="dashboard">
             <aside className="dashboard__sidebar">
                 <Link to="/" className="dashboard__brand" aria-label="Voltar ao site Domu">
-                    <img src="/frame-1.png" alt="DOMU TECH" />
+                    <img src="/domu-mark.png" alt="DOMU STUDIO" />
                 </Link>
 
                 <nav className="dashboard__nav" aria-label="Painel">
@@ -104,7 +103,7 @@ const DashboardPage: React.FC = () => {
                                     setSavedNote(null);
                                 }}
                             >
-                                <Icon className="w-5 h-5" weight={active ? 'fill' : 'duotone'} />
+                                <Icon className="w-5 h-5" />
                                 {item.label}
                             </button>
                         );
@@ -116,7 +115,7 @@ const DashboardPage: React.FC = () => {
                     className="dashboard__signout"
                     onClick={() => navigate('/login')}
                 >
-                    <SignOut className="w-4 h-4" weight="bold" />
+                    <LogoutIcon className="w-4 h-4" />
                     Sair
                 </button>
             </aside>
@@ -127,11 +126,11 @@ const DashboardPage: React.FC = () => {
                         <p className="dashboard__eyebrow">{head.eyebrow}</p>
                         <h1>{head.title}</h1>
                     </div>
-                    <span className="dashboard__badge">Preview · sem Auth</span>
+                    <span className="dashboard__badge">Placeholder</span>
                 </header>
 
                 <div className="dashboard__banner" role="status">
-                    Protótipo do painel. Abas já navegáveis; contratação e Auth entram depois.
+                    Texto placeholder. Conteúdo temporário para layout e revisão visual.
                 </div>
 
                 {tab === 'inicio' && (
@@ -142,21 +141,21 @@ const DashboardPage: React.FC = () => {
                             </div>
                             <div className="dashboard__stats">
                                 <article className="dashboard__stat">
-                                    <CheckCircle className="w-5 h-5" weight="fill" />
+                                    <CheckCircleIcon className="w-5 h-5" />
                                     <div>
                                         <strong>0</strong>
                                         <span>serviços ativos</span>
                                     </div>
                                 </article>
                                 <article className="dashboard__stat">
-                                    <Clock className="w-5 h-5" weight="fill" />
+                                    <ClockCircleIcon className="w-5 h-5" />
                                     <div>
                                         <strong>0</strong>
                                         <span>pedidos em andamento</span>
                                     </div>
                                 </article>
                                 <article className="dashboard__stat">
-                                    <Storefront className="w-5 h-5" weight="fill" />
+                                    <ShopIcon className="w-5 h-5" />
                                     <div>
                                         <strong>{LAYOUTS.length}</strong>
                                         <span>layouts no catálogo</span>
@@ -173,7 +172,7 @@ const DashboardPage: React.FC = () => {
                                     className="dashboard__ghost-btn dashboard__ghost-btn--active"
                                     onClick={() => setTab('servicos')}
                                 >
-                                    <Plus className="w-4 h-4" weight="bold" />
+                                    <AddIcon className="w-4 h-4" />
                                     Ver serviços
                                 </button>
                             </div>
@@ -183,7 +182,7 @@ const DashboardPage: React.FC = () => {
                                     return (
                                         <article key={svc.title} className="dashboard__card">
                                             <div className="dashboard__card-icon">
-                                                <Icon className="w-5 h-5" weight="duotone" />
+                                                <Icon className="w-5 h-5" />
                                             </div>
                                             <h3>{svc.title}</h3>
                                             <p>{svc.desc}</p>
@@ -227,7 +226,7 @@ const DashboardPage: React.FC = () => {
                                 return (
                                     <article key={svc.title} className="dashboard__list-item">
                                         <div className="dashboard__card-icon">
-                                            <Icon className="w-5 h-5" weight="duotone" />
+                                            <Icon className="w-5 h-5" />
                                         </div>
                                         <div className="dashboard__list-body">
                                             <h3>{svc.title}</h3>
@@ -258,7 +257,7 @@ const DashboardPage: React.FC = () => {
                             {LAYOUTS.map((layout) => (
                                 <article key={layout.name} className="dashboard__list-item">
                                     <div className="dashboard__card-icon">
-                                        <Layout className="w-5 h-5" weight="duotone" />
+                                        <Widget4Icon className="w-5 h-5" />
                                     </div>
                                     <div className="dashboard__list-body">
                                         <h3>{layout.name}</h3>

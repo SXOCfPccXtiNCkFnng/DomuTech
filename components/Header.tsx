@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { UserCircle } from '@phosphor-icons/react';
-import { MenuIcon, XIcon } from './icons';
+import { UserCircleIcon, MenuIcon, XIcon } from './icons';
+import { useScrollRoot } from './scroll-root';
 
 const NAV_ITEMS = [
     { name: 'Soluções', href: '/#solucoes' },
@@ -14,66 +14,50 @@ const NAV_ITEMS = [
 const Header: React.FC = () => {
     const location = useLocation();
     const headerRef = useRef<HTMLElement>(null);
+    const scrollRoot = useScrollRoot();
     const isHome = location.pathname === '/';
-    const [spacerH, setSpacerH] = useState(isHome ? 0 : 72);
+    const [spacerH, setSpacerH] = useState(0);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    const applyChromeHeight = (h: number) => {
-        setSpacerH(h);
-        document.documentElement.style.setProperty('--site-chrome-h', `${h}px`);
-    };
 
     useEffect(() => {
         localStorage.setItem('domu_theme', 'light');
         document.documentElement.classList.add('light-theme');
         document.documentElement.classList.remove('dark-theme', 'dark');
+        document.documentElement.classList.remove('hero-expanded', 'hero-docking');
+        document.documentElement.classList.add('domu-framed');
+        return () => {
+            document.documentElement.classList.remove('domu-framed');
+        };
     }, []);
 
     useEffect(() => {
-        if (!isHome) {
-            const onScroll = () => setIsScrolled(window.scrollY > 16);
-            onScroll();
-            window.addEventListener('scroll', onScroll, { passive: true });
-            return () => window.removeEventListener('scroll', onScroll);
-        }
-
-        // Home: espelha html.hero-expanded no mesmo instante do gesto
-        const syncFromHero = (event?: Event) => {
-            const detail = (event as CustomEvent<{ expanded?: boolean }> | undefined)?.detail;
-            if (typeof detail?.expanded === 'boolean') {
-                setIsScrolled(detail.expanded);
-                return;
-            }
-            setIsScrolled(document.documentElement.classList.contains('hero-expanded'));
+        const root = scrollRoot?.current;
+        const onScroll = () => {
+            const y = root ? root.scrollTop : window.scrollY;
+            setIsScrolled(y > 24);
         };
-
-        syncFromHero();
-        window.addEventListener('domu-hero', syncFromHero);
-        return () => window.removeEventListener('domu-hero', syncFromHero);
-    }, [isHome]);
+        onScroll();
+        root?.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => {
+            root?.removeEventListener('scroll', onScroll);
+            window.removeEventListener('scroll', onScroll);
+        };
+    }, [scrollRoot, location.pathname]);
 
     useLayoutEffect(() => {
         const el = headerRef.current;
         if (!el) return;
-
         const syncSpacer = () => {
-            if (isHome) {
-                applyChromeHeight(0);
-                return;
-            }
-            applyChromeHeight(Math.ceil(el.getBoundingClientRect().height));
+            setSpacerH(0);
+            document.documentElement.style.setProperty('--site-chrome-h', '0px');
         };
-
         syncSpacer();
         const ro = new ResizeObserver(syncSpacer);
         ro.observe(el);
-        window.addEventListener('resize', syncSpacer);
-        return () => {
-            ro.disconnect();
-            window.removeEventListener('resize', syncSpacer);
-        };
-    }, [isHome, isScrolled]);
+        return () => ro.disconnect();
+    }, [isScrolled]);
 
     useEffect(() => {
         document.body.style.overflow = isMenuOpen ? 'hidden' : '';
@@ -91,8 +75,7 @@ const Header: React.FC = () => {
         setIsMenuOpen(false);
     }, [location.pathname]);
 
-    // Home: logo no DOM sempre (fade via --hero-p). Outras páginas: logo sempre.
-    const showLogo = true;
+    const closeMenu = () => setIsMenuOpen(false);
 
     return (
         <>
@@ -100,6 +83,7 @@ const Header: React.FC = () => {
                 ref={headerRef}
                 className={[
                     'ns-header',
+                    'is-framed',
                     isHome ? 'is-home' : 'is-inner',
                     isScrolled ? 'is-scrolled' : '',
                     isMenuOpen ? 'is-menu-open' : '',
@@ -109,27 +93,16 @@ const Header: React.FC = () => {
             >
                 <div className="ns-header__bar">
                     <div className="ns-header__inner">
-                        <div className={`ns-header__logo-slot ${showLogo ? 'is-visible' : ''}`}>
-                            <Link to="/" aria-label="Domu Tech" className="ns-header__logo-link">
-                                <img src="/frame-1.png" alt="DOMU TECH" className="ns-header__logo" />
+                        <div className="ns-header__logo-slot is-visible">
+                            <Link to="/" aria-label="Domu Studio" className="ns-header__logo-link">
+                                <img src="/domu-mark.png" alt="DOMU STUDIO" className="ns-header__logo" />
                             </Link>
                         </div>
 
-                        <nav className="ns-header__nav" aria-label="Principal">
-                            {NAV_ITEMS.map((item) => (
-                                <Link key={item.name} to={item.href} className="ns-header__link">
-                                    {item.name}
-                                </Link>
-                            ))}
-                        </nav>
-
                         <div className="ns-header__actions">
                             <Link to="/login" className="ns-header__login">
-                                <UserCircle className="ns-header__login-icon" weight="regular" />
+                                <UserCircleIcon className="ns-header__login-icon" />
                                 Login
-                            </Link>
-                            <Link to="/login" className="ns-header__cta">
-                                Criar conta
                             </Link>
 
                             <button
@@ -146,46 +119,82 @@ const Header: React.FC = () => {
                 </div>
             </header>
 
-            {!isHome && (
+            {spacerH > 0 && (
                 <div className="site-header-spacer" style={{ height: spacerH }} aria-hidden />
             )}
 
             <AnimatePresence>
                 {isMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -8 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
                         className="ns-header__drawer"
                     >
-                        <nav className="ns-header__drawer-nav">
-                            {NAV_ITEMS.map((item) => (
-                                <Link
-                                    key={item.name}
-                                    to={item.href}
-                                    onClick={() => setIsMenuOpen(false)}
-                                    className="ns-header__drawer-link"
+                        <button
+                            type="button"
+                            className="ns-header__drawer-backdrop"
+                            aria-label="Fechar menu"
+                            onClick={closeMenu}
+                        />
+
+                        <motion.div
+                            role="dialog"
+                            aria-modal="true"
+                            aria-label="Menu Domu Studio"
+                            initial={{ x: '100%' }}
+                            animate={{ x: 0 }}
+                            exit={{ x: '100%' }}
+                            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                            className="ns-header__drawer-panel"
+                        >
+                            <div className="ns-header__drawer-head">
+                                <p className="ns-header__drawer-title">Domu Studio</p>
+                                <button
+                                    type="button"
+                                    className="ns-header__drawer-close"
+                                    onClick={closeMenu}
+                                    aria-label="Fechar menu"
                                 >
-                                    {item.name}
+                                    <XIcon className="w-5 h-5" />
+                                </button>
+                            </div>
+
+                            <nav className="ns-header__drawer-nav">
+                                {NAV_ITEMS.map((item, index) => (
+                                    <Link
+                                        key={item.name}
+                                        to={item.href}
+                                        onClick={closeMenu}
+                                        className="ns-header__drawer-link"
+                                    >
+                                        <span className="ns-header__drawer-index">
+                                            {String(index + 1).padStart(2, '0')}
+                                        </span>
+                                        <span className="ns-header__drawer-label">{item.name}</span>
+                                    </Link>
+                                ))}
+                            </nav>
+
+                            <div className="ns-header__drawer-foot">
+                                <Link
+                                    to="/login"
+                                    onClick={closeMenu}
+                                    className="ns-header__drawer-login"
+                                >
+                                    <UserCircleIcon className="w-4 h-4" />
+                                    Login
                                 </Link>
-                            ))}
-                            <Link
-                                to="/login"
-                                onClick={() => setIsMenuOpen(false)}
-                                className="ns-header__drawer-login"
-                            >
-                                <UserCircle className="w-4 h-4" weight="regular" />
-                                Login
-                            </Link>
-                            <Link
-                                to="/login"
-                                onClick={() => setIsMenuOpen(false)}
-                                className="ns-header__drawer-cta"
-                            >
-                                Criar conta
-                            </Link>
-                        </nav>
+                                <Link
+                                    to="/login"
+                                    onClick={closeMenu}
+                                    className="ns-header__drawer-cta"
+                                >
+                                    Criar conta
+                                </Link>
+                            </div>
+                        </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>
