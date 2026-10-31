@@ -9,10 +9,10 @@ import EmpresaPage from './pages/EmpresaPage';
 import { ROUTES } from './constants';
 
 const TITLES: Record<string, string> = {
-    [ROUTES.home]: 'Domu Tech | Vendas no WhatsApp oficial e criação de sites',
-    [ROUTES.painel]: 'Domu Painel | Central de vendas e atendimento no WhatsApp oficial',
-    [ROUTES.studio]: 'Domu Studio | Criação de sites e lojas virtuais',
-    [ROUTES.empresa]: 'Empresa | Domu Tech',
+    [ROUTES.home]: 'Domu Tech | Tecnologia que impulsiona negócios',
+    [ROUTES.painel]: 'Domu Painel | Vendas inteligentes no WhatsApp',
+    [ROUTES.studio]: 'Domu Studio | Sites que vendem por você',
+    [ROUTES.empresa]: 'Domu Tech | Sobre nós',
 };
 
 const ScrollManager: React.FC = () => {
