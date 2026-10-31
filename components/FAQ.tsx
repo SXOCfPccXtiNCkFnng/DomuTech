@@ -1,104 +1,59 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { AltArrowDownIcon } from './icons';
-import { FAQ_DATA, HOME_SECTION, homeSectionIndex } from '../constants';
-import AnimateOnScroll from './AnimateOnScroll';
+import { AnimatePresence, motion } from 'framer-motion';
+import { PlusIcon } from '@phosphor-icons/react';
+import Reveal from './Reveal';
+import type { FAQItem } from '../types';
 
-const FAQ: React.FC = () => {
-    const [openId, setOpenId] = useState<string | null>(null);
+type FAQProps = {
+    items: FAQItem[];
+    index?: string;
+};
 
-    const midPoint = Math.ceil(FAQ_DATA.length / 2);
-    const firstCol = FAQ_DATA.slice(0, midPoint);
-    const secondCol = FAQ_DATA.slice(midPoint);
-
-    const toggle = (id: string) => {
-        setOpenId((current) => (current === id ? null : id));
-    };
+const FAQ: React.FC<FAQProps> = ({ items, index }) => {
+    const [open, setOpen] = useState<number | null>(0);
 
     return (
-        <section id="faq" className="bloom-faq">
-            <div className="bloom-faq__inner">
-                <AnimateOnScroll from="left">
-                    <div className="bloom-faq__head">
-                        <div>
-                            <p className="bloom-band__label">Dúvidas</p>
-                            <span className="bloom-band__index">{homeSectionIndex(HOME_SECTION.duvidas)}</span>
-                        </div>
-                        <AnimateOnScroll from="right" delay={90}>
-                            <h2 className="bloom-faq__title">
-                                Perguntas frequentes antes de começar com a Domu.
-                            </h2>
-                        </AnimateOnScroll>
-                    </div>
-                </AnimateOnScroll>
+        <section className="section" id="duvidas">
+            <div className="container faq">
+                <Reveal className="faq__side">
+                    <p className="label">{index ? `${index} — ` : ''}Dúvidas frequentes</p>
+                    <h2 className="title">Perguntas que sempre chegam pra gente.</h2>
+                </Reveal>
 
-                <div className="bloom-faq__grid">
-                    <div className="bloom-faq__col">
-                        {firstCol.map((item, i) => {
-                            const id = `faq-${i}`;
-                            return (
-                                <AnimateOnScroll key={id} from="left" delay={i * 55}>
-                                    <FAQItem
-                                        id={id}
-                                        question={item.question}
-                                        answer={item.answer}
-                                        isOpen={openId === id}
-                                        onToggle={toggle}
-                                    />
-                                </AnimateOnScroll>
-                            );
-                        })}
-                    </div>
-                    <div className="bloom-faq__col">
-                        {secondCol.map((item, i) => {
-                            const id = `faq-${midPoint + i}`;
-                            return (
-                                <AnimateOnScroll key={id} from="right" delay={i * 55}>
-                                    <FAQItem
-                                        id={id}
-                                        question={item.question}
-                                        answer={item.answer}
-                                        isOpen={openId === id}
-                                        onToggle={toggle}
-                                    />
-                                </AnimateOnScroll>
-                            );
-                        })}
-                    </div>
+                <div className="faq__list">
+                    {items.map((item, i) => {
+                        const isOpen = open === i;
+                        return (
+                            <div key={item.question} className={`faq__item${isOpen ? ' is-open' : ''}`}>
+                                <button
+                                    type="button"
+                                    className="faq__question"
+                                    onClick={() => setOpen(isOpen ? null : i)}
+                                    aria-expanded={isOpen}
+                                >
+                                    {item.question}
+                                    <PlusIcon aria-hidden />
+                                </button>
+                                <AnimatePresence initial={false}>
+                                    {isOpen && (
+                                        <motion.div
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: 'auto', opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
+                                            className="faq__answer"
+                                        >
+                                            <p>{item.answer}</p>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
     );
 };
-
-const FAQItem: React.FC<{
-    id: string;
-    question: string;
-    answer: string;
-    isOpen: boolean;
-    onToggle: (id: string) => void;
-}> = ({ id, question, answer, isOpen, onToggle }) => (
-    <div className={`bloom-faq__item${isOpen ? ' is-open' : ''}`}>
-        <button type="button" onClick={() => onToggle(id)} aria-expanded={isOpen}>
-            <span>{question}</span>
-            <span className="bloom-faq__chevron" aria-hidden>
-                <AltArrowDownIcon />
-            </span>
-        </button>
-        <AnimatePresence initial={false}>
-            {isOpen && (
-                <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.22 }}
-                    className="bloom-faq__answer"
-                >
-                    <p>{answer}</p>
-                </motion.div>
-            )}
-        </AnimatePresence>
-    </div>
-);
 
 export default FAQ;

@@ -1,83 +1,61 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { InstagramIcon } from './icons';
-import CallToAction from './CallToAction';
-
-const CONTACT = {
-    instagram: 'https://www.instagram.com/domu_tech/',
-};
+import { ArrowUpRightIcon } from '@phosphor-icons/react';
+import Logo from './Logo';
+import { LINKS, ROUTES, WHATSAPP_DISPLAY, WHATSAPP_MESSAGES, whatsappUrl } from '../constants';
 
 const Footer: React.FC = () => {
     const year = new Date().getFullYear();
 
     return (
-        <footer id="footer" className="domu-footer">
-            <div id="precos" className="domu-footer__cta">
-                <CallToAction
-                    title="Pronto pra presença com direção?"
-                    subtitle="Fale com a Domu e monte a base digital da sua marca sem parecer genérica."
-                    primaryButtonText="Falar com a Domu"
-                    primaryButtonLink="/login"
-                    variant="platform"
-                />
-            </div>
-
-            <div className="domu-footer__inner">
-                <div className="domu-footer__top">
-                    <div className="domu-footer__brand">
-                        <Link to="/" className="domu-footer__logo" aria-label="Domu Studio">
-                            <img src="/domu-mark.png" alt="Domu Studio" />
-                        </Link>
-                        <p className="domu-footer__tagline">
-                            Presença digital com direção própria.
+        <footer className="footer">
+            <div className="container">
+                <div className="footer__top">
+                    <div className="footer__brand">
+                        <Logo />
+                        <p>
+                            A central de soluções digitais do seu negócio. Tecnologia que conecta,
+                            soluções que geram resultados.
                         </p>
-                        <a
-                            href={CONTACT.instagram}
-                            className="domu-footer__social"
-                            target="_blank"
-                            rel="noreferrer"
-                            aria-label="Instagram Domu"
-                        >
-                            <InstagramIcon className="w-4 h-4" />
-                        </a>
                     </div>
 
-                    <nav className="domu-footer__col" aria-label="Navegação">
-                        <p className="domu-footer__heading">Navegação</p>
-                        <Link to="/">Home</Link>
-                        <Link to="/cases">Cases</Link>
-                        <Link to="/sobre">Sobre</Link>
-                        <Link to="/layouts">Layouts</Link>
-                        <Link to="/login">Login</Link>
+                    <nav className="footer__col" aria-label="Produtos">
+                        <p className="label">Produtos</p>
+                        <Link to={ROUTES.painel}>Vendas no WhatsApp</Link>
+                        <Link to={ROUTES.studio}>Criação de sites</Link>
+                        <Link to={`${ROUTES.painel}#planos`}>Planos e preços</Link>
                     </nav>
 
-                    <nav className="domu-footer__col" aria-label="Plataforma">
-                        <p className="domu-footer__heading">Plataforma</p>
-                        <Link to="/login">Criar conta</Link>
-                        <Link to="/layouts">Layouts</Link>
-                        <Link to="/cases">Cases</Link>
-                        <Link to="/sobre">Sobre a Domu</Link>
-                    </nav>
-
-                    <div className="domu-footer__col">
-                        <p className="domu-footer__heading">Contato</p>
-                        <Link to="/login">Acessar plataforma</Link>
-                        <a href={CONTACT.instagram} target="_blank" rel="noreferrer">
-                            @domu_tech
+                    <nav className="footer__col" aria-label="Empresa">
+                        <p className="label">Empresa</p>
+                        <Link to={ROUTES.empresa}>Sobre a Domu</Link>
+                        <a href={LINKS.painel} target="_blank" rel="noreferrer">
+                            Área do cliente <ArrowUpRightIcon />
                         </a>
-                        <p className="domu-footer__status">
-                            <span aria-hidden />
-                            Online 24h
-                        </p>
+                        <a href={whatsappUrl(WHATSAPP_MESSAGES.painel)} target="_blank" rel="noreferrer">
+                            Pedir demonstração <ArrowUpRightIcon />
+                        </a>
+                    </nav>
+
+                    <div className="footer__col">
+                        <p className="label">Contato</p>
+                        <a href={whatsappUrl(WHATSAPP_MESSAGES.geral)} target="_blank" rel="noreferrer">
+                            WhatsApp {WHATSAPP_DISPLAY}
+                        </a>
+                        <a href={`mailto:${LINKS.email}`}>{LINKS.email}</a>
+                        <a href={LINKS.instagram} target="_blank" rel="noreferrer">
+                            Instagram @domu_tech
+                        </a>
                     </div>
                 </div>
 
-                <div className="domu-footer__bottom">
-                    <p>© {year} Domu Studio</p>
-                    <div className="domu-footer__legal">
-                        <a href="#">Privacidade</a>
-                        <a href="#">Cookies</a>
-                    </div>
+                <div className="footer__word" aria-hidden>
+                    domutech
+                </div>
+
+                <div className="footer__bottom">
+                    <span>© {year} Domu Tech. Todos os direitos reservados.</span>
+                    <span className="mono">painel.domutech.digital · studio.domutech.digital</span>
                 </div>
             </div>
         </footer>
