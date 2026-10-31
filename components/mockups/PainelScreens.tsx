@@ -196,8 +196,8 @@ export const ResultsScreen: React.FC = () => (
             ))}
         </ul>
         <div className="screen__foot">
-            <span>Receita estimada</span>
-            <strong>R$ 31.950</strong>
+            <span>Taxa de conversão</span>
+            <strong>5,5%</strong>
         </div>
     </div>
 );

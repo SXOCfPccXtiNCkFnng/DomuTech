@@ -140,14 +140,6 @@ const Header: React.FC = () => {
                                                 Orçar um site <ArrowUpRightIcon />
                                             </a>
                                         </div>
-                                        <Link to={ROUTES.studio} className="mega__feature">
-                                            <span className="mega__label">Novo</span>
-                                            <strong>Domu Studio</strong>
-                                            <span>Sites, landing pages e lojas virtuais com cara de marca grande.</span>
-                                            <span className="mega__more">
-                                                Saiba mais <ArrowRightIcon />
-                                            </span>
-                                        </Link>
                                     </motion.div>
                                 )}
                             </AnimatePresence>

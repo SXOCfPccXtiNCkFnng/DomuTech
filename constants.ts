@@ -39,7 +39,6 @@ export const SEGMENTS = [
 
 export type PainelPlan = {
   name: string;
-  price: string;
   description: string;
   highlight?: boolean;
   features: string[];
@@ -48,7 +47,6 @@ export type PainelPlan = {
 export const PAINEL_PLANS: PainelPlan[] = [
   {
     name: "Starter",
-    price: "150",
     description: "Para começar a divulgar no WhatsApp oficial.",
     features: [
       "500 disparos por mês",
@@ -60,7 +58,6 @@ export const PAINEL_PLANS: PainelPlan[] = [
   },
   {
     name: "Pro",
-    price: "297",
     description: "Para quem já vende pelo WhatsApp e quer escalar.",
     highlight: true,
     features: [
@@ -73,7 +70,6 @@ export const PAINEL_PLANS: PainelPlan[] = [
   },
   {
     name: "Enterprise",
-    price: "597",
     description: "Para operações com alto volume e equipe.",
     features: [
       "6.000 disparos por mês",
@@ -114,7 +110,7 @@ export const FAQ_PAINEL: FAQItem[] = [
   {
     question: "Como funciona o pagamento?",
     answer:
-      "A assinatura é mensal e sem fidelidade, por PIX (com 5% de desconto) ou cartão. Os valores podem variar conforme o segmento do seu negócio.",
+      "A assinatura é mensal e sem fidelidade, por PIX ou cartão. Fale com a gente pelo WhatsApp e receba a proposta ideal para o seu negócio.",
   },
 ];
 

@@ -302,7 +302,8 @@ const PainelPage: React.FC = () => {
                             </h2>
                         </div>
                         <p className="lead">
-                            Assinatura mensal, sem fidelidade. No PIX você ganha 5% de desconto.
+                            Assinatura mensal, sem fidelidade. Fale com a gente e receba a proposta
+                            certa para o tamanho do seu negócio.
                         </p>
                     </Reveal>
                     <div className="plans">
@@ -318,18 +319,13 @@ const PainelPage: React.FC = () => {
                                     {plan.highlight && <span className="tag tag--accent">Mais escolhido</span>}
                                 </div>
                                 <p className="plan__desc">{plan.description}</p>
-                                <p className="plan__price">
-                                    <small>R$</small>
-                                    {plan.price}
-                                    <span>/mês</span>
-                                </p>
                                 <a
-                                    href={LINKS.painel}
+                                    href={whatsappUrl(`Olá! Quero saber mais sobre o plano ${plan.name} do Domu Painel.`)}
                                     className={`btn ${plan.highlight ? 'btn--primary' : 'btn--line'} btn--block`}
                                     target="_blank"
                                     rel="noreferrer"
                                 >
-                                    Assinar o {plan.name}
+                                    Quero o {plan.name}
                                 </a>
                                 <ul className="plan__list">
                                     {plan.features.map((feature) => (
@@ -340,9 +336,7 @@ const PainelPage: React.FC = () => {
                                 </ul>
                             </Reveal>
                         ))}
-                    </div>
-                    <p className="note">Os valores podem variar de acordo com o segmento do seu negócio.</p>
-                </div>
+                    </div>                </div>
             </section>
 
             <FAQ items={FAQ_PAINEL} index="07" />
